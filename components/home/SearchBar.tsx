@@ -24,7 +24,7 @@ export default function SearchBar({
   return (
     <Pressable onPress={handlePress}>
       <View
-        className="mx-5 flex-row items-center gap-3 rounded-2xl px-4 py-3"
+        className="flex-row items-center gap-3 rounded-2xl px-4 py-3"
         style={{ backgroundColor: "rgba(255,255,255,0.1)" }}
       >
         <Ionicons name="search" size={20} color="rgba(255,255,255,0.6)" />

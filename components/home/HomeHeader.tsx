@@ -1,4 +1,5 @@
 import { View, Text, Pressable } from "react-native";
+import { Link } from "expo-router";
 import { Image } from "expo-image";
 import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
@@ -19,7 +20,7 @@ export default function HomeHeader({ onProfilePress }: HomeHeaderProps) {
     if (onProfilePress) {
       onProfilePress();
     } else if (isAuthenticated) {
-      router.push("/dashboard/profile");
+      router.push("/dashboard/profile/index");
     } else {
       router.push("/(auth)/login");
     }
@@ -27,7 +28,7 @@ export default function HomeHeader({ onProfilePress }: HomeHeaderProps) {
 
   return (
     <View
-      className="flex-row items-center justify-between px-5 pb-4"
+      className="flex-row items-center justify-between pb-4"
       style={{ paddingTop: insets.top + 8 }}
     >
       {/* Logo / Brand */}
@@ -47,7 +48,7 @@ export default function HomeHeader({ onProfilePress }: HomeHeaderProps) {
       {/* Right side - Profile or Login */}
       <View className="flex-row items-center gap-3">
         {/* Notification bell */}
-        {isAuthenticated && (
+        {/* {isAuthenticated && (
           <Pressable
             onPress={() => router.push("/dashboard/notifications")}
             className="h-10 w-10 items-center justify-center rounded-full"
@@ -55,7 +56,7 @@ export default function HomeHeader({ onProfilePress }: HomeHeaderProps) {
           >
             <Ionicons name="notifications-outline" size={22} color={colors.white} />
           </Pressable>
-        )}
+        )} */}
 
         {/* Profile / Login Button */}
         <Pressable
@@ -87,7 +88,7 @@ export default function HomeHeader({ onProfilePress }: HomeHeaderProps) {
               </View>
             )
           ) : (
-            <Text className="font-semibold text-white">Login</Text>
+            <Link href="/login" className="font-semibold text-white">Login</Link>
           )}
         </Pressable>
       </View>

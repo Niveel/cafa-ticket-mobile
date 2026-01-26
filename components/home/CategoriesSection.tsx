@@ -31,7 +31,7 @@ export default function CategoriesSection({
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
-        contentContainerStyle={{ paddingHorizontal: 20, gap: 12 }}
+        contentContainerStyle={{ gap: 12 }}
       >
         {categories.map((category) => (
           <CategoryCard key={category.id} category={category} />

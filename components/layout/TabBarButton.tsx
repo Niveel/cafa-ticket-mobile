@@ -63,7 +63,7 @@ const TabBarButton = ({ onPress, onLongPress, isFocused, routeName, label, href,
                     {icon[routeName as keyof typeof icon]({ color: isFocused ? colors.white : colors.accent })}
                 </Animated.View>
                     <Animated.Text style={[
-                        { color: isFocused ? colors.primary : colors.white, fontSize: 12 }, 
+                        { color: isFocused ? colors.primary : colors.white, fontSize: 10}, 
                         animatedStyle]}>
                         {label}
                     </Animated.Text>
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         paddingVertical: 10,
-        gap: 5,
+        gap: 3,
     },
 })
 

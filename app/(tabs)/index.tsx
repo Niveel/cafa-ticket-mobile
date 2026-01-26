@@ -64,7 +64,7 @@ export default function HomeScreen() {
         .slice(0, 12);
 
     return (
-        <View className="flex-1" style={{ backgroundColor: colors.primary }}>
+        <View className="flex-1 px-2" style={{ backgroundColor: colors.primary }}>
             <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
 
             <ScrollView

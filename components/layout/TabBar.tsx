@@ -46,8 +46,8 @@ function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
             <Animated.View style={[animatedTabStyle, {
                 position: "absolute",
                 width: buttonWidth - 20,
-                height: dimensions.height - 15,
-                borderRadius: 30,
+                height: dimensions.height - 25,
+                borderRadius: 60,
                 backgroundColor: colors.accent,
                 marginHorizontal: 10,
                 }]} />
@@ -102,13 +102,13 @@ function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
 const styles = StyleSheet.create({
     tabBar: {
         position: "absolute",
-        bottom: 50,
+        bottom: 30,
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
-        marginHorizontal: 50,
+        marginHorizontal: 55,
         backgroundColor: colors.primary100,
-        paddingVertical: 5,
+        paddingVertical: 2,
         borderRadius: 30,
         shadowColor: "#000",
         shadowOffset: {

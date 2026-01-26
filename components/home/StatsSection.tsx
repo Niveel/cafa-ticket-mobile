@@ -38,7 +38,7 @@ export default function StatsSection({ stats }: StatsSectionProps) {
   const { overview } = stats.data;
 
   return (
-    <View className="mx-5 mb-6 flex-row rounded-2xl bg-white/5 p-4">
+    <View className="mb-6 flex-row rounded-2xl bg-white/5 p-4">
       <StatItem
         icon="calendar"
         value={overview.total_upcoming_events}

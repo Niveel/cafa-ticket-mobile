@@ -17,7 +17,7 @@ export default function SectionHeader({
   showSeeAll = true,
 }: SectionHeaderProps) {
   return (
-    <View className="mb-4 flex-row items-center justify-between px-5">
+    <View className="mb-4 flex-row items-center justify-between">
       <View>
         <Text className="text-lg font-bold text-white">{title}</Text>
         {subtitle && (
