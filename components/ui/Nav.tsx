@@ -4,6 +4,7 @@ import { router } from "expo-router";
 
 import { AppText } from "@/components";
 import { useAuth } from "@/context";
+import colors from "@/config/colors";
 
 interface NavProps {
   title?: string;
@@ -14,9 +15,9 @@ const Nav = ({ title = "", onPress }: NavProps) => {
   const { user } = useAuth();
 
   return (
-    <View className="w-full bg-primary flex-row items-center justify-between p-2">
+    <View className="w-full bg-secondary flex-row items-center justify-between p-2 mb-2">
       <TouchableOpacity
-        className="bg-white w-10 h-10 rounded-full items-center justify-center"
+        className="bg-primary w-10 h-10 rounded-full items-center border border-accent justify-center"
         activeOpacity={0.8}
         accessible={true}
         accessibilityLabel="back"
@@ -29,7 +30,7 @@ const Nav = ({ title = "", onPress }: NavProps) => {
           }
         }}
       >
-        <Ionicons name="arrow-back" size={22} color="#425d85" />
+        <Ionicons name="arrow-back" size={22} color={colors.accent} />
       </TouchableOpacity>
       
       <AppText styles="flex-1 text-center">{title}</AppText>

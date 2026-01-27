@@ -1,0 +1,85 @@
+import React, { useMemo, useRef, useImperativeHandle, forwardRef, ReactNode } from 'react';
+import BottomSheet, { BottomSheetView, BottomSheetBackdrop } from '@gorhom/bottom-sheet';
+import type { BottomSheetBackdropProps } from '@gorhom/bottom-sheet';
+
+import colors from '@/config/colors';
+
+export interface AppBottomSheetRef {
+    open: () => void;
+    close: () => void;
+}
+
+interface AppBottomSheetProps {
+    children: ReactNode;
+    onClose?: () => void;
+    customSnapPoints?: (string | number)[];
+    showOverlay?: boolean;
+    [key: string]: any; // For other BottomSheet props
+}
+
+const AppBottomSheet = forwardRef<AppBottomSheetRef, AppBottomSheetProps>(
+    ({ children, onClose, customSnapPoints = ['40%'], showOverlay = true, ...otherProps }, ref) => {
+        const snapPoints = useMemo(() => customSnapPoints, [customSnapPoints]);
+        const bottomSheetRef = useRef<BottomSheet>(null);
+
+        useImperativeHandle(ref, () => ({
+            open: () => {
+                if (bottomSheetRef.current) {
+                    bottomSheetRef.current.snapToIndex(0);
+                }
+            },
+            close: () => {
+                bottomSheetRef.current?.close();
+            },
+        }));
+
+        // Overlay/Backdrop Component
+        const renderBackdrop = useMemo(
+            () =>
+                showOverlay
+                    ? (props: BottomSheetBackdropProps) => (
+                        <BottomSheetBackdrop {...props} disappearsOnIndex={-1} appearsOnIndex={0} />
+                    )
+                    : undefined,
+            [showOverlay]
+        );
+
+        return (
+            <BottomSheet
+                snapPoints={snapPoints}
+                index={-1}
+                ref={bottomSheetRef}
+                enablePanDownToClose={true}
+                backdropComponent={renderBackdrop}
+                enableHandlePanningGesture={true}
+                handleIndicatorStyle={{
+                    backgroundColor: colors.accent,
+                    height: 4,
+                    borderRadius: 2,
+                    width: 50,
+                }}
+                backgroundStyle={{ backgroundColor: colors.primary }}
+                onClose={onClose}
+                accessible={true}
+                // @ts-ignore - focusable exists but not in types
+                focusable={true}
+                // @ts-ignore - onMagicTap exists but not in types
+                onMagicTap={onClose}
+                style={[
+                    {
+                        flex: 1,
+                        zIndex: 1000,
+                        elevation: 1000,
+                    },
+                ]}
+                {...otherProps}
+            >
+                <BottomSheetView>{children}</BottomSheetView>
+            </BottomSheet>
+        );
+    }
+);
+
+AppBottomSheet.displayName = 'AppBottomSheet';
+
+export default AppBottomSheet;

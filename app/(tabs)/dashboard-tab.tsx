@@ -1,11 +1,13 @@
-import { View, Text } from 'react-native'
 import React from 'react'
-import { Screen } from '@/components'
+
+import { Screen, Nav, DashboardList } from '@/components'
 
 const DashboardTab = () => {
     return (
         <Screen>
-            <Text>DashboardTab</Text>
+            <Nav title="Dashboard" />
+
+            <DashboardList />
         </Screen>
     )
 }

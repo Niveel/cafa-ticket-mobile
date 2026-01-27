@@ -1,3 +1,6 @@
+// Type exports
+export type { FilterOptions } from "./events/EventsFilter";
+export type { AppBottomSheetRef } from "./ui/AppBottomSheet";
 // layout
 export {default as TabBar} from "./layout/TabBar";
 export {default as TabBarButton} from "./layout/TabBarButton";
@@ -8,6 +11,9 @@ export {default as AppText} from "./ui/AppText";
 export {default as AppButton} from "./ui/AppButton";
 export {default as Nav} from "./ui/Nav";
 export {default as Animation} from "./ui/Animation";
+export {default as AppBottomSheet} from "./ui/AppBottomSheet";
+export {default as ConfirmAction} from "./ui/ConfirmAction";
+export {default as ListItem} from "./ui/ListItem"
 // form
 export {default as SelectInput} from "./form/SelectInput";
 export {default as SubmitButton} from "./form/SubmitButton";
@@ -30,4 +36,5 @@ export { default as EventsResultsHeader } from "./events/EventsResultsHeader";
 export { default as EventsGrid } from "./events/EventsGrid";
 export { default as EventsEmptyState } from "./events/EventsEmptyState";
 export { default as EventCard } from "./events/EventCard";
-export type { FilterOptions } from "./events/EventsFilter";
+// dashboard
+export { default as DashboardList } from "./dashboard/DashboardList";
