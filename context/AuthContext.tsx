@@ -6,7 +6,7 @@ import {
   useCallback,
   ReactNode,
 } from "react";
-import { User, LoginCredentials, SignupData } from "@/types";
+import { CurrentUser, LoginCredentials, SignupData } from "@/types";
 import {
   login as loginApi,
   signup as signupApi,
@@ -16,7 +16,7 @@ import {
 } from "@/lib/auth";
 
 interface AuthContextType {
-  user: User | null;
+  user: CurrentUser | null;
   isLoading: boolean;
   isAuthenticated: boolean;
   login: (credentials: LoginCredentials) => Promise<void>;
@@ -32,7 +32,7 @@ interface AuthProviderProps {
 }
 
 export function AuthProvider({ children }: AuthProviderProps) {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<CurrentUser | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   const checkAuth = useCallback(async () => {

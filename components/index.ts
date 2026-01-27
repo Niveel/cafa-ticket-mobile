@@ -36,5 +36,16 @@ export { default as EventsResultsHeader } from "./events/EventsResultsHeader";
 export { default as EventsGrid } from "./events/EventsGrid";
 export { default as EventsEmptyState } from "./events/EventsEmptyState";
 export { default as EventCard } from "./events/EventCard";
+// event details
+export { default as EventDetailsHero } from "./events/details/EventDetailsHero";
+export { default as EventDescription } from "./events/details/EventDescription";
+export { default as TicketsSection } from "./events/details/TicketsSection";
+export { default as TicketCard } from "./events/details/TicketCard";
+export { default as TicketPurchaseModal } from "./events/details/TicketPurchaseModal";
+export { default as VenueSection } from "./events/details/VenueSection";
+export { default as OrganizerSection } from "./events/details/OrganizerSection";
+export { default as ShareSection } from "./events/details/ShareSection";
+export { default as SimilarEventsSection } from "./events/details/SimilarEventsSection";
+export { default as EventNotFound } from "./events/details/EventNotFound";
 // dashboard
 export { default as DashboardList } from "./dashboard/DashboardList";

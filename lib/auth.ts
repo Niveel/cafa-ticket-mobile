@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as SecureStore from "expo-secure-store";
 import client, { API_BASE_URL, AUTH_TOKEN_KEY, REFRESH_TOKEN_KEY } from "./client";
-import { User, LoginCredentials, SignupData, LoginResponse } from "@/types";
+import { CurrentUser, LoginCredentials, SignupData, LoginResponse } from "@/types";
 
 export async function login(credentials: LoginCredentials): Promise<LoginResponse> {
   const response = await axios.post(`${API_BASE_URL}/auth/login/`, credentials);
@@ -37,7 +37,7 @@ export async function logout(): Promise<void> {
   }
 }
 
-export async function getCurrentUser(): Promise<User | null> {
+export async function getCurrentUser(): Promise<CurrentUser | null> {
   try {
     const response = await client.get("/auth/profile/");
     return response.data;
