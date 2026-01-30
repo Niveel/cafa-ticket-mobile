@@ -15,7 +15,7 @@ const Nav = ({ title = "", onPress }: NavProps) => {
   const { user } = useAuth();
 
   return (
-    <View className="w-full bg-secondary flex-row items-center justify-between p-2 mb-2">
+    <View className="w-full bg-secondary flex-row items-center justify-between py-2 px-4 mb-2 rounded-full">
       <TouchableOpacity
         className="bg-primary w-10 h-10 rounded-full items-center border border-accent justify-center"
         activeOpacity={0.8}

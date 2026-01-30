@@ -142,3 +142,35 @@ export const ContactFormGuestValidationSchema = Yup.object().shape({
         .label("Message"),
 });
 export type ContactFormGuestValues = InferType<typeof ContactFormGuestValidationSchema>;
+
+export const ProfileEditValidationSchema = Yup.object().shape({
+    full_name: Yup.string()
+        .min(2, 'Full name must be at least 2 characters')
+        .max(100, 'Full name must not exceed 100 characters'),
+    phone_number: Yup.string()
+        .nullable()
+        .test('valid-phone', 'Invalid phone number format', function(value) {
+            if (!value) return true; // Allow empty/null
+            
+            // Accept international format: +233241234567
+            if (/^\+?[1-9]\d{9,14}$/.test(value)) return true;
+            
+            // Accept Ghana local format: 0241234567 (10 digits starting with 0)
+            if (/^0\d{9}$/.test(value)) return true;
+            
+            return false;
+        }),
+    bio: Yup.string()
+        .nullable()
+        .max(500, 'Bio must not exceed 500 characters'),
+    city: Yup.string()
+        .nullable()
+        .min(2, 'City must be at least 2 characters')
+        .max(100, 'City must not exceed 100 characters'),
+    country: Yup.string()
+        .nullable()
+        .min(2, 'Country must be at least 2 characters')
+        .max(100, 'Country must not exceed 100 characters'),
+    profile_image: Yup.string().nullable()
+});
+export type ProfileEditFormValues = Yup.InferType<typeof ProfileEditValidationSchema>;

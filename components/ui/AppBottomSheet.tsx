@@ -1,6 +1,6 @@
-import React, { useMemo, useRef, useImperativeHandle, forwardRef, ReactNode } from 'react';
-import BottomSheet, { BottomSheetView, BottomSheetBackdrop } from '@gorhom/bottom-sheet';
 import type { BottomSheetBackdropProps } from '@gorhom/bottom-sheet';
+import BottomSheet, { BottomSheetBackdrop } from '@gorhom/bottom-sheet';
+import React, { forwardRef, ReactNode, useImperativeHandle, useMemo, useRef } from 'react';
 
 import colors from '@/config/colors';
 
@@ -74,7 +74,7 @@ const AppBottomSheet = forwardRef<AppBottomSheetRef, AppBottomSheetProps>(
                 ]}
                 {...otherProps}
             >
-                <BottomSheetView>{children}</BottomSheetView>
+                {children}
             </BottomSheet>
         );
     }

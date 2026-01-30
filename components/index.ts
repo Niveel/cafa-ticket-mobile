@@ -2,50 +2,66 @@
 export type { FilterOptions } from "./events/EventsFilter";
 export type { AppBottomSheetRef } from "./ui/AppBottomSheet";
 // layout
-export {default as TabBar} from "./layout/TabBar";
-export {default as TabBarButton} from "./layout/TabBarButton";
+export { default as RequireAuth } from "./layout/RequireAuth";
+export { default as TabBar } from "./layout/TabBar";
+export { default as TabBarButton } from "./layout/TabBarButton";
 // ui
-export {default as Screen} from "./ui/Screen";
-export {default as AltScreen} from "./ui/AltScreen";
-export {default as AppText} from "./ui/AppText";
-export {default as AppButton} from "./ui/AppButton";
-export {default as Nav} from "./ui/Nav";
-export {default as Animation} from "./ui/Animation";
-export {default as AppBottomSheet} from "./ui/AppBottomSheet";
-export {default as ConfirmAction} from "./ui/ConfirmAction";
-export {default as ListItem} from "./ui/ListItem"
+export { default as AltScreen } from "./ui/AltScreen";
+export { default as Animation } from "./ui/Animation";
+export { default as AppBottomSheet } from "./ui/AppBottomSheet";
+export { default as AppButton } from "./ui/AppButton";
+export { default as AppText } from "./ui/AppText";
+export { default as ConfirmAction } from "./ui/ConfirmAction";
+export { default as ImageUpload } from "./ui/ImageUpload";
+export { default as ListItem } from "./ui/ListItem";
+export { default as Nav } from "./ui/Nav";
+export { default as Screen } from "./ui/Screen";
 // form
-export {default as SelectInput} from "./form/SelectInput";
-export {default as SubmitButton} from "./form/SubmitButton";
-export {default as SearchableSelect} from "./form/SearchableSelect";
-export {default as AppErrorMessage} from "./form/AppErrorMessage";
-export {default as AppForm} from "./form/AppForm";
-export {default as AppFormField} from "./form/AppFormField";
-export {default as DateInput} from "./form/DateInput";
-export {default as AppInput} from "./form/AppInput";
-export {default as FormLoader} from "./form/FormLoader";
+export { default as AppErrorMessage } from "./form/AppErrorMessage";
+export { default as AppForm } from "./form/AppForm";
+export { default as AppFormField } from "./form/AppFormField";
+export { default as AppInput } from "./form/AppInput";
+export { default as DateInput } from "./form/DateInput";
+export { default as FormLoader } from "./form/FormLoader";
+export { default as SearchableSelect } from "./form/SearchableSelect";
+export { default as SelectInput } from "./form/SelectInput";
+export { default as SubmitButton } from "./form/SubmitButton";
 // auth
-export {default as EmailVerificationPrompt} from "./auth/EmailVerificationPrompt";
+export { default as EmailVerificationPrompt } from "./auth/EmailVerificationPrompt";
 // events
-export { default as EventsHero } from "./events/EventsHero";
-export { default as EventsCategoryTabs } from "./events/EventsCategoryTabs";
-export { default as EventsFilter } from "./events/EventsFilter";
-export { default as EventsSortTab } from "./events/EventsSortTab";
 export { default as ActiveFiltersDisplay } from "./events/ActiveFiltersDisplay";
-export { default as EventsResultsHeader } from "./events/EventsResultsHeader";
-export { default as EventsGrid } from "./events/EventsGrid";
-export { default as EventsEmptyState } from "./events/EventsEmptyState";
 export { default as EventCard } from "./events/EventCard";
+export { default as EventsCategoryTabs } from "./events/EventsCategoryTabs";
+export { default as EventsEmptyState } from "./events/EventsEmptyState";
+export { default as EventsFilter } from "./events/EventsFilter";
+export { default as EventsGrid } from "./events/EventsGrid";
+export { default as EventsHero } from "./events/EventsHero";
+export { default as EventsResultsHeader } from "./events/EventsResultsHeader";
+export { default as EventsSortTab } from "./events/EventsSortTab";
 // event details
-export { default as EventDetailsHero } from "./events/details/EventDetailsHero";
 export { default as EventDescription } from "./events/details/EventDescription";
-export { default as TicketsSection } from "./events/details/TicketsSection";
-export { default as TicketCard } from "./events/details/TicketCard";
-export { default as TicketPurchaseModal } from "./events/details/TicketPurchaseModal";
-export { default as VenueSection } from "./events/details/VenueSection";
+export { default as EventDetailsHero } from "./events/details/EventDetailsHero";
+export { default as EventNotFound } from "./events/details/EventNotFound";
 export { default as OrganizerSection } from "./events/details/OrganizerSection";
 export { default as ShareSection } from "./events/details/ShareSection";
 export { default as SimilarEventsSection } from "./events/details/SimilarEventsSection";
-export { default as EventNotFound } from "./events/details/EventNotFound";
+export { default as TicketCard } from "./events/details/TicketCard";
+export { default as TicketPurchaseModal } from "./events/details/TicketPurchaseModal";
+export { default as TicketsSection } from "./events/details/TicketsSection";
+export { default as VenueSection } from "./events/details/VenueSection";
 // dashboard
 export { default as DashboardList } from "./dashboard/DashboardList";
+// dashboard profile
+export { default as ProfileAccountDetails } from "./dashboard/profile/ProfileAccountDetails";
+export { default as ProfileHeader } from "./dashboard/profile/ProfileHeader";
+export { default as ProfileNotificationSettings } from "./dashboard/profile/ProfileNotificationSettings";
+export { default as ProfileQuickActions } from "./dashboard/profile/ProfileQuickActions";
+// dashboard events
+export { default as MyEventCard } from "./dashboard/events/MyEventCard";
+export { default as MyEventsEmptyState } from "./dashboard/events/MyEventsEmptyState";
+export { default as MyEventsFilters } from "./dashboard/events/MyEventsFilters";
+export { default as MyEventsGrid } from "./dashboard/events/MyEventsGrid";
+export { default as MyEventsHeader } from "./dashboard/events/MyEventsHeader";
+// dashboard attended events
+export { default as AttendedEventCard } from "./dashboard/attended/AttendedEventCard";
+export { default as AttendedEventsList } from "./dashboard/attended/AttendedEventsList";
