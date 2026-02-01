@@ -210,21 +210,12 @@ export interface BankTransferAccountDetails {
     bank_code: string;
 }
 
-export interface MobileMoneyPaymentProfile extends BasePaymentProfile {
-    method: "mobile_money";
-    account_details: MobileMoneyAccountDetails;
-}
-
 export interface BankTransferPaymentProfile extends BasePaymentProfile {
     method: "bank_transfer";
     account_details: BankTransferAccountDetails;
 }
 
-export type PaymentProfile =
-    | MobileMoneyPaymentProfile
-    | BankTransferPaymentProfile;
-
 export interface PaymentProfilesResponse {
     count: number;
-    results: PaymentProfile[];
+    results: BankTransferPaymentProfile[];
 }

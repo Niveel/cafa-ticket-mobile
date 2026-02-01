@@ -147,7 +147,7 @@ export async function fetchMyTickets(params: {
     status?: string;
     search?: string;
     category?: string;
-    page?: string;
+    page?: number; // ✅ CHANGED FROM string TO number
 }) {
     try {
         const searchParams = new URLSearchParams();
@@ -156,7 +156,8 @@ export async function fetchMyTickets(params: {
             searchParams.set("status", params.status);
         if (params.search) searchParams.set("search", params.search);
         if (params.category) searchParams.set("category", params.category);
-        searchParams.set("page", params.page || "1");
+        // ✅ Convert number to string
+        searchParams.set("page", (params.page || 1).toString());
         searchParams.set("page_size", "10");
 
         const response = await client.get(`/tickets/my-tickets/?${searchParams}`);

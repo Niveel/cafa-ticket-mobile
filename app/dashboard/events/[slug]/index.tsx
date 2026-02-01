@@ -93,7 +93,10 @@ const MyEventDetailsScreen = () => {
 
             const result = await deleteMyEvent(eventDetails.slug);
 
+            console.log("Delete event result:", result);
+
             if (!result.success) {
+                console.log("Error deleting event:", result);
                 throw new Error(result.message || "Failed to delete event");
             }
 

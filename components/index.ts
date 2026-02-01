@@ -65,8 +65,8 @@ export { default as MyEventsFilters } from "./dashboard/events/MyEventsFilters";
 export { default as MyEventsGrid } from "./dashboard/events/MyEventsGrid";
 export { default as MyEventsHeader } from "./dashboard/events/MyEventsHeader";
 // dashboard attended events
-export { default as AttendedEventCard } from "./dashboard/attended/AttendedEventCard";
-export { default as AttendedEventsList } from "./dashboard/attended/AttendedEventsList";
+export { default as AttendedEventCard } from "./dashboard/events/attended/AttendedEventCard";
+export { default as AttendedEventsList } from "./dashboard/events/attended/AttendedEventsList";
 // dashboard events details
 export { default as MyEventAnalyticsOverview } from "./dashboard/events/details/MyEventAnalyticsOverview";
 export { default as MyEventDetailsHeader } from "./dashboard/events/details/MyEventDetailsHeader";
@@ -89,3 +89,18 @@ export { default as EventVenueSection } from "./dashboard/events/create/EventVen
 export { default as TicketTypeCard } from "./dashboard/events/create/TicketTypeCard";
 export { default as EventBasicInfoSection } from "./dashboard/events/create/EventBasicInfoSection";
 export { default as EventTypeSection } from "./dashboard/events/create/EventTypeSection";
+// dashboard events edit
+export { default as EditEventForm } from "./dashboard/events/edit/EditEventForm";
+// dashboard events attendees
+export { default as EventAttendeesFilters } from "./dashboard/events/attendees/EventAttendeesFilters";
+export { default as EventAttendeesSummary } from "./dashboard/events/attendees/EventAttendeesSummary";
+export { default as EventAttendeeCard } from "./dashboard/events/attendees/EventAttendeeCard";
+// dashboard events tickets
+export { default as CreateTicketForm } from "./dashboard/events/tickets/CreateTicketForm";
+export { default as EditTicketForm } from "./dashboard/events/tickets/EditTicketForm";
+export { default as MyTicketCard } from "./dashboard/events/tickets/MyTicketCard";
+export { default as MyTicketsFilters } from "./dashboard/events/tickets/MyTicketsFilters";
+// dashboard payments
+export { default as PayoutStatusCard } from "./dashboard/payments/PayoutStatusCard";
+export { default as RevenueByEventTable } from "./dashboard/payments/RevenueByEventTable";
+export { default as RevenueByMonthChart } from "./dashboard/payments/RevenueByMonthChart";

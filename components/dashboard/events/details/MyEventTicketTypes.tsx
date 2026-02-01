@@ -59,7 +59,7 @@ const MyEventTicketTypes = ({ ticketTypes, eventSlug, onOpenDeleteModal }: MyEve
                 </View>
                 <TouchableOpacity
                     onPress={() => router.push(`/dashboard/events/${eventSlug}/tickets/create` as any)}
-                    className="flex-row items-center gap-2 px-4 py-2 rounded-xl"
+                    className="flex-row items-center gap-2 px-4 py-2 rounded-xl" 
                     style={{ backgroundColor: colors.accent }}
                     activeOpacity={0.8}
                 >

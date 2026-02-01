@@ -1,11 +1,12 @@
-import { View, TouchableOpacity, Image, Share } from "react-native";
+import { View, TouchableOpacity, Image, Share, Alert } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
+import * as Clipboard from 'expo-clipboard';
 
 import { AppText } from "@/components";
 import type { MyEventDetailsResponse } from "@/types/dash-events.types";
 import colors from "@/config/colors";
-import { API_BASE_URL } from "@/lib";
+import { APP_DOMAIN_NAME } from "@/data/constants";
 
 interface MyEventDetailsHeaderProps {
     event: MyEventDetailsResponse;
@@ -13,16 +14,27 @@ interface MyEventDetailsHeaderProps {
 }
 
 const MyEventDetailsHeader = ({ event, onOpenDeleteModal }: MyEventDetailsHeaderProps) => {
-    const eventUrl = `${API_BASE_URL}/events/${event.slug}`;
+    const eventUrl = `${APP_DOMAIN_NAME}/events/${event.slug}`;
 
     const handleShare = async () => {
         try {
             await Share.share({
                 message: `Check out ${event.title} on Cafa Tickets!\n\n${eventUrl}`,
                 url: eventUrl,
+                title: event.title,
             });
         } catch (error) {
             console.error("Error sharing:", error);
+        }
+    };
+
+    const handleCopyLink = async () => {
+        try {
+            await Clipboard.setStringAsync(eventUrl);
+            Alert.alert("Success", "Event link copied to clipboard!");
+        } catch (error) {
+            console.error("Error copying link:", error);
+            Alert.alert("Error", "Failed to copy link");
         }
     };
 
@@ -124,7 +136,7 @@ const MyEventDetailsHeader = ({ event, onOpenDeleteModal }: MyEventDetailsHeader
                 {/* Primary Actions Row */}
                 <View className="flex-row gap-3">
                     <TouchableOpacity
-                        onPress={() => router.push(`/dashboard/events/${event.slug}/edit` as any)}
+                        onPress={() => router.push(`/dashboard/events/${event.slug}/edit`)}
                         className="flex-1 flex-row items-center justify-center gap-2 px-4 py-3 rounded-xl"
                         style={{ backgroundColor: "#3b82f6" }}
                         activeOpacity={0.8}
@@ -151,7 +163,7 @@ const MyEventDetailsHeader = ({ event, onOpenDeleteModal }: MyEventDetailsHeader
                 {/* Secondary Actions Row */}
                 <View className="flex-row gap-3">
                     <TouchableOpacity
-                        onPress={() => router.push(`/dashboard/events/${event.slug}/attendees` as any)}
+                        onPress={() => router.push(`/dashboard/events/${event.slug}/attendees`)}
                         className="flex-1 flex-row items-center justify-center gap-2 px-4 py-3 bg-primary-200 rounded-xl border border-accent"
                         activeOpacity={0.8}
                     >
@@ -169,6 +181,31 @@ const MyEventDetailsHeader = ({ event, onOpenDeleteModal }: MyEventDetailsHeader
                         <Ionicons name="eye-outline" size={18} color={colors.white} />
                         <AppText styles="text-sm text-white" font="font-isemibold">
                             View Public
+                        </AppText>
+                    </TouchableOpacity>
+                </View>
+
+                {/* Share Actions Row */}
+                <View className="flex-row gap-3">
+                    <TouchableOpacity
+                        onPress={handleShare}
+                        className="flex-1 flex-row items-center justify-center gap-2 px-4 py-3 bg-primary-200 rounded-xl border border-accent"
+                        activeOpacity={0.8}
+                    >
+                        <Ionicons name="share-social-outline" size={18} color={colors.accent50} />
+                        <AppText styles="text-sm text-accent-50" font="font-isemibold">
+                            Share Event
+                        </AppText>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                        onPress={handleCopyLink}
+                        className="flex-1 flex-row items-center justify-center gap-2 px-4 py-3 bg-primary-200 rounded-xl border border-accent"
+                        activeOpacity={0.8}
+                    >
+                        <Ionicons name="link-outline" size={18} color={colors.accent50} />
+                        <AppText styles="text-sm text-accent-50" font="font-isemibold">
+                            Copy Link
                         </AppText>
                     </TouchableOpacity>
                 </View>

@@ -73,7 +73,8 @@ export type PaymentMethod = "card" | "mobile_money" | "bank_transfer";
 export interface EventCategory {
     id: number;
     name: string;
-}
+    slug: string;
+} 
 
 export interface VenueLocation {
     latitude: string;

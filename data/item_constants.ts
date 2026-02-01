@@ -17,13 +17,13 @@ export const dashboardListItems: DashboardListItem[] = [
     {
         id: 2,
         icon: "calendar-outline",
-        title: "Events",
+        title: "My Events",
         route: "/dashboard/events",
     },
     {
         id: 3,
         icon: "ticket-outline",
-        title: "Tickets",
+        title: "My Tickets",
         route: "/dashboard/tickets",
     },
     {

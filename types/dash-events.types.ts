@@ -1,6 +1,4 @@
-// =====================
-// Common Types
-// =====================
+import { PaymentProfile } from "./payments.types";
 
 export type EventStatus = "upcoming" | "ongoing" | "past";
 
@@ -423,6 +421,8 @@ export interface MyEventDetailsResponse extends EventInfo {
     venue_location: VenueLocation;
 
     status: EventStatus;
+
+    payment_profile: PaymentProfile;
 
     created_at: string;
     updated_at: string;

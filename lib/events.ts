@@ -111,15 +111,23 @@ export async function getMyEvents(filters: MyEventsFilters = {}): Promise<MyEven
   }
 }
 
-export async function deleteMyEvent(slug: string): Promise<{ success: boolean; message?: string }> {
+export async function deleteMyEvent(slug: string): Promise<{ success: boolean; message?: string; suggestion?: string }> {
   try {
-    await client.delete(`/dashboard/events/${slug}/delete/`);
-    return { success: true };
+    const response = await client.delete(`/events/${slug}/delete/`);
+    
+    return {
+      success: true,
+      message: response.data?.message || 'Event deleted successfully'
+    };
   } catch (error: any) {
     console.error("Error deleting event:", error);
+    
+    const errorData = error.response?.data;
+    
     return {
       success: false,
-      message: error.response?.data?.message || error.response?.data?.error || "Failed to delete event",
+      message: errorData?.message || errorData?.error || "Failed to delete event",
+      suggestion: errorData?.suggestion // Include suggestion from backend
     };
   }
 }
@@ -185,5 +193,47 @@ export async function createEvent(payload: any) {
     }
     
     throw new Error("Failed to create event. Please try again.");
+  }
+}
+
+/**
+ * Update an existing event
+ * @param slug - Event slug
+ * @param payload - Event data (from buildEventFormData)
+ * @returns Updated event data
+ */
+export async function updateEvent(slug: string, payload: any) {
+  try {
+    const response = await client.patch(`/events/my-events/${slug}/edit/`, payload, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return response.data;
+  } catch (error: any) {
+    if (error.response?.data) {
+      const errorData = error.response.data;
+      
+      // Extract first error message
+      if (errorData.detail) {
+        throw new Error(errorData.detail);
+      }
+      if (errorData.error) {
+        throw new Error(errorData.error);
+      }
+      if (errorData.message) {
+        throw new Error(errorData.message);
+      }
+      
+      // Field-specific errors
+      if (errorData.title) {
+        throw new Error(`Title: ${Array.isArray(errorData.title) ? errorData.title[0] : errorData.title}`);
+      }
+      if (errorData.ticket_types) {
+        throw new Error(`Ticket Types: ${Array.isArray(errorData.ticket_types) ? errorData.ticket_types[0] : errorData.ticket_types}`);
+      }
+    }
+    
+    throw new Error("Failed to update event. Please try again.");
   }
 }

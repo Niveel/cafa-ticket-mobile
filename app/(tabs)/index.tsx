@@ -3,7 +3,8 @@ import { RefreshControl, View, StatusBar } from "react-native";
 import Animated from 'react-native-reanimated';
 
 import colors from "@/config/colors";
-import { Event, EventCategory, PublicStats } from "@/types";
+import { Event, PublicStats } from "@/types";
+import { EventCategory } from "@/types/tickets.types";
 import { getEvents, getEventCategories } from "@/lib/events";
 import { getPublicStats } from "@/lib/general";
 import { isWithinDays } from "@/utils/format";
