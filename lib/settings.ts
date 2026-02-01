@@ -43,3 +43,16 @@ export async function changeUsername(data: {
         throw error;
     }
 }
+
+export async function deleteAccount(data: {
+    password: string;
+    confirmation: string;
+}) {
+    try {
+        const response = await client.delete("/auth/delete-account/", { data });
+        return response.data;
+    } catch (error) {
+        console.error("deleteAccount error:", error);
+        throw error;
+    }
+}

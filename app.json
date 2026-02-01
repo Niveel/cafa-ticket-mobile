@@ -33,7 +33,12 @@
         "googleMaps": {
           "apiKey": "AIzaSyBgWS5BZ67Nzf2xJcRwZ4gxVIhw8hDZkCQ"
         }
-      }
+      },
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.shopwit.cafaticketsmobile"
     },
     "web": {
       "output": "static",
@@ -53,11 +58,23 @@
           }
         }
       ],
-      "expo-secure-store"
+      "expo-secure-store",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera"
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "b03bfc39-8ec9-4224-a980-fc067e5a9f13"
+      }
     }
   }
 }

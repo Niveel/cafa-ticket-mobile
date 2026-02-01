@@ -108,3 +108,33 @@ export { default as RevenueByMonthChart } from "./dashboard/payments/RevenueByMo
 export { default as ChangeEmailForm } from "./dashboard/settings/security/ChangeEmailForm";
 export { default as ChangePasswordForm } from "./dashboard/settings/security/ChangePasswordForm";
 export { default as ChangeUsernameForm } from "./dashboard/settings/security/ChangeUsernameForm";
+// dashboard settings notifications
+export { default as NotificationPreferencesForm } from "./dashboard/settings/notifications/NotificationPreferencesForm";
+// dashboard settings privacy
+export { default as DeleteAccountSection } from "./dashboard/settings/privacy/DeleteAccountSection";
+export { default as PrivacyInfo } from "./dashboard/settings/privacy/PrivacyInfo";
+// contact
+export { default as ContactForm } from "./contact/ContactForm";
+// dashboard analytics
+export { default as AnalyticsMetricCard } from "./dashboard/analytics/AnalyticsMetricCard";
+export { default as AnalyticsQuickActions } from "./dashboard/analytics/AnalyticsQuickActions";
+export { default as AnalyticsRecentActivity } from "./dashboard/analytics/AnalyticsRecentActivity";
+export { default as AnalyticsTicketsByCategory } from "./dashboard/analytics/AnalyticsTicketsByCategory";
+export { default as AnalyticsBestSellingEvent } from "./dashboard/analytics/AnalyticsBestSellingEvent";
+export { default as AnalyticsRevenueChart } from "./dashboard/analytics/AnalyticsRevenueChart";
+// dashboard tickets
+export { default as TicketActions } from "./dashboard/tickets/TicketActions";
+export { default as TicketAttendeeInfo } from "./dashboard/tickets/TicketAttendeeInfo";
+export { default as TicketDetailsHeader } from "./dashboard/tickets/TicketDetailsHeader";
+export { default as TicketEventDetails } from "./dashboard/tickets/TicketEventDetails";
+export { default as TicketPurchaseInfo } from "./dashboard/tickets/TicketPurchaseInfo";
+export { default as TicketQRSection } from "./dashboard/tickets/TicketQRSection";
+// dashboard check-in
+export { default as CheckInHeader } from "./dashboard/check-in/CheckInHeader";
+export { default as CheckInHistory } from "./dashboard/check-in/CheckInHistory";
+export { default as CheckInResult } from "./dashboard/check-in/CheckInResult";
+export { default as CheckInScanner } from "./dashboard/check-in/CheckInScanner";
+export { default as CheckInStats } from "./dashboard/check-in/CheckInStats";
+export { default as EventSelector } from "./dashboard/check-in/EventSelector";
+export { default as ManualEntry } from "./dashboard/check-in/ManualEntry";
+export { default as QRScanner } from "./dashboard/check-in/QRScanner";

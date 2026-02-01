@@ -13,7 +13,7 @@ import type {
     PaymentDetails,
 } from "@/types/payments.types";
 import type { MyTicketsResponse, TicketDetails } from "@/types/tickets.types";
-import type { UserStats } from "@/types";
+import type { UserStats } from "@/types/dashboard.types";
 
 // =====================
 // User Stats
