@@ -5,7 +5,7 @@ import { API_BASE_URL } from "@/config/settings";
 import { CurrentUser, LoginCredentials, SignupData, LoginResponse } from "@/types";
 
 export async function login(credentials: LoginCredentials): Promise<LoginResponse> {
-  const response = await axios.post(`${API_BASE_URL}/auth/login/`, credentials);
+  const response = await axios.post(`${API_BASE_URL}/auth/login/`, credentials); 
   const data = response.data;
 
   // Store tokens

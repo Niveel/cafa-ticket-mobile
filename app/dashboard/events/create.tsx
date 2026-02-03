@@ -24,13 +24,11 @@ const CreateEventScreen = () => {
         ticketTypes: TicketTypeFormValues[];
     } | null>(null);
 
-    // ---- passed down to CreateEventForm → EventTicketTypesSection ----
     const handleOpenModal = useCallback((index: number | null) => {
         setEditingIndex(index);
         modalRef.current?.open();
     }, []);
 
-    // ---- passed to AddTicketTypeModal.onSubmit ----
     const handleSubmitTicket = useCallback(
         (ticketValues: TicketTypeFormValues) => {
             const ctx = formContextRef.current;
@@ -73,8 +71,6 @@ const CreateEventScreen = () => {
                 </View>
             </RequireAuth>
 
-            {/* BottomSheet at Screen root — outside FlatList virtualization tree.
-                Same placement pattern as DashboardEventsScreen filters / delete sheets. */}
             <AddTicketTypeModal
                 ref={modalRef}
                 onSubmit={handleSubmitTicket}

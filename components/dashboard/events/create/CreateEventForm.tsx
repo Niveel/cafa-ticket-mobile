@@ -24,9 +24,6 @@ import { buildEventFormData } from "@/utils/buildEventFormData";
 import { createEvent } from "@/lib/events";
 import colors from "@/config/colors";
 
-// ---------------------------------------------------------------------------
-// Props
-// ---------------------------------------------------------------------------
 interface CreateEventFormProps {
     /** Called when the user taps Add (null) or Edit (index) ticket type. */
     onOpenModal: (index: number | null) => void;
@@ -37,9 +34,6 @@ interface CreateEventFormProps {
     } | null>;
 }
 
-// ---------------------------------------------------------------------------
-// Component
-// ---------------------------------------------------------------------------
 const CreateEventForm = ({ onOpenModal, formContextRef }: CreateEventFormProps) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [refreshing, setRefreshing] = useState(false);
