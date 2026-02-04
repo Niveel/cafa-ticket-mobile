@@ -7,7 +7,7 @@ import colors from "@/config/colors";
 import { getRelativeTime, formatEventTime } from "@/utils/format";
 import { useFormatMoney } from "@/hooks/useFormatMoney";
 
-const CARD_WIDTH = Dimensions.get("window").width * 0.75;
+const CARD_WIDTH = Dimensions.get("window").width * 0.86;
 
 interface SoonEventCardProps {
   event: Event;
@@ -23,10 +23,10 @@ export default function SoonEventCard({ event }: SoonEventCardProps) {
     <Pressable onPress={handlePress} style={{ width: CARD_WIDTH }}>
       <View className="flex-row overflow-hidden rounded-2xl bg-white/5">
         {/* Image */}
-        <View className="h-28 w-28 bg-green-500">
+        <View className="w-28">
           <Image
             source={{ uri: event.featured_image }}
-            className="h-full w-full object-cover"
+            className="h-36 w-full object-cover"
             style={{ objectFit: "cover" }}
           />
         </View>
