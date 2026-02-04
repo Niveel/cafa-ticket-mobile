@@ -71,10 +71,10 @@ const ForgotPasswordScreen = () => {
                         <Ionicons name="chevron-back" size={20} color="#fff" />
                     </TouchableOpacity>
                     <View className="flex-1">
-                        <AppText styles="text-xl text-white" font="font-ibold">
+                        <AppText styles="text-xl text-white font-nunbold">
                             Forgot Password
                         </AppText>
-                        <AppText styles="text-sm text-white" font="font-iregular" style={{ opacity: 0.6 }}>
+                        <AppText styles="text-sm text-white" style={{ opacity: 0.6 }}>
                             Reset your account password
                         </AppText>
                     </View>
@@ -91,12 +91,11 @@ const ForgotPasswordScreen = () => {
                                 >
                                     <Ionicons name="mail-outline" size={40} color={colors.white} />
                                 </View>
-                                <AppText styles="text-2xl text-white mb-2 text-center" font="font-ibold">
+                                <AppText styles="text-2xl text-white mb-2 text-center font-nunbold">
                                     Password Reset
                                 </AppText>
                                 <AppText
                                     styles="text-sm text-white text-center"
-                                    font="font-iregular"
                                     style={{ opacity: 0.7, maxWidth: 300 }}
                                 >
                                     Enter your email address and we'll send you a link to reset your password
@@ -133,7 +132,6 @@ const ForgotPasswordScreen = () => {
                                         >
                                             <AppText
                                                 styles="text-xs text-white"
-                                                font="font-iregular"
                                                 style={{ opacity: 0.7 }}
                                             >
                                                 💡 Enter the email address you used to create your account. We'll send you
@@ -156,7 +154,6 @@ const ForgotPasswordScreen = () => {
                                                 >
                                                     <AppText
                                                         styles="text-xs text-white"
-                                                        font="font-iregular"
                                                         style={{ opacity: 0.6 }}
                                                     >
                                                         Remember your password?
@@ -172,7 +169,7 @@ const ForgotPasswordScreen = () => {
                                             style={{ backgroundColor: colors.primary200, borderColor: colors.accent }}
                                             activeOpacity={0.8}
                                         >
-                                            <AppText styles="text-sm text-white" font="font-ibold">
+                                            <AppText styles="text-sm text-white font-nunbold">
                                                 Sign In Instead
                                             </AppText>
                                         </TouchableOpacity>
@@ -190,17 +187,16 @@ const ForgotPasswordScreen = () => {
                                 >
                                     <Ionicons name="checkmark-circle" size={60} color="#34d399" />
                                 </View>
-                                <AppText styles="text-2xl text-white mb-2 text-center" font="font-ibold">
+                                <AppText styles="text-2xl text-white mb-2 text-center font-nunbold">
                                     Check Your Email
                                 </AppText>
                                 <AppText
                                     styles="text-sm text-white text-center mb-2"
-                                    font="font-iregular"
                                     style={{ opacity: 0.7 }}
                                 >
                                     We've sent a password reset link to
                                 </AppText>
-                                <AppText styles="text-base text-white text-center" font="font-ibold" style={{ color: colors.accent50 }}>
+                                <AppText styles="text-base text-white text-center font-nunbold" style={{ color: colors.accent50 }}>
                                     {resetEmail}
                                 </AppText>
                             </View>
@@ -219,12 +215,11 @@ const ForgotPasswordScreen = () => {
                                         <Ionicons name="mail-outline" size={24} color={colors.accent50} />
                                     </View>
                                     <View className="flex-1">
-                                        <AppText styles="text-base text-white mb-1" font="font-ibold">
+                                        <AppText styles="text-base text-white mb-1 font-nunbold">
                                             Next Steps
                                         </AppText>
                                         <AppText
                                             styles="text-xs text-white"
-                                            font="font-iregular"
                                             style={{ opacity: 0.6 }}
                                         >
                                             Follow these steps to reset your password
@@ -242,17 +237,16 @@ const ForgotPasswordScreen = () => {
                                             className="w-6 h-6 rounded-full items-center justify-center"
                                             style={{ backgroundColor: colors.accent }}
                                         >
-                                            <AppText styles="text-xs text-white" font="font-ibold">
+                                            <AppText styles="text-xs text-white font-nunbold">
                                                 1
                                             </AppText>
                                         </View>
                                         <View className="flex-1">
-                                            <AppText styles="text-sm text-white mb-1" font="font-isemibold">
+                                            <AppText styles="text-sm text-white mb-1 font-nunbold">
                                                 Check your inbox
                                             </AppText>
                                             <AppText
                                                 styles="text-xs text-white"
-                                                font="font-iregular"
                                                 style={{ opacity: 0.6 }}
                                             >
                                                 Look for an email from Cafa Tickets with the subject "Password Reset
@@ -269,17 +263,16 @@ const ForgotPasswordScreen = () => {
                                             className="w-6 h-6 rounded-full items-center justify-center"
                                             style={{ backgroundColor: colors.accent }}
                                         >
-                                            <AppText styles="text-xs text-white" font="font-ibold">
+                                            <AppText styles="text-xs text-white font-nunbold">
                                                 2
                                             </AppText>
                                         </View>
                                         <View className="flex-1">
-                                            <AppText styles="text-sm text-white mb-1" font="font-isemibold">
+                                            <AppText styles="text-sm text-white mb-1 font-nunbold">
                                                 Click the reset link
                                             </AppText>
                                             <AppText
                                                 styles="text-xs text-white"
-                                                font="font-iregular"
                                                 style={{ opacity: 0.6 }}
                                             >
                                                 The link will take you to a secure page to set your new password
@@ -295,17 +288,16 @@ const ForgotPasswordScreen = () => {
                                             className="w-6 h-6 rounded-full items-center justify-center"
                                             style={{ backgroundColor: colors.accent }}
                                         >
-                                            <AppText styles="text-xs text-white" font="font-ibold">
+                                            <AppText styles="text-xs text-white font-nunbold">
                                                 3
                                             </AppText>
                                         </View>
                                         <View className="flex-1">
-                                            <AppText styles="text-sm text-white mb-1" font="font-isemibold">
+                                            <AppText styles="text-sm text-white mb-1 font-nunbold">
                                                 Create a new password
                                             </AppText>
                                             <AppText
                                                 styles="text-xs text-white"
-                                                font="font-iregular"
                                                 style={{ opacity: 0.6 }}
                                             >
                                                 Choose a strong password and login with your new credentials
@@ -319,8 +311,8 @@ const ForgotPasswordScreen = () => {
                                     className="mt-6 p-4 rounded-xl border"
                                     style={{ backgroundColor: "#f59e0b" + "1A", borderColor: "#f59e0b" + "33" }}
                                 >
-                                    <AppText styles="text-xs" font="font-iregular" style={{ color: "#fbbf24" }}>
-                                        🔒 <AppText font="font-ibold">Security Notice:</AppText> If you didn't request a
+                                    <AppText styles="text-xs" style={{ color: "#fbbf24" }}>
+                                        🔒 <AppText styles="font-nunbold">Security Notice:</AppText> If you didn't request a
                                         password reset, please ignore this email. Your account remains secure.
                                     </AppText>
                                 </View>
@@ -330,12 +322,11 @@ const ForgotPasswordScreen = () => {
                                     className="mt-4 p-4 rounded-xl border"
                                     style={{ backgroundColor: colors.primary200 + "80", borderColor: colors.accent + "4D" }}
                                 >
-                                    <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.7 }}>
-                                        💡 <AppText font="font-ibold">Didn't receive the email?</AppText> Check your spam
+                                    <AppText styles="text-xs text-white" style={{ opacity: 0.7 }}>
+                                        💡 <AppText styles="font-nunbold">Didn't receive the email?</AppText> Check your spam
                                         folder or{" "}
                                         <AppText
-                                            styles="text-xs"
-                                            font="font-ibold"
+                                            styles="text-xs font-nunbold"
                                             style={{ color: colors.accent50 }}
                                             onPress={handleResendEmail}
                                         >
@@ -351,7 +342,7 @@ const ForgotPasswordScreen = () => {
                                     style={{ backgroundColor: colors.accent }}
                                     activeOpacity={0.8}
                                 >
-                                    <AppText styles="text-sm text-white" font="font-ibold">
+                                    <AppText styles="text-sm text-white font-nunbold">
                                         Back to Login
                                     </AppText>
                                 </TouchableOpacity>

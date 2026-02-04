@@ -18,10 +18,10 @@ const PaymentHistoryList = ({ payments, isLoading, hasMore, onLoadMore }: Props)
         return (
             <View className="px-4 py-12 bg-primary-100 rounded-xl border-2 border-accent/30">
                 <View className="items-center">
-                    <AppText styles="text-lg text-slate-400 mb-2" font="font-isemibold">
+                    <AppText styles="text-lg text-slate-400 mb-2 font-nunbold">
                         No payments found
                     </AppText>
-                    <AppText styles="text-sm text-slate-500 text-center" font="font-iregular">
+                    <AppText styles="text-sm text-slate-500 text-center">
                         Try adjusting your filters or browse events to purchase tickets
                     </AppText>
                 </View>
@@ -35,7 +35,7 @@ const PaymentHistoryList = ({ payments, isLoading, hasMore, onLoadMore }: Props)
         return (
             <View className="py-4 items-center">
                 <ActivityIndicator size="small" color={colors.accent} />
-                <AppText styles="text-xs text-slate-400 mt-2" font="font-iregular">
+                <AppText styles="text-xs text-slate-400 mt-2">
                     Loading more...
                 </AppText>
             </View>

@@ -74,7 +74,7 @@ const EventCard = ({ event }: EventCardProps) => {
                 <View className="absolute top-4 left-4 right-4 flex-row justify-between items-start">
                     {/* Category Badge */}
                     <View className="px-3 py-1.5 bg-accent/90 rounded-lg border border-accent">
-                        <AppText styles="text-xs text-white" font="font-ibold">
+                        <AppText styles="text-xs text-white font-nunbold">
                             {event.category.name}
                         </AppText>
                     </View>
@@ -84,7 +84,7 @@ const EventCard = ({ event }: EventCardProps) => {
                         {isOngoing && (
                             <View className="flex-row items-center gap-1.5 px-3 py-1.5 bg-accent/95 rounded-lg border-2 border-accent">
                                 <View className="w-2 h-2 bg-white rounded-full" />
-                                <AppText styles="text-xs text-white" font="font-ibold">
+                                <AppText styles="text-xs text-white font-nunbold">
                                     LIVE NOW
                                 </AppText>
                             </View>
@@ -92,7 +92,7 @@ const EventCard = ({ event }: EventCardProps) => {
                         {isTrending && !isOngoing && (
                             <View className="flex-row items-center gap-1.5 px-3 py-1.5 bg-primary/90 rounded-lg border border-accent">
                                 <Ionicons name="trending-up" size={14} color={colors.accent50} />
-                                <AppText styles="text-xs text-accent-50" font="font-ibold">
+                                <AppText styles="text-xs text-accent-50 font-nunbold">
                                     Trending
                                 </AppText>
                             </View>
@@ -111,10 +111,10 @@ const EventCard = ({ event }: EventCardProps) => {
                             shadowRadius: 8,
                         }}
                     >
-                        <AppText styles="text-xs text-white/80" font="font-ibold">
+                        <AppText styles="text-xs text-white/80 font-nunbold">
                             {month}
                         </AppText>
-                        <AppText styles="text-xl text-white" font="font-ibold">
+                        <AppText styles="text-xl text-white font-nunbold">
                             {day}
                         </AppText>
                     </View>
@@ -127,7 +127,6 @@ const EventCard = ({ event }: EventCardProps) => {
                 <TouchableOpacity onPress={handlePress} activeOpacity={0.7}>
                     <AppText
                         styles="text-base text-white mb-2"
-                        font="font-ibold"
                         numberOfLines={2}
                     >
                         {event.title}
@@ -139,7 +138,7 @@ const EventCard = ({ event }: EventCardProps) => {
                     {/* Date & Time */}
                     <View className="flex-row items-center gap-2">
                         <Ionicons name="calendar-outline" size={16} color={colors.accent50} />
-                        <AppText styles="text-sm text-slate-200" font="font-imedium">
+                        <AppText styles="text-sm text-slate-200">
                             {weekday}, {month} {day} • {formatTime(event.start_time)}
                         </AppText>
                     </View>
@@ -149,7 +148,6 @@ const EventCard = ({ event }: EventCardProps) => {
                         <Ionicons name="location-outline" size={16} color={colors.accent50} />
                         <AppText
                             styles="text-sm text-slate-200 flex-1"
-                            font="font-imedium"
                             numberOfLines={1}
                         >
                             {event.venue_name}, {event.venue_city}
@@ -173,12 +171,11 @@ const EventCard = ({ event }: EventCardProps) => {
                         />
                     </View>
                     <View className="flex-1">
-                        <AppText styles="text-xs text-slate-300" font="font-iregular">
+                        <AppText styles="text-xs text-slate-300">
                             Organized by
                         </AppText>
                         <AppText
-                            styles="text-sm text-white"
-                            font="font-isemibold"
+                            styles="text-sm text-white capitalize"
                             numberOfLines={1}
                         >
                             {event.organizer?.full_name || `@${event.organizer?.username}`}
@@ -193,15 +190,15 @@ const EventCard = ({ event }: EventCardProps) => {
                 >
                     {/* Price */}
                     <View>
-                        <AppText styles="text-xs text-slate-300 mb-1" font="font-iregular">
+                        <AppText styles="text-xs text-slate-300 mb-1">
                             {showPriceRange ? 'From' : 'Price'}
                         </AppText>
                         <View className="flex-row items-baseline">
-                            <AppText styles="text-lg text-white" font="font-ibold">
+                            <AppText styles="text-lg text-white font-nunbold">
                                 {formatMoney(event.lowest_price)}
                             </AppText>
                             {showPriceRange && (
-                                <AppText styles="text-sm text-slate-300 ml-1" font="font-iregular">
+                                <AppText styles="text-sm text-slate-300 ml-1">
                                     - {formatMoney(event.highest_price)}
                                 </AppText>
                             )}
@@ -210,10 +207,10 @@ const EventCard = ({ event }: EventCardProps) => {
 
                     {/* Tickets Status */}
                     <View className="items-end">
-                        <AppText styles="text-xs text-slate-300 mb-1" font="font-iregular">
+                        <AppText styles="text-xs text-slate-300 mb-1">
                             Available
                         </AppText>
-                        <AppText styles="text-sm text-accent-50" font="font-ibold">
+                        <AppText styles="text-sm text-accent-50 font-nunbold">
                             {event.tickets_available} left
                         </AppText>
                     </View>
@@ -225,7 +222,7 @@ const EventCard = ({ event }: EventCardProps) => {
                     className="w-full py-3 px-4 bg-accent rounded-xl items-center active:opacity-90"
                     activeOpacity={0.8}
                 >
-                    <AppText styles="text-sm text-white" font="font-ibold">
+                    <AppText styles="text-sm text-white font-nunbold">
                         View Details
                     </AppText>
                 </TouchableOpacity>

@@ -49,10 +49,10 @@ const SimilarEventCard = ({ event }: { event: SimilarEvent }) => {
                     className="absolute top-4 left-4 w-14 h-14 rounded-xl items-center justify-center"
                     style={{ backgroundColor: colors.accent }}
                 >
-                    <AppText styles="text-xs text-white" font="font-ibold">
+                    <AppText styles="text-xs text-white font-nunbold">
                         {month}
                     </AppText>
-                    <AppText styles="text-2xl text-white" font="font-ibold">
+                    <AppText styles="text-2xl text-white font-nunbold">
                         {day}
                     </AppText>
                 </View>
@@ -60,23 +60,23 @@ const SimilarEventCard = ({ event }: { event: SimilarEvent }) => {
 
             {/* Content */}
             <View className="p-4">
-                <AppText styles="text-base text-white mb-2" font="font-ibold" numberOfLines={2}>
+                <AppText styles="text-base text-white mb-2 font-nunbold" numberOfLines={2}>
                     {event.title}
                 </AppText>
 
                 <View className="flex-row items-center gap-2 mb-3">
                     <Ionicons name="location-outline" size={16} color={colors.accent50} />
-                    <AppText styles="text-xs text-slate-300" font="font-iregular">
+                    <AppText styles="text-xs text-slate-300">
                         {event.venue_city}
                     </AppText>
                 </View>
 
                 <View className="flex-row justify-between items-center">
                     <View>
-                        <AppText styles="text-xs text-slate-400" font="font-iregular">
+                        <AppText styles="text-xs text-slate-400">
                             From
                         </AppText>
-                        <AppText styles="text-base text-white" font="font-ibold">
+                        <AppText styles="text-base text-white font-nunbold">
                             GHS {parseFloat(event.lowest_price).toFixed(0)}
                         </AppText>
                     </View>
@@ -104,11 +104,11 @@ const SimilarEventsSection = ({ event }: SimilarEventsSectionProps) => {
                         >
                             <Ionicons name="sparkles-outline" size={24} color={colors.accent50} />
                         </View>
-                        <AppText styles="text-xl text-white" font="font-ibold">
+                        <AppText styles="text-xl text-white font-nunbold">
                             You Might Also Like
                         </AppText>
                     </View>
-                    <AppText styles="text-sm text-slate-300 leading-relaxed" font="font-iregular">
+                    <AppText styles="text-sm text-slate-300 leading-relaxed">
                         Check out these similar events that might interest you.
                     </AppText>
                 </View>
@@ -132,7 +132,7 @@ const SimilarEventsSection = ({ event }: SimilarEventsSectionProps) => {
                         style={{ backgroundColor: colors.accent }}
                         activeOpacity={0.8}
                     >
-                        <AppText styles="text-sm text-white" font="font-ibold">
+                        <AppText styles="text-sm text-white font-nunbold">
                             Explore All Events
                         </AppText>
                     </TouchableOpacity>

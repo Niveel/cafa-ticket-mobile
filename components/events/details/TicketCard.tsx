@@ -86,33 +86,33 @@ const TicketCard = ({ ticket, event, currentUser, onPurchase }: TicketCardProps)
                     <View className="flex-row justify-between items-start mb-1">
                         <View className={`px-2 py-1 rounded-lg flex-row items-center gap-2 ${theme.badge}`} style={{ borderWidth: 1 }}>
                             <Ionicons name="ticket-outline" size={16} color="#94a3b8" />
-                            <AppText styles="text-xs uppercase" font="font-ibold" style={{ color: "white" }}>
+                            <AppText styles="text-xs uppercase font-nunbold" style={{ color: "white" }}>
                                 {ticket.name}
                             </AppText>
                         </View>
 
                         {isSoldOut ? (
                             <View className="px-2 py-1 bg-slate-600/20 rounded-lg" style={{ borderWidth: 1, borderColor: "#64748b" }}>
-                                <AppText styles="text-xs text-slate-400" font="font-ibold">SOLD OUT</AppText>
+                                <AppText styles="text-xs text-slate-400 font-nunbold">SOLD OUT</AppText>
                             </View>
                         ) : isLowStock && (
                             <View className="px-2 py-1 bg-accent/20 rounded-lg animate-pulse" style={{ borderWidth: 1, borderColor: colors.accent }}>
-                                <AppText styles="text-xs text-accent-50" font="font-ibold">ALMOST GONE</AppText>
+                                <AppText styles="text-xs text-accent-50 font-nunbold">ALMOST GONE</AppText>
                             </View>
                         )}
                     </View>
 
                     {/* Description */}
-                    <AppText styles="text-sm text-slate-300 mb-1 leading-relaxed" font="font-iregular">
+                    <AppText styles="text-sm text-slate-300 mb-1 leading-relaxed">
                         {ticket.description}
                     </AppText>
 
                     {/* Price */}
                     <View className="flex-row items-baseline gap-2 mb-1">
-                        <AppText styles="text-2xl text-white" font="font-ibold">
+                        <AppText styles="text-2xl text-white font-nunbold">
                             GHS {parseFloat(ticket.price).toFixed(0)}
                         </AppText>
-                        <AppText styles="text-sm text-slate-400" font="font-iregular">
+                        <AppText styles="text-sm text-slate-400">
                             per ticket
                         </AppText>
                     </View>
@@ -121,8 +121,8 @@ const TicketCard = ({ ticket, event, currentUser, onPurchase }: TicketCardProps)
                     {!isSoldOut && (
                         <View>
                             <View className="flex-row justify-between mb-1">
-                                <AppText styles="text-xs text-slate-400" font="font-iregular">Available</AppText>
-                                <AppText styles="text-xs text-accent-50" font="font-ibold">{ticket.tickets_remaining} left</AppText>
+                                <AppText styles="text-xs text-slate-400">Available</AppText>
+                                <AppText styles="text-xs text-accent-50 font-nunbold">{ticket.tickets_remaining} left</AppText>
                             </View>
                             <View className="h-2 bg-primary-200 rounded-full overflow-hidden">
                                 <View className="h-full bg-accent-50 rounded-full" style={{ width: `${(ticket.tickets_sold / ticket.quantity) * 100}%` }} />
@@ -134,7 +134,7 @@ const TicketCard = ({ ticket, event, currentUser, onPurchase }: TicketCardProps)
                     {isSoldOut && ticket.sold_out_at && (
                         <View className="flex-row items-center gap-2">
                             <Ionicons name="time-outline" size={14} color="#94a3b8" />
-                            <AppText styles="text-xs text-slate-400" font="font-iregular">
+                            <AppText styles="text-xs text-slate-400">
                                 Sold out on {new Date(ticket.sold_out_at).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
                             </AppText>
                         </View>
@@ -147,7 +147,7 @@ const TicketCard = ({ ticket, event, currentUser, onPurchase }: TicketCardProps)
                         <>
                             {/* Quantity Selector */}
                             <View className="mb-2">
-                                <AppText styles="text-xs text-slate-400 mb-2" font="font-isemibold">Quantity</AppText>
+                                <AppText styles="text-xs text-slate-400 mb-2">Quantity</AppText>
                                 <View className="flex-row items-center gap-3">
                                     <TouchableOpacity
                                         onPress={() => handleQuantityChange(quantity - 1)}
@@ -156,11 +156,11 @@ const TicketCard = ({ ticket, event, currentUser, onPurchase }: TicketCardProps)
                                         style={{ backgroundColor: colors.primary200, borderWidth: 2, borderColor: colors.accent, opacity: quantity <= ticket.min_purchase ? 0.3 : 1 }}
                                         activeOpacity={0.7}
                                     >
-                                        <AppText styles="text-lg text-white" font="font-ibold">-</AppText>
+                                        <AppText styles="text-lg text-white font-nunbold">-</AppText>
                                     </TouchableOpacity>
 
                                     <View className="flex-1 h-12 px-4 bg-primary-200 rounded-xl items-center justify-center" style={{ borderWidth: 2, borderColor: colors.accent }}>
-                                        <AppText styles="text-lg text-white" font="font-ibold">{quantity}</AppText>
+                                        <AppText styles="text-lg text-white font-nunbold">{quantity}</AppText>
                                     </View>
 
                                     <TouchableOpacity
@@ -170,18 +170,18 @@ const TicketCard = ({ ticket, event, currentUser, onPurchase }: TicketCardProps)
                                         style={{ backgroundColor: colors.primary200, borderWidth: 2, borderColor: colors.accent, opacity: quantity >= Math.min(ticket.max_purchase, ticket.tickets_remaining) ? 0.3 : 1 }}
                                         activeOpacity={0.7}
                                     >
-                                        <AppText styles="text-lg text-white" font="font-ibold">+</AppText>
+                                        <AppText styles="text-lg text-white font-nunbold">+</AppText>
                                     </TouchableOpacity>
                                 </View>
-                                <AppText styles="text-xs text-slate-400 mt-2" font="font-iregular">
+                                <AppText styles="text-xs text-slate-400 mt-2">
                                     Min: {ticket.min_purchase} • Max: {Math.min(ticket.max_purchase, ticket.tickets_remaining)}
                                 </AppText>
                             </View>
 
                             {/* Total Price */}
                             <View className="flex-row justify-between items-center p-2 bg-primary-200 rounded-xl mb-4" style={{ borderWidth: 1, borderColor: colors.accent }}>
-                                <AppText styles="text-sm text-slate-300" font="font-isemibold">Total Price</AppText>
-                                <AppText styles="text-xl text-white" font="font-ibold">GHS {subtotal.toFixed(2)}</AppText>
+                                <AppText styles="text-sm text-slate-300">Total Price</AppText>
+                                <AppText styles="text-xl text-white font-nunbold">GHS {subtotal.toFixed(2)}</AppText>
                             </View>
 
                             {/* Select Button */}
@@ -191,7 +191,7 @@ const TicketCard = ({ ticket, event, currentUser, onPurchase }: TicketCardProps)
                                 style={{ backgroundColor: theme.buttonColor }}
                                 activeOpacity={0.8}
                             >
-                                <AppText styles="text-sm text-white" font="font-ibold">Select {ticket.name}</AppText>
+                                <AppText styles="text-sm text-white font-nunbold">Select {ticket.name}</AppText>
                             </TouchableOpacity>
                         </>
                     )}
@@ -199,7 +199,7 @@ const TicketCard = ({ ticket, event, currentUser, onPurchase }: TicketCardProps)
                     {isSoldOut && (
                         <View className="items-center py-4">
                             <Ionicons name="close-circle-outline" size={48} color="#64748b" />
-                            <AppText styles="text-sm text-slate-400 mt-2" font="font-isemibold">This ticket type is no longer available</AppText>
+                            <AppText styles="text-sm text-slate-400 mt-2">This ticket type is no longer available</AppText>
                         </View>
                     )}
                 </View>

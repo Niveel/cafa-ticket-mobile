@@ -139,7 +139,7 @@ const FaceVerificationModal = ({
                     setVerificationState("rejected");
                     setError(
                         data.data?.rejection_reason ||
-                            "Face verification failed. Please try again."
+                        "Face verification failed. Please try again."
                     );
                 } else {
                     // unexpected status
@@ -190,12 +190,11 @@ const FaceVerificationModal = ({
             >
                 <Ionicons name="videocam-off" size={32} color="#f87171" />
             </View>
-            <AppText styles="text-sm text-white text-center" font="font-ibold">
+            <AppText styles="text-sm text-white text-center font-nunbold">
                 Camera Permission Required
             </AppText>
             <AppText
                 styles="text-xs text-white text-center mt-1 mb-4"
-                font="font-iregular"
                 style={{ opacity: 0.5, maxWidth: 260 }}
             >
                 Allow camera access so we can verify your identity before
@@ -207,7 +206,7 @@ const FaceVerificationModal = ({
                 style={{ backgroundColor: colors.accent }}
                 activeOpacity={0.7}
             >
-                <AppText styles="text-sm text-white" font="font-ibold">
+                <AppText styles="text-sm text-white font-nunbold">
                     Grant Permission
                 </AppText>
             </TouchableOpacity>
@@ -255,12 +254,11 @@ const FaceVerificationModal = ({
                     borderColor: "#3b82f630",
                 }}
             >
-                <AppText styles="text-xs" font="font-ibold" style={{ color: "#60a5fa" }}>
+                <AppText styles="text-xs font-nunbold" style={{ color: "#60a5fa" }}>
                     Tips for best results:
                 </AppText>
                 <AppText
                     styles="text-xs mt-1"
-                    font="font-iregular"
                     style={{ color: "#93c5fd" }}
                 >
                     • Ensure your face is well-lit{"\n"}• Look directly at the
@@ -278,7 +276,7 @@ const FaceVerificationModal = ({
             >
                 <View className="flex-row items-center gap-2">
                     <Ionicons name="camera-outline" size={20} color="#fff" />
-                    <AppText styles="text-base text-white" font="font-ibold">
+                    <AppText styles="text-base text-white font-nunbold">
                         Capture Selfie
                     </AppText>
                 </View>
@@ -292,7 +290,7 @@ const FaceVerificationModal = ({
             >
                 <View className="flex-row items-center gap-2">
                     <Ionicons name="refresh-outline" size={18} color={colors.accent50} />
-                    <AppText styles="text-sm" font="font-iregular" style={{ color: colors.accent50 }}>
+                    <AppText styles="text-sm" style={{ color: colors.accent50 }}>
                         Flip Camera
                     </AppText>
                 </View>
@@ -321,8 +319,7 @@ const FaceVerificationModal = ({
                     >
                         <ActivityIndicator size="large" color={colors.accent} />
                         <AppText
-                            styles="text-sm text-white mt-3"
-                            font="font-ibold"
+                            styles="text-sm text-white mt-3 font-nunbold"
                         >
                             Verifying Your Identity…
                         </AppText>
@@ -347,7 +344,6 @@ const FaceVerificationModal = ({
                     />
                     <AppText
                         styles="text-xs flex-1"
-                        font="font-iregular"
                         style={{ color: "#f87171" }}
                     >
                         {error}
@@ -364,7 +360,7 @@ const FaceVerificationModal = ({
                         style={{ backgroundColor: colors.primary200 }}
                         activeOpacity={0.7}
                     >
-                        <AppText styles="text-base text-white" font="font-ibold">
+                        <AppText styles="text-base text-white font-nunbold">
                             Retake
                         </AppText>
                     </TouchableOpacity>
@@ -381,7 +377,7 @@ const FaceVerificationModal = ({
                                 size={20}
                                 color="#fff"
                             />
-                            <AppText styles="text-base text-white" font="font-ibold">
+                            <AppText styles="text-base text-white font-nunbold">
                                 Verify
                             </AppText>
                         </View>
@@ -404,12 +400,11 @@ const FaceVerificationModal = ({
                     color="#4ade80"
                 />
             </View>
-            <AppText styles="text-lg text-white text-center" font="font-ibold">
+            <AppText styles="text-lg text-white text-center font-nunbold">
                 Identity Verified!
             </AppText>
             <AppText
                 styles="text-sm text-white text-center mt-2"
-                font="font-iregular"
                 style={{ opacity: 0.6 }}
             >
                 Proceeding to withdrawal…
@@ -462,7 +457,7 @@ const FaceVerificationModal = ({
                                     color="#60a5fa"
                                 />
                             </View>
-                            <AppText styles="text-base text-white" font="font-ibold">
+                            <AppText styles="text-base text-white font-nunbold">
                                 {title}
                             </AppText>
                         </View>
@@ -482,7 +477,6 @@ const FaceVerificationModal = ({
                     {verificationState !== "success" && (
                         <AppText
                             styles="text-xs text-white text-center"
-                            font="font-iregular"
                             style={{ opacity: 0.6 }}
                         >
                             {description}

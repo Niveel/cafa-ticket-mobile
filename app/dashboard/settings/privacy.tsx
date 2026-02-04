@@ -34,7 +34,7 @@ const PrivacySettingsScreen = () => {
                                         <Ionicons name="lock-closed-outline" size={24} color={colors.accent50} />
                                     </View>
                                     <View className="flex-1">
-                                        <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.7 }}>
+                                        <AppText styles="text-xs text-white" style={{ opacity: 0.7 }}>
                                             Manage your privacy settings and account data
                                         </AppText>
                                     </View>

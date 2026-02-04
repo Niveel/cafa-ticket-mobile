@@ -105,10 +105,10 @@ const PaymentsHistoryScreen = () => {
       {error && !paymentHistory && (
         <View className="flex-1 items-center justify-center px-4">
           <View className="bg-red-500/10 rounded-xl p-6 border-2 border-red-500/30">
-            <AppText styles="text-lg text-red-400 mb-2 text-center" font="font-isemibold">
+            <AppText styles="text-lg text-red-400 mb-2 text-center font-nunbold">
               Error loading payments
             </AppText>
-            <AppText styles="text-sm text-red-300 text-center mb-4" font="font-iregular">
+            <AppText styles="text-sm text-red-300 text-center mb-4">
               {error}
             </AppText>
             <TouchableOpacity
@@ -116,7 +116,7 @@ const PaymentsHistoryScreen = () => {
               className="px-6 py-3 bg-accent rounded-xl"
               activeOpacity={0.7}
             >
-              <AppText styles="text-sm text-white text-center" font="font-isemibold">
+              <AppText styles="text-sm text-white text-center font-nunbold">
                 Try Again
               </AppText>
             </TouchableOpacity>
@@ -131,20 +131,19 @@ const PaymentsHistoryScreen = () => {
           <View className="px-4 pt-4 pb-3">
             <View className="flex-row items-center justify-between mb-2">
               <View className="flex-1">
-                <AppText styles="text-2xl text-white mb-1" font="font-ibold">
+                <AppText styles="text-2xl text-white mb-1 font-nunbold">
                   Payment History
                 </AppText>
-                <AppText styles="text-sm text-slate-400" font="font-iregular">
+                <AppText styles="text-sm text-slate-400">
                   {paymentHistory?.count || 0} transactions
                 </AppText>
               </View>
               <TouchableOpacity
                 onPress={() => filtersRef.current?.open()}
-                className={`px-4 py-2.5 rounded-xl flex-row items-center gap-2 ${
-                  hasActiveFilters
+                className={`px-4 py-2.5 rounded-xl flex-row items-center gap-2 ${hasActiveFilters
                     ? "bg-accent border-2 border-accent-50"
                     : "bg-accent/20 border-2 border-accent/30"
-                }`}
+                  }`}
                 activeOpacity={0.7}
               >
                 <Ionicons
@@ -153,14 +152,13 @@ const PaymentsHistoryScreen = () => {
                   color={hasActiveFilters ? colors.white : colors.accent50}
                 />
                 <AppText
-                  styles={`text-sm ${hasActiveFilters ? "text-white" : "text-accent-50"}`}
-                  font="font-isemibold"
+                  styles={`text-sm ${hasActiveFilters ? "text-white" : "text-accent-50"} font-nunbold`}
                 >
                   Filter
                 </AppText>
                 {hasActiveFilters && (
                   <View className="w-5 h-5 rounded-full bg-white items-center justify-center">
-                    <AppText styles="text-xs text-accent" font="font-ibold">
+                    <AppText styles="text-xs text-accent font-nunbold">
                       {[
                         filters.status !== "all",
                         filters.date_from,

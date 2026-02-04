@@ -64,10 +64,10 @@ const ExploreByLocationSection = ({ isLoading = false, eventCount = "50+" }: Exp
                         <Ionicons name="location" size={20} color={colors.accent} />
                     </View>
                     <View>
-                        <AppText styles="text-lg text-white" font="font-ibold">
+                        <AppText styles="text-lg text-white font-nunbold">
                             Events Near You
                         </AppText>
-                        <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.6 }}>
+                        <AppText styles="text-xs text-white" style={{ opacity: 0.6 }}>
                             In {location.city}
                         </AppText>
                     </View>
@@ -100,12 +100,11 @@ const ExploreByLocationSection = ({ isLoading = false, eventCount = "50+" }: Exp
                         {/* Content */}
                         <View className="flex-1 p-4 justify-between">
                             <View>
-                                <AppText styles="text-base text-white mb-1" font="font-ibold">
+                                <AppText styles="text-base text-white mb-1 font-nunbold">
                                     {location.city}
                                 </AppText>
                                 <AppText
                                     styles="text-xs text-white"
-                                    font="font-iregular"
                                     style={{ opacity: 0.6 }}
                                 >
                                     {location.country || "Ghana"}
@@ -115,7 +114,7 @@ const ExploreByLocationSection = ({ isLoading = false, eventCount = "50+" }: Exp
                             <View className="flex-row items-center justify-between">
                                 <View className="flex-row items-center gap-1">
                                     <Ionicons name="calendar-outline" size={14} color={colors.accent50} />
-                                    <AppText styles="text-xs" font="font-isemibold" style={{ color: colors.accent50 }}>
+                                    <AppText styles="text-xs" style={{ color: colors.accent50 }}>
                                         {eventCount} events
                                     </AppText>
                                 </View>

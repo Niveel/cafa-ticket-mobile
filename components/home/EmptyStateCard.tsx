@@ -50,12 +50,11 @@ const EmptyStateCard = ({ type }: EmptyStateCardProps) => {
                 <Ionicons name={icon} size={32} color={colors.accent50} />
             </View>
 
-            <AppText styles="text-base text-white mb-2 text-center" font="font-ibold">
+            <AppText styles="text-base text-white mb-2 text-center font-nunbold">
                 {title}
             </AppText>
             <AppText
                 styles="text-sm text-white mb-6 text-center"
-                font="font-iregular"
                 style={{ opacity: 0.7, maxWidth: 250 }}
             >
                 {description}
@@ -67,7 +66,7 @@ const EmptyStateCard = ({ type }: EmptyStateCardProps) => {
                 style={{ backgroundColor: colors.accent }}
                 activeOpacity={0.8}
             >
-                <AppText styles="text-sm text-white" font="font-ibold">
+                <AppText styles="text-sm text-white font-nunbold">
                     {buttonText}
                 </AppText>
             </TouchableOpacity>

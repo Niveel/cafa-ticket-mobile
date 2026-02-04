@@ -5,11 +5,11 @@ import { Ionicons } from "@expo/vector-icons";
 
 import { Screen, AppText, RequireAuth, Nav, PhotoCapture, VerificationHeader } from "@/components";
 import { useAuth } from "@/context";
-import { 
-    getVerificationStatus, 
-    uploadIDDocument, 
-    uploadSelfieImage, 
-    retryVerification 
+import {
+    getVerificationStatus,
+    uploadIDDocument,
+    uploadSelfieImage,
+    retryVerification
 } from "@/lib/dashboard";
 import colors from "@/config/colors";
 
@@ -95,7 +95,7 @@ const VerifyProfileScreen = () => {
                     setVerificationStatus('verified');
                 } else if (data.data.verification_status === 'rejected') {
                     setVerificationStatus('rejected');
-                    
+
                     const reason = data.data.rejection_reason;
                     let reasonMessage: string;
 
@@ -185,12 +185,12 @@ const VerifyProfileScreen = () => {
                     {currentStep === 'selfie' && (
                         <View className="gap-4">
                             {/* Success Badge */}
-                            <View 
+                            <View
                                 className="mx-4 p-4 rounded-xl border flex-row items-center gap-3"
                                 style={{ backgroundColor: colors.accent50 + "1A", borderColor: colors.accent50 }}
                             >
                                 <Ionicons name="checkmark-circle" size={20} color={colors.accent50} />
-                                <AppText styles="text-sm text-white" font="font-iregular">
+                                <AppText styles="text-sm text-white">
                                     ID uploaded successfully!
                                 </AppText>
                             </View>
@@ -217,39 +217,39 @@ const VerifyProfileScreen = () => {
                     {currentStep === 'result' && (
                         <View className="px-4 pb-6">
                             {verificationStatus === 'pending' && (
-                                <View 
+                                <View
                                     className="p-8 rounded-xl border-2 items-center"
                                     style={{ backgroundColor: colors.primary100, borderColor: colors.accent }}
                                 >
                                     <ActivityIndicator size="large" color={colors.accent} />
-                                    <AppText styles="text-lg text-white mt-4 text-center" font="font-ibold">
+                                    <AppText styles="text-lg text-white mt-4 text-center font-nunbold">
                                         Verifying Your Identity...
                                     </AppText>
-                                    <AppText styles="text-sm text-white mt-2 text-center" font="font-iregular" style={{ opacity: 0.7 }}>
+                                    <AppText styles="text-sm text-white mt-2 text-center" style={{ opacity: 0.7 }}>
                                         This usually takes a few seconds
                                     </AppText>
                                 </View>
                             )}
 
                             {verificationStatus === 'verified' && (
-                                <View 
+                                <View
                                     className="p-8 rounded-xl border-2 items-center"
                                     style={{ backgroundColor: colors.primary100, borderColor: colors.accent50 }}
                                 >
-                                    <View 
+                                    <View
                                         className="w-20 h-20 rounded-full items-center justify-center mb-4"
                                         style={{ backgroundColor: colors.accent50 + "33" }}
                                     >
                                         <Ionicons name="checkmark-circle" size={48} color={colors.accent50} />
                                     </View>
-                                    <AppText styles="text-xl text-white mb-2 text-center" font="font-ibold">
+                                    <AppText styles="text-xl text-white mb-2 text-center font-nunbold">
                                         Verification Successful!
                                     </AppText>
-                                    <AppText styles="text-sm text-white mb-6 text-center" font="font-iregular" style={{ opacity: 0.7 }}>
+                                    <AppText styles="text-sm text-white mb-6 text-center" style={{ opacity: 0.7 }}>
                                         Your identity has been verified. You can now create events.
                                     </AppText>
-                                    
-                                    <View 
+
+                                    <View
                                         onTouchEnd={() => router.push('/dashboard/events/create')}
                                         className="w-full p-4 rounded-xl items-center"
                                         style={{ backgroundColor: colors.accent }}
@@ -257,7 +257,7 @@ const VerifyProfileScreen = () => {
                                         accessibilityRole="button"
                                         accessibilityLabel="Create first event"
                                     >
-                                        <AppText styles="text-base text-white" font="font-ibold">
+                                        <AppText styles="text-base text-white font-nunbold">
                                             Create Your First Event
                                         </AppText>
                                     </View>
@@ -265,24 +265,24 @@ const VerifyProfileScreen = () => {
                             )}
 
                             {verificationStatus === 'rejected' && (
-                                <View 
+                                <View
                                     className="p-8 rounded-xl border-2"
                                     style={{ backgroundColor: colors.primary100, borderColor: colors.accent }}
                                 >
-                                    <View 
+                                    <View
                                         className="w-20 h-20 rounded-full items-center justify-center mb-4 mx-auto"
                                         style={{ backgroundColor: colors.accent + "33" }}
                                     >
                                         <Ionicons name="close-circle" size={48} color={colors.accent} />
                                     </View>
-                                    <AppText styles="text-xl text-white mb-2 text-center" font="font-ibold">
+                                    <AppText styles="text-xl text-white mb-2 text-center font-nunbold">
                                         Verification Failed
                                     </AppText>
-                                    <AppText styles="text-sm text-white mb-6 text-center" font="font-iregular" style={{ opacity: 0.7 }}>
+                                    <AppText styles="text-sm text-white mb-6 text-center" style={{ opacity: 0.7 }}>
                                         {rejectionReason || 'We couldn\'t verify your identity. Please try again.'}
                                     </AppText>
 
-                                    <View 
+                                    <View
                                         onTouchEnd={handleRetry}
                                         className="w-full p-4 rounded-xl items-center"
                                         style={{ backgroundColor: colors.accent }}
@@ -290,7 +290,7 @@ const VerifyProfileScreen = () => {
                                         accessibilityRole="button"
                                         accessibilityLabel="Try verification again"
                                     >
-                                        <AppText styles="text-base text-white" font="font-ibold">
+                                        <AppText styles="text-base text-white font-nunbold">
                                             Try Again
                                         </AppText>
                                     </View>

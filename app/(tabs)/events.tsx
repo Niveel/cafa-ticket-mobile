@@ -14,8 +14,8 @@ import {
   EventsGrid,
   EventsEmptyState,
   FilterOptions,
-  Screen, 
-  AppText, 
+  Screen,
+  AppText,
   Animation
 } from "@/components";
 import colors from "@/config/colors";
@@ -242,7 +242,7 @@ const EventsScreen = () => {
           activeOpacity={0.7}
         >
           <Ionicons name="time" size={20} color={colors.accent50} />
-          <AppText styles="text-sm text-white flex-1" font="font-isemibold">
+          <AppText styles="text-sm text-white flex-1 font-nunbold">
             View Past Events
           </AppText>
           <Ionicons name="chevron-forward" size={20} color={colors.white} />
@@ -251,7 +251,7 @@ const EventsScreen = () => {
         {/* Error State */}
         {error && (
           <View className="mb-6 p-4 bg-red-500/10 border border-red-500/20 rounded-xl">
-            <AppText styles="text-sm text-red-400" font="font-iregular">
+            <AppText styles="text-sm text-red-400">
               {error}
             </AppText>
             <TouchableOpacity
@@ -259,7 +259,7 @@ const EventsScreen = () => {
               className="mt-2"
               activeOpacity={0.7}
             >
-              <AppText styles="text-xs text-accent-50" font="font-isemibold">
+              <AppText styles="text-xs text-accent-50 font-nunbold">
                 Try Again
               </AppText>
             </TouchableOpacity>
@@ -288,7 +288,7 @@ const EventsScreen = () => {
             path={tickets}
             style={{ width: 200, height: 200 }}
           />
-          <AppText styles="text-sm text-slate-400 mt-4" font="font-iregular">
+          <AppText styles="text-sm text-slate-400 mt-4">
             Loading events...
           </AppText>
         </View>

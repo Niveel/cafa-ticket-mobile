@@ -32,7 +32,7 @@ const ContactScreen = () => {
                                     <Ionicons name="chatbubble-outline" size={24} color={colors.accent50} />
                                 </View>
                                 <View className="flex-1">
-                                    <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.7 }}>
+                                    <AppText styles="text-xs text-white" style={{ opacity: 0.7 }}>
                                         Have questions? We're here to help. Send us a message and we'll respond as soon as possible.
                                     </AppText>
                                 </View>
@@ -50,13 +50,13 @@ const ContactScreen = () => {
                                     <Ionicons name="mail-outline" size={24} color={colors.accent50} />
                                 </View>
                                 <View className="flex-1">
-                                    <AppText styles="text-sm text-white" font="font-ibold">
+                                    <AppText styles="text-sm text-white font-nunbold">
                                         Email Us
                                     </AppText>
-                                    <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.6 }}>
+                                    <AppText styles="text-xs text-white" style={{ opacity: 0.6 }}>
                                         Send us an email anytime
                                     </AppText>
-                                    <AppText styles="text-xs mt-1" font="font-isemibold" style={{ color: colors.accent50 }}>
+                                    <AppText styles="text-xs mt-1 font-nunbold" style={{ color: colors.accent50 }}>
                                         {APP_EMAIL}
                                     </AppText>
                                 </View>

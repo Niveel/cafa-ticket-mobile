@@ -57,11 +57,11 @@ const MyEventCard = ({ event, onDelete }: MyEventCardProps) => {
                 {/* Badges */}
                 <View style={{ position: "absolute", top: 12, left: 12, flexDirection: "row", gap: 8 }}>
                     <View className="px-3 py-1.5 rounded-lg" style={{ backgroundColor: statusColors.bg, borderWidth: 1, borderColor: statusColors.border }}>
-                        <AppText styles="text-xs capitalize" font="font-ibold" style={{ color: statusColors.text }}>{event.status}</AppText>
+                        <AppText styles="text-xs capitalize" style={{ color: statusColors.text }}>{event.status}</AppText>
                     </View>
                     {!event.is_published && (
                         <View className="px-3 py-1.5 rounded-lg" style={{ backgroundColor: "#f59e0b20", borderWidth: 1, borderColor: "#f59e0b" }}>
-                            <AppText styles="text-xs" font="font-ibold" style={{ color: "#fbbf24" }}>Unpublished</AppText>
+                            <AppText styles="text-xs" style={{ color: "#fbbf24" }}>Unpublished</AppText>
                         </View>
                     )}
                 </View>
@@ -79,19 +79,19 @@ const MyEventCard = ({ event, onDelete }: MyEventCardProps) => {
 
             {/* Content */}
             <View className="p-4">
-                <AppText styles="text-xs text-accent-50 mb-2" font="font-isemibold">{event.category.name}</AppText>
+                <AppText styles="text-xs text-accent-50 mb-2">{event.category.name}</AppText>
                 <TouchableOpacity onPress={() => router.push(`/dashboard/events/${event.slug}` as Href)} activeOpacity={0.8}>
-                    <AppText styles="text-base text-white mb-3" font="font-ibold" numberOfLines={2}>{event.title}</AppText>
+                    <AppText styles="text-base text-white mb-3" numberOfLines={2}>{event.title}</AppText>
                 </TouchableOpacity>
 
                 <View style={{ gap: 8, marginBottom: 12 }}>
                     <View className="flex-row items-center gap-2">
                         <Ionicons name="calendar-outline" size={14} color="#94a3b8" />
-                        <AppText styles="text-xs text-slate-300" font="font-iregular">{formatDate(event.start_date)}{event.start_date !== event.end_date && ` - ${formatDate(event.end_date)}`}</AppText>
+                        <AppText styles="text-xs text-slate-300">{formatDate(event.start_date)}{event.start_date !== event.end_date && ` - ${formatDate(event.end_date)}`}</AppText>
                     </View>
                     <View className="flex-row items-center gap-2">
                         <Ionicons name="location-outline" size={14} color="#94a3b8" />
-                        <AppText styles="text-xs text-slate-300" font="font-iregular">{event.venue_name}, {event.venue_city}</AppText>
+                        <AppText styles="text-xs text-slate-300">{event.venue_name}, {event.venue_city}</AppText>
                     </View>
                 </View>
 
@@ -100,24 +100,24 @@ const MyEventCard = ({ event, onDelete }: MyEventCardProps) => {
                     <View className="flex-1 p-3 rounded-lg border" style={{ backgroundColor: colors.primary200, borderColor: colors.accent + "33" }}>
                         <View className="flex-row items-center gap-2 mb-1">
                             <Ionicons name="ticket-outline" size={14} color="#60a5fa" />
-                            <AppText styles="text-xs text-slate-400" font="font-iregular">Sold</AppText>
+                            <AppText styles="text-xs text-slate-400">Sold</AppText>
                         </View>
-                        <AppText styles="text-sm text-white" font="font-ibold">{event.analytics.tickets_sold}/{event.analytics.total_tickets}</AppText>
+                        <AppText styles="text-sm text-white">{event.analytics.tickets_sold}/{event.analytics.total_tickets}</AppText>
                     </View>
                     <View className="flex-1 p-3 rounded-lg border" style={{ backgroundColor: colors.primary200, borderColor: colors.accent + "33" }}>
                         <View className="flex-row items-center gap-2 mb-1">
                             <Ionicons name="cash-outline" size={14} color="#34d399" />
-                            <AppText styles="text-xs text-slate-400" font="font-iregular">Revenue</AppText>
+                            <AppText styles="text-xs text-slate-400">Revenue</AppText>
                         </View>
-                        <AppText styles="text-sm" font="font-ibold" style={{ color: "#34d399" }}>{formatMoney(event.analytics.gross_revenue)}</AppText>
+                        <AppText styles="text-sm" style={{ color: "#34d399" }}>{formatMoney(event.analytics.gross_revenue)}</AppText>
                     </View>
                 </View>
 
                 {/* Progress */}
                 <View className="mb-3">
                     <View className="flex-row items-center justify-between mb-2">
-                        <AppText styles="text-xs text-slate-400" font="font-iregular">Sales Progress</AppText>
-                        <AppText styles="text-xs text-accent-50" font="font-ibold">{salesPercentage.toFixed(1)}%</AppText>
+                        <AppText styles="text-xs text-slate-400">Sales Progress</AppText>
+                        <AppText styles="text-xs text-accent-50">{salesPercentage.toFixed(1)}%</AppText>
                     </View>
                     <View className="w-full h-2 rounded-full overflow-hidden" style={{ backgroundColor: colors.primary100 }}>
                         <View className="h-full rounded-full" style={{ width: `${salesPercentage}%`, backgroundColor: colors.accent }} />
@@ -127,7 +127,7 @@ const MyEventCard = ({ event, onDelete }: MyEventCardProps) => {
                 {/* Button */}
                 <TouchableOpacity onPress={() => router.push(`/dashboard/events/${event.slug}` as Href)} className="flex-row items-center justify-center gap-2 w-full py-3 px-4 rounded-xl" style={{ backgroundColor: colors.accent }} activeOpacity={0.8}>
                     <Ionicons name="eye-outline" size={16} color={colors.white} />
-                    <AppText styles="text-xs text-white" font="font-isemibold">View Details</AppText>
+                    <AppText styles="text-xs text-white">View Details</AppText>
                 </TouchableOpacity>
             </View>
         </View>

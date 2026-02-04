@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  // NOTE: Update this to include the paths to all files that contain Nativewind classes.
   content: ["./app/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}"],
   presets: [require("nativewind/preset")],
   theme: {
@@ -12,15 +11,11 @@ module.exports = {
         accent50: "#FF5555",
       },
       fontFamily: {
-        iblack: ["Inter-Black", "sans-serif"],
-        ibold: ["Inter-Bold", "sans-serif"],
-        isemibold: ["Inter-SemiBold", "sans-serif"],
-        imedium: ["Inter-Medium", "sans-serif"],
-        iregular: ["Inter-Regular", "sans-serif"],
-        ilight: ["Inter-Light", "sans-serif"],
-        ithin: ["Inter-Thin", "sans-serif"],
-        iextralight: ["Inter-ExtraLight", "sans-serif"],
-        iextrabold: ["Inter-ExtraBold", "sans-serif"],
+        rhregular: ["Rhodium-Regular", "sans-serif"],
+        nunmedium: ["Nunito-Medium", "sans-serif"],
+        nunbold: ["Nunito-Bold", "sans-serif"],
+        nunlight: ["Nunito-Light", "sans-serif"],
+        metroregular: ["Metrophobic-Regular", "sans-serif"],
       }
     },
   },

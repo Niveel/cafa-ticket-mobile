@@ -1,4 +1,5 @@
 import React from 'react';
+import * as Sentry from '@sentry/react-native';
 import { View, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import colors from '@/config/colors';
@@ -34,7 +35,13 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
     componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
         console.error('🔴 ErrorBoundary caught:', error);
         console.error('🔴 Component stack:', errorInfo.componentStack);
-        
+
+        Sentry.captureException(error, {
+            extra: {
+                componentStack: errorInfo.componentStack,
+            }
+        });
+
         this.setState({
             error,
             errorInfo,
@@ -50,25 +57,24 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
             }
 
             return (
-                <ScrollView 
-                    className="flex-1 px-4 pt-6" 
+                <ScrollView
+                    className="flex-1 px-4 pt-6"
                     style={{ backgroundColor: colors.primary }}
                 >
                     <View className="gap-4">
                         {/* Error Icon */}
                         <View className="items-center py-8">
-                            <View 
+                            <View
                                 className="w-20 h-20 rounded-full items-center justify-center mb-4"
                                 style={{ backgroundColor: colors.accent + "33" }}
                             >
                                 <Ionicons name="alert-circle" size={40} color={colors.accent} />
                             </View>
-                            <AppText styles="text-xl text-white text-center mb-2" font="font-ibold">
+                            <AppText styles="text-xl text-white text-center mb-2 font-nunbold">
                                 Component Crashed
                             </AppText>
-                            <AppText 
-                                styles="text-sm text-white text-center" 
-                                font="font-iregular"
+                            <AppText
+                                styles="text-sm text-white text-center"
                                 style={{ opacity: 0.6 }}
                             >
                                 The error boundary caught this crash
@@ -76,19 +82,18 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
                         </View>
 
                         {/* Error Details */}
-                        <View 
+                        <View
                             className="p-4 rounded-xl border-2"
-                            style={{ 
-                                backgroundColor: colors.accent + "1A", 
-                                borderColor: colors.accent 
+                            style={{
+                                backgroundColor: colors.accent + "1A",
+                                borderColor: colors.accent
                             }}
                         >
-                            <AppText styles="text-sm text-white mb-2" font="font-ibold">
+                            <AppText styles="text-sm text-white mb-2 font-nunbold">
                                 Error Message:
                             </AppText>
-                            <AppText 
-                                styles="text-xs text-white" 
-                                font="font-iregular"
+                            <AppText
+                                styles="text-xs text-white"
                                 style={{ opacity: 0.8 }}
                             >
                                 {this.state.error?.message || 'Unknown error'}
@@ -97,24 +102,23 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
 
                         {/* Component Stack */}
                         {this.state.errorInfo && (
-                            <View 
+                            <View
                                 className="p-4 rounded-xl border-2"
-                                style={{ 
-                                    backgroundColor: colors.primary100, 
-                                    borderColor: colors.accent + "4D" 
+                                style={{
+                                    backgroundColor: colors.primary100,
+                                    borderColor: colors.accent + "4D"
                                 }}
                             >
-                                <AppText styles="text-sm text-white mb-2" font="font-ibold">
+                                <AppText styles="text-sm text-white mb-2 font-nunbold">
                                     Component Stack:
                                 </AppText>
-                                <ScrollView 
-                                    horizontal 
+                                <ScrollView
+                                    horizontal
                                     showsHorizontalScrollIndicator={false}
                                     style={{ maxHeight: 200 }}
                                 >
-                                    <AppText 
-                                        styles="text-xs text-white" 
-                                        font="font-iregular"
+                                    <AppText
+                                        styles="text-xs text-white"
                                         style={{ opacity: 0.7 }}
                                     >
                                         {this.state.errorInfo.componentStack}
@@ -124,20 +128,19 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
                         )}
 
                         {/* Full Error */}
-                        <View 
+                        <View
                             className="p-4 rounded-xl border-2"
-                            style={{ 
-                                backgroundColor: colors.primary100, 
-                                borderColor: colors.accent + "4D" 
+                            style={{
+                                backgroundColor: colors.primary100,
+                                borderColor: colors.accent + "4D"
                             }}
                         >
-                            <AppText styles="text-sm text-white mb-2" font="font-ibold">
+                            <AppText styles="text-sm text-white mb-2 font-nunbold">
                                 Full Error:
                             </AppText>
                             <ScrollView style={{ maxHeight: 200 }}>
-                                <AppText 
-                                    styles="text-xs text-white" 
-                                    font="font-iregular"
+                                <AppText
+                                    styles="text-xs text-white"
                                     style={{ opacity: 0.7 }}
                                 >
                                     {this.state.error?.stack || 'No stack trace'}

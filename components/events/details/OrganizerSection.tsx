@@ -32,7 +32,7 @@ const OrganizerSection = ({ event }: OrganizerSectionProps) => {
                     <View className="w-12 h-12 rounded-xl items-center justify-center" style={{ backgroundColor: colors.accent + "33", borderWidth: 1, borderColor: colors.accent }}>
                         <Ionicons name="person-outline" size={24} color={colors.accent50} />
                     </View>
-                    <AppText styles="text-xl text-white" font="font-ibold">Meet The Organizer</AppText>
+                    <AppText styles="text-xl text-white font-nunbold">Meet The Organizer</AppText>
                 </View>
 
                 {/* Organizer Card */}
@@ -47,15 +47,15 @@ const OrganizerSection = ({ event }: OrganizerSectionProps) => {
                             />
                         </View>
 
-                        <AppText styles="text-xl text-white text-center" font="font-ibold">
+                        <AppText styles="text-xl text-white text-center font-nunbold">
                             {organizer.full_name}
                         </AppText>
-                        <AppText styles="text-sm text-slate-300 text-center" font="font-iregular">
+                        <AppText styles="text-sm text-slate-300 text-center">
                             @{organizer.username}
                         </AppText>
 
                         {organizer.bio && (
-                            <AppText styles="text-sm text-slate-300 text-center mt-3 leading-relaxed" font="font-iregular">
+                            <AppText styles="text-sm text-slate-300 text-center mt-3 leading-relaxed">
                                 {organizer.bio}
                             </AppText>
                         )}
@@ -63,7 +63,7 @@ const OrganizerSection = ({ event }: OrganizerSectionProps) => {
                         {/* Member Since Badge */}
                         <View className="flex-row items-center gap-2 px-4 py-2 bg-primary rounded-lg mt-2" style={{ borderWidth: 1, borderColor: colors.accent + "50" }}>
                             <Ionicons name="calendar-outline" size={16} color={colors.accent50} />
-                            <AppText styles="text-xs text-slate-300" font="font-iregular">
+                            <AppText styles="text-xs text-slate-300">
                                 Member since {memberSince}
                             </AppText>
                         </View>
@@ -75,7 +75,7 @@ const OrganizerSection = ({ event }: OrganizerSectionProps) => {
                             activeOpacity={0.8}
                         >
                             <Ionicons name="mail-outline" size={20} color={colors.white} />
-                            <AppText styles="text-sm text-white" font="font-ibold">Contact Organizer</AppText>
+                            <AppText styles="text-sm text-white font-nunbold">Contact Organizer</AppText>
                         </TouchableOpacity>
                     </View>
 
@@ -86,11 +86,11 @@ const OrganizerSection = ({ event }: OrganizerSectionProps) => {
                             <View className="w-12 h-12 rounded-xl bg-accent/20 items-center justify-center mb-3">
                                 <Ionicons name="calendar-outline" size={24} color={colors.accent50} />
                             </View>
-                            <AppText styles="text-xs text-slate-400 mb-1" font="font-iregular">Events Organized</AppText>
-                            <AppText styles="text-2xl text-white" font="font-ibold">
+                            <AppText styles="text-xs text-slate-400 mb-1">Events Organized</AppText>
+                            <AppText styles="text-2xl text-white font-nunbold">
                                 {organizer.events_organized}
                             </AppText>
-                            <AppText styles="text-xs text-slate-400 mt-1" font="font-iregular">Total successful events</AppText>
+                            <AppText styles="text-xs text-slate-400 mt-1">Total successful events</AppText>
                         </View>
 
                         {/* Tickets Sold */}
@@ -98,11 +98,11 @@ const OrganizerSection = ({ event }: OrganizerSectionProps) => {
                             <View className="w-12 h-12 rounded-xl bg-accent/20 items-center justify-center mb-3">
                                 <Ionicons name="ticket-outline" size={24} color={colors.accent50} />
                             </View>
-                            <AppText styles="text-xs text-slate-400 mb-1" font="font-iregular">Tickets Sold</AppText>
-                            <AppText styles="text-2xl text-white" font="font-ibold">
+                            <AppText styles="text-xs text-slate-400 mb-1">Tickets Sold</AppText>
+                            <AppText styles="text-2xl text-white font-nunbold">
                                 {organizer.total_tickets_sold.toLocaleString()}
                             </AppText>
-                            <AppText styles="text-xs text-slate-400 mt-1" font="font-iregular">Across all events</AppText>
+                            <AppText styles="text-xs text-slate-400 mt-1">Across all events</AppText>
                         </View>
                     </View>
 
@@ -110,37 +110,37 @@ const OrganizerSection = ({ event }: OrganizerSectionProps) => {
                     <View className="p-2 bg-primary rounded-xl" style={{ borderWidth: 1, borderColor: colors.accent }}>
                         <View className="flex-row items-center gap-2 mb-3">
                             <Ionicons name="shield-checkmark-outline" size={20} color={colors.accent50} />
-                            <AppText styles="text-base text-white" font="font-ibold">Why Trust This Organizer</AppText>
+                            <AppText styles="text-base text-white font-nunbold">Why Trust This Organizer</AppText>
                         </View>
 
                         <View style={{ gap: 12 }}>
                             <View className="flex-row items-start gap-3">
                                 <View className="w-8 h-8 rounded-lg bg-accent/20 items-center justify-center">
-                                    <AppText styles="text-sm text-accent-50" font="font-ibold">✓</AppText>
+                                    <AppText styles="text-sm text-accent-50 font-nunbold">✓</AppText>
                                 </View>
                                 <View className="flex-1">
-                                    <AppText styles="text-sm text-white" font="font-ibold">Verified Organizer</AppText>
-                                    <AppText styles="text-xs text-slate-300" font="font-iregular">Identity and credentials verified</AppText>
+                                    <AppText styles="text-sm text-white font-nunbold">Verified Organizer</AppText>
+                                    <AppText styles="text-xs text-slate-300">Identity and credentials verified</AppText>
                                 </View>
                             </View>
 
                             <View className="flex-row items-start gap-3">
                                 <View className="w-8 h-8 rounded-lg bg-accent/20 items-center justify-center">
-                                    <AppText styles="text-sm text-accent-50" font="font-ibold">✓</AppText>
+                                    <AppText styles="text-sm text-accent-50 font-nunbold">✓</AppText>
                                 </View>
                                 <View className="flex-1">
-                                    <AppText styles="text-sm text-white" font="font-ibold">Proven Track Record</AppText>
-                                    <AppText styles="text-xs text-slate-300" font="font-iregular">{organizer.events_organized}+ successful events organized</AppText>
+                                    <AppText styles="text-sm text-white font-nunbold">Proven Track Record</AppText>
+                                    <AppText styles="text-xs text-slate-300">{organizer.events_organized}+ successful events organized</AppText>
                                 </View>
                             </View>
 
                             <View className="flex-row items-start gap-3">
                                 <View className="w-8 h-8 rounded-lg bg-accent/20 items-center justify-center">
-                                    <AppText styles="text-sm text-accent-50" font="font-ibold">✓</AppText>
+                                    <AppText styles="text-sm text-accent-50 font-nunbold">✓</AppText>
                                 </View>
                                 <View className="flex-1">
-                                    <AppText styles="text-sm text-white" font="font-ibold">Secure Payments</AppText>
-                                    <AppText styles="text-xs text-slate-300" font="font-iregular">All transactions are protected</AppText>
+                                    <AppText styles="text-sm text-white font-nunbold">Secure Payments</AppText>
+                                    <AppText styles="text-xs text-slate-300">All transactions are protected</AppText>
                                 </View>
                             </View>
                         </View>

@@ -74,7 +74,7 @@ const EditEventScreen = () => {
                 {isLoading && (
                     <View className="flex-1 items-center justify-center p-6">
                         <ActivityIndicator size="large" color={colors.accent} />
-                        <AppText styles="text-sm text-white mt-4" font="font-iregular" style={{ opacity: 0.6 }}>
+                        <AppText styles="text-sm text-white mt-4" style={{ opacity: 0.6 }}>
                             Loading event details...
                         </AppText>
                     </View>
@@ -90,12 +90,11 @@ const EditEventScreen = () => {
                             >
                                 <View className="items-center">
                                     <Ionicons name="alert-circle" size={48} color={colors.accent} />
-                                    <AppText styles="text-lg text-white mt-4 mb-2" font="font-ibold">
+                                    <AppText styles="text-lg text-white mt-4 mb-2 font-nunbold">
                                         Event Not Found
                                     </AppText>
                                     <AppText
                                         styles="text-sm text-white text-center mb-6"
-                                        font="font-iregular"
                                         style={{ opacity: 0.8 }}
                                     >
                                         The event you're looking for doesn't exist or you don't have access to it.
@@ -107,7 +106,7 @@ const EditEventScreen = () => {
                                         activeOpacity={0.8}
                                     >
                                         <Ionicons name="arrow-back" size={18} color={colors.white} />
-                                        <AppText styles="text-sm text-white" font="font-ibold">
+                                        <AppText styles="text-sm text-white font-nunbold">
                                             Back to My Events
                                         </AppText>
                                     </TouchableOpacity>
@@ -127,12 +126,11 @@ const EditEventScreen = () => {
                             >
                                 <View className="items-center">
                                     <Ionicons name="lock-closed" size={48} color={colors.accent} />
-                                    <AppText styles="text-lg text-white mt-4 mb-2" font="font-ibold">
+                                    <AppText styles="text-lg text-white mt-4 mb-2 font-nunbold">
                                         Cannot Edit Event
                                     </AppText>
                                     <AppText
                                         styles="text-sm text-white text-center mb-6"
-                                        font="font-iregular"
                                         style={{ opacity: 0.8 }}
                                     >
                                         {eventStatus.hasEnded
@@ -146,7 +144,7 @@ const EditEventScreen = () => {
                                         activeOpacity={0.8}
                                     >
                                         <Ionicons name="arrow-back" size={18} color={colors.white} />
-                                        <AppText styles="text-sm text-white" font="font-ibold">
+                                        <AppText styles="text-sm text-white font-nunbold">
                                             Back to Event Details
                                         </AppText>
                                     </TouchableOpacity>
@@ -161,10 +159,10 @@ const EditEventScreen = () => {
                     <View className="flex-1">
                         {/* Page Header */}
                         <View className="px-6 py-4" style={{ backgroundColor: colors.primary100 }}>
-                            <AppText styles="text-base text-white mb-1" font="font-ibold">
+                            <AppText styles="text-base text-white mb-1 font-nunbold">
                                 Edit Event
                             </AppText>
-                            <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.6 }}>
+                            <AppText styles="text-xs text-white" style={{ opacity: 0.6 }}>
                                 Update your event details and settings
                             </AppText>
                         </View>

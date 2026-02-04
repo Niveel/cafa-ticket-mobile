@@ -3,6 +3,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Stack, SplashScreen } from "expo-router";
 import { useColorScheme } from "react-native";
 import { useEffect } from 'react';
+import { useFonts } from "expo-font";
 
 import "../global.css";
 import { TabBarProvider } from "@/context/TabBarContext";
@@ -12,8 +13,6 @@ import * as Sentry from '@sentry/react-native';
 Sentry.init({
   dsn: 'https://c2a31ca6c3c55404f2c5521b59499bed@o4510828002148352.ingest.us.sentry.io/4510828003917824',
 
-  // Adds more context data to events (IP address, cookies, user, etc.)
-  // For more information, visit: https://docs.sentry.io/platforms/react-native/data-management/data-collected/
   sendDefaultPii: true,
 
   // Enable Logs
@@ -32,11 +31,25 @@ Sentry.init({
 SplashScreen.preventAutoHideAsync();
 
 export default Sentry.wrap(function RootLayout() {
+  const [fontsLoaded, error] = useFonts({
+    "Rhodium-Regular": require("../assets/fonts/Rhodium-Regular.ttf"),
+    "Nunito-Medium": require("../assets/fonts/Nunito-Medium.ttf"),
+    "Nunito-Bold": require("../assets/fonts/Nunito-Bold.ttf"),
+    "Nunito-Light": require("../assets/fonts/Nunito-Light.ttf"),
+    "Metrophobic-Regular": require("../assets/fonts/Metrophobic-Regular.ttf"),
+  });
+
   const colorScheme = useColorScheme();
 
   useEffect(() => {
-    SplashScreen.hideAsync();
-  }, []);
+    if (error) {
+      console.error(error, "Error loading fonts");
+    }
+
+    if (fontsLoaded) SplashScreen.hideAsync();
+  }, [fontsLoaded, error]);
+
+  if (!fontsLoaded && !error) return null;
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>

@@ -82,13 +82,12 @@ const PaymentHistoryCard = ({ payment }: Props) => {
                 {/* Event Info and Status */}
                 <View className="flex-1">
                     <AppText
-                        styles="text-base text-white mb-1"
-                        font="font-isemibold"
+                        styles="text-base text-white mb-1 font-nunbold"
                         numberOfLines={2}
                     >
                         {payment.event.title}
                     </AppText>
-                    <AppText styles="text-xs text-slate-400 mb-2" font="font-iregular">
+                    <AppText styles="text-xs text-slate-400 mb-2">
                         {formatDate(payment.created_at)}
                     </AppText>
                     <View
@@ -96,8 +95,7 @@ const PaymentHistoryCard = ({ payment }: Props) => {
                     >
                         <Ionicons name={statusConfig.icon} size={14} color={statusConfig.text_color === "text-emerald-400" ? colors.success : statusConfig.text_color === "text-amber-400" ? colors.warning : colors.accent} />
                         <AppText
-                            styles={`text-xs ${statusConfig.text_color}`}
-                            font="font-isemibold"
+                            styles={`text-xs ${statusConfig.text_color} font-nunbold`}
                         >
                             {statusConfig.text}
                         </AppText>
@@ -109,20 +107,20 @@ const PaymentHistoryCard = ({ payment }: Props) => {
             <View className="flex-row flex-wrap gap-2 mb-3">
                 {/* Amount */}
                 <View className="flex-1 min-w-[100px] p-3 bg-primary-200 rounded-lg border border-accent/20">
-                    <AppText styles="text-xs text-slate-400 mb-1" font="font-iregular">
+                    <AppText styles="text-xs text-slate-400 mb-1">
                         Amount
                     </AppText>
-                    <AppText styles="text-base text-white" font="font-ibold">
+                    <AppText styles="text-base text-white font-nunbold">
                         {formatMoney(payment.amount)}
                     </AppText>
                 </View>
 
                 {/* Tickets Count */}
                 <View className="flex-1 min-w-[100px] p-3 bg-primary-200 rounded-lg border border-accent/20">
-                    <AppText styles="text-xs text-slate-400 mb-1" font="font-iregular">
+                    <AppText styles="text-xs text-slate-400 mb-1">
                         Tickets
                     </AppText>
-                    <AppText styles="text-base text-white" font="font-ibold">
+                    <AppText styles="text-base text-white font-nunbold">
                         {payment.tickets.length}
                     </AppText>
                 </View>
@@ -132,11 +130,11 @@ const PaymentHistoryCard = ({ payment }: Props) => {
             <View className="flex-row items-center justify-between pt-3 border-t border-accent/20">
                 <View className="flex-row items-center gap-2">
                     <Ionicons name={getPaymentMethodIcon()} size={16} color={colors.white} />
-                    <AppText styles="text-xs text-slate-400" font="font-iregular">
+                    <AppText styles="text-xs text-slate-400">
                         {payment.payment_method.replace("_", " ")}
                     </AppText>
                 </View>
-                <AppText styles="text-xs text-accent-50 font-mono" font="font-imedium">
+                <AppText styles="text-xs text-accent-50 font-mono">
                     {payment.reference}
                 </AppText>
             </View>

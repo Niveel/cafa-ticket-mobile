@@ -58,8 +58,8 @@ const LoginScreen = () => {
     } catch (err: any) {
       setError(
         err?.response?.data?.message ||
-          err?.response?.data?.detail ||
-          "Login failed. Please check your credentials."
+        err?.response?.data?.detail ||
+        "Login failed. Please check your credentials."
       );
     } finally {
       setIsLoading(false);
@@ -69,7 +69,7 @@ const LoginScreen = () => {
   return (
     <Screen statusBarStyle="light-content" statusBarBg={colors.primary}>
       <FormLoader visible={isLoading} />
-      
+
       <LinearGradient
         colors={[colors.primary, colors.primary200, colors.primary]}
         style={{ position: "absolute", left: 0, right: 0, top: 0, bottom: 0 }}
@@ -104,7 +104,6 @@ const LoginScreen = () => {
 
                 <AppText
                   styles="text-base text-white/70 text-center"
-                  font="font-iregular"
                 >
                   Sign in to continue to CafaTickets
                 </AppText>
@@ -152,7 +151,7 @@ const LoginScreen = () => {
                   </View>
 
                   <Link href="/forgot-password" className="text-red-300 underline">Forgot Password?</Link>
-                  
+
 
                   <View className="mb-4">
                     <SubmitButton title="Sign In" />
@@ -160,18 +159,18 @@ const LoginScreen = () => {
 
                   <View className="flex-row items-center my-6">
                     <View className="flex-1 h-[1px] bg-slate-300" />
-                    <AppText styles="mx-4 text-sm text-slate-500" font="font-iregular">
+                    <AppText styles="mx-4 text-sm text-slate-500">
                       OR
                     </AppText>
                     <View className="flex-1 h-[1px] bg-slate-300" />
                   </View>
 
                   <View className="flex-row justify-center items-center">
-                    <AppText styles="text-sm text-slate-600" font="font-iregular">
+                    <AppText styles="text-sm text-slate-600">
                       Don't have an account?{" "}
                     </AppText>
                     <TouchableOpacity onPress={() => router.push("/signup" as Href)}>
-                      <AppText styles="text-sm underline" font="font-ibold" color="text-red-400">
+                      <AppText styles="text-sm underline font-nunbold" color="text-red-400">
                         Sign Up
                       </AppText>
                     </TouchableOpacity>
@@ -182,7 +181,6 @@ const LoginScreen = () => {
               <View className="items-center mt-6">
                 <AppText
                   styles="text-xs text-white/50 text-center px-8"
-                  font="font-iregular"
                 >
                   By signing in, you agree to our <Link href="/terms" className="text-red-400 underline">Terms</Link> and <Link href="/privacy" className="text-red-400 underline">Privacy Policy</Link>
                 </AppText>

@@ -1,4 +1,5 @@
 import client from "./client";
+import * as Sentry from '@sentry/react-native';
 
 // =====================
 // Security Settings
@@ -14,6 +15,7 @@ export async function changePassword(data: {
         return response.data;
     } catch (error) {
         console.error("changePassword error:", error);
+        Sentry.captureException(error);
         throw error;
     }
 }
@@ -27,6 +29,7 @@ export async function changeEmail(data: {
         return response.data;
     } catch (error) {
         console.error("changeEmail error:", error);
+        Sentry.captureException(error);
         throw error;
     }
 }
@@ -40,6 +43,7 @@ export async function changeUsername(data: {
         return response.data;
     } catch (error) {
         console.error("changeUsername error:", error);
+        Sentry.captureException(error);
         throw error;
     }
 }
@@ -53,6 +57,7 @@ export async function deleteAccount(data: {
         return response.data;
     } catch (error) {
         console.error("deleteAccount error:", error);
+        Sentry.captureException(error);
         throw error;
     }
 }

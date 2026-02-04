@@ -23,7 +23,7 @@ const PastEventActiveFiltersDisplay = ({ activeFilters, onRemoveFilter, onClearA
 
     return (
         <View className="flex-row flex-wrap items-center gap-2">
-            <AppText styles="text-xs text-white" font="font-isemibold" style={{ opacity: 0.7 }}>
+            <AppText styles="text-xs text-white" style={{ opacity: 0.7 }}>
                 Filters:
             </AppText>
 
@@ -34,7 +34,7 @@ const PastEventActiveFiltersDisplay = ({ activeFilters, onRemoveFilter, onClearA
                     className="flex-row items-center gap-2 px-3 py-2 rounded-lg border"
                     style={{ backgroundColor: colors.accent + "33", borderColor: colors.accent }}
                 >
-                    <AppText styles="text-xs text-white" font="font-isemibold">
+                    <AppText styles="text-xs text-white">
                         {filter.label}: {filter.value}
                     </AppText>
                     <TouchableOpacity
@@ -56,7 +56,7 @@ const PastEventActiveFiltersDisplay = ({ activeFilters, onRemoveFilter, onClearA
                     style={{ backgroundColor: colors.primary100, borderColor: colors.accent }}
                     activeOpacity={0.7}
                 >
-                    <AppText styles="text-xs text-white" font="font-ibold">
+                    <AppText styles="text-xs text-white font-nunbold">
                         Clear All
                     </AppText>
                 </TouchableOpacity>

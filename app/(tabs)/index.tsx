@@ -1,8 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
-import { RefreshControl, View, StatusBar, Button } from "react-native";
+import { RefreshControl, View, StatusBar } from "react-native";
 import Animated from "react-native-reanimated";
 import { Ionicons } from "@expo/vector-icons";
-import * as Sentry from '@sentry/react-native';
 
 import colors from "@/config/colors";
 import { Event, PublicStats } from "@/types";
@@ -110,8 +109,6 @@ export default function HomeScreen() {
                     <SearchBar />
                 </View>
 
-                <Button title='Try!' onPress={ () => { Sentry.captureException(new Error('First error')) }}/>
-
                 {/* Featured Event */}
                 {featuredEvent && (
                     <View className="mb-6">
@@ -137,12 +134,11 @@ export default function HomeScreen() {
                                     <Ionicons name="calendar" size={20} color={colors.accent} />
                                 </View>
                                 <View>
-                                    <AppText styles="text-lg text-white" font="font-ibold">
+                                    <AppText styles="text-lg text-white font-nunbold">
                                         Events Happening Soon
                                     </AppText>
                                     <AppText
                                         styles="text-xs text-white"
-                                        font="font-iregular"
                                         style={{ opacity: 0.6 }}
                                     >
                                         Within the next 7 days
@@ -176,12 +172,11 @@ export default function HomeScreen() {
                                     <Ionicons name="calendar-outline" size={20} color={colors.accent} />
                                 </View>
                                 <View>
-                                    <AppText styles="text-lg text-white" font="font-ibold">
+                                    <AppText styles="text-lg text-white font-nunbold">
                                         Upcoming Events
                                     </AppText>
                                     <AppText
                                         styles="text-xs text-white"
-                                        font="font-iregular"
                                         style={{ opacity: 0.6 }}
                                     >
                                         Events coming up

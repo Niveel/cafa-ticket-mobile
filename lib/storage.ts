@@ -1,4 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import * as Sentry from '@sentry/react-native';
 
 const ONBOARDING_COMPLETE_KEY = "@cafa_onboarding_complete";
 
@@ -17,6 +18,7 @@ export const storage = {
       await AsyncStorage.setItem(ONBOARDING_COMPLETE_KEY, "true");
     } catch (error) {
       console.error("Error saving onboarding status:", error);
+      Sentry.captureException(error);
     }
   },
 
@@ -25,6 +27,7 @@ export const storage = {
       await AsyncStorage.removeItem(ONBOARDING_COMPLETE_KEY);
     } catch (error) {
       console.error("Error resetting onboarding:", error);
+      Sentry.captureException(error);
     }
   },
 
@@ -33,6 +36,7 @@ export const storage = {
       return await AsyncStorage.getItem(key);
     } catch (error) {
       console.error(`Error getting item ${key}:`, error);
+      Sentry.captureException(error);
       return null;
     }
   },
@@ -42,6 +46,7 @@ export const storage = {
       await AsyncStorage.setItem(key, value);
     } catch (error) {
       console.error(`Error setting item ${key}:`, error);
+      Sentry.captureException(error);
     }
   },
 
@@ -50,6 +55,7 @@ export const storage = {
       await AsyncStorage.removeItem(key);
     } catch (error) {
       console.error(`Error removing item ${key}:`, error);
+      Sentry.captureException(error);
     }
   },
 };

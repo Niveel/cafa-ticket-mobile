@@ -53,12 +53,11 @@ const ListItem: FC<ListItemProps> = ({
             <View className="flex-1">
                 <AppText
                     styles={textColor ? `text-sm ${textColor}` : "text-sm text-white"}
-                    font="font-isemibold"
                 >
                     {title}
                 </AppText>
                 {subtitle && (
-                    <AppText styles="text-xs text-slate-400 mt-0.5" font="font-iregular">
+                    <AppText styles="text-xs text-slate-400 mt-0.5">
                         {subtitle}
                     </AppText>
                 )}

@@ -65,10 +65,10 @@ const TicketPurchaseInfo = ({ purchaseInfo }: Props) => {
                     <Ionicons name="receipt-outline" size={18} color="#34d399" />
                 </View>
                 <View>
-                    <AppText styles="text-sm text-white" font="font-ibold">
+                    <AppText styles="text-sm text-white font-nunbold">
                         Purchase Information
                     </AppText>
-                    <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.5 }}>
+                    <AppText styles="text-xs text-white" style={{ opacity: 0.5 }}>
                         Payment and transaction details
                     </AppText>
                 </View>
@@ -81,17 +81,16 @@ const TicketPurchaseInfo = ({ purchaseInfo }: Props) => {
                         key={row.label}
                         className="flex-row items-center gap-3 p-3 rounded-lg"
                         style={{ backgroundColor: colors.primary200 }}
-                        
+
                         accessibilityLabel={`${row.label}: ${row.value}`}
                     >
                         <Ionicons name={row.icon as any} size={18} color={colors.accent50} />
                         <View className="flex-1">
-                            <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.5 }}>
+                            <AppText styles="text-xs text-white" style={{ opacity: 0.5 }}>
                                 {row.label}
                             </AppText>
                             <AppText
                                 styles="text-xs text-white"
-                                font={row.mono ? "font-iregular" : "font-isemibold"}
                                 style={row.mono ? { opacity: 0.8, fontFamily: "monospace" } : undefined}
                                 numberOfLines={1}
                             >
@@ -105,12 +104,12 @@ const TicketPurchaseInfo = ({ purchaseInfo }: Props) => {
                 <View
                     className="flex-row items-center gap-3 p-3 rounded-lg"
                     style={{ backgroundColor: colors.primary200 }}
-                    
+
                     accessibilityLabel={`Payment Status: ${status.label}`}
                 >
                     <Ionicons name={status.icon as any} size={18} color={status.color} />
                     <View className="flex-1">
-                        <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.5 }}>
+                        <AppText styles="text-xs text-white" style={{ opacity: 0.5 }}>
                             Payment Status
                         </AppText>
                         <View
@@ -120,7 +119,7 @@ const TicketPurchaseInfo = ({ purchaseInfo }: Props) => {
                                 borderColor: status.color + "33",
                             }}
                         >
-                            <AppText styles="text-xs" font="font-isemibold" style={{ color: status.color }}>
+                            <AppText styles="text-xs" style={{ color: status.color }}>
                                 {status.label}
                             </AppText>
                         </View>
@@ -133,10 +132,10 @@ const TicketPurchaseInfo = ({ purchaseInfo }: Props) => {
                     style={{ backgroundColor: colors.primary200 }}
                     accessibilityLabel={`Amount Paid: ${purchaseInfo.currency} ${purchaseInfo.amount_paid}`}
                 >
-                    <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.6 }}>
+                    <AppText styles="text-xs text-white" style={{ opacity: 0.6 }}>
                         Amount Paid
                     </AppText>
-                    <AppText styles="text-sm text-white" font="font-ibold">
+                    <AppText styles="text-sm text-white font-nunbold">
                         {purchaseInfo.currency} {parseFloat(purchaseInfo.amount_paid).toLocaleString("en-GH")}
                     </AppText>
                 </View>

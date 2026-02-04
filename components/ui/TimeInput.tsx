@@ -79,11 +79,11 @@ const TimeInput = ({
         <View>
             {/* Label */}
             <View className="flex-row items-center mb-2">
-                <AppText styles="text-sm text-white" font="font-imedium">
+                <AppText styles="text-sm text-white">
                     {label}
                 </AppText>
                 {required && (
-                    <AppText styles="text-sm ml-1" font="font-imedium" style={{ color: colors.accent50 }}>
+                    <AppText styles="text-sm ml-1" style={{ color: colors.accent50 }}>
                         *
                     </AppText>
                 )}
@@ -104,7 +104,6 @@ const TimeInput = ({
                     <Ionicons name="time-outline" size={20} color={colors.white} style={{ opacity: 0.6 }} />
                     <AppText
                         styles="text-sm text-white flex-1"
-                        font="font-iregular"
                         style={{ opacity: value ? 1 : 0.6 }}
                     >
                         {value ? formatTimeDisplay(value) : placeholder}
@@ -136,7 +135,7 @@ const TimeInput = ({
                                     style={{ backgroundColor: colors.primary200 }}
                                     activeOpacity={0.7}
                                 >
-                                    <AppText styles="text-sm text-white" font="font-isemibold">
+                                    <AppText styles="text-sm text-white">
                                         Cancel
                                     </AppText>
                                 </TouchableOpacity>
@@ -146,7 +145,7 @@ const TimeInput = ({
                                     style={{ backgroundColor: colors.accent }}
                                     activeOpacity={0.7}
                                 >
-                                    <AppText styles="text-sm text-white" font="font-isemibold">
+                                    <AppText styles="text-sm text-white">
                                         Done
                                     </AppText>
                                 </TouchableOpacity>

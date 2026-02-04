@@ -165,7 +165,7 @@ const PastEventsScreen = () => {
                             path={tickets}
                             style={{ width: 200, height: 200 }}
                         />
-                        <AppText styles="text-sm text-white mt-4" font="font-iregular" style={{ opacity: 0.6 }}>
+                        <AppText styles="text-sm text-white mt-4" style={{ opacity: 0.6 }}>
                             Loading past events...
                         </AppText>
                     </View>
@@ -177,12 +177,11 @@ const PastEventsScreen = () => {
                         >
                             <Ionicons name="search-outline" size={40} color={colors.accent50} />
                         </View>
-                        <AppText styles="text-lg text-white mb-3 text-center" font="font-ibold">
+                        <AppText styles="text-lg text-white mb-3 text-center font-nunbold">
                             {hasActiveFilters ? "No Events Found" : "No Past Events"}
                         </AppText>
                         <AppText
                             styles="text-sm text-white text-center mb-6"
-                            font="font-iregular"
                             style={{ opacity: 0.7, maxWidth: 300 }}
                         >
                             {hasActiveFilters
@@ -196,7 +195,7 @@ const PastEventsScreen = () => {
                                 style={{ backgroundColor: colors.accent }}
                                 activeOpacity={0.8}
                             >
-                                <AppText styles="text-sm text-white" font="font-ibold">
+                                <AppText styles="text-sm text-white font-nunbold">
                                     Clear Filters
                                 </AppText>
                             </TouchableOpacity>
@@ -228,12 +227,11 @@ const PastEventsScreen = () => {
                                     >
                                         <AppText styles="text-2xl">🎉</AppText>
                                     </View>
-                                    <AppText styles="text-base text-white mb-2" font="font-ibold">
+                                    <AppText styles="text-base text-white mb-2 font-nunbold">
                                         You've reached the end!
                                     </AppText>
                                     <AppText
                                         styles="text-sm text-white"
-                                        font="font-iregular"
                                         style={{ opacity: 0.6 }}
                                     >
                                         That's all the events we have

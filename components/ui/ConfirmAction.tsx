@@ -25,14 +25,13 @@ const ConfirmAction: FC<ConfirmActionProps> = ({
         <View className="p-6" style={{ minHeight: 280, zIndex: 100 }}>
             {/* Title */}
             <AppText
-                styles={`text-center text-xl mb-3 ${isDestructive ? "text-accent" : "text-accent-50"}`}
-                font="font-ibold"
+                styles={`text-center text-xl mb-3 font-nunbold ${isDestructive ? "text-accent" : "text-accent-50"}`}
             >
                 {title}
             </AppText>
 
             {/* Description */}
-            <AppText styles="text-center text-sm text-slate-300 mb-8 px-2" font="font-iregular">
+            <AppText styles="text-center text-sm text-slate-300 mb-8 px-2">
                 {desc}
             </AppText>
 

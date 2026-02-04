@@ -14,7 +14,7 @@ interface EventsGridProps {
     isLoading: boolean;
     hasMore: boolean;
     onLoadMore: () => void;
-    headerComponent?: ReactElement | null; 
+    headerComponent?: ReactElement | null;
 }
 
 // Memoized footer component for performance
@@ -27,7 +27,7 @@ const ListFooter = memo(({ isLoading, hasMore, eventsLength }: {
         return (
             <View className="flex-row justify-center items-center py-12">
                 <ActivityIndicator size="large" color={colors.accent50} />
-                <AppText styles="text-sm text-slate-300 ml-3" font="font-isemibold">
+                <AppText styles="text-sm text-slate-300 ml-3">
                     Loading more events...
                 </AppText>
             </View>
@@ -43,10 +43,10 @@ const ListFooter = memo(({ isLoading, hasMore, eventsLength }: {
                 >
                     <AppText styles="text-2xl">🎉</AppText>
                 </View>
-                <AppText styles="text-base text-white mb-2" font="font-ibold">
+                <AppText styles="text-base text-white mb-2 font-nunbold">
                     You've reached the end!
                 </AppText>
-                <AppText styles="text-sm text-slate-300 text-center px-8" font="font-iregular">
+                <AppText styles="text-sm text-slate-300 text-center px-8">
                     That's all the events we have for now. Check back later!
                 </AppText>
             </View>
@@ -89,7 +89,7 @@ const EventsGrid = ({
             data={events}
             renderItem={renderItem}
             keyExtractor={keyExtractor}
-            ListHeaderComponent={headerComponent || undefined}  
+            ListHeaderComponent={headerComponent || undefined}
             ListFooterComponent={
                 <ListFooter
                     isLoading={isLoading}

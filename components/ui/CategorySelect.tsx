@@ -34,7 +34,7 @@ const CategorySelect = ({
             setIsLoading(true);
             setFetchError(null);
             const data = await getEventCategories();
-            
+
             // ✅ Validate data before setting state
             if (Array.isArray(data) && data.length > 0) {
                 setCategories(data);
@@ -58,10 +58,10 @@ const CategorySelect = ({
         return (
             <View>
                 <View className="mb-2">
-                    <AppText styles="text-sm text-slate-300" font="font-imedium">
+                    <AppText styles="text-sm text-slate-300">
                         {label}
                         {required && (
-                            <AppText styles="text-sm text-red-400" font="font-imedium">
+                            <AppText styles="text-sm text-red-400">
                                 {" *"}
                             </AppText>
                         )}
@@ -69,13 +69,13 @@ const CategorySelect = ({
                 </View>
                 <View
                     className="flex-row items-center gap-3 px-4 py-3 rounded-xl border-2"
-                    style={{ 
+                    style={{
                         backgroundColor: colors.primary100,
                         borderColor: colors.accent
                     }}
                 >
                     <ActivityIndicator size="small" color={colors.accent} />
-                    <AppText styles="text-sm text-white" font="font-iregular" style={{ opacity: 0.6 }}>
+                    <AppText styles="text-sm text-white" style={{ opacity: 0.6 }}>
                         Loading categories...
                     </AppText>
                 </View>
@@ -88,10 +88,10 @@ const CategorySelect = ({
         return (
             <View>
                 <View className="mb-2">
-                    <AppText styles="text-sm text-slate-300" font="font-imedium">
+                    <AppText styles="text-sm text-slate-300">
                         {label}
                         {required && (
-                            <AppText styles="text-sm text-red-400" font="font-imedium">
+                            <AppText styles="text-sm text-red-400">
                                 {" *"}
                             </AppText>
                         )}
@@ -99,7 +99,7 @@ const CategorySelect = ({
                 </View>
                 <View
                     className="p-4 rounded-xl border-2"
-                    style={{ 
+                    style={{
                         backgroundColor: colors.accent + "1A",
                         borderColor: colors.accent
                     }}
@@ -107,15 +107,15 @@ const CategorySelect = ({
                     <View className="flex-row items-start gap-3 mb-3">
                         <Ionicons name="alert-circle" size={20} color={colors.accent} />
                         <View className="flex-1">
-                            <AppText styles="text-sm text-white mb-1" font="font-ibold">
+                            <AppText styles="text-sm text-white mb-1 font-nunbold">
                                 {fetchError}
                             </AppText>
-                            <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.7 }}>
+                            <AppText styles="text-xs text-white" style={{ opacity: 0.7 }}>
                                 Please try again
                             </AppText>
                         </View>
                     </View>
-                    <View 
+                    <View
                         onTouchEnd={fetchCategories}
                         className="p-3 rounded-lg items-center"
                         style={{ backgroundColor: colors.accent }}
@@ -123,7 +123,7 @@ const CategorySelect = ({
                         accessibilityRole="button"
                         accessibilityLabel="Retry loading categories"
                     >
-                        <AppText styles="text-sm text-white" font="font-isemibold">
+                        <AppText styles="text-sm text-white">
                             Retry
                         </AppText>
                     </View>

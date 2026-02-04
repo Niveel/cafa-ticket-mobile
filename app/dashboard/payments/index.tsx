@@ -112,7 +112,7 @@ const PaymentsScreen = () => {
                     {isLoading ? (
                         <View className="flex-1 items-center justify-center">
                             <ActivityIndicator size="large" color={colors.accent} />
-                            <AppText styles="text-sm text-white mt-4" font="font-iregular" style={{ opacity: 0.6 }}>
+                            <AppText styles="text-sm text-white mt-4" style={{ opacity: 0.6 }}>
                                 Loading revenue data...
                             </AppText>
                         </View>
@@ -125,7 +125,7 @@ const PaymentsScreen = () => {
                                     className="p-12 rounded-xl border-2"
                                     style={{ backgroundColor: colors.accent, borderColor: colors.accent }}
                                 >
-                                    <AppText styles="text-lg text-white text-center" font="font-ibold">
+                                    <AppText styles="text-lg text-white text-center font-nunbold">
                                         {error}
                                     </AppText>
                                 </View>
@@ -142,7 +142,7 @@ const PaymentsScreen = () => {
                             <View className="p-2 gap-6">
                                 {/* Page Header */}
                                 <View>
-                                    <AppText styles="text-sm text-white" font="font-iregular" style={{ opacity: 0.7 }}>
+                                    <AppText styles="text-sm text-white" style={{ opacity: 0.7 }}>
                                         Track your earnings and manage payouts
                                     </AppText>
                                 </View>
@@ -169,12 +169,11 @@ const PaymentsScreen = () => {
                                                 <Ionicons name="cash-outline" size={24} color={colors.accent50} />
                                             </View>
                                             <View className="flex-1">
-                                                <AppText styles="text-base text-white mb-1" font="font-ibold">
+                                                <AppText styles="text-base text-white mb-1 font-nunbold">
                                                     Request Payout
                                                 </AppText>
                                                 <AppText
                                                     styles="text-xs text-white"
-                                                    font="font-iregular"
                                                     style={{ opacity: 0.7 }}
                                                 >
                                                     Available: GH₵{" "}
@@ -202,12 +201,11 @@ const PaymentsScreen = () => {
                                                 <Ionicons name="receipt-outline" size={24} color={colors.accent50} />
                                             </View>
                                             <View className="flex-1">
-                                                <AppText styles="text-base text-white mb-1" font="font-ibold">
+                                                <AppText styles="text-base text-white mb-1 font-nunbold">
                                                     Payment History
                                                 </AppText>
                                                 <AppText
                                                     styles="text-xs text-white"
-                                                    font="font-iregular"
                                                     style={{ opacity: 0.7 }}
                                                 >
                                                     View ticket purchases
@@ -232,12 +230,11 @@ const PaymentsScreen = () => {
                                                 <Ionicons name="wallet-outline" size={24} color={colors.accent50} />
                                             </View>
                                             <View className="flex-1">
-                                                <AppText styles="text-base text-white mb-1" font="font-ibold">
+                                                <AppText styles="text-base text-white mb-1 font-nunbold">
                                                     Payment Profiles
                                                 </AppText>
                                                 <AppText
                                                     styles="text-xs text-white"
-                                                    font="font-iregular"
                                                     style={{ opacity: 0.7 }}
                                                 >
                                                     Manage payout methods

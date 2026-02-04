@@ -45,10 +45,10 @@ const PopularEventsSection = ({ events, isLoading }: PopularEventsSectionProps) 
                         <Ionicons name="flame" size={20} color={colors.accent} />
                     </View>
                     <View>
-                        <AppText styles="text-lg text-white" font="font-ibold">
+                        <AppText styles="text-lg text-white font-nunbold">
                             Popular Events
                         </AppText>
-                        <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.6 }}>
+                        <AppText styles="text-xs text-white" style={{ opacity: 0.6 }}>
                             Trending now
                         </AppText>
                     </View>
@@ -58,7 +58,7 @@ const PopularEventsSection = ({ events, isLoading }: PopularEventsSectionProps) 
                     className="flex-row items-center gap-1"
                     activeOpacity={0.7}
                 >
-                    <AppText styles="text-sm" font="font-isemibold" style={{ color: colors.accent50 }}>
+                    <AppText styles="text-sm" style={{ color: colors.accent50 }}>
                         See All
                     </AppText>
                     <Ionicons name="chevron-forward" size={16} color={colors.accent50} />

@@ -6,6 +6,7 @@ import {
 } from "@/types";
 import { AttendedEventsResponse, EventCategory, MyEventsResponse } from "@/types/dash-events.types";
 import client from "./client";
+import * as Sentry from '@sentry/react-native';
 
 export async function getEvents(
   filters: EventFilters = {}
@@ -29,6 +30,7 @@ export async function getEvents(
     return response.data;
   } catch (error) {
     console.error("Error fetching events:", error);
+    Sentry.captureException(error);
     return {
       count: 0,
       next: null,
@@ -44,6 +46,7 @@ export async function getEventBySlug(slug: string): Promise<EventDetails | null>
     return response.data;
   } catch (error) {
     console.error("Error fetching event:", error);
+    Sentry.captureException(error);
     return null;
   }
 }
@@ -54,6 +57,7 @@ export async function getEventCategories(): Promise<EventCategory[]> {
     return response.data.categories || [];
   } catch (error) {
     console.error("Error fetching categories:", error);
+    Sentry.captureException(error);
     return [];
   }
 }
@@ -64,6 +68,7 @@ export async function searchEvents(query: string): Promise<Event[]> {
     return response.results;
   } catch (error) {
     console.error("Error searching events:", error);
+    Sentry.captureException(error);
     return [];
   }
 }
@@ -95,6 +100,7 @@ export async function getMyEvents(filters: MyEventsFilters = {}): Promise<MyEven
     return response.data;
   } catch (error) {
     console.error("Error fetching my events:", error);
+    Sentry.captureException(error);
     return {
       count: 0,
       next: null,
@@ -147,6 +153,7 @@ export async function getMyAttendedEvents(
     return response.data;
   } catch (error) {
     console.error("Error fetching attended events:", error);
+    Sentry.captureException(error);
     return {
       count: 0,
       next: null,
@@ -220,6 +227,7 @@ export async function createEvent(payload: any) {
 
   } catch (error: any) {
     console.error("Create event error:", error);
+    Sentry.captureException(error);
 
     if (error.response?.data) {
       const errorData = error.response.data;
@@ -266,6 +274,8 @@ export async function updateEvent(slug: string, payload: any) {
     });
     return response.data;
   } catch (error: any) {
+    console.error("Update event error:", error);
+    Sentry.captureException(error);
     if (error.response?.data) {
       const errorData = error.response.data;
 
@@ -313,6 +323,7 @@ export async function getPastEvents(params?: {
     return response.data as PaginatedEventsResponse;
   } catch (error) {
     console.error("getPastEvents error:", error);
+    Sentry.captureException(error);
     return null;
   }
 }

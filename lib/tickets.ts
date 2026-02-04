@@ -3,7 +3,7 @@
  */
 
 import client from "./client";
-import { API_BASE_URL } from "./index";
+import { API_BASE_URL } from "@/config/settings";
 
 interface BuyTicketPayload {
     event_slug: string;

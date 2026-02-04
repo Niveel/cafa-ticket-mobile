@@ -20,7 +20,7 @@ const ListFooter = memo(({ isLoading, hasMore }: { isLoading: boolean; hasMore: 
         return (
             <View className="py-8 items-center">
                 <ActivityIndicator size="small" color={colors.accent} />
-                <AppText styles="text-xs text-slate-400 mt-2" font="font-iregular">
+                <AppText styles="text-xs text-slate-400 mt-2">
                     Loading more...
                 </AppText>
             </View>
@@ -30,7 +30,7 @@ const ListFooter = memo(({ isLoading, hasMore }: { isLoading: boolean; hasMore: 
     if (!hasMore) {
         return (
             <View className="py-8 items-center">
-                <AppText styles="text-xs text-slate-400" font="font-iregular">
+                <AppText styles="text-xs text-slate-400">
                     No more events
                 </AppText>
             </View>

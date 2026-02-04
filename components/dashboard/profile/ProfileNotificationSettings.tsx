@@ -49,17 +49,17 @@ const ProfileNotificationSettings = ({ settings }: ProfileNotificationSettingsPr
             {/* Header */}
             <View className="flex-row items-center justify-between mb-4">
                 <View className="flex-1">
-                    <AppText styles="text-lg text-white mb-1" font="font-ibold">
+                    <AppText styles="text-lg text-white mb-1 font-nunbold">
                         Notification Preferences
                     </AppText>
-                    <AppText styles="text-sm text-slate-300" font="font-iregular">
+                    <AppText styles="text-sm text-slate-300">
                         {enabledCount} of {settingsData.length} enabled
                     </AppText>
                 </View>
                 <TouchableOpacity
                     onPress={() => router.push('/dashboard/settings')}
                     className="px-4 py-2 rounded-lg flex-row items-center gap-2"
-                    style={{ 
+                    style={{
                         backgroundColor: colors.accent + '33',
                         borderWidth: 1,
                         borderColor: colors.accent + '4D'
@@ -67,7 +67,7 @@ const ProfileNotificationSettings = ({ settings }: ProfileNotificationSettingsPr
                     activeOpacity={0.8}
                 >
                     <Ionicons name="settings-outline" size={16} color={colors.accent50} />
-                    <AppText styles="text-xs" font="font-ibold">
+                    <AppText styles="text-xs font-nunbold">
                         Manage
                     </AppText>
                 </TouchableOpacity>
@@ -76,39 +76,39 @@ const ProfileNotificationSettings = ({ settings }: ProfileNotificationSettingsPr
             {/* Settings List */}
             <View className="gap-3">
                 {settingsData.map((setting, index) => (
-                    <View 
+                    <View
                         key={index}
                         className="flex-row items-center justify-between p-4 bg-primary-200 rounded-xl"
                     >
                         <View className="flex-row items-center gap-3 flex-1">
-                            <View 
+                            <View
                                 className="w-10 h-10 rounded-lg items-center justify-center"
-                                style={{ 
-                                    backgroundColor: setting.enabled 
-                                        ? 'rgba(16, 185, 129, 0.2)' 
+                                style={{
+                                    backgroundColor: setting.enabled
+                                        ? 'rgba(16, 185, 129, 0.2)'
                                         : 'rgba(100, 116, 139, 0.2)'
                                 }}
                             >
-                                <Ionicons 
-                                    name={setting.icon} 
-                                    size={20} 
-                                    color={setting.enabled ? '#10b981' : '#94a3b8'} 
+                                <Ionicons
+                                    name={setting.icon}
+                                    size={20}
+                                    color={setting.enabled ? '#10b981' : '#94a3b8'}
                                 />
                             </View>
                             <View className="flex-1">
-                                <AppText styles="text-sm text-white mb-0.5" font="font-isemibold">
+                                <AppText styles="text-sm text-white mb-0.5">
                                     {setting.title}
                                 </AppText>
-                                <AppText styles="text-xs text-slate-400" font="font-iregular">
+                                <AppText styles="text-xs text-slate-400">
                                     {setting.description}
                                 </AppText>
                             </View>
                         </View>
 
                         {/* Status Badge */}
-                        <View 
+                        <View
                             className="px-3 py-1.5 rounded-lg"
-                            style={{ 
+                            style={{
                                 backgroundColor: setting.enabled
                                     ? 'rgba(16, 185, 129, 0.2)'
                                     : 'rgba(100, 116, 139, 0.2)',
@@ -118,9 +118,8 @@ const ProfileNotificationSettings = ({ settings }: ProfileNotificationSettingsPr
                                     : 'rgba(100, 116, 139, 0.3)'
                             }}
                         >
-                            <AppText 
-                                styles="text-xs" 
-                                font="font-ibold"
+                            <AppText
+                                styles="text-xs font-nunbold"
                                 color={setting.enabled ? 'text-emerald-400' : 'text-slate-400'}
                             >
                                 {setting.enabled ? 'Enabled' : 'Disabled'}
@@ -131,15 +130,15 @@ const ProfileNotificationSettings = ({ settings }: ProfileNotificationSettingsPr
             </View>
 
             {/* Info Note */}
-            <View 
+            <View
                 className="mt-6 p-4 rounded-lg"
-                style={{ 
+                style={{
                     backgroundColor: 'rgba(59, 130, 246, 0.1)',
                     borderWidth: 1,
                     borderColor: 'rgba(59, 130, 246, 0.2)'
                 }}
             >
-                <AppText styles="text-xs" font="font-iregular" color="text-blue-300">
+                <AppText styles="text-xs" color="text-blue-300">
                     💡 Manage all notification settings in the Settings page
                 </AppText>
             </View>

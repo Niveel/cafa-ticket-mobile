@@ -34,11 +34,11 @@ const MyEventDetailsScreen = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [isRefreshing, setIsRefreshing] = useState(false);
     const [error, setError] = useState<string | null>(null);
-    
+
     // Event deletion state
     const [deletingEvent, setDeletingEvent] = useState(false);
     const [deleteEventError, setDeleteEventError] = useState<string | null>(null);
-    
+
     // Ticket deletion state
     const [deleteTicketTarget, setDeleteTicketTarget] = useState<EventTicketType | null>(null);
     const [deletingTicket, setDeletingTicket] = useState(false);
@@ -153,7 +153,7 @@ const MyEventDetailsScreen = () => {
             <Screen statusBarStyle="light-content" statusBarBg={colors.primary}>
                 <View className="flex-1 items-center justify-center">
                     <ActivityIndicator size="large" color={colors.accent} />
-                    <AppText styles="text-sm text-slate-400 mt-4" font="font-iregular">
+                    <AppText styles="text-sm text-slate-400 mt-4">
                         Loading event details...
                     </AppText>
                 </View>
@@ -172,10 +172,10 @@ const MyEventDetailsScreen = () => {
                     >
                         <Ionicons name="alert-circle-outline" size={40} color={colors.accent50} />
                     </View>
-                    <AppText styles="text-xl text-white text-center mb-3" font="font-ibold">
+                    <AppText styles="text-xl text-white text-center mb-3 font-nunbold">
                         Event Not Found
                     </AppText>
-                    <AppText styles="text-sm text-slate-300 text-center mb-6" font="font-iregular">
+                    <AppText styles="text-sm text-slate-300 text-center mb-6">
                         {error || "The event you're looking for doesn't exist or you don't have access to it."}
                     </AppText>
                     <TouchableOpacity
@@ -185,7 +185,7 @@ const MyEventDetailsScreen = () => {
                         activeOpacity={0.8}
                     >
                         <Ionicons name="chevron-back" size={18} color="#fff" />
-                        <AppText styles="text-sm text-white" font="font-ibold">
+                        <AppText styles="text-sm text-white font-nunbold">
                             Back to My Events
                         </AppText>
                     </TouchableOpacity>
@@ -212,8 +212,8 @@ const MyEventDetailsScreen = () => {
                 }
             >
                 {/* Event Header */}
-                <MyEventDetailsHeader 
-                    event={eventDetails} 
+                <MyEventDetailsHeader
+                    event={eventDetails}
                     onOpenDeleteModal={handleOpenDeleteEventModal}
                 />
 
@@ -270,24 +270,24 @@ const MyEventDetailsScreen = () => {
                             <Ionicons name="alert-circle" size={24} color="#ef4444" />
                         </View>
                         <View className="flex-1">
-                            <AppText styles="text-lg text-red-400 mb-1" font="font-ibold">
+                            <AppText styles="text-lg text-red-400 mb-1 font-nunbold">
                                 Delete Event?
                             </AppText>
-                            <AppText styles="text-xs text-slate-400" font="font-iregular">
+                            <AppText styles="text-xs text-slate-400">
                                 This action cannot be undone
                             </AppText>
                         </View>
                     </View>
 
                     <View className="mb-4">
-                        <AppText styles="text-sm text-slate-300 mb-2" font="font-iregular">
+                        <AppText styles="text-sm text-slate-300 mb-2">
                             Are you sure you want to delete{" "}
-                            <AppText styles="text-sm text-white" font="font-ibold">
+                            <AppText styles="text-sm text-white font-nunbold">
                                 "{eventDetails.title}"
                             </AppText>
                             ?
                         </AppText>
-                        <AppText styles="text-xs text-slate-400" font="font-iregular">
+                        <AppText styles="text-xs text-slate-400">
                             All tickets, attendees, and analytics data will be permanently deleted.
                         </AppText>
                     </View>
@@ -297,7 +297,7 @@ const MyEventDetailsScreen = () => {
                             className="mb-4 p-3 rounded-lg border"
                             style={{ backgroundColor: "#ef4444" + "1A", borderColor: "#ef4444" + "33" }}
                         >
-                            <AppText styles="text-xs text-red-400" font="font-iregular">
+                            <AppText styles="text-xs text-red-400">
                                 {deleteEventError}
                             </AppText>
                         </View>
@@ -311,7 +311,7 @@ const MyEventDetailsScreen = () => {
                             style={{ backgroundColor: "#ef4444", opacity: deletingEvent ? 0.5 : 1 }}
                             activeOpacity={0.8}
                         >
-                            <AppText styles="text-sm text-white" font="font-ibold">
+                            <AppText styles="text-sm text-white font-nunbold">
                                 {deletingEvent ? "Deleting..." : "Yes, Delete"}
                             </AppText>
                         </TouchableOpacity>
@@ -326,7 +326,7 @@ const MyEventDetailsScreen = () => {
                             style={{ opacity: deletingEvent ? 0.5 : 1 }}
                             activeOpacity={0.8}
                         >
-                            <AppText styles="text-sm text-white" font="font-ibold">
+                            <AppText styles="text-sm text-white" >
                                 Cancel
                             </AppText>
                         </TouchableOpacity>
@@ -345,10 +345,10 @@ const MyEventDetailsScreen = () => {
                             <Ionicons name="alert-circle" size={24} color="#ef4444" />
                         </View>
                         <View className="flex-1">
-                            <AppText styles="text-lg text-red-400 mb-1" font="font-ibold">
+                            <AppText styles="text-lg text-red-400 mb-1 font-nunbold">
                                 Delete Ticket Type?
                             </AppText>
-                            <AppText styles="text-xs text-slate-400" font="font-iregular">
+                            <AppText styles="text-xs text-slate-400">
                                 This action cannot be undone
                             </AppText>
                         </View>
@@ -356,14 +356,14 @@ const MyEventDetailsScreen = () => {
 
                     {deleteTicketTarget && (
                         <View className="mb-4">
-                            <AppText styles="text-sm text-slate-300 mb-2" font="font-iregular">
+                            <AppText styles="text-sm text-slate-300 mb-2">
                                 Deleting{" "}
-                                <AppText styles="text-sm text-white" font="font-ibold">
+                                <AppText styles="text-sm text-white font-nunbold">
                                     "{deleteTicketTarget.name}"
                                 </AppText>{" "}
                                 ticket type.
                             </AppText>
-                            <AppText styles="text-xs text-slate-400" font="font-iregular">
+                            <AppText styles="text-xs text-slate-400">
                                 Tickets already sold will not be affected.
                             </AppText>
                         </View>
@@ -374,7 +374,7 @@ const MyEventDetailsScreen = () => {
                             className="mb-4 p-3 rounded-lg border"
                             style={{ backgroundColor: "#ef4444" + "1A", borderColor: "#ef4444" + "33" }}
                         >
-                            <AppText styles="text-xs text-red-400" font="font-iregular">
+                            <AppText styles="text-xs text-red-400">
                                 {deleteTicketError}
                             </AppText>
                         </View>
@@ -388,7 +388,7 @@ const MyEventDetailsScreen = () => {
                             style={{ backgroundColor: "#ef4444", opacity: deletingTicket ? 0.5 : 1 }}
                             activeOpacity={0.8}
                         >
-                            <AppText styles="text-sm text-white" font="font-ibold">
+                            <AppText styles="text-sm text-white font-nunbold">
                                 {deletingTicket ? "Deleting..." : "Yes, Delete"}
                             </AppText>
                         </TouchableOpacity>
@@ -403,7 +403,7 @@ const MyEventDetailsScreen = () => {
                             style={{ opacity: deletingTicket ? 0.5 : 1 }}
                             activeOpacity={0.8}
                         >
-                            <AppText styles="text-sm text-white" font="font-ibold">
+                            <AppText styles="text-sm text-white font-nunbold">
                                 Cancel
                             </AppText>
                         </TouchableOpacity>

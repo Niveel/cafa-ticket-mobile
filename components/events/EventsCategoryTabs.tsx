@@ -43,14 +43,13 @@ const EventsCategoryTabs = ({
                 <TouchableOpacity
                     onPress={() => onCategorySelect(null)}
                     className={`px-6 py-3 rounded-xl border-2 ${selectedCategory === null
-                            ? "bg-accent border-accent"
-                            : "bg-primary border-accent/30"
+                        ? "bg-accent border-accent"
+                        : "bg-primary border-accent/30"
                         }`}
                     activeOpacity={0.7}
                 >
                     <AppText
-                        styles={`text-sm ${selectedCategory === null ? "text-white" : "text-slate-200"}`}
-                        font="font-ibold"
+                        styles={`text-sm font-nunbold ${selectedCategory === null ? "text-white" : "text-slate-200"}`}
                     >
                         All Events
                     </AppText>
@@ -66,8 +65,8 @@ const EventsCategoryTabs = ({
                             key={category.id}
                             onPress={() => onCategorySelect(category.slug)}
                             className={`flex-row items-center gap-2 px-6 py-3 rounded-xl border-2 ${isSelected
-                                    ? "bg-accent border-accent"
-                                    : "bg-primary border-accent/30"
+                                ? "bg-accent border-accent"
+                                : "bg-primary border-accent/30"
                                 }`}
                             activeOpacity={0.7}
                         >
@@ -77,8 +76,7 @@ const EventsCategoryTabs = ({
                                 color={isSelected ? colors.white : colors.accent50}
                             />
                             <AppText
-                                styles={`text-xs ${isSelected ? "text-white" : "text-slate-200"}`}
-                                font="font-ibold"
+                                styles={`text-xs font-nunbold ${isSelected ? "text-white" : "text-slate-200"}`}
                             >
                                 {category.name}
                             </AppText>

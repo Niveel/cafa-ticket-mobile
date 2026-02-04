@@ -43,10 +43,10 @@ const EventsHero = ({
                     <View className="flex-row items-center justify-between mb-4">
                         {/* Title Section */}
                         <View className="flex-1">
-                            <AppText styles="text-2xl text-white mb-1" font="font-ibold">
+                            <AppText styles="text-2xl text-white mb-1 font-nunbold">
                                 Discover Events
                             </AppText>
-                            <AppText styles="text-xs text-slate-300" font="font-iregular">
+                            <AppText styles="text-xs text-slate-300">
                                 amazing experiences
                             </AppText>
                         </View>
@@ -89,10 +89,10 @@ const EventsHero = ({
                                 <Ionicons name="calendar" size={20} color={colors.accent50} />
                             </View>
                             <View className="flex-1">
-                                <AppText styles="text-xl text-white" font="font-ibold">
+                                <AppText styles="text-xl text-white font-nunbold">
                                     {formatNumber(totalEvents)}
                                 </AppText>
-                                <AppText styles="text-xs text-slate-400" font="font-iregular">
+                                <AppText styles="text-xs text-slate-400">
                                     Events
                                 </AppText>
                             </View>
@@ -109,10 +109,10 @@ const EventsHero = ({
                                 <Ionicons name="grid" size={20} color={colors.accent50} />
                             </View>
                             <View className="flex-1">
-                                <AppText styles="text-xl text-white" font="font-ibold">
+                                <AppText styles="text-xl text-white font-nunbold">
                                     10
                                 </AppText>
-                                <AppText styles="text-xs text-slate-400" font="font-iregular">
+                                <AppText styles="text-xs text-slate-400">
                                     Categories
                                 </AppText>
                             </View>

@@ -120,18 +120,17 @@ const EventDetailsHero = ({ event }: EventDetailsHeroProps) => {
                 >
                     <View
                         className={`px-4 py-2 rounded-xl flex-row items-center gap-2 ${event.status === "ongoing"
-                                ? "bg-accent"
-                                : event.status === "upcoming"
-                                    ? "bg-accent-50"
-                                    : "bg-slate-600"
+                            ? "bg-accent"
+                            : event.status === "upcoming"
+                                ? "bg-accent-50"
+                                : "bg-slate-600"
                             }`}
                     >
                         {event.status === "ongoing" && (
                             <View className="w-2 h-2 bg-white rounded-full" />
                         )}
                         <AppText
-                            styles="text-xs text-white"
-                            font="font-ibold"
+                            styles="text-xs text-white font-nunbold"
                         >
                             {event.status === "ongoing" && "LIVE NOW"}
                             {event.status === "upcoming" && "UPCOMING"}
@@ -151,7 +150,7 @@ const EventDetailsHero = ({ event }: EventDetailsHeroProps) => {
                         }}
                     >
                         <View className="px-3 py-1.5 rounded-lg" style={{ backgroundColor: "rgba(5, 14, 60, 0.9)" }}>
-                            <AppText styles="text-xs text-white" font="font-ibold">
+                            <AppText styles="text-xs text-white font-nunbold">
                                 {selectedImageIndex + 1} / {allImages.length}
                             </AppText>
                         </View>
@@ -168,18 +167,18 @@ const EventDetailsHero = ({ event }: EventDetailsHeroProps) => {
                     style={{ backgroundColor: colors.accent + "33", borderWidth: 1, borderColor: colors.accent }}
                     activeOpacity={0.8}
                 >
-                    <AppText styles="text-xs text-accent-50" font="font-ibold">
+                    <AppText styles="text-xs text-accent-50 font-nunbold">
                         {event.category.name}
                     </AppText>
                 </TouchableOpacity>
 
                 {/* Title */}
-                <AppText styles="text-2xl text-white mb-3 leading-tight" font="font-ibold">
+                <AppText styles="text-2xl text-white mb-3 leading-tight font-nunbold">
                     {event.title}
                 </AppText>
 
                 {/* Short Description */}
-                <AppText styles="text-sm text-slate-300 leading-relaxed mb-4" font="font-iregular">
+                <AppText styles="text-sm text-slate-300 leading-relaxed mb-4">
                     {event.short_description}
                 </AppText>
 
@@ -191,17 +190,17 @@ const EventDetailsHero = ({ event }: EventDetailsHeroProps) => {
                             <Ionicons name="calendar-outline" size={24} color={colors.accent50} />
                         </View>
                         <View className="flex-1">
-                            <AppText styles="text-xs text-slate-400 mb-1" font="font-iregular">
+                            <AppText styles="text-xs text-slate-400 mb-1">
                                 {event.is_recurring && event.recurrence_info ? "Recurring Event" : "Date & Time"}
                             </AppText>
-                            <AppText styles="text-sm text-white" font="font-ibold">
+                            <AppText styles="text-sm text-white font-nunbold">
                                 {new Date(event.start_date).toLocaleDateString("en-US", {
                                     month: "short",
                                     day: "numeric",
                                     year: "numeric",
                                 })}
                             </AppText>
-                            <AppText styles="text-xs text-slate-300" font="font-iregular">
+                            <AppText styles="text-xs text-slate-300">
                                 {new Date(`2000-01-01T${event.start_time}`).toLocaleTimeString("en-US", {
                                     hour: "numeric",
                                     minute: "2-digit",
@@ -213,7 +212,7 @@ const EventDetailsHero = ({ event }: EventDetailsHeroProps) => {
                                 })}
                             </AppText>
                             {event.is_recurring && event.recurrence_info && (
-                                <AppText styles="text-xs text-accent-50 mt-1" font="font-isemibold">
+                                <AppText styles="text-xs text-accent-50 mt-1">
                                     Repeats {event.recurrence_info.frequency} • {event.recurrence_info.total_occurrences} occurrences
                                 </AppText>
                             )}
@@ -226,13 +225,13 @@ const EventDetailsHero = ({ event }: EventDetailsHeroProps) => {
                             <Ionicons name="location-outline" size={24} color={colors.accent50} />
                         </View>
                         <View className="flex-1">
-                            <AppText styles="text-xs text-slate-400 mb-1" font="font-iregular">
+                            <AppText styles="text-xs text-slate-400 mb-1">
                                 Location
                             </AppText>
-                            <AppText styles="text-sm text-white" font="font-ibold" numberOfLines={1}>
+                            <AppText styles="text-sm text-white font-nunbold" numberOfLines={1}>
                                 {event.venue.name}
                             </AppText>
-                            <AppText styles="text-xs text-slate-300" font="font-iregular" numberOfLines={1}>
+                            <AppText styles="text-xs text-slate-300" numberOfLines={1}>
                                 {event.venue.city}, {event.venue.country}
                             </AppText>
                         </View>
@@ -244,10 +243,10 @@ const EventDetailsHero = ({ event }: EventDetailsHeroProps) => {
                             <Ionicons name="people-outline" size={24} color={colors.accent50} />
                         </View>
                         <View className="flex-1">
-                            <AppText styles="text-xs text-slate-400 mb-1" font="font-iregular">
+                            <AppText styles="text-xs text-slate-400 mb-1">
                                 Availability
                             </AppText>
-                            <AppText styles="text-sm text-white" font="font-ibold">
+                            <AppText styles="text-sm text-white font-nunbold">
                                 {event.tickets_available.toLocaleString()} tickets remaining
                             </AppText>
                             {/* Progress Bar */}
@@ -259,7 +258,7 @@ const EventDetailsHero = ({ event }: EventDetailsHeroProps) => {
                                     }}
                                 />
                             </View>
-                            <AppText styles="text-xs text-slate-400 mt-1" font="font-iregular">
+                            <AppText styles="text-xs text-slate-400 mt-1">
                                 {event.tickets_sold.toLocaleString()} sold • {Math.round((event.tickets_sold / event.max_attendees) * 100)}% capacity
                             </AppText>
                         </View>

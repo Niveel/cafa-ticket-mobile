@@ -45,10 +45,10 @@ const ShareSection = ({ event }: ShareSectionProps) => {
                     >
                         <Ionicons name="share-social-outline" size={32} color={colors.accent50} />
                     </View>
-                    <AppText styles="text-xl text-white text-center mb-2" font="font-ibold">
+                    <AppText styles="text-xl text-white text-center mb-2 font-nunbold">
                         Share This Event
                     </AppText>
-                    <AppText styles="text-sm text-slate-300 text-center leading-relaxed" font="font-iregular">
+                    <AppText styles="text-sm text-slate-300 text-center leading-relaxed">
                         Spread the word! Help your friends discover this amazing event.
                     </AppText>
                 </View>
@@ -61,7 +61,7 @@ const ShareSection = ({ event }: ShareSectionProps) => {
                     activeOpacity={0.8}
                 >
                     <Ionicons name="share-social" size={20} color={colors.white} />
-                    <AppText styles="text-sm text-white" font="font-ibold">
+                    <AppText styles="text-sm text-white font-nunbold">
                         Share Event
                     </AppText>
                 </TouchableOpacity>
@@ -70,10 +70,10 @@ const ShareSection = ({ event }: ShareSectionProps) => {
                 <View className="p-4 bg-primary-100 rounded-xl" style={{ borderWidth: 1, borderColor: colors.accent }}>
                     <View className="flex-row items-center gap-3">
                         <View className="flex-1">
-                            <AppText styles="text-xs text-slate-400 mb-1" font="font-iregular">
+                            <AppText styles="text-xs text-slate-400 mb-1">
                                 Event Link
                             </AppText>
-                            <AppText styles="text-xs text-white" font="font-iregular" numberOfLines={1}>
+                            <AppText styles="text-xs text-white" numberOfLines={1}>
                                 {eventUrl}
                             </AppText>
                         </View>
@@ -84,7 +84,7 @@ const ShareSection = ({ event }: ShareSectionProps) => {
                             activeOpacity={0.8}
                         >
                             <Ionicons name={copied ? "checkmark" : "copy-outline"} size={16} color={colors.white} />
-                            <AppText styles="text-xs text-white" font="font-ibold">
+                            <AppText styles="text-xs text-white font-nunbold">
                                 {copied ? "Copied!" : "Copy"}
                             </AppText>
                         </TouchableOpacity>

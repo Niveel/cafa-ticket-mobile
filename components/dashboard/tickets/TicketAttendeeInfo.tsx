@@ -27,10 +27,10 @@ const TicketAttendeeInfo = ({ attendeeInfo }: Props) => {
                     <Ionicons name="person-outline" size={18} color="#60a5fa" />
                 </View>
                 <View>
-                    <AppText styles="text-sm text-white" font="font-ibold">
+                    <AppText styles="text-sm text-white font-nunbold">
                         Attendee Information
                     </AppText>
-                    <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.5 }}>
+                    <AppText styles="text-xs text-white" style={{ opacity: 0.5 }}>
                         Ticket holder details
                     </AppText>
                 </View>
@@ -47,10 +47,10 @@ const TicketAttendeeInfo = ({ attendeeInfo }: Props) => {
                     >
                         <Ionicons name={field.icon as any} size={18} color={colors.accent50} />
                         <View className="flex-1">
-                            <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.5 }}>
+                            <AppText styles="text-xs text-white" style={{ opacity: 0.5 }}>
                                 {field.label}
                             </AppText>
-                            <AppText styles="text-xs text-white" font="font-isemibold">
+                            <AppText styles="text-xs text-white">
                                 {attendeeInfo[field.key]}
                             </AppText>
                         </View>

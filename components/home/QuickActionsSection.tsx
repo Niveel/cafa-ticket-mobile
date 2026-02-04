@@ -58,10 +58,10 @@ const QuickActionsSection = ({ isLoading = false }: QuickActionsSectionProps) =>
         <View className="mb-6">
             {/* Section Header */}
             <View className="mb-4 px-2">
-                <AppText styles="text-lg text-white" font="font-ibold">
+                <AppText styles="text-lg text-white font-nunbold">
                     Quick Actions
                 </AppText>
-                <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.6 }}>
+                <AppText styles="text-xs text-white" style={{ opacity: 0.6 }}>
                     Get things done faster
                 </AppText>
             </View>
@@ -87,10 +87,10 @@ const QuickActionsSection = ({ isLoading = false }: QuickActionsSectionProps) =>
                         >
                             <Ionicons name={action.icon} size={24} color={action.color} />
                         </View>
-                        <AppText styles="text-sm text-white mb-1" font="font-ibold">
+                        <AppText styles="text-sm text-white mb-1 font-nunbold">
                             {action.title}
                         </AppText>
-                        <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.6 }}>
+                        <AppText styles="text-xs text-white" style={{ opacity: 0.6 }}>
                             {action.description}
                         </AppText>
                     </TouchableOpacity>

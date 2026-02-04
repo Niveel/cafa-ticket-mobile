@@ -81,10 +81,10 @@ const PaymentResultScreen = () => {
                         >
                             <ActivityIndicator size="large" color={colors.accent50} />
                         </View>
-                        <AppText styles="text-xl text-white text-center mb-2" font="font-ibold">
+                        <AppText styles="text-xl text-white text-center mb-2 font-nunbold">
                             Verifying Payment
                         </AppText>
-                        <AppText styles="text-sm text-slate-300 text-center" font="font-iregular">
+                        <AppText styles="text-sm text-slate-300 text-center">
                             Please wait while we confirm your payment...
                         </AppText>
                     </View>
@@ -109,10 +109,10 @@ const PaymentResultScreen = () => {
                         >
                             <Ionicons name="checkmark-circle" size={48} color={colors.success} />
                         </View>
-                        <AppText styles="text-2xl text-white text-center mb-2" font="font-ibold">
+                        <AppText styles="text-2xl text-white text-center mb-2 font-nunbold">
                             Payment Successful! 🎉
                         </AppText>
-                        <AppText styles="text-sm text-slate-300 text-center mb-4" font="font-iregular">
+                        <AppText styles="text-sm text-slate-300 text-center mb-4">
                             Your tickets have been confirmed and sent to your email.
                         </AppText>
                         <View
@@ -120,10 +120,10 @@ const PaymentResultScreen = () => {
                             style={{ backgroundColor: colors.primary200 }}
                         >
                             <View className="flex-row items-center gap-2">
-                                <AppText styles="text-xs text-slate-400" font="font-iregular">
+                                <AppText styles="text-xs text-slate-400">
                                     Purchase ID:
                                 </AppText>
-                                <AppText styles="text-sm text-white" font="font-ibold">
+                                <AppText styles="text-sm text-white font-nunbold">
                                     {purchaseDetails?.purchase_id}
                                 </AppText>
                             </View>
@@ -135,23 +135,23 @@ const PaymentResultScreen = () => {
                         className="p-4 rounded-2xl mb-4"
                         style={{ backgroundColor: colors.primary100, borderWidth: 1, borderColor: colors.accent + "4D" }}
                     >
-                        <AppText styles="text-lg text-white mb-4" font="font-ibold">
+                        <AppText styles="text-lg text-white mb-4 font-nunbold">
                             Purchase Summary
                         </AppText>
                         <View className="flex-row gap-4">
                             <View className="flex-1">
-                                <AppText styles="text-xs text-slate-400 mb-1" font="font-iregular">
+                                <AppText styles="text-xs text-slate-400 mb-1">
                                     Total Paid
                                 </AppText>
-                                <AppText styles="text-xl text-accent-50" font="font-ibold">
+                                <AppText styles="text-xl text-accent-50 font-nunbold">
                                     {formatMoney(purchaseDetails?.amount || 0)}
                                 </AppText>
                             </View>
                             <View className="flex-1">
-                                <AppText styles="text-xs text-slate-400 mb-1" font="font-iregular">
+                                <AppText styles="text-xs text-slate-400 mb-1">
                                     Tickets
                                 </AppText>
-                                <AppText styles="text-xl text-white" font="font-ibold">
+                                <AppText styles="text-xl text-white font-nunbold">
                                     {purchaseDetails?.ticket_count} Ticket
                                     {purchaseDetails && purchaseDetails.ticket_count > 1 ? "s" : ""}
                                 </AppText>
@@ -171,7 +171,7 @@ const PaymentResultScreen = () => {
                             >
                                 <Ionicons name="ticket" size={20} color={colors.accent50} />
                             </View>
-                            <AppText styles="text-lg text-white" font="font-ibold">
+                            <AppText styles="text-lg text-white font-nunbold">
                                 Your Tickets
                             </AppText>
                         </View>
@@ -185,13 +185,13 @@ const PaymentResultScreen = () => {
                                 >
                                     <View className="flex-row items-start justify-between gap-4">
                                         <View className="flex-1">
-                                            <AppText styles="text-xs text-slate-400 mb-1" font="font-iregular">
+                                            <AppText styles="text-xs text-slate-400 mb-1">
                                                 Ticket #{index + 1}
                                             </AppText>
-                                            <AppText styles="text-sm text-white mb-1" font="font-ibold">
+                                            <AppText styles="text-sm text-white mb-1 font-nunbold">
                                                 {ticket.ticket_id}
                                             </AppText>
-                                            <AppText styles="text-xs text-slate-300" font="font-iregular">
+                                            <AppText styles="text-xs text-slate-300">
                                                 {ticket.attendee_info?.name || ticket.attendee_name}
                                             </AppText>
                                         </View>
@@ -218,7 +218,7 @@ const PaymentResultScreen = () => {
                             style={{ backgroundColor: colors.accent }}
                             activeOpacity={0.8}
                         >
-                            <AppText styles="text-sm text-white" font="font-ibold">
+                            <AppText styles="text-sm text-white font-nunbold">
                                 View All My Tickets
                             </AppText>
                         </TouchableOpacity>
@@ -229,7 +229,7 @@ const PaymentResultScreen = () => {
                             activeOpacity={0.8}
                         >
                             <Ionicons name="home" size={20} color={colors.white} />
-                            <AppText styles="text-sm text-white" font="font-ibold">
+                            <AppText styles="text-sm text-white font-nunbold">
                                 Browse Events
                             </AppText>
                         </TouchableOpacity>
@@ -240,7 +240,7 @@ const PaymentResultScreen = () => {
                         className="p-4 rounded-xl"
                         style={{ backgroundColor: colors.accent + "1A", borderWidth: 1, borderColor: colors.accent + "4D" }}
                     >
-                        <AppText styles="text-xs text-slate-300 text-center" font="font-iregular">
+                        <AppText styles="text-xs text-slate-300 text-center">
                             📧 A confirmation email with your tickets has been sent to your email address. Please check
                             your inbox and spam folder.
                         </AppText>
@@ -264,10 +264,10 @@ const PaymentResultScreen = () => {
                     >
                         <Ionicons name="close-circle" size={48} color={colors.error} />
                     </View>
-                    <AppText styles="text-xl text-white text-center mb-2" font="font-ibold">
+                    <AppText styles="text-xl text-white text-center mb-2 font-nunbold">
                         {status === "failed" ? "Payment Failed" : "Something Went Wrong"}
                     </AppText>
-                    <AppText styles="text-sm text-slate-300 text-center mb-6" font="font-iregular">
+                    <AppText styles="text-sm text-slate-300 text-center mb-6">
                         {errorMessage || "We couldn't complete your payment. Please try again or contact support."}
                     </AppText>
                     <View className="gap-3">
@@ -277,7 +277,7 @@ const PaymentResultScreen = () => {
                             style={{ backgroundColor: colors.accent }}
                             activeOpacity={0.8}
                         >
-                            <AppText styles="text-sm text-white" font="font-ibold">
+                            <AppText styles="text-sm text-white font-nunbold">
                                 Back to Events
                             </AppText>
                         </TouchableOpacity>
@@ -287,7 +287,7 @@ const PaymentResultScreen = () => {
                             style={{ backgroundColor: colors.primary200 }}
                             activeOpacity={0.8}
                         >
-                            <AppText styles="text-sm text-white" font="font-ibold">
+                            <AppText styles="text-sm text-white font-nunbold">
                                 Contact Support
                             </AppText>
                         </TouchableOpacity>

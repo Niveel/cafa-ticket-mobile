@@ -6,6 +6,7 @@ import {
   useCallback,
   ReactNode,
 } from "react";
+import * as Sentry from '@sentry/react-native';
 import { CurrentUser, LoginCredentials, SignupData } from "@/types";
 import {
   login as loginApi,
@@ -44,6 +45,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       }
     } catch (error) {
       console.error("Auth check error:", error);
+      Sentry.captureException(error);
       setUser(null);
     } finally {
       setIsLoading(false);

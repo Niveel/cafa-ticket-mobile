@@ -69,7 +69,7 @@ const TicketActions = ({ ticket }: Props) => {
                     ) : (
                         <Ionicons name={btn.icon as any} size={18} color="#fff" />
                     )}
-                    <AppText styles="text-sm text-white" font="font-ibold">
+                    <AppText styles="text-sm text-white font-nunbold">
                         {btn.label}
                     </AppText>
                 </TouchableOpacity>

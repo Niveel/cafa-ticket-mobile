@@ -24,9 +24,9 @@ const RequireAuth = ({ children }: RequireAuthProps) => {
                 <View className="flex-1 items-center justify-center px-4">
                     {/* Icon */}
                     <View className="mb-6">
-                        <View 
+                        <View
                             className="w-32 h-32 rounded-full items-center justify-center"
-                            style={{ 
+                            style={{
                                 backgroundColor: colors.accent + '20',
                                 borderWidth: 3,
                                 borderColor: colors.accent + '40'
@@ -38,15 +38,13 @@ const RequireAuth = ({ children }: RequireAuthProps) => {
 
                     {/* Message */}
                     <View className="items-center mb-4">
-                        <AppText 
-                            styles="text-2xl text-white text-center mb-3" 
-                            font="font-ibold"
+                        <AppText
+                            styles="text-2xl text-white text-center mb-3 font-nunbold"
                         >
                             Authentication Required
                         </AppText>
-                        <AppText 
-                            styles="text-base text-slate-300 text-center leading-relaxed px-4" 
-                            font="font-iregular"
+                        <AppText
+                            styles="text-base text-slate-300 text-center leading-relaxed px-4"
                         >
                             Please sign in to access this section and enjoy all features
                         </AppText>
@@ -65,7 +63,7 @@ const RequireAuth = ({ children }: RequireAuthProps) => {
                         >
                             <View className="flex-row items-center gap-2">
                                 <Ionicons name="log-in-outline" size={20} color="#fff" />
-                                <AppText styles="text-base text-white" font="font-ibold">
+                                <AppText styles="text-base text-white font-nunbold">
                                     Sign In
                                 </AppText>
                             </View>
@@ -75,7 +73,7 @@ const RequireAuth = ({ children }: RequireAuthProps) => {
                     {/* Divider */}
                     <View className="flex-row items-center w-full my-4">
                         <View className="flex-1 h-px bg-slate-600" />
-                        <AppText styles="text-sm text-slate-400 mx-4" font="font-iregular">
+                        <AppText styles="text-sm text-slate-400 mx-4">
                             OR
                         </AppText>
                         <View className="flex-1 h-px bg-slate-600" />
@@ -83,13 +81,13 @@ const RequireAuth = ({ children }: RequireAuthProps) => {
 
                     {/* Sign Up Section */}
                     <View className="items-center">
-                        <AppText styles="text-sm text-slate-300 mb-3" font="font-iregular">
+                        <AppText styles="text-sm text-slate-300 mb-3">
                             Don't have an account yet?
                         </AppText>
                         <TouchableOpacity
                             onPress={() => router.push('/signup')}
                             className="px-8 py-3 rounded-xl"
-                            style={{ 
+                            style={{
                                 backgroundColor: 'transparent',
                                 borderWidth: 2,
                                 borderColor: colors.accent
@@ -98,7 +96,7 @@ const RequireAuth = ({ children }: RequireAuthProps) => {
                         >
                             <View className="flex-row items-center gap-2">
                                 <Ionicons name="person-add-outline" size={18} color={colors.accent50} />
-                                <AppText styles="text-sm" font="font-ibold">
+                                <AppText styles="text-sm font-nunbold">
                                     Create Account
                                 </AppText>
                             </View>
@@ -107,7 +105,7 @@ const RequireAuth = ({ children }: RequireAuthProps) => {
 
                     {/* Features Info */}
                     <View className="mt-12 w-full">
-                        <AppText styles="text-xs text-slate-400 text-center mb-4" font="font-isemibold">
+                        <AppText styles="text-xs text-slate-400 text-center mb-4">
                             WITH AN ACCOUNT YOU CAN:
                         </AppText>
                         <View className="gap-3">
@@ -117,13 +115,13 @@ const RequireAuth = ({ children }: RequireAuthProps) => {
                                 { icon: 'notifications-outline', text: 'Get event reminders' },
                             ].map((feature, index) => (
                                 <View key={index} className="flex-row items-center gap-3">
-                                    <View 
+                                    <View
                                         className="w-8 h-8 rounded-lg items-center justify-center"
                                         style={{ backgroundColor: colors.accent + '20' }}
                                     >
                                         <Ionicons name={feature.icon as any} size={16} color={colors.accent50} />
                                     </View>
-                                    <AppText styles="text-sm text-slate-300" font="font-iregular">
+                                    <AppText styles="text-sm text-slate-300">
                                         {feature.text}
                                     </AppText>
                                 </View>

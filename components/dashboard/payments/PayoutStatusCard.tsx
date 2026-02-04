@@ -48,10 +48,10 @@ const PayoutStatusCard = ({ payoutStatus, summary, revenueByMonth }: Props) => {
                     <Ionicons name="bar-chart-outline" size={24} color={colors.accent50} />
                 </View>
                 <View className="flex-1">
-                    <AppText styles="text-lg text-white" font="font-ibold">
+                    <AppText styles="text-lg text-white font-nunbold">
                         Revenue Insights
                     </AppText>
-                    <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.7 }}>
+                    <AppText styles="text-xs text-white" style={{ opacity: 0.7 }}>
                         Your earnings analytics
                     </AppText>
                 </View>
@@ -65,14 +65,14 @@ const PayoutStatusCard = ({ payoutStatus, summary, revenueByMonth }: Props) => {
                     <View className="flex-1 p-4 rounded-xl border" style={{ backgroundColor: colors.primary200, borderColor: colors.accent + "4D" }}>
                         <View className="flex-row items-center gap-2 mb-2">
                             <Ionicons name="trending-up" size={16} color={colors.accent50} />
-                            <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.6 }}>
+                            <AppText styles="text-xs text-white" style={{ opacity: 0.6 }}>
                                 Total Revenue
                             </AppText>
                         </View>
-                        <AppText styles="text-lg text-white" font="font-ibold" style={{ color: colors.success }}>
+                        <AppText styles="text-lg text-white font-nunbold" style={{ color: colors.success }}>
                             {formatMoney(totalRevenue)}
                         </AppText>
-                        <AppText styles="text-xs text-white mt-1" font="font-iregular" style={{ opacity: 0.5 }}>
+                        <AppText styles="text-xs text-white mt-1" style={{ opacity: 0.5 }}>
                             All time earnings
                         </AppText>
                     </View>
@@ -81,11 +81,11 @@ const PayoutStatusCard = ({ payoutStatus, summary, revenueByMonth }: Props) => {
                     <View className="flex-1 p-4 rounded-xl border" style={{ backgroundColor: colors.primary200, borderColor: colors.accent + "4D" }}>
                         <View className="flex-row items-center gap-2 mb-2">
                             <Ionicons name="wallet-outline" size={16} color={colors.accent50} />
-                            <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.6 }}>
+                            <AppText styles="text-xs text-white" style={{ opacity: 0.6 }}>
                                 Balance
                             </AppText>
                         </View>
-                        <AppText styles="text-lg text-white" font="font-ibold" style={{ color: Number(currentBalance) > 0 ? colors.success : colors.accent }}>
+                        <AppText styles="text-lg text-white font-nunbold" style={{ color: Number(currentBalance) > 0 ? colors.success : colors.accent }}>
                             {formatMoney(currentBalance)}
                         </AppText>
                         {revenueByMonth && revenueByMonth.length >= 2 ? (
@@ -97,8 +97,7 @@ const PayoutStatusCard = ({ payoutStatus, summary, revenueByMonth }: Props) => {
                                     style={{ transform: [{ rotate: isPositiveGrowth ? "0deg" : "180deg" }] }}
                                 />
                                 <AppText
-                                    styles="text-xs"
-                                    font="font-isemibold"
+                                    styles="text-xs font-nunbold"
                                     style={{ color: isPositiveGrowth ? colors.accent50 : colors.accent }}
                                 >
                                     {isPositiveGrowth ? "+" : ""}
@@ -106,7 +105,7 @@ const PayoutStatusCard = ({ payoutStatus, summary, revenueByMonth }: Props) => {
                                 </AppText>
                             </View>
                         ) : (
-                            <AppText styles="text-xs text-white mt-1" font="font-iregular" style={{ opacity: 0.5 }}>
+                            <AppText styles="text-xs text-white mt-1" style={{ opacity: 0.5 }}>
                                 Available to withdraw
                             </AppText>
                         )}
@@ -119,14 +118,14 @@ const PayoutStatusCard = ({ payoutStatus, summary, revenueByMonth }: Props) => {
                     <View className="flex-1 p-4 rounded-xl border" style={{ backgroundColor: colors.primary200, borderColor: colors.accent + "4D" }}>
                         <View className="flex-row items-center gap-2 mb-2">
                             <Ionicons name="pricetag-outline" size={16} color={colors.accent50} />
-                            <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.6 }}>
+                            <AppText styles="text-xs text-white" style={{ opacity: 0.6 }}>
                                 Avg. Price
                             </AppText>
                         </View>
-                        <AppText styles="text-lg text-white" font="font-ibold" style={{ color: colors.accent50 }}>
+                        <AppText styles="text-lg text-white font-nunbold" style={{ color: colors.accent50 }}>
                             {formatMoney(averageTicketPrice)}
                         </AppText>
-                        <AppText styles="text-xs text-white mt-1" font="font-iregular" style={{ opacity: 0.5 }}>
+                        <AppText styles="text-xs text-white mt-1" style={{ opacity: 0.5 }}>
                             Per ticket
                         </AppText>
                     </View>
@@ -135,14 +134,14 @@ const PayoutStatusCard = ({ payoutStatus, summary, revenueByMonth }: Props) => {
                     <View className="flex-1 p-4 rounded-xl border" style={{ backgroundColor: colors.primary200, borderColor: colors.accent + "4D" }}>
                         <View className="flex-row items-center gap-2 mb-2">
                             <Ionicons name="ticket-outline" size={16} color={colors.accent50} />
-                            <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.6 }}>
+                            <AppText styles="text-xs text-white" style={{ opacity: 0.6 }}>
                                 Tickets
                             </AppText>
                         </View>
-                        <AppText styles="text-lg text-white" font="font-ibold" style={{ color: colors.accent50 }}>
+                        <AppText styles="text-lg text-white font-nunbold" style={{ color: colors.accent50 }}>
                             {totalTicketsSold.toLocaleString()}
                         </AppText>
-                        <AppText styles="text-xs text-white mt-1" font="font-iregular" style={{ opacity: 0.5 }}>
+                        <AppText styles="text-xs text-white mt-1" style={{ opacity: 0.5 }}>
                             Total sold
                         </AppText>
                     </View>
@@ -154,11 +153,11 @@ const PayoutStatusCard = ({ payoutStatus, summary, revenueByMonth }: Props) => {
                 <View className="flex-row items-center justify-between p-3 rounded-lg border" style={{ backgroundColor: colors.primary200, borderColor: colors.accent + "4D" }}>
                     <View className="flex-row items-center gap-2">
                         <View className="w-2 h-2 rounded-full" style={{ backgroundColor: colors.accent50 }} />
-                        <AppText styles="text-sm text-white" font="font-iregular" style={{ opacity: 0.8 }}>
+                        <AppText styles="text-sm text-white" style={{ opacity: 0.8 }}>
                             Current Balance
                         </AppText>
                     </View>
-                    <AppText styles="text-sm text-white" font="font-ibold" style={{ color: Number(currentBalance) > 0 ? colors.success : colors.accent }}>
+                    <AppText styles="text-sm text-white font-nunbold" style={{ color: Number(currentBalance) > 0 ? colors.success : colors.accent }}>
                         {formatMoney(currentBalance)}
                     </AppText>
                 </View>
@@ -166,11 +165,11 @@ const PayoutStatusCard = ({ payoutStatus, summary, revenueByMonth }: Props) => {
                 <View className="flex-row items-center justify-between p-3 rounded-lg border" style={{ backgroundColor: colors.primary200, borderColor: colors.accent + "4D" }}>
                     <View className="flex-row items-center gap-2">
                         <View className="w-2 h-2 rounded-full" style={{ backgroundColor: colors.accent50 }} />
-                        <AppText styles="text-sm text-white" font="font-iregular" style={{ opacity: 0.8 }}>
+                        <AppText styles="text-sm text-white" style={{ opacity: 0.8 }}>
                             Total Events
                         </AppText>
                     </View>
-                    <AppText styles="text-sm text-white" font="font-ibold">
+                    <AppText styles="text-sm text-white font-nunbold">
                         {totalEvents} events
                     </AppText>
                 </View>
@@ -178,7 +177,7 @@ const PayoutStatusCard = ({ payoutStatus, summary, revenueByMonth }: Props) => {
 
             {/* Info Note */}
             <View className="p-3 rounded-lg border" style={{ backgroundColor: colors.primary200 + "80", borderColor: colors.accent + "4D" }}>
-                <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.7 }}>
+                <AppText styles="text-xs text-white" style={{ opacity: 0.7 }}>
                     💡 Payments are sent directly to your verified payment profile when you request a withdrawal. Platform
                     fees are automatically deducted.
                 </AppText>

@@ -1,0 +1,66 @@
+{
+    "analytics": {
+        "conversion_rate": 0,
+        "gross_revenue": "0",
+        "last_sale_date": null,
+        "net_revenue": "0",
+        "page_views": 7,
+        "platform_fee": "0",
+        "sales_percentage": 0,
+        "tickets_checked_in": 0,
+        "tickets_remaining": 1000,
+        "tickets_sold": 0,
+        "total_tickets": 1000,
+        "unique_visitors": 7
+    },
+    "category": {
+        "description": "Music, songs, etc",
+        "event_count": 2,
+        "icon": "FaMusic",
+        "id": 1,
+        "name": "music",
+        "slug": "music"
+    },
+    "created_at": "2026-02-03T21:40:55.084457Z",
+    "end_date": "2026-02-10",
+    "end_time": "23:30:00",
+    "featured_image": "http://api.cafatickets.com/media/events/featured/2026/02/featured_image.jpg",
+    "highest_price": 10,
+    "id": 2,
+    "is_published": true,
+    "is_recurring": false,
+    "lowest_price": 10,
+    "max_attendees": 1000,
+    "organizer": {
+        "full_name": "felix acheampong",
+        "id": 1,
+        "profile_image": "http://api.cafatickets.com/media/profiles/2026/01/profile_image.jpg",
+        "username": "eritten"
+    },
+    "short_description": "A very much for a night vibes and I",
+    "slug": "accra-night-vibes",
+    "start_date": "2026-02-10",
+    "start_time": "20:30:00",
+    "status": "upcoming",
+    "ticket_types": [
+        {
+            "available_from": "2026-02-03T00:00:00Z",
+            "available_until": "2026-02-10T00:00:00Z",
+            "id": 2,
+            "name": "Early bird",
+            "price": "10.00",
+            "quantity": 1000,
+            "revenue": "10.00",
+            "sales_percentage": 0.1,
+            "tickets_remaining": 999,
+            "tickets_sold": 1
+        }
+    ],
+    "tickets_available": 1000,
+    "tickets_sold": 0,
+    "title": "Accra night vibes",
+    "updated_at": "2026-02-03T21:40:55.138757Z",
+    "venue_city": "Lapaz",
+    "venue_country": "Ghana",
+    "venue_name": "Lapaz"
+}

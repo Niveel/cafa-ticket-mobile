@@ -33,10 +33,10 @@ const ProfileQuickActions = () => {
         <View className="bg-primary-100 rounded-2xl p-2">
             {/* Header */}
             <View className="mb-4">
-                <AppText styles="text-lg text-white mb-1" font="font-ibold">
+                <AppText styles="text-lg text-white mb-1 font-nunbold">
                     Quick Actions
                 </AppText>
-                <AppText styles="text-sm text-slate-300" font="font-iregular">
+                <AppText styles="text-sm text-slate-300">
                     Manage your account and activities
                 </AppText>
             </View>
@@ -51,17 +51,17 @@ const ProfileQuickActions = () => {
                         activeOpacity={0.7}
                     >
                         <View className="flex-row items-center gap-3">
-                            <View 
+                            <View
                                 className="w-12 h-12 rounded-xl items-center justify-center"
                                 style={{ backgroundColor: action.color + '33' }}
                             >
                                 <Ionicons name={action.icon} size={24} color={action.color} />
                             </View>
                             <View className="flex-1">
-                                <AppText styles="text-base text-white mb-1" font="font-ibold">
+                                <AppText styles="text-base text-white mb-1 font-nunbold">
                                     {action.title}
                                 </AppText>
-                                <AppText styles="text-xs text-slate-400" font="font-iregular">
+                                <AppText styles="text-xs text-slate-400">
                                     {action.description}
                                 </AppText>
                             </View>

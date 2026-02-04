@@ -25,13 +25,12 @@ const EventsEmptyState = ({
             </View>
 
             {/* Message */}
-            <AppText styles="text-xl text-white text-center mb-3" font="font-ibold">
+            <AppText styles="text-xl text-white text-center mb-3 font-nunbold">
                 {hasFilters ? "No Events Found" : "No Events Available"}
             </AppText>
 
             <AppText
                 styles="text-sm text-slate-300 text-center mb-6 max-w-sm"
-                font="font-iregular"
             >
                 {hasFilters
                     ? "We couldn't find any events matching your filters. Try adjusting your search criteria."
@@ -55,7 +54,7 @@ const EventsEmptyState = ({
             {/* Suggestions */}
             {hasFilters && (
                 <View className="mt-8 p-6 bg-primary-100 rounded-xl border border-accent max-w-sm">
-                    <AppText styles="text-sm text-white mb-3" font="font-ibold">
+                    <AppText styles="text-sm text-white mb-3 font-nunbold">
                         Try these suggestions:
                     </AppText>
                     <View className="space-y-2">
@@ -65,10 +64,10 @@ const EventsEmptyState = ({
                             "Browse all categories instead",
                         ].map((suggestion, index) => (
                             <View key={index} className="flex-row items-start gap-2 mb-2">
-                                <AppText styles="text-xs text-accent-50 mt-1" font="font-ibold">
+                                <AppText styles="text-xs text-accent-50 mt-1 font-nunbold">
                                     •
                                 </AppText>
-                                <AppText styles="text-xs text-slate-200 flex-1" font="font-iregular">
+                                <AppText styles="text-xs text-slate-200 flex-1">
                                     {suggestion}
                                 </AppText>
                             </View>

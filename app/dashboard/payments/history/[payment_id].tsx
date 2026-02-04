@@ -55,12 +55,12 @@ const PaymentDetailsScreen = () => {
                         </View>
 
                         {/* Title */}
-                        <AppText styles="text-xl text-white mb-3 text-center" font="font-ibold">
+                        <AppText styles="text-xl text-white mb-3 text-center font-nunbold">
                             Payment Details Not Found
                         </AppText>
 
                         {/* Description */}
-                        <AppText styles="text-sm text-slate-300 mb-8 text-center" font="font-iregular">
+                        <AppText styles="text-sm text-slate-300 mb-8 text-center">
                             The payment details you're looking for don't exist or may have been removed.
                         </AppText>
 
@@ -71,7 +71,7 @@ const PaymentDetailsScreen = () => {
                                 className="px-6 py-3 bg-accent rounded-xl"
                                 activeOpacity={0.7}
                             >
-                                <AppText styles="text-sm text-white text-center" font="font-isemibold">
+                                <AppText styles="text-sm text-white text-center font-nunbold">
                                     View All Payments
                                 </AppText>
                             </TouchableOpacity>
@@ -80,7 +80,7 @@ const PaymentDetailsScreen = () => {
                                 className="px-6 py-3 bg-primary-100 rounded-xl border-2 border-accent/30"
                                 activeOpacity={0.7}
                             >
-                                <AppText styles="text-sm text-white text-center" font="font-isemibold">
+                                <AppText styles="text-sm text-white text-center font-nunbold">
                                     Go to Dashboard
                                 </AppText>
                             </TouchableOpacity>

@@ -52,18 +52,17 @@ const EditPaymentProfileScreen = () => {
                     {isLoading ? (
                         <View className="flex-1 items-center justify-center">
                             <ActivityIndicator size="large" color={colors.accent} />
-                            <AppText styles="text-sm text-white mt-4" font="font-iregular" style={{ opacity: 0.6 }}>
+                            <AppText styles="text-sm text-white mt-4" style={{ opacity: 0.6 }}>
                                 Loading payment profile...
                             </AppText>
                         </View>
                     ) : error ? (
                         <View className="flex-1 items-center justify-center px-6">
-                            <AppText styles="text-lg text-white mb-2" font="font-ibold">
+                            <AppText styles="text-lg text-white mb-2 font-nunbold">
                                 {error}
                             </AppText>
                             <AppText
                                 styles="text-sm text-white mb-6"
-                                font="font-iregular"
                                 style={{ opacity: 0.6, textAlign: "center" }}
                             >
                                 We couldn't find the payment profile you're looking for.

@@ -36,7 +36,7 @@ const NotificationsSettingsScreen = () => {
                                     <Ionicons name="notifications-outline" size={24} color={colors.accent50} />
                                 </View>
                                 <View className="flex-1">
-                                    <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.7 }}>
+                                    <AppText styles="text-xs text-white" style={{ opacity: 0.7 }}>
                                         Manage your email and SMS notification preferences
                                     </AppText>
                                 </View>
@@ -50,10 +50,10 @@ const NotificationsSettingsScreen = () => {
                                 <View className="flex-row items-start gap-3">
                                     <Ionicons name="information-circle-outline" size={20} color="#60a5fa" style={{ marginTop: 2 }} />
                                     <View className="flex-1">
-                                        <AppText styles="text-sm mb-1" font="font-ibold" style={{ color: "#60a5fa" }}>
+                                        <AppText styles="text-sm mb-1 font-nunbold" style={{ color: "#60a5fa" }}>
                                             Stay Updated
                                         </AppText>
-                                        <AppText styles="text-xs" font="font-iregular" style={{ color: "#60a5fa", opacity: 0.85 }}>
+                                        <AppText styles="text-xs" style={{ color: "#60a5fa", opacity: 0.85 }}>
                                             Choose how you want to receive updates about your tickets, upcoming events, and special offers. You can change these preferences at any time.
                                         </AppText>
                                     </View>

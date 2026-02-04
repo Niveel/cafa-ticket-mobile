@@ -2,6 +2,7 @@ import { View, TouchableOpacity, Image, ScrollView, ActivityIndicator } from "re
 import { Ionicons } from "@expo/vector-icons";
 import * as ImagePicker from 'expo-image-picker';
 import { useState, useEffect } from "react";
+import * as Sentry from '@sentry/react-native';
 
 import AppText from "./AppText";
 import colors from "@/config/colors";
@@ -82,6 +83,7 @@ const ImageUpload = ({
 
         } catch (error) {
             console.error('Image picker error:', error);
+            Sentry.captureException(error);
         } finally {
             setIsLoading(false);
         }
@@ -111,10 +113,10 @@ const ImageUpload = ({
                 {/* Label */}
                 {!compact && (
                     <View className="mb-2">
-                        <AppText styles="text-sm text-slate-300" font="font-imedium">
+                        <AppText styles="text-sm text-slate-300">
                             {label}
                             {required && (
-                                <AppText styles="text-sm text-red-400" font="font-imedium">
+                                <AppText styles="text-sm text-red-400">
                                     {" *"}
                                 </AppText>
                             )}
@@ -149,11 +151,11 @@ const ImageUpload = ({
                                 >
                                     <Ionicons name="cloud-upload-outline" size={32} color={colors.accent50} />
                                 </View>
-                                <AppText styles="text-base text-white mb-1" font="font-ibold">
+                                <AppText styles="text-base text-white mb-1 font-nunbold">
                                     {compact ? 'Upload Image' : 'Tap to upload image'}
                                 </AppText>
                                 {!compact && (
-                                    <AppText styles="text-xs text-slate-400 text-center" font="font-iregular">
+                                    <AppText styles="text-xs text-slate-400 text-center">
                                         JPG, PNG, WEBP
                                     </AppText>
                                 )}
@@ -202,7 +204,7 @@ const ImageUpload = ({
                 {error && (
                     <View className="flex-row items-start gap-2 p-3 bg-red-500/10 rounded-lg border border-red-500/20 mt-2">
                         <Ionicons name="alert-circle" size={16} color="#ef4444" />
-                        <AppText styles="text-xs text-red-400 flex-1" font="font-iregular">
+                        <AppText styles="text-xs text-red-400 flex-1">
                             {error}
                         </AppText>
                     </View>
@@ -210,7 +212,7 @@ const ImageUpload = ({
 
                 {/* Helper Text */}
                 {helperText && !error && !compact && (
-                    <AppText styles="text-xs text-slate-400 mt-2" font="font-iregular">
+                    <AppText styles="text-xs text-slate-400 mt-2">
                         {helperText}
                     </AppText>
                 )}
@@ -224,15 +226,15 @@ const ImageUpload = ({
             {/* Label */}
             {!compact && (
                 <View className="flex-row items-center justify-between mb-2">
-                    <AppText styles="text-sm text-slate-300" font="font-imedium">
+                    <AppText styles="text-sm text-slate-300">
                         {label}
                         {required && (
-                            <AppText styles="text-sm text-red-400" font="font-imedium">
+                            <AppText styles="text-sm text-red-400">
                                 {" *"}
                             </AppText>
                         )}
                     </AppText>
-                    <AppText styles="text-xs text-slate-400" font="font-iregular">
+                    <AppText styles="text-xs text-slate-400">
                         {displayImages.length}/{maxImages}
                     </AppText>
                 </View>
@@ -260,7 +262,7 @@ const ImageUpload = ({
                         ) : (
                             <>
                                 <Ionicons name="add-circle-outline" size={32} color={colors.accent50} />
-                                <AppText styles="text-xs text-slate-300 mt-2" font="font-isemibold">
+                                <AppText styles="text-xs text-slate-300 mt-2">
                                     Add Image
                                 </AppText>
                             </>
@@ -296,7 +298,7 @@ const ImageUpload = ({
                             className="absolute bottom-2 left-2 px-2 py-0.5 rounded"
                             style={{ backgroundColor: colors.primary + 'CC' }}
                         >
-                            <AppText styles="text-xs text-white" font="font-ibold">
+                            <AppText styles="text-xs text-white font-nunbold">
                                 {index + 1}
                             </AppText>
                         </View>
@@ -306,7 +308,7 @@ const ImageUpload = ({
 
             {/* Helper Text */}
             {helperText && !compact && (
-                <AppText styles="text-xs text-slate-400 mt-2" font="font-iregular">
+                <AppText styles="text-xs text-slate-400 mt-2">
                     {helperText}
                 </AppText>
             )}

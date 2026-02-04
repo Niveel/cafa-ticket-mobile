@@ -17,12 +17,12 @@ const EventNotFound = () => {
                 </View>
 
                 {/* Title */}
-                <AppText styles="text-2xl text-white text-center mb-3" font="font-ibold">
+                <AppText styles="text-2xl text-white text-center mb-3 font-nunbold">
                     Event Not Found
                 </AppText>
 
                 {/* Description */}
-                <AppText styles="text-sm text-slate-300 text-center mb-6 leading-relaxed" font="font-iregular">
+                <AppText styles="text-sm text-slate-300 text-center mb-6 leading-relaxed">
                     The event you're looking for doesn't exist or may have been deleted by the organizer.
                 </AppText>
 
@@ -31,7 +31,7 @@ const EventNotFound = () => {
                     className="w-full max-w-sm bg-primary-100 rounded-xl p-4 mb-6"
                     style={{ borderWidth: 1, borderColor: colors.accent + "30" }}
                 >
-                    <AppText styles="text-sm text-slate-300 mb-2" font="font-iregular">
+                    <AppText styles="text-sm text-slate-300 mb-2">
                         Here are some things you can try:
                     </AppText>
                     <View style={{ gap: 8 }}>
@@ -41,10 +41,10 @@ const EventNotFound = () => {
                             "The organizer may have cancelled it",
                         ].map((text, i) => (
                             <View key={i} className="flex-row items-start gap-2">
-                                <AppText styles="text-sm text-accent-50" font="font-ibold">
+                                <AppText styles="text-sm text-accent-50 font-nunbold">
                                     •
                                 </AppText>
-                                <AppText styles="text-xs text-slate-300" font="font-iregular">
+                                <AppText styles="text-xs text-slate-300">
                                     {text}
                                 </AppText>
                             </View>
@@ -60,7 +60,7 @@ const EventNotFound = () => {
                         style={{ backgroundColor: colors.accent }}
                         activeOpacity={0.8}
                     >
-                        <AppText styles="text-sm text-white" font="font-ibold">
+                        <AppText styles="text-sm text-white font-nunbold">
                             Browse Events
                         </AppText>
                     </TouchableOpacity>
@@ -71,7 +71,7 @@ const EventNotFound = () => {
                         style={{ borderWidth: 2, borderColor: colors.accent }}
                         activeOpacity={0.8}
                     >
-                        <AppText styles="text-sm text-white" font="font-ibold">
+                        <AppText styles="text-sm text-white font-nunbold">
                             Go Home
                         </AppText>
                     </TouchableOpacity>

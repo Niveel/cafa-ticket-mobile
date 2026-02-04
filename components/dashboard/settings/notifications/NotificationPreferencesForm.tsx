@@ -1,5 +1,6 @@
 import { View, TouchableOpacity, ActivityIndicator, Alert } from "react-native";
 import { useState } from "react";
+import * as Sentry from '@sentry/react-native';
 import { Ionicons } from "@expo/vector-icons";
 
 import AppText from "../../../ui/AppText";
@@ -73,6 +74,7 @@ const NotificationPreferencesForm = ({ currentSettings }: NotificationPreference
             setSuccess(true);
         } catch (error: any) {
             console.error("Error updating notification settings:", error);
+            Sentry.captureException(error);
             const errorMessage =
                 error.response?.data?.message || error.message || "Failed to update settings";
             Alert.alert("Error", errorMessage);
@@ -89,10 +91,10 @@ const NotificationPreferencesForm = ({ currentSettings }: NotificationPreference
                     <Ionicons name="notifications-outline" size={20} color={colors.accent50} />
                 </View>
                 <View className="flex-1">
-                    <AppText styles="text-base text-white" font="font-ibold">
+                    <AppText styles="text-base text-white font-nunbold">
                         Notification Preferences
                     </AppText>
-                    <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.6 }}>
+                    <AppText styles="text-xs text-white" style={{ opacity: 0.6 }}>
                         Control how and when you receive notifications
                     </AppText>
                 </View>
@@ -106,7 +108,7 @@ const NotificationPreferencesForm = ({ currentSettings }: NotificationPreference
                 >
                     <View className="flex-row items-center gap-2">
                         <Ionicons name="checkmark-circle" size={16} color="#34d399" />
-                        <AppText styles="text-xs" font="font-isemibold" style={{ color: "#34d399" }}>
+                        <AppText styles="text-xs" style={{ color: "#34d399" }}>
                             Settings updated successfully!
                         </AppText>
                     </View>
@@ -139,10 +141,10 @@ const NotificationPreferencesForm = ({ currentSettings }: NotificationPreference
 
                             {/* Text */}
                             <View className="flex-1">
-                                <AppText styles="text-sm text-white" font="font-isemibold">
+                                <AppText styles="text-sm text-white">
                                     {option.title}
                                 </AppText>
-                                <AppText styles="text-xs text-white mt-0.5" font="font-iregular" style={{ opacity: 0.6 }}>
+                                <AppText styles="text-xs text-white mt-0.5" style={{ opacity: 0.6 }}>
                                     {option.description}
                                 </AppText>
                             </View>
@@ -182,7 +184,7 @@ const NotificationPreferencesForm = ({ currentSettings }: NotificationPreference
                 {isSubmitting ? (
                     <ActivityIndicator size="small" color="#fff" />
                 ) : (
-                    <AppText styles="text-sm text-white" font="font-ibold">
+                    <AppText styles="text-sm text-white font-nunbold">
                         Save Preferences
                     </AppText>
                 )}
@@ -190,7 +192,7 @@ const NotificationPreferencesForm = ({ currentSettings }: NotificationPreference
 
             {/* No changes hint */}
             {!hasChanges && !isSubmitting && (
-                <AppText styles="text-xs text-white text-center mt-3" font="font-iregular" style={{ opacity: 0.4 }}>
+                <AppText styles="text-xs text-white text-center mt-3" style={{ opacity: 0.4 }}>
                     No changes to save
                 </AppText>
             )}

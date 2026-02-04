@@ -21,10 +21,10 @@ const TicketQRSection = ({ ticket }: Props) => {
                     <Ionicons name="qr-code-outline" size={18} color="#c084fc" />
                 </View>
                 <View>
-                    <AppText styles="text-sm text-white" font="font-ibold">
+                    <AppText styles="text-sm text-white font-nunbold">
                         QR Code
                     </AppText>
-                    <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.5 }}>
+                    <AppText styles="text-xs text-white" style={{ opacity: 0.5 }}>
                         Show this at the venue
                     </AppText>
                 </View>
@@ -56,7 +56,7 @@ const TicketQRSection = ({ ticket }: Props) => {
                 style={{ backgroundColor: "#3b82f60D", borderColor: "#3b82f633" }}
             >
                 <Ionicons name="information-circle-outline" size={16} color="#60a5fa" style={{ marginTop: 1 }} />
-                <AppText styles="text-xs flex-1" font="font-iregular" style={{ color: "#93c5fd" }}>
+                <AppText styles="text-xs flex-1" style={{ color: "#93c5fd" }}>
                     Present this QR code at the event entrance for check-in. Make sure your screen brightness is high enough.
                 </AppText>
             </View>

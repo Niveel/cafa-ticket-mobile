@@ -58,7 +58,7 @@ const EventDetailsScreen = () => {
                     path={tickets}
                     style={{ width: 200, height: 200 }}
                 />
-                <AppText styles="text-sm text-slate-400 mt-4" font="font-iregular">
+                <AppText styles="text-sm text-slate-400 mt-4">
                     Loading event details...
                 </AppText>
             </View>

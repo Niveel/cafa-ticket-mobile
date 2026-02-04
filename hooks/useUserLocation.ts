@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import * as Location from "expo-location";
+import * as Sentry from '@sentry/react-native';
 
 interface UserLocation {
     city: string | null;
@@ -65,6 +66,7 @@ export const useUserLocation = (): UseUserLocationReturn => {
             }
         } catch (err) {
             console.error("Error getting location:", err);
+            Sentry.captureException(err);
             setError("Failed to get location");
             setHasPermission(false);
         } finally {
@@ -75,7 +77,7 @@ export const useUserLocation = (): UseUserLocationReturn => {
     const requestPermission = async () => {
         try {
             const { status } = await Location.requestForegroundPermissionsAsync();
-            
+
             if (status === "granted") {
                 setHasPermission(true);
                 await getUserLocation();
@@ -84,6 +86,7 @@ export const useUserLocation = (): UseUserLocationReturn => {
             }
         } catch (err) {
             console.error("Error requesting permission:", err);
+            Sentry.captureException(err);
             setError("Failed to request permission");
             setHasPermission(false);
         }

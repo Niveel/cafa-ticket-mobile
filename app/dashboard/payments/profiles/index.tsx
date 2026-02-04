@@ -34,7 +34,7 @@ const PaymentProfilesScreen = () => {
     }, []);
 
     useEffect(() => {
-        fetchProfiles(); 
+        fetchProfiles();
     }, [fetchProfiles]);
 
     const onRefresh = useCallback(() => {
@@ -85,7 +85,7 @@ const PaymentProfilesScreen = () => {
                     {isLoading ? (
                         <View className="flex-1 items-center justify-center">
                             <ActivityIndicator size="large" color={colors.accent} />
-                            <AppText styles="text-sm text-white mt-4" font="font-iregular" style={{ opacity: 0.6 }}>
+                            <AppText styles="text-sm text-white mt-4" style={{ opacity: 0.6 }}>
                                 Loading payment profiles...
                             </AppText>
                         </View>
@@ -98,7 +98,7 @@ const PaymentProfilesScreen = () => {
                             <View className="p-2 gap-6">
                                 {/* Page Header */}
                                 <View>
-                                    <AppText styles="text-sm text-white" font="font-iregular" style={{ opacity: 0.7 }}>
+                                    <AppText styles="text-sm text-white" style={{ opacity: 0.7 }}>
                                         Manage your payout methods
                                     </AppText>
                                 </View>
@@ -111,10 +111,10 @@ const PaymentProfilesScreen = () => {
                                     <View className="flex-row items-start gap-3">
                                         <Ionicons name="information-circle" size={20} color={colors.accent50} style={{ marginTop: 2 }} />
                                         <View className="flex-1">
-                                            <AppText styles="text-sm text-white mb-1" font="font-ibold">
+                                            <AppText styles="text-sm text-white mb-1">
                                                 About Payment Profiles
                                             </AppText>
-                                            <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.7 }}>
+                                            <AppText styles="text-xs text-white" style={{ opacity: 0.7 }}>
                                                 Payment profiles are used to receive payouts from your event sales. Add your
                                                 bank account details to get paid.
                                             </AppText>
@@ -130,7 +130,7 @@ const PaymentProfilesScreen = () => {
                                     activeOpacity={0.8}
                                 >
                                     <Ionicons name="add-circle" size={20} color={colors.white} />
-                                    <AppText styles="text-sm text-white" font="font-ibold">
+                                    <AppText styles="text-sm text-white">
                                         Add Payment Profile
                                     </AppText>
                                 </TouchableOpacity>
@@ -141,7 +141,7 @@ const PaymentProfilesScreen = () => {
                                         className="p-4 rounded-xl border-2"
                                         style={{ backgroundColor: colors.accent + "1A", borderColor: colors.accent }}
                                     >
-                                        <AppText styles="text-sm text-white text-center" font="font-iregular">
+                                        <AppText styles="text-sm text-white text-center">
                                             {error}
                                         </AppText>
                                     </View>
@@ -159,12 +159,11 @@ const PaymentProfilesScreen = () => {
                                         >
                                             <Ionicons name="wallet-outline" size={40} color={colors.accent50} />
                                         </View>
-                                        <AppText styles="text-base text-white mb-3 text-center" font="font-ibold">
+                                        <AppText styles="text-base text-white mb-3 text-center">
                                             No Payment Profiles Yet
                                         </AppText>
                                         <AppText
                                             styles="text-sm text-white text-center"
-                                            font="font-iregular"
                                             style={{ opacity: 0.7, maxWidth: 300 }}
                                         >
                                             Add a payment profile to start receiving payouts from your event sales.
@@ -192,7 +191,7 @@ const PaymentProfilesScreen = () => {
                                                     <View className="flex-row items-start justify-between mb-3">
                                                         <View className="flex-1">
                                                             <View className="flex-row items-center gap-2 mb-2">
-                                                                <AppText styles="text-base text-white" font="font-ibold">
+                                                                <AppText styles="text-base text-white">
                                                                     {profile.name}
                                                                 </AppText>
                                                                 {profile.is_default && (
@@ -200,10 +199,7 @@ const PaymentProfilesScreen = () => {
                                                                         className="px-2 py-0.5 rounded"
                                                                         style={{ backgroundColor: colors.accent }}
                                                                     >
-                                                                        <AppText
-                                                                            styles="text-xs text-white"
-                                                                            font="font-ibold"
-                                                                        >
+                                                                        <AppText styles="text-xs text-white">
                                                                             Default
                                                                         </AppText>
                                                                     </View>
@@ -217,7 +213,6 @@ const PaymentProfilesScreen = () => {
                                                         >
                                                             <AppText
                                                                 styles="text-xs"
-                                                                font="font-isemibold"
                                                                 style={{ color: status.color }}
                                                             >
                                                                 {status.text}
@@ -236,7 +231,6 @@ const PaymentProfilesScreen = () => {
                                                             />
                                                             <AppText
                                                                 styles="text-sm text-white"
-                                                                font="font-iregular"
                                                                 style={{ opacity: 0.8 }}
                                                             >
                                                                 {profile.account_details.account_name}
@@ -252,7 +246,6 @@ const PaymentProfilesScreen = () => {
                                                             />
                                                             <AppText
                                                                 styles="text-sm text-white"
-                                                                font="font-iregular"
                                                                 style={{ opacity: 0.8 }}
                                                             >
                                                                 {profile.account_details.bank_name}
@@ -268,7 +261,6 @@ const PaymentProfilesScreen = () => {
                                                             />
                                                             <AppText
                                                                 styles="text-sm text-white"
-                                                                font="font-iregular"
                                                                 style={{ opacity: 0.8 }}
                                                             >
                                                                 {profile.account_details.account_number}
@@ -288,7 +280,7 @@ const PaymentProfilesScreen = () => {
                                                             activeOpacity={0.8}
                                                         >
                                                             <Ionicons name="create-outline" size={16} color={colors.white} />
-                                                            <AppText styles="text-sm text-white" font="font-ibold">
+                                                            <AppText styles="text-sm text-white">
                                                                 Edit
                                                             </AppText>
                                                         </TouchableOpacity>

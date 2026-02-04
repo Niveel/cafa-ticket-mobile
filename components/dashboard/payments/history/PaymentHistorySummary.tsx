@@ -82,13 +82,13 @@ const PaymentHistorySummary = ({ summary }: Props) => {
                     >
                         <View className="flex-row items-start justify-between mb-3">
                             <View className="flex-1">
-                                <AppText styles="text-xs text-slate-300 mb-2" font="font-imedium">
+                                <AppText styles="text-xs text-slate-300 mb-2">
                                     {card.title}
                                 </AppText>
-                                <AppText styles="text-xl text-white mb-1" font="font-ibold">
+                                <AppText styles="text-xl text-white mb-1 font-nunbold">
                                     {card.value}
                                 </AppText>
-                                <AppText styles="text-xs text-slate-400" font="font-iregular">
+                                <AppText styles="text-xs text-slate-400">
                                     {card.subtitle}
                                 </AppText>
                             </View>

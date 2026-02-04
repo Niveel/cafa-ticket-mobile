@@ -63,11 +63,11 @@ const LocationSelector = ({
         <View>
             {/* Label */}
             <View className="flex-row items-center mb-2">
-                <AppText styles="text-sm text-white" font="font-isemibold">
+                <AppText styles="text-sm text-white">
                     {label}
                 </AppText>
                 {required && (
-                    <AppText styles="text-sm text-accent-50 ml-1" font="font-isemibold">
+                    <AppText styles="text-sm text-accent-50 ml-1">
                         {" "}
                         *
                     </AppText>
@@ -198,7 +198,7 @@ const LocationSelector = ({
 
             {/* Helper Text */}
             {!error && (
-                <AppText styles="text-xs text-white mt-2" font="font-iregular" style={{ opacity: 0.6 }}>
+                <AppText styles="text-xs text-white mt-2" style={{ opacity: 0.6 }}>
                     Start typing to search for venues or addresses worldwide
                 </AppText>
             )}

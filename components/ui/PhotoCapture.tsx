@@ -3,6 +3,7 @@ import { Ionicons } from "@expo/vector-icons";
 import * as ImagePicker from 'expo-image-picker';
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { useState, useRef, useEffect } from "react";
+import * as Sentry from '@sentry/react-native';
 
 import { AppText } from "@/components";
 import colors from "@/config/colors";
@@ -58,11 +59,12 @@ const PhotoCapture = ({
                 quality: 0.7,
                 base64: false,
             });
-            
+
             setCapturedPhoto(photo.uri);
             setShowCamera(false);
         } catch (error) {
             console.error('Take photo error:', error);
+            Sentry.captureException(error);
             Alert.alert('Error', 'Failed to take photo. Please try again.');
         } finally {
             setIsTakingPhoto(false);
@@ -83,6 +85,7 @@ const PhotoCapture = ({
             }
         } catch (error) {
             console.error('Pick image error:', error);
+            Sentry.captureException(error);
             Alert.alert('Error', 'Failed to select image. Please try again.');
         }
     };
@@ -114,7 +117,7 @@ const PhotoCapture = ({
         return (
             <View className="flex-1 items-center justify-center p-6">
                 <ActivityIndicator size="large" color={colors.accent} />
-                <AppText styles="text-sm text-white mt-4" font="font-iregular" style={{ opacity: 0.6 }}>
+                <AppText styles="text-sm text-white mt-4" style={{ opacity: 0.6 }}>
                     Requesting permissions...
                 </AppText>
             </View>
@@ -123,17 +126,17 @@ const PhotoCapture = ({
 
     if (hasPermission === false) {
         return (
-            <View 
+            <View
                 className="p-6 rounded-xl border-2"
                 style={{ backgroundColor: colors.accent + "1A", borderColor: colors.accent }}
             >
                 <View className="flex-row items-start gap-3">
                     <Ionicons name="alert-circle" size={20} color={colors.accent} />
                     <View className="flex-1">
-                        <AppText styles="text-sm text-white mb-2" font="font-ibold">
+                        <AppText styles="text-sm text-white mb-2 font-nunbold">
                             Camera Permission Required
                         </AppText>
-                        <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.8 }}>
+                        <AppText styles="text-xs text-white" style={{ opacity: 0.8 }}>
                             Please enable camera and photo library access in your device settings to continue.
                         </AppText>
                     </View>
@@ -153,7 +156,7 @@ const PhotoCapture = ({
                 >
                     {/* Overlay Guide */}
                     <View className="flex-1 items-center justify-center">
-                        <View 
+                        <View
                             className="w-64 h-80 border-4 rounded-3xl"
                             style={{ borderColor: colors.accent + "80" }}
                         />
@@ -172,7 +175,7 @@ const PhotoCapture = ({
                                 accessibilityRole="button"
                                 accessibilityLabel="Cancel"
                             >
-                                <AppText styles="text-sm text-white" font="font-isemibold">
+                                <AppText styles="text-sm text-white">
                                     Cancel
                                 </AppText>
                             </TouchableOpacity>
@@ -182,7 +185,7 @@ const PhotoCapture = ({
                                 onPress={handleTakePhoto}
                                 disabled={isTakingPhoto}
                                 className="w-20 h-20 rounded-full border-4 items-center justify-center"
-                                style={{ 
+                                style={{
                                     backgroundColor: colors.white,
                                     borderColor: colors.accent,
                                     opacity: isTakingPhoto ? 0.5 : 1
@@ -222,22 +225,22 @@ const PhotoCapture = ({
         <View className="gap-6 px-4">
             {/* Title & Instructions */}
             <View>
-                <AppText styles="text-lg text-white mb-2" font="font-ibold">
+                <AppText styles="text-lg text-white mb-2 font-nunbold">
                     {title}
                 </AppText>
-                <AppText styles="text-sm text-white mb-4" font="font-iregular" style={{ opacity: 0.7 }}>
+                <AppText styles="text-sm text-white mb-4" style={{ opacity: 0.7 }}>
                     {instructions}
                 </AppText>
 
                 {/* Requirements */}
-                <View 
+                <View
                     className="p-4 rounded-xl gap-2"
                     style={{ backgroundColor: colors.primary200 + "80" }}
                 >
                     {requirements.map((req, index) => (
                         <View key={index} className="flex-row items-center gap-2">
                             <View className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: colors.accent50 }} />
-                            <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.7 }}>
+                            <AppText styles="text-xs text-white" style={{ opacity: 0.7 }}>
                                 {req}
                             </AppText>
                         </View>
@@ -247,17 +250,17 @@ const PhotoCapture = ({
 
             {/* Error Message */}
             {error && (
-                <View 
+                <View
                     className="p-4 rounded-xl border-2"
                     style={{ backgroundColor: colors.accent + "1A", borderColor: colors.accent }}
                 >
                     <View className="flex-row items-start gap-3">
                         <Ionicons name="alert-circle" size={18} color={colors.accent} style={{ marginTop: 2 }} />
                         <View className="flex-1">
-                            <AppText styles="text-sm text-white mb-1" font="font-ibold">
+                            <AppText styles="text-sm text-white mb-1 font-nunbold">
                                 Upload Failed
                             </AppText>
-                            <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.8 }}>
+                            <AppText styles="text-xs text-white" style={{ opacity: 0.8 }}>
                                 {error}
                             </AppText>
                         </View>
@@ -277,16 +280,16 @@ const PhotoCapture = ({
                     accessibilityLabel="Add photo"
                     accessibilityHint="Tap to choose between camera or photo library"
                 >
-                    <View 
+                    <View
                         className="w-20 h-20 rounded-full items-center justify-center mb-4"
                         style={{ backgroundColor: colors.accent + "33" }}
                     >
                         <Ionicons name="camera-outline" size={40} color={colors.accent50} />
                     </View>
-                    <AppText styles="text-base text-white mb-2" font="font-ibold">
+                    <AppText styles="text-base text-white mb-2 font-nunbold">
                         Take Photo or Upload
                     </AppText>
-                    <AppText styles="text-xs text-white text-center" font="font-iregular" style={{ opacity: 0.6 }}>
+                    <AppText styles="text-xs text-white text-center" style={{ opacity: 0.6 }}>
                         Tap to choose camera or library
                     </AppText>
                 </TouchableOpacity>
@@ -312,19 +315,19 @@ const PhotoCapture = ({
                             accessibilityLabel="Retake photo"
                         >
                             <Ionicons name="camera-outline" size={16} color={colors.white} />
-                            <AppText styles="text-xs text-white" font="font-isemibold">
+                            <AppText styles="text-xs text-white">
                                 Retake
                             </AppText>
                         </TouchableOpacity>
 
                         {/* Loading Overlay */}
                         {isLoading && (
-                            <View 
+                            <View
                                 className="absolute inset-0 items-center justify-center"
                                 style={{ backgroundColor: colors.primary + "CC" }}
                             >
                                 <ActivityIndicator size="large" color={colors.accent} />
-                                <AppText styles="text-sm text-white mt-3" font="font-isemibold">
+                                <AppText styles="text-sm text-white mt-3">
                                     Uploading...
                                 </AppText>
                             </View>
@@ -342,7 +345,7 @@ const PhotoCapture = ({
                         accessibilityRole="button"
                         accessibilityLabel={captureButtonText}
                     >
-                        <AppText styles="text-base text-white" font="font-ibold">
+                        <AppText styles="text-base text-white font-nunbold">
                             {isLoading ? 'Processing...' : captureButtonText}
                         </AppText>
                     </TouchableOpacity>

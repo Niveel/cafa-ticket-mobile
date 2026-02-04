@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig } from "axios";
 import * as SecureStore from "expo-secure-store";
+import * as Sentry from '@sentry/react-native';
 
 import { API_BASE_URL } from "@/config/settings";
 
@@ -51,6 +52,7 @@ async function getRefreshedAccessToken(): Promise<string> {
 
             if (!access) {
                 console.error("Refresh response missing access token:", res.data);
+                Sentry.captureMessage("Refresh response missing access token", { extra: { data: res.data } });
                 throw new Error("no access token in refresh response");
             }
 
@@ -98,6 +100,8 @@ client.interceptors.request.use(
             if (status === 401 || status === 403) {
                 await SecureStore.deleteItemAsync(AUTH_TOKEN_KEY).catch(() => { });
                 await SecureStore.deleteItemAsync(REFRESH_TOKEN_KEY).catch(() => { });
+            } else {
+                Sentry.captureException(error);
             }
             // Re-throw if we want specific requests to handle the absence of a token
         }
@@ -129,6 +133,7 @@ client.interceptors.response.use(
                     await SecureStore.deleteItemAsync(AUTH_TOKEN_KEY).catch(() => { });
                     await SecureStore.deleteItemAsync(REFRESH_TOKEN_KEY).catch(() => { });
                 }
+                Sentry.captureException(refreshError);
             }
         }
 

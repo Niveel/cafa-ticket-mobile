@@ -52,7 +52,6 @@ const CreateTicketScreen = () => {
                             <ActivityIndicator size="large" color={colors.accent} />
                             <AppText
                                 styles="text-sm text-white mt-4"
-                                font="font-iregular"
                                 style={{ opacity: 0.6 }}
                             >
                                 Loading event details...
@@ -73,12 +72,11 @@ const CreateTicketScreen = () => {
                                 >
                                     <View className="items-center">
                                         <Ionicons name="alert-circle" size={48} color={colors.accent} />
-                                        <AppText styles="text-lg text-white mt-4 mb-2" font="font-ibold">
+                                        <AppText styles="text-lg text-white mt-4 mb-2 font-nunbold">
                                             Event Not Found
                                         </AppText>
                                         <AppText
                                             styles="text-sm text-white text-center"
-                                            font="font-iregular"
                                             style={{ opacity: 0.8 }}
                                         >
                                             The event you're looking for doesn't exist or you don't have access
@@ -97,7 +95,6 @@ const CreateTicketScreen = () => {
                             <View className="mb-4">
                                 <AppText
                                     styles="text-sm text-white"
-                                    font="font-iregular"
                                     style={{ opacity: 0.7 }}
                                 >
                                     {event.title}

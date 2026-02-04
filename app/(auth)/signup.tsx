@@ -129,8 +129,8 @@ const SignupScreen = () => {
       // Fallback
       setError(
         err?.response?.data?.error ||
-          err?.message ||
-          "Registration failed. Please try again."
+        err?.message ||
+        "Registration failed. Please try again."
       );
     } finally {
       setIsLoading(false);
@@ -184,12 +184,11 @@ const SignupScreen = () => {
                     <Ionicons name="ticket" size={24} color="white" />
                   </View>
                   <View>
-                    <AppText styles="text-xl text-white" font="font-ibold">
+                    <AppText styles="text-xl text-white font-nunbold">
                       Cafa Tickets
                     </AppText>
                     <AppText
                       styles="text-xs text-slate-300"
-                      font="font-iregular"
                     >
                       Join the Community
                     </AppText>
@@ -197,8 +196,7 @@ const SignupScreen = () => {
                 </View>
 
                 <AppText
-                  styles="text-3xl text-white mb-2"
-                  font="font-ibold"
+                  styles="text-3xl text-white mb-2 font-nunbold"
                 >
                   Create Account
                 </AppText>
@@ -285,13 +283,11 @@ const SignupScreen = () => {
                   <View className="mb-4 p-4 bg-primary/50 rounded-xl border border-accent/30">
                     <AppText
                       styles="text-xs text-slate-300 leading-5"
-                      font="font-iregular"
                     >
                       By creating an account, you agree to our{" "}
                       <Link href="/terms" asChild>
                         <AppText
-                          styles="text-xs text-accent-50"
-                          font="font-isemibold"
+                          styles="text-xs text-accent-50 font-nunbold"
                         >
                           Terms of Service
                         </AppText>
@@ -299,8 +295,7 @@ const SignupScreen = () => {
                       and{" "}
                       <Link href="/privacy" asChild>
                         <AppText
-                          styles="text-xs text-accent-50"
-                          font="font-isemibold"
+                          styles="text-xs text-accent-50 font-nunbold"
                         >
                           Privacy Policy
                         </AppText>
@@ -318,7 +313,6 @@ const SignupScreen = () => {
                     <View className="flex-1 h-[1px] bg-accent/30" />
                     <AppText
                       styles="mx-4 text-sm text-slate-300"
-                      font="font-iregular"
                     >
                       Already have an account?
                     </AppText>
@@ -332,8 +326,7 @@ const SignupScreen = () => {
                     activeOpacity={0.7}
                   >
                     <AppText
-                      styles="text-sm text-white"
-                      font="font-isemibold"
+                      styles="text-sm text-white font-nunbold"
                     >
                       Sign In
                     </AppText>

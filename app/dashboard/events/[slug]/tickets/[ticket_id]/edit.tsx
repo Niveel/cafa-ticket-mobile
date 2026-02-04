@@ -65,7 +65,6 @@ const EditTicketScreen = () => {
                             <ActivityIndicator size="large" color={colors.accent} />
                             <AppText
                                 styles="text-sm text-white mt-4"
-                                font="font-iregular"
                                 style={{ opacity: 0.6 }}
                             >
                                 Loading ticket details...
@@ -86,12 +85,11 @@ const EditTicketScreen = () => {
                                 >
                                     <View className="items-center">
                                         <Ionicons name="alert-circle" size={48} color={colors.accent} />
-                                        <AppText styles="text-lg text-white mt-4 mb-2" font="font-ibold">
+                                        <AppText styles="text-lg text-white mt-4 mb-2 font-nunbold">
                                             {error === "Event not found" ? "Event Not Found" : "Ticket Type Not Found"}
                                         </AppText>
                                         <AppText
                                             styles="text-sm text-white text-center"
-                                            font="font-iregular"
                                             style={{ opacity: 0.8 }}
                                         >
                                             {error === "Event not found"
@@ -111,7 +109,6 @@ const EditTicketScreen = () => {
                             <View className="mb-4">
                                 <AppText
                                     styles="text-sm text-white"
-                                    font="font-iregular"
                                     style={{ opacity: 0.7 }}
                                 >
                                     {ticket.name} • {event.title}

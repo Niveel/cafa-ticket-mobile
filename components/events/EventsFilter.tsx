@@ -50,12 +50,12 @@ const EventsFilter = ({
                 activeOpacity={0.7}
             >
                 <Ionicons name="filter" size={20} color={colors.accent50} />
-                <AppText styles="text-sm text-white" font="font-ibold">
+                <AppText styles="text-sm text-white font-nunbold">
                     Filters
                 </AppText>
                 {activeFiltersCount > 0 && (
                     <View className="px-2 py-0.5 bg-accent rounded-full">
-                        <AppText styles="text-xs text-white" font="font-ibold">
+                        <AppText styles="text-xs text-white font-nunbold">
                             {activeFiltersCount}
                         </AppText>
                     </View>
@@ -75,10 +75,10 @@ const EventsFilter = ({
                         {/* Header */}
                         <View className="flex-row items-center justify-between p-6 border-b border-accent">
                             <View>
-                                <AppText styles="text-lg text-white mb-1" font="font-ibold">
+                                <AppText styles="text-lg text-white mb-1 font-nunbold">
                                     Filter Events
                                 </AppText>
-                                <AppText styles="text-xs text-slate-300" font="font-iregular">
+                                <AppText styles="text-xs text-slate-300">
                                     Refine your search
                                 </AppText>
                             </View>
@@ -98,7 +98,7 @@ const EventsFilter = ({
                             <View className="mb-6">
                                 <View className="flex-row items-center gap-2 mb-3">
                                     <Ionicons name="calendar" size={16} color={colors.accent50} />
-                                    <AppText styles="text-sm text-white" font="font-ibold">
+                                    <AppText styles="text-sm text-white font-nunbold">
                                         Event Status
                                     </AppText>
                                 </View>
@@ -114,17 +114,16 @@ const EventsFilter = ({
                                                 handleFilterUpdate("status", status.value as any)
                                             }
                                             className={`flex-1 py-3 px-4 rounded-xl border-2 ${filters.status === status.value
-                                                    ? "bg-accent border-accent"
-                                                    : "bg-primary-100 border-accent/30"
+                                                ? "bg-accent border-accent"
+                                                : "bg-primary-100 border-accent/30"
                                                 }`}
                                             activeOpacity={0.7}
                                         >
                                             <AppText
-                                                styles={`text-xs text-center ${filters.status === status.value
-                                                        ? "text-white"
-                                                        : "text-slate-200"
+                                                styles={`text-xs text-center font-nunbold ${filters.status === status.value
+                                                    ? "text-white"
+                                                    : "text-slate-200"
                                                     }`}
-                                                font="font-ibold"
                                             >
                                                 {status.label}
                                             </AppText>

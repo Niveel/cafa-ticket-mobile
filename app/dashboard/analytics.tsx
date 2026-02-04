@@ -64,7 +64,7 @@ const AnalyticsScreen = () => {
                             path={tickets}
                             style={{ width: 200, height: 200 }}
                         />
-                        <AppText styles="text-sm text-slate-400 mt-4" font="font-iregular">
+                        <AppText styles="text-sm text-slate-400 mt-4">
                             Loading analytics...
                         </AppText>
                     </View>
@@ -86,10 +86,10 @@ const AnalyticsScreen = () => {
                         >
                             <Ionicons name="warning-outline" size={32} color={colors.accent50} />
                         </View>
-                        <AppText styles="text-base text-white text-center" font="font-ibold">
+                        <AppText styles="text-base text-white text-center font-nunbold">
                             Unable to load analytics
                         </AppText>
-                        <AppText styles="text-xs text-white mt-2 text-center" font="font-iregular" style={{ opacity: 0.6 }}>
+                        <AppText styles="text-xs text-white mt-2 text-center" style={{ opacity: 0.6 }}>
                             Please check your connection and try again.
                         </AppText>
                     </View>
@@ -166,10 +166,10 @@ const AnalyticsScreen = () => {
                         <View className="gap-6">
                             {/* Welcome Header */}
                             <View className=" pt-2">
-                                <AppText styles="text-xl text-white" font="font-ibold">
+                                <AppText styles="text-xl text-white font-nunbold">
                                     Welcome back, {stats.username}
                                 </AppText>
-                                <AppText styles="text-xs text-white mt-1" font="font-iregular" style={{ opacity: 0.6 }}>
+                                <AppText styles="text-xs text-white mt-1" style={{ opacity: 0.6 }}>
                                     Here's your activity summary
                                 </AppText>
                             </View>

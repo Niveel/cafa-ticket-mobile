@@ -16,7 +16,7 @@ const RevenueByMonthChart = ({ revenueByMonth }: Props) => {
         return (
             <View className="rounded-xl p-6 border-2" style={{ backgroundColor: colors.primary100, borderColor: colors.accent }}>
                 <View className="py-12 items-center">
-                    <AppText styles="text-sm text-white" font="font-iregular" style={{ opacity: 0.6 }}>
+                    <AppText styles="text-sm text-white" style={{ opacity: 0.6 }}>
                         No monthly revenue data yet
                     </AppText>
                 </View>
@@ -41,10 +41,10 @@ const RevenueByMonthChart = ({ revenueByMonth }: Props) => {
                         <Ionicons name="calendar-outline" size={20} color={colors.accent50} />
                     </View>
                     <View>
-                        <AppText styles="text-lg text-white" font="font-ibold">
+                        <AppText styles="text-lg text-white font-nunbold">
                             Monthly Revenue
                         </AppText>
-                        <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.7 }}>
+                        <AppText styles="text-xs text-white" style={{ opacity: 0.7 }}>
                             Last {revenueByMonth.length} months
                         </AppText>
                     </View>
@@ -64,24 +64,24 @@ const RevenueByMonthChart = ({ revenueByMonth }: Props) => {
                             <View className="flex-row items-center justify-between">
                                 <View className="flex-row items-center gap-3">
                                     <View className="w-8 h-8 rounded-lg items-center justify-center" style={{ backgroundColor: colors.accent + "33" }}>
-                                        <AppText styles="text-xs text-white" font="font-ibold" style={{ color: colors.accent50 }}>
+                                        <AppText styles="text-xs text-white font-nunbold" style={{ color: colors.accent50 }}>
                                             {index + 1}
                                         </AppText>
                                     </View>
                                     <View>
-                                        <AppText styles="text-base text-white" font="font-ibold">
+                                        <AppText styles="text-base text-white font-nunbold">
                                             {formatMonth(month.month)}
                                         </AppText>
-                                        <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.6 }}>
+                                        <AppText styles="text-xs text-white" style={{ opacity: 0.6 }}>
                                             {month.tickets_sold} tickets sold
                                         </AppText>
                                     </View>
                                 </View>
                                 <View>
-                                    <AppText styles="text-base text-white" font="font-ibold" style={{ color: colors.accent50 }}>
+                                    <AppText styles="text-base text-white font-nunbold" style={{ color: colors.accent50 }}>
                                         {formatMoney(month.gross_revenue)}
                                     </AppText>
-                                    <AppText styles="text-xs text-white text-right" font="font-iregular" style={{ opacity: 0.6 }}>
+                                    <AppText styles="text-xs text-white text-right" style={{ opacity: 0.6 }}>
                                         Net: {formatMoney(month.net_revenue)}
                                     </AppText>
                                 </View>
@@ -90,10 +90,10 @@ const RevenueByMonthChart = ({ revenueByMonth }: Props) => {
                             {/* Revenue Bar */}
                             <View className="gap-2">
                                 <View className="flex-row items-center justify-between">
-                                    <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.6 }}>
+                                    <AppText styles="text-xs text-white" style={{ opacity: 0.6 }}>
                                         Gross Revenue
                                     </AppText>
-                                    <AppText styles="text-xs" font="font-isemibold" style={{ color: colors.accent50 }}>
+                                    <AppText styles="text-xs" style={{ color: colors.accent50 }}>
                                         {revenuePercentage.toFixed(0)}%
                                     </AppText>
                                 </View>
@@ -111,10 +111,10 @@ const RevenueByMonthChart = ({ revenueByMonth }: Props) => {
                             {/* Tickets Bar */}
                             <View className="gap-2">
                                 <View className="flex-row items-center justify-between">
-                                    <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.6 }}>
+                                    <AppText styles="text-xs text-white" style={{ opacity: 0.6 }}>
                                         Tickets Sold
                                     </AppText>
-                                    <AppText styles="text-xs" font="font-isemibold" style={{ color: colors.accent50 }}>
+                                    <AppText styles="text-xs" style={{ color: colors.accent50 }}>
                                         {ticketsPercentage.toFixed(0)}%
                                     </AppText>
                                 </View>
@@ -131,10 +131,10 @@ const RevenueByMonthChart = ({ revenueByMonth }: Props) => {
 
                             {/* Platform Fee */}
                             <View className="flex-row items-center justify-between pt-2 border-t" style={{ borderColor: colors.accent + "4D" }}>
-                                <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.6 }}>
+                                <AppText styles="text-xs text-white" style={{ opacity: 0.6 }}>
                                     Platform Fee (5%)
                                 </AppText>
-                                <AppText styles="text-xs" font="font-isemibold" style={{ color: colors.accent }}>
+                                <AppText styles="text-xs" style={{ color: colors.accent }}>
                                     -{formatMoney(month.platform_fee)}
                                 </AppText>
                             </View>

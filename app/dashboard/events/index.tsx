@@ -131,7 +131,7 @@ const DashboardEventsScreen = () => {
             path={tickets}
             style={{ width: 200, height: 200 }}
           />
-          <AppText styles="text-sm text-slate-400 mt-4" font="font-iregular">
+          <AppText styles="text-sm text-slate-400 mt-4">
             Loading your events...
           </AppText>
         </View>
@@ -148,7 +148,7 @@ const DashboardEventsScreen = () => {
 
           {error && (
             <View className="mb-4 p-4 bg-red-500/10 border border-red-500/20 rounded-xl">
-              <AppText styles="text-sm text-red-400" font="font-iregular">{error}</AppText>
+              <AppText styles="text-sm text-red-400">{error}</AppText>
             </View>
           )}
 

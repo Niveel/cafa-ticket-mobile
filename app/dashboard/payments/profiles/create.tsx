@@ -71,8 +71,8 @@ const FormFields = () => {
           isLoadingBanks
             ? "Loading banks..."
             : bankOptions.length === 0
-            ? "No banks available for this country"
-            : "Search for your bank..."
+              ? "No banks available for this country"
+              : "Search for your bank..."
         }
         isLoading={isLoadingBanks}
         required
@@ -104,8 +104,8 @@ const FormFields = () => {
       />
 
       <View className="p-4 bg-info/10 rounded-lg border border-info/20">
-        <AppText styles="text-xs text-blue-300" font="font-iregular">
-          <AppText styles="text-xs text-blue-300" font="font-ibold">
+        <AppText styles="text-xs text-blue-300">
+          <AppText styles="text-xs text-blue-300 font-nunbold">
             Verification:{" "}
           </AppText>
           Your bank account will be verified automatically. This is free and takes 5-10 seconds.
@@ -175,10 +175,10 @@ const CreatePaymentProfileScreen = () => {
               <Ionicons name="business" size={24} color={colors.info} />
             </View>
             <View className="flex-1">
-              <AppText styles="text-lg text-white" font="font-ibold">
+              <AppText styles="text-lg text-white font-nunbold">
                 Create Bank Account Profile
               </AppText>
-              <AppText styles="text-xs text-slate-400" font="font-iregular">
+              <AppText styles="text-xs text-slate-400">
                 Add your bank account for receiving payouts
               </AppText>
             </View>
@@ -190,7 +190,7 @@ const CreatePaymentProfileScreen = () => {
           <View className="mb-6 p-4 bg-red-500/10 rounded-lg border border-red-500/20">
             <View className="flex-row items-center gap-2">
               <Ionicons name="alert-circle" size={20} color={colors.error} />
-              <AppText styles="text-sm text-red-400 flex-1" font="font-isemibold">
+              <AppText styles="text-sm text-red-400 flex-1 font-nunbold">
                 {error}
               </AppText>
             </View>

@@ -24,12 +24,12 @@ const EventsResultsHeader = ({
                 <Ionicons name="calendar" size={20} color={colors.accent50} />
             </View>
             <View>
-                <AppText styles="text-base text-white" font="font-ibold">
+                <AppText styles="text-base text-white font-nunbold">
                     {currentCount.toLocaleString()}{" "}
                     {currentCount === 1 ? "Event" : "Events"}
                 </AppText>
                 {isFiltered && totalCount !== currentCount && (
-                    <AppText styles="text-xs text-slate-300" font="font-iregular">
+                    <AppText styles="text-xs text-slate-300">
                         Filtered from {totalCount.toLocaleString()} total events
                     </AppText>
                 )}

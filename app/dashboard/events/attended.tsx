@@ -59,10 +59,10 @@ const AttendedEventsScreen = () => {
                 >
                     {/* Page Header */}
                     <View className="mb-6">
-                        <AppText styles="text-2xl text-white mb-2" font="font-ibold">
+                        <AppText styles="text-2xl text-white mb-2 font-nunbold">
                             Attended Events
                         </AppText>
-                        <AppText styles="text-sm text-slate-300" font="font-iregular">
+                        <AppText styles="text-sm text-slate-300">
                             Your event attendance history
                         </AppText>
                     </View>
@@ -75,7 +75,7 @@ const AttendedEventsScreen = () => {
                                 path={tickets}
                                 style={{ width: 200, height: 200 }}
                             />
-                            <AppText styles="text-sm text-slate-300 mt-4" font="font-iregular">
+                            <AppText styles="text-sm text-slate-300 mt-4">
                                 Loading attended events...
                             </AppText>
                         </View>
@@ -90,10 +90,10 @@ const AttendedEventsScreen = () => {
                             >
                                 <Ionicons name="alert-circle-outline" size={32} color={colors.accent50} />
                             </View>
-                            <AppText styles="text-lg text-white text-center mb-2" font="font-ibold">
+                            <AppText styles="text-lg text-white text-center mb-2 font-nunbold">
                                 Unable to Load Events
                             </AppText>
-                            <AppText styles="text-sm text-slate-300 text-center mb-4" font="font-iregular">
+                            <AppText styles="text-sm text-slate-300 text-center mb-4">
                                 Something went wrong while fetching your attended events.
                             </AppText>
                             <AppButton
@@ -115,11 +115,11 @@ const AttendedEventsScreen = () => {
                             >
                                 <View className="flex-row items-center gap-3 mb-2">
                                     <Ionicons name="information-circle" size={20} color="#60a5fa" />
-                                    <AppText styles="text-base text-white" font="font-ibold">
+                                    <AppText styles="text-base text-white font-nunbold">
                                         About Your Attendance History
                                     </AppText>
                                 </View>
-                                <AppText styles="text-sm text-slate-300" font="font-iregular">
+                                <AppText styles="text-sm text-slate-300">
                                     This page shows all events you've successfully attended. Your check-in was confirmed at the event entrance.
                                 </AppText>
                             </View>

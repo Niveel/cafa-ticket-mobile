@@ -76,10 +76,10 @@ const DeleteAccountSection = () => {
                     <Ionicons name="trash-outline" size={20} color="#f87171" />
                 </View>
                 <View className="flex-1">
-                    <AppText styles="text-base text-white" font="font-ibold">
+                    <AppText styles="text-base text-white font-nunbold">
                         Delete Account
                     </AppText>
-                    <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.6 }}>
+                    <AppText styles="text-xs text-white" style={{ opacity: 0.6 }}>
                         Permanently delete your account and all associated data. This action cannot be undone.
                     </AppText>
                 </View>
@@ -93,12 +93,12 @@ const DeleteAccountSection = () => {
                 <View className="flex-row items-start gap-3">
                     <Ionicons name="warning-outline" size={20} color="#f87171" style={{ marginTop: 2 }} />
                     <View className="flex-1">
-                        <AppText styles="text-sm mb-2" font="font-ibold" style={{ color: "#f87171" }}>
+                        <AppText styles="text-sm mb-2 font-nunbold" style={{ color: "#f87171" }}>
                             Warning: This Action is Permanent
                         </AppText>
                         <View className="gap-1">
                             {warningItems.map((item, index) => (
-                                <AppText key={index} styles="text-xs" font="font-iregular" style={{ color: "#fca5a5" }}>
+                                <AppText key={index} styles="text-xs" style={{ color: "#fca5a5" }}>
                                     • {item}
                                 </AppText>
                             ))}
@@ -116,7 +116,7 @@ const DeleteAccountSection = () => {
                     activeOpacity={0.7}
                 >
                     <Ionicons name="trash-outline" size={16} color="#f87171" />
-                    <AppText styles="text-sm" font="font-ibold" style={{ color: "#f87171" }}>
+                    <AppText styles="text-sm font-nunbold" style={{ color: "#f87171" }}>
                         Delete My Account
                     </AppText>
                 </TouchableOpacity>
@@ -128,7 +128,7 @@ const DeleteAccountSection = () => {
                         className="p-3 rounded-lg border"
                         style={{ backgroundColor: "#ef4444" + "1A", borderColor: colors.accent }}
                     >
-                        <AppText styles="text-xs" font="font-iregular" style={{ color: "#fca5a5" }}>
+                        <AppText styles="text-xs" style={{ color: "#fca5a5" }}>
                             To confirm account deletion, please enter your password and type "DELETE MY ACCOUNT" exactly as shown.
                         </AppText>
                     </View>
@@ -166,7 +166,7 @@ const DeleteAccountSection = () => {
                                     autoCapitalize="characters"
                                     required
                                 />
-                                <AppText styles="text-xs text-white mt-1" font="font-iregular" style={{ opacity: 0.5 }}>
+                                <AppText styles="text-xs text-white mt-1" style={{ opacity: 0.5 }}>
                                     Must be typed exactly as shown (case sensitive)
                                 </AppText>
                             </View>
@@ -185,7 +185,7 @@ const DeleteAccountSection = () => {
                                     }}
                                     activeOpacity={0.8}
                                 >
-                                    <AppText styles="text-sm text-white" font="font-ibold">
+                                    <AppText styles="text-sm text-white font-nunbold">
                                         Cancel
                                     </AppText>
                                 </TouchableOpacity>

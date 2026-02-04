@@ -1,4 +1,5 @@
 import client from "./client";
+import * as Sentry from '@sentry/react-native';
 import type {
     MyEventDetailsResponse,
     MyEventAnalytics,
@@ -25,6 +26,7 @@ export async function getUserStats() {
         return response.data as UserStats;
     } catch (error) {
         console.error("getUserStats error:", error);
+        Sentry.captureException(error);
         return null;
     }
 }
@@ -39,6 +41,7 @@ export async function getMyCreatedEventDetails(slugOrId: string) {
         return response.data as MyEventDetailsResponse;
     } catch (error) {
         console.error("getMyCreatedEventDetails error:", error);
+        Sentry.captureException(error);
         return null;
     }
 }
@@ -49,6 +52,7 @@ export async function getMyCreatedEventAnalytics(slugOrId: string) {
         return response.data as MyEventAnalytics;
     } catch (error) {
         console.error("getMyCreatedEventAnalytics error:", error);
+        Sentry.captureException(error);
         return null;
     }
 }
@@ -63,6 +67,7 @@ export async function getMyPaymentProfiles() {
         return response.data as PaymentProfilesResponse;
     } catch (error) {
         console.error("getMyPaymentProfiles error:", error);
+        Sentry.captureException(error);
         return null;
     }
 }
@@ -79,6 +84,7 @@ export async function getMyRevenueSummary(
         return response.data as RevenueSummary;
     } catch (error) {
         console.error("getMyRevenueSummary error:", error);
+        Sentry.captureException(error);
         return null;
     }
 }
@@ -118,6 +124,7 @@ export async function getMyPaymentHistory(
         return response.data as PaymentHistory;
     } catch (error) {
         console.error("getMyPaymentHistory error:", error);
+        Sentry.captureException(error);
         return null;
     }
 }
@@ -128,6 +135,7 @@ export async function getPaymentDetailsById(id: string) {
         return response.data as PaymentDetails;
     } catch (error) {
         console.error("getPaymentDetailsById error:", error);
+        Sentry.captureException(error);
         return null;
     }
 }
@@ -147,6 +155,7 @@ export async function getMyAttendedEvents(page: number = 1, pageSize: number = 1
         return response.data as AttendedEventsResponse;
     } catch (error) {
         console.error("getMyAttendedEvents error:", error);
+        Sentry.captureException(error);
         return null;
     }
 }
@@ -176,6 +185,7 @@ export async function fetchMyTickets(params: {
         return response.data as MyTicketsResponse;
     } catch (error) {
         console.error("fetchMyTickets error:", error);
+        Sentry.captureException(error);
         return null;
     }
 }
@@ -186,6 +196,7 @@ export async function getMyTicketDetails(ticketId: string) {
         return response.data as TicketDetails;
     } catch (error) {
         console.error("getMyTicketDetails error:", error);
+        Sentry.captureException(error);
         return null;
     }
 }
@@ -231,6 +242,7 @@ export async function getMyCreatedEvents(
         return response.data as MyEventsResponse;
     } catch (error) {
         console.error("getMyCreatedEvents error:", error);
+        Sentry.captureException(error);
         return null;
     }
 }
@@ -277,6 +289,7 @@ export async function getMyEventAttendees(
         return response.data as EventAttendees;
     } catch (error) {
         console.error("getMyEventAttendees error:", error);
+        Sentry.captureException(error);
         return null;
     }
 }
@@ -290,6 +303,7 @@ export async function updatePaymentProfile(
         return response.data;
     } catch (error) {
         console.error("updatePaymentProfile error:", error);
+        Sentry.captureException(error);
         throw error;
     }
 }
@@ -311,6 +325,7 @@ export async function createPaymentProfile(data: {
         return response.data;
     } catch (error) {
         console.error("createPaymentProfile error:", error);
+        Sentry.captureException(error);
         throw error;
     }
 }
@@ -321,6 +336,7 @@ export async function getVerificationStatus() {
         return response.data;
     } catch (error) {
         console.error("getVerificationStatus error:", error);
+        Sentry.captureException(error);
         return null;
     }
 }
@@ -339,10 +355,11 @@ export async function uploadIDDocument(idDocumentUri: string) {
                 'Content-Type': 'multipart/form-data',
             },
         });
-        
+
         return response.data;
     } catch (error) {
         console.error("uploadIDDocument error:", error);
+        Sentry.captureException(error);
         throw error;
     }
 }
@@ -361,10 +378,11 @@ export async function uploadSelfieImage(selfieUri: string) {
                 'Content-Type': 'multipart/form-data',
             },
         });
-        
+
         return response.data;
     } catch (error) {
         console.error("uploadSelfieImage error:", error);
+        Sentry.captureException(error);
         throw error;
     }
 }
@@ -375,6 +393,7 @@ export async function retryVerification() {
         return response.data;
     } catch (error) {
         console.error("retryVerification error:", error);
+        Sentry.captureException(error);
         throw error;
     }
 }

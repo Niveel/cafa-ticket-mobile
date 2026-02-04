@@ -35,7 +35,7 @@ const AppInput = ({
     // Map icon names to Ionicons
     const getIconName = (): keyof typeof Ionicons.glyphMap => {
         if (!icon) return "eye-outline";
-        
+
         switch (icon) {
             case 'eye':
                 return "eye-outline";
@@ -69,7 +69,7 @@ const AppInput = ({
     return (
         <View className="w-full">
             {label && (
-                <AppText styles="mb-2 text-sm" font="font-isemibold">
+                <AppText styles="mb-2 text-sm">
                     {label}
                     {required && <AppText color="text-red-400" styles="ml-1"> *</AppText>}
                 </AppText>
@@ -94,10 +94,10 @@ const AppInput = ({
                             onPress={iconClick}
                             accessibilityLabel={iconAria || 'Icon button'}
                         >
-                            <Ionicons 
-                                name={getIconName()} 
-                                size={20} 
-                                color="#cbd5e1" 
+                            <Ionicons
+                                name={getIconName()}
+                                size={20}
+                                color="#cbd5e1"
                             />
                         </TouchableOpacity>
                     )}
