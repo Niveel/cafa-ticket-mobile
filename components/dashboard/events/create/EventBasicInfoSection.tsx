@@ -37,6 +37,7 @@ const EventBasicInfoSection = () => {
                 label="Event Title"
                 placeholder="e.g., Afrobeats Night 2025"
                 required
+                labelColor="text-black"
             />
 
             {/* Category - ✅ SAFE VERSION */}
@@ -47,6 +48,7 @@ const EventBasicInfoSection = () => {
                 label="Event Category"
                 required
                 error={touched.category_slug && errors.category_slug ? errors.category_slug : undefined}
+                labelColor="text-black"
             />
 
             {/* Short Description */}
@@ -54,6 +56,7 @@ const EventBasicInfoSection = () => {
                 name="short_description"
                 label="Short Description"
                 placeholder="A brief, catchy summary (20-300 characters)"
+                labelColor="text-black"
                 multiline
                 rows={2}
                 required
@@ -65,6 +68,7 @@ const EventBasicInfoSection = () => {
                     name="description"
                     label="Full Description"
                     placeholder="Detailed information about your event..."
+                    labelColor="text-black"
                     multiline
                     rows={6}
                     required

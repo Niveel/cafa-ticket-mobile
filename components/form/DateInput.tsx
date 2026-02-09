@@ -110,7 +110,7 @@ const DateInput = ({
             {/* Date Input Button */}
             <TouchableOpacity
                 onPress={() => !disabled && setShow(true)}
-                className={`relative w-full h-12 px-2 border-2 rounded-xl flex-row items-center ${
+                className={`relative w-full h-12 px-2 border-2 rounded-xl flex-row items-center  ${
                     disabled 
                         ? 'bg-gray-700 border-gray-600 opacity-50' 
                         : error 
@@ -144,7 +144,7 @@ const DateInput = ({
                         disabled 
                             ? 'text-gray-500' 
                             : value 
-                                ? 'text-black' 
+                                ? 'text-white' 
                                 : 'text-slate-500'
                     }`}
                     importantForAccessibility="no"

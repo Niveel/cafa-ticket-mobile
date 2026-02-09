@@ -103,7 +103,7 @@ const TimeInput = ({
                 <View className="flex-row items-center gap-3 flex-1">
                     <Ionicons name="time-outline" size={20} color={colors.white} style={{ opacity: 0.6 }} />
                     <AppText
-                        styles="text-sm text-black flex-1"
+                        styles="text-sm text-white flex-1"
                         style={{ opacity: value ? 1 : 0.6 }}
                     >
                         {value ? formatTimeDisplay(value) : placeholder}

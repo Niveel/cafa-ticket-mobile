@@ -32,6 +32,7 @@ type Props<Values extends StringFieldFormValues = StringFieldFormValues> = {
     spellCheck?: boolean;
     keyboardType?: KeyboardTypeOptions;
     secureTextEntry?: boolean;
+    labelColor?: string;
 };
 
 const AppFormField = <Values extends StringFieldFormValues = StringFieldFormValues>({
@@ -55,6 +56,7 @@ const AppFormField = <Values extends StringFieldFormValues = StringFieldFormValu
     spellCheck,
     keyboardType,
     secureTextEntry,
+    labelColor,
 }: Props<Values>) => {
     const { errors, setFieldTouched, setFieldValue, touched, values } = useFormikContext<Values>();
 
@@ -136,6 +138,7 @@ const AppFormField = <Values extends StringFieldFormValues = StringFieldFormValu
                     spellCheck={spellCheck}
                     keyboardType={keyboardType}
                     secureTextEntry={secureTextEntry}
+                    labelColor={labelColor}
                 />
             )}
             <AppErrorMessage error={error} visible={isTouched} />

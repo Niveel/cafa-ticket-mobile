@@ -107,11 +107,11 @@ const EventTypeSection = () => {
                         thumbColor={values.is_recurring ? colors.white : colors.white}
                     />
                     <View className="flex-1">
-                        <AppText styles="text-sm text-black mb-1" font="font-ibold">
+                        <AppText styles="text-sm text-white mb-1" font="font-ibold">
                             Recurring Event
                         </AppText>
-                        <AppText styles="text-xs text-black" font="font-iregular" style={{ opacity: 0.6 }}>
-                            Event repeats on multiple days
+                        <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.6 }}>
+                            Event repeats on multiple days 
                         </AppText>
                     </View>
                 </View>

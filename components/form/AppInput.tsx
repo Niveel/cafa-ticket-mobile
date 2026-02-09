@@ -15,6 +15,7 @@ interface AppInputProps extends Omit<RNTextInputProps, 'onChange'> {
     iconClick?: () => void;
     required?: boolean;
     type?: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url';
+    labelColor?: string;
 }
 
 const AppInput = ({
@@ -30,6 +31,7 @@ const AppInput = ({
     iconClick,
     required = false,
     type = 'text',
+    labelColor="text-white",
     ...otherProps
 }: AppInputProps) => {
     // Map icon names to Ionicons
@@ -69,7 +71,7 @@ const AppInput = ({
     return (
         <View className="w-full">
             {label && (
-                <AppText styles="mb-2 text-sm text-white">
+                <AppText styles={`mb-2 text-sm font-nunmedium ${labelColor}`}>
                     {label}
                     {required && <AppText color="text-red-400" styles="ml-1"> *</AppText>}
                 </AppText>
@@ -104,7 +106,7 @@ const AppInput = ({
                 </View>
             ) : (
                 <RNTextInput
-                    className="w-full px-2 py-2 bg-primary border-2 border-accent text-black text-sm rounded-xl font-iregular"
+                    className="w-full px-2 py-2 bg-primary border-2 border-accent text-white text-sm rounded-xl font-iregular"
                     placeholder={placeholder}
                     placeholderTextColor="#ccc"
                     value={value}

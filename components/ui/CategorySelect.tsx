@@ -15,6 +15,7 @@ interface CategorySelectProps {
     label?: string;
     required?: boolean;
     error?: string;
+    labelColor?: string;
 }
 
 const CategorySelect = ({
@@ -24,6 +25,7 @@ const CategorySelect = ({
     label = "Event Category",
     required = false,
     error,
+    labelColor = "text-black",
 }: CategorySelectProps) => {
     const [categories, setCategories] = useState<EventCategory[]>([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -58,7 +60,7 @@ const CategorySelect = ({
         return (
             <View>
                 <View className="mb-2">
-                    <AppText styles="text-sm text-slate-300">
+                    <AppText styles={`text-sm ${labelColor}`}>
                         {label}
                         {required && (
                             <AppText styles="text-sm text-red-400">
@@ -149,6 +151,7 @@ const CategorySelect = ({
             required={required}
             placeholder="Select a category"
             error={error}
+            labelColor={labelColor}
         />
     );
 };

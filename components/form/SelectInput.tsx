@@ -20,6 +20,7 @@ type Props = {
     required?: boolean;
     placeholder?: string;
     error?: string;
+    labelColor?: string;
 };
 
 const SelectInput = ({
@@ -30,7 +31,8 @@ const SelectInput = ({
     options,
     required = false,
     placeholder,
-    error
+    error,
+    labelColor="text-white",
 }: Props) => {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -47,7 +49,7 @@ const SelectInput = ({
         <View className="w-full">
             {/* Label */}
             <View className="mb-2">
-                <AppText styles="text-sm text-slate-300">
+                <AppText styles={`text-sm ${labelColor}`}>
                     {label}
                     {required && (
                         <AppText styles="text-sm text-red-400">
