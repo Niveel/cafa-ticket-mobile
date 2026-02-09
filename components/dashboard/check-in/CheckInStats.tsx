@@ -3,15 +3,15 @@ import { Ionicons } from "@expo/vector-icons";
 
 import AppText from "../../ui/AppText";
 import colors from "@/config/colors";
-import type { MyEvent } from "@/types/dash-events.types";
 
 type Props = {
-    event: MyEvent;
+    ticketsSold: number;
+    ticketsCheckedIn: number;
 };
 
-const stats = (event: MyEvent) => {
-    const checkedIn = event.analytics.tickets_checked_in;
-    const totalSold = event.analytics.tickets_sold;
+const stats = (ticketsSold: number, ticketsCheckedIn: number) => {
+    const checkedIn = ticketsCheckedIn;
+    const totalSold = ticketsSold;
     const pending = totalSold - checkedIn;
     const pct = totalSold > 0 ? ((checkedIn / totalSold) * 100).toFixed(1) : "0";
 
@@ -23,8 +23,8 @@ const stats = (event: MyEvent) => {
     ];
 };
 
-const CheckInStats = ({ event }: Props) => {
-    const items = stats(event);
+const CheckInStats = ({ ticketsSold, ticketsCheckedIn }: Props) => {
+    const items = stats(ticketsSold, ticketsCheckedIn);
 
     return (
         <View className="flex-row flex-wrap gap-3">
@@ -43,11 +43,11 @@ const CheckInStats = ({ event }: Props) => {
                         <View className="w-8 h-8 rounded-lg items-center justify-center" style={{ backgroundColor: item.iconBg }}>
                             <Ionicons name={item.icon as any} size={16} color={item.iconColor} />
                         </View>
-                        <AppText styles="text-xs text-black" font="font-iregular" style={{ opacity: 0.5 }}>
+                        <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.5 }}>
                             {item.label}
                         </AppText>
                     </View>
-                    <AppText styles="text-xl text-black" font="font-ibold" style={item.label === "Checked In" ? { color: "#34d399" } : undefined}>
+                    <AppText styles="text-xl text-white" font="font-ibold" style={item.label === "Checked In" ? { color: "#34d399" } : undefined}>
                         {item.value}
                     </AppText>
                 </View>

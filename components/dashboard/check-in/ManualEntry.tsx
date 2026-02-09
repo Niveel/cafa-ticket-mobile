@@ -34,10 +34,10 @@ const ManualEntry = ({ onSubmit, isProcessing }: Props) => {
                     <Ionicons name="search-outline" size={18} color="#60a5fa" />
                 </View>
                 <View>
-                    <AppText styles="text-sm text-black" font="font-ibold">
+                    <AppText styles="text-sm text-white" font="font-ibold">
                         Manual Entry
                     </AppText>
-                    <AppText styles="text-xs text-black" font="font-iregular" style={{ opacity: 0.5 }}>
+                    <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.5 }}>
                         Enter ticket ID manually
                     </AppText>
                 </View>
@@ -80,7 +80,7 @@ const ManualEntry = ({ onSubmit, isProcessing }: Props) => {
                     {isProcessing ? (
                         <ActivityIndicator size="small" color="#fff" />
                     ) : (
-                        <AppText styles="text-sm text-black" font="font-ibold">
+                        <AppText styles="text-sm text-white" font="font-ibold">
                             Check In
                         </AppText>
                     )}
@@ -89,7 +89,7 @@ const ManualEntry = ({ onSubmit, isProcessing }: Props) => {
 
             {/* Example IDs */}
             <View className="mt-4">
-                <AppText styles="text-xs text-black mb-2" font="font-iregular" style={{ opacity: 0.5 }}>
+                <AppText styles="text-xs text-white mb-2" font="font-iregular" style={{ opacity: 0.5 }}>
                     Example Ticket IDs (for testing):
                 </AppText>
                 <View className="flex-row flex-wrap gap-2">
@@ -106,7 +106,7 @@ const ManualEntry = ({ onSubmit, isProcessing }: Props) => {
                             }}
                             activeOpacity={0.6}
                         >
-                            <AppText styles="text-xs text-black" font="font-iregular" style={{ fontFamily: "monospace" }}>
+                            <AppText styles="text-xs text-white" font="font-iregular" style={{ fontFamily: "monospace" }}>
                                 {id}
                             </AppText>
                         </TouchableOpacity>

@@ -8,18 +8,25 @@ import QRScanner from "./QRScanner";
 import ManualEntry from "./ManualEntry";
 import CheckInResult from "./CheckInResult";
 import colors from "@/config/colors";
-import type { MyEvent } from "@/types/dash-events.types";
+import { checkInEventTicket } from "@/lib/dashboard";
 import type { CheckInSuccessResponse, CheckInResponse } from "@/types/dashboard.types";
 
 type Props = {
-    event: MyEvent;
+    event: {
+        title: string;
+        slug: string;
+        venue_name: string;
+        venue_city: string;
+    };
+    ticketsSold: number;
+    ticketsCheckedIn: number;
     onSuccess: (data: CheckInSuccessResponse) => void;
     onChangeEvent: () => void;
 };
 
 type ScanMode = "qr" | "manual";
 
-const CheckInScanner = ({ event, onSuccess, onChangeEvent }: Props) => {
+const CheckInScanner = ({ event, ticketsSold, ticketsCheckedIn, onSuccess, onChangeEvent }: Props) => {
     const [scanMode, setScanMode] = useState<ScanMode>("qr");
     const [checkInResult, setCheckInResult] = useState<CheckInResponse | null>(null);
     const [isProcessing, setIsProcessing] = useState(false);
@@ -29,13 +36,7 @@ const CheckInScanner = ({ event, onSuccess, onChangeEvent }: Props) => {
         setCheckInResult(null);
 
         try {
-            const response = await fetch(`/api/dashboard/events/${event.slug}/check-in`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ ticket_id: ticketId }),
-            });
-
-            const data: CheckInResponse = await response.json();
+            const data: CheckInResponse = await checkInEventTicket(event.slug, ticketId);
             setCheckInResult(data);
 
             if (data.success) {
@@ -71,17 +72,17 @@ const CheckInScanner = ({ event, onSuccess, onChangeEvent }: Props) => {
                     <Ionicons name="arrow-back-outline" size={20} color="#fff" />
                 </TouchableOpacity>
                 <View className="flex-1">
-                    <AppText styles="text-sm text-black" font="font-ibold" numberOfLines={1}>
+                    <AppText styles="text-sm text-white" font="font-ibold" numberOfLines={1}>
                         {event.title}
                     </AppText>
-                    <AppText styles="text-xs text-black" font="font-iregular" style={{ opacity: 0.5 }}>
+                    <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.5 }}>
                         {event.venue_name}, {event.venue_city}
                     </AppText>
                 </View>
             </View>
 
             {/* Stats grid */}
-            <CheckInStats event={event} />
+            <CheckInStats ticketsSold={ticketsSold} ticketsCheckedIn={ticketsCheckedIn} />
 
             {/* Mode toggle: QR Scanner | Manual Entry */}
             <View

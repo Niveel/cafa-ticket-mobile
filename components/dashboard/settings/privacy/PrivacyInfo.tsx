@@ -34,10 +34,10 @@ const PrivacyInfo = () => {
                     <Ionicons name="shield-checkmark-outline" size={20} color="#34d399" />
                 </View>
                 <View className="flex-1">
-                    <AppText styles="text-base text-black font-nunbold">
+                    <AppText styles="text-base text-white font-nunbold">
                         Your Privacy Rights
                     </AppText>
-                    <AppText styles="text-xs text-black" style={{ opacity: 0.6 }}>
+                    <AppText styles="text-xs text-white" style={{ opacity: 0.6 }}>
                         We comply with GDPR regulations. You have full control over your personal data.
                     </AppText>
                 </View>
@@ -53,9 +53,9 @@ const PrivacyInfo = () => {
                     >
                         <Ionicons name="information-circle-outline" size={16} color="#60a5fa" style={{ marginTop: 2 }} />
                         <View className="flex-1">
-                            <AppText styles="text-xs text-black font-nunbold">
+                            <AppText styles="text-xs text-white font-nunbold">
                                 {right.title}:{" "}
-                                <AppText styles="text-xs" style={{ opacity: 0.7 }}>
+                                <AppText styles="text-xs text-slate-300" style={{ opacity: 0.7 }}>
                                     {right.description}
                                 </AppText>
                             </AppText>
@@ -66,7 +66,7 @@ const PrivacyInfo = () => {
 
             {/* Footer Links */}
             <View className="flex-row items-center gap-1 mt-4 pt-4 border-t flex-wrap" style={{ borderColor: colors.accent + "4D" }}>
-                <AppText styles="text-xs text-black" style={{ opacity: 0.5 }}>
+                <AppText styles="text-xs text-white" style={{ opacity: 0.5 }}>
                     Read our{" "}
                 </AppText>
                 <AppText
@@ -76,7 +76,7 @@ const PrivacyInfo = () => {
                 >
                     Privacy Policy
                 </AppText>
-                <AppText styles="text-xs text-black" style={{ opacity: 0.5 }}>
+                <AppText styles="text-xs text-white" style={{ opacity: 0.5 }}>
                     {" "}and{" "}
                 </AppText>
                 <AppText
@@ -84,7 +84,7 @@ const PrivacyInfo = () => {
                     style={{ color: colors.accent50 }}
                     onPress={() => router.push("/terms")}
                 >
-                    Terms of Service
+                    Terms and conditions
                 </AppText>
             </View>
         </View>

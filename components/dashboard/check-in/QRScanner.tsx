@@ -36,10 +36,10 @@ const QRScanner = ({ onScan, isProcessing }: Props) => {
                 <View className="w-16 h-16 rounded-full items-center justify-center mb-4" style={{ backgroundColor: "#ef444422" }}>
                     <Ionicons name="ban-outline" size={32} color="#f87171" />
                 </View>
-                <AppText styles="text-sm text-black text-center" font="font-ibold">
+                <AppText styles="text-sm text-white text-center" font="font-ibold">
                     Camera Permission Required
                 </AppText>
-                <AppText styles="text-xs text-black text-center mt-1 mb-4" font="font-iregular" style={{ opacity: 0.5, maxWidth: 260 }}>
+                <AppText styles="text-xs text-white text-center mt-1 mb-4" font="font-iregular" style={{ opacity: 0.5, maxWidth: 260 }}>
                     Allow camera access so you can scan ticket QR codes at the event.
                 </AppText>
                 <TouchableOpacity
@@ -50,7 +50,7 @@ const QRScanner = ({ onScan, isProcessing }: Props) => {
                     accessibilityRole="button"
                     accessibilityLabel="Grant camera permission"
                 >
-                    <AppText styles="text-sm text-black" font="font-ibold">
+                    <AppText styles="text-sm text-white" font="font-ibold">
                         Allow Camera
                     </AppText>
                 </TouchableOpacity>
@@ -111,10 +111,10 @@ const QRScanner = ({ onScan, isProcessing }: Props) => {
                         <Ionicons name="scan-outline" size={18} color="#34d399" />
                     </View>
                     <View>
-                        <AppText styles="text-sm text-black" font="font-ibold">
+                        <AppText styles="text-sm text-white" font="font-ibold">
                             QR Code Scanner
                         </AppText>
-                        <AppText styles="text-xs text-black" font="font-iregular" style={{ opacity: 0.5 }}>
+                        <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.5 }}>
                             {isActive ? "Scanning…" : "Camera ready"}
                         </AppText>
                     </View>
@@ -132,7 +132,7 @@ const QRScanner = ({ onScan, isProcessing }: Props) => {
                     accessibilityLabel={isActive ? "Stop camera" : "Start camera"}
                 >
                     <Ionicons name={isActive ? "square-outline" : "camera-outline"} size={16} color="#fff" />
-                    <AppText styles="text-xs text-black" font="font-ibold">
+                    <AppText styles="text-xs text-white" font="font-ibold">
                         {isActive ? "Stop" : "Start"}
                     </AppText>
                 </TouchableOpacity>
@@ -162,7 +162,7 @@ const QRScanner = ({ onScan, isProcessing }: Props) => {
                         {isProcessing && (
                             <View style={styles.processingOverlay}>
                                 <Ionicons name="hourglass-outline" size={36} color="#fff" />
-                                <AppText styles="text-sm text-black mt-2" font="font-ibold">
+                                <AppText styles="text-sm text-white mt-2" font="font-ibold">
                                     Processing…
                                 </AppText>
                             </View>
@@ -172,7 +172,7 @@ const QRScanner = ({ onScan, isProcessing }: Props) => {
                     /* Inactive placeholder */
                     <View style={[styles.camera, styles.placeholder]}>
                         <Ionicons name="camera-outline" size={56} color="rgba(255,255,255,0.15)" />
-                        <AppText styles="text-xs text-black mt-3 text-center" font="font-iregular" style={{ opacity: 0.4 }}>
+                        <AppText styles="text-xs text-white mt-3 text-center" font="font-iregular" style={{ opacity: 0.4 }}>
                             Press "Start" to begin scanning
                         </AppText>
                     </View>

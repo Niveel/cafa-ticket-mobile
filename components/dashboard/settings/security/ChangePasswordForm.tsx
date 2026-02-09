@@ -67,10 +67,10 @@ const ChangePasswordForm = () => {
                     <Ionicons name="lock-closed-outline" size={20} color={colors.accent50} />
                 </View>
                 <View className="flex-1">
-                    <AppText styles="text-base text-black font-nunbold">
+                    <AppText styles="text-base text-white font-nunbold">
                         Change Password
                     </AppText>
-                    <AppText styles="text-xs text-black" style={{ opacity: 0.6 }}>
+                    <AppText styles="text-xs text-white" style={{ opacity: 0.6 }}>
                         Update your account password
                     </AppText>
                 </View>

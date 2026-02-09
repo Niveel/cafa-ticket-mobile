@@ -17,7 +17,7 @@ const PrivacySettingsScreen = () => {
             <RequireAuth>
                 <Nav title="Privacy & Data" />
 
-                <View className="flex-1" style={{ backgroundColor: colors.primary }}>
+                <View className="flex-1" >
                     <KeyboardAvoidingView
                         className="flex-1"
                         behavior="padding"

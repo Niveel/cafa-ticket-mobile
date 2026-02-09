@@ -38,7 +38,7 @@ const PastEventsSortModal = ({ visible, selectedSort, onSelect, onClose }: PastE
                             >
                                 <Ionicons name="swap-vertical" size={20} color={colors.accent50} />
                             </View>
-                            <AppText styles="text-lg text-black font-nunbold">
+                            <AppText styles="text-lg text-white font-nunbold">
                                 Sort Events
                             </AppText>
                         </View>
@@ -72,11 +72,11 @@ const PastEventsSortModal = ({ visible, selectedSort, onSelect, onClose }: PastE
                                         )}
                                     </View>
                                     <View className="flex-1">
-                                        <AppText styles="text-sm text-black mb-1 font-nunbold">
+                                        <AppText styles="text-sm text-white mb-1 font-nunbold">
                                             {option.label}
                                         </AppText>
                                         <AppText
-                                            styles="text-xs text-black"
+                                            styles="text-xs text-white"
                                             style={{ opacity: 0.7 }}
                                         >
                                             {option.description}

@@ -150,10 +150,10 @@ const ContactForm = () => {
                 >
                     <Ionicons name="checkmark-circle" size={36} color="#34d399" />
                 </View>
-                <AppText styles="text-lg text-black mb-2 text-center" font="font-ibold">
+                <AppText styles="text-lg text-white mb-2 text-center" font="font-ibold">
                     Message Sent Successfully!
                 </AppText>
-                <AppText styles="text-xs text-black text-center mb-6" font="font-iregular" style={{ opacity: 0.7 }}>
+                <AppText styles="text-xs text-white text-center mb-6" font="font-iregular" style={{ opacity: 0.7 }}>
                     Thank you for contacting us. We'll get back to you as soon as possible.
                 </AppText>
                 <TouchableOpacity
@@ -165,7 +165,7 @@ const ContactForm = () => {
                     style={{ backgroundColor: colors.accent }}
                     activeOpacity={0.8}
                 >
-                    <AppText styles="text-sm text-black" font="font-ibold">
+                    <AppText styles="text-sm text-white" font="font-ibold">
                         Send Another Message
                     </AppText>
                 </TouchableOpacity>
@@ -183,10 +183,10 @@ const ContactForm = () => {
                     <Ionicons name="send-outline" size={20} color={colors.accent50} />
                 </View>
                 <View className="flex-1">
-                    <AppText styles="text-base text-black" font="font-ibold">
+                    <AppText styles="text-base text-white" font="font-ibold">
                         Send us a Message
                     </AppText>
-                    <AppText styles="text-xs text-black" font="font-iregular" style={{ opacity: 0.6 }}>
+                    <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.6 }}>
                         {isLoggedIn ? "We'll respond within 24 hours" : "Fill out the form below and we'll get back to you"}
                     </AppText>
                 </View>

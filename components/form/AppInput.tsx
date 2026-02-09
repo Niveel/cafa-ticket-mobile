@@ -69,7 +69,7 @@ const AppInput = ({
     return (
         <View className="w-full">
             {label && (
-                <AppText styles="mb-2 text-sm">
+                <AppText styles="mb-2 text-sm text-white">
                     {label}
                     {required && <AppText color="text-red-400" styles="ml-1"> *</AppText>}
                 </AppText>
@@ -80,7 +80,7 @@ const AppInput = ({
                     <RNTextInput
                         className={`w-full h-12 ${icon ? 'pr-12' : 'pr-2'} pl-2 bg-primary border-2 border-accent text-black text-sm rounded-xl font-iregular`}
                         placeholder={placeholder}
-                        placeholderTextColor="#94a3b8"
+                        placeholderTextColor="#fff"
                         value={value}
                         onChangeText={onChange}
                         secureTextEntry={secureTextEntry}
@@ -106,7 +106,7 @@ const AppInput = ({
                 <RNTextInput
                     className="w-full px-2 py-2 bg-primary border-2 border-accent text-black text-sm rounded-xl font-iregular"
                     placeholder={placeholder}
-                    placeholderTextColor="#94a3b8"
+                    placeholderTextColor="#ccc"
                     value={value}
                     onChangeText={onChange}
                     multiline={true}

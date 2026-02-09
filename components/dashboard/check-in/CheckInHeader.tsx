@@ -39,13 +39,13 @@ const CheckInHeader = () => {
             >
                 <View className="flex-row items-start gap-2 mb-2">
                     <Ionicons name="information-circle-outline" size={18} color="#60a5fa" style={{ marginTop: 1 }} />
-                    <AppText styles="text-xs" font="font-ibold" style={{ color: "#93c5fd" }}>
+                    <AppText styles="text-xs text-primary">
                         How Check-in Works
                     </AppText>
                 </View>
                 <View className="gap-1 ml-5">
                     {steps.map((step, i) => (
-                        <AppText key={i} styles="text-xs" font="font-iregular" style={{ color: "#93c5fd" }}>
+                        <AppText key={i} styles="text-xs">
                             • {step}
                         </AppText>
                     ))}

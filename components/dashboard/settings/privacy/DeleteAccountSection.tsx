@@ -76,10 +76,10 @@ const DeleteAccountSection = () => {
                     <Ionicons name="trash-outline" size={20} color="#f87171" />
                 </View>
                 <View className="flex-1">
-                    <AppText styles="text-base text-black font-nunbold">
+                    <AppText styles="text-base text-white font-nunbold">
                         Delete Account
                     </AppText>
-                    <AppText styles="text-xs text-black" style={{ opacity: 0.6 }}>
+                    <AppText styles="text-xs text-white" style={{ opacity: 0.6 }}>
                         Permanently delete your account and all associated data. This action cannot be undone.
                     </AppText>
                 </View>
@@ -166,7 +166,7 @@ const DeleteAccountSection = () => {
                                     autoCapitalize="characters"
                                     required
                                 />
-                                <AppText styles="text-xs text-black mt-1" style={{ opacity: 0.5 }}>
+                                <AppText styles="text-xs text-white mt-1" style={{ opacity: 0.5 }}>
                                     Must be typed exactly as shown (case sensitive)
                                 </AppText>
                             </View>
@@ -185,7 +185,7 @@ const DeleteAccountSection = () => {
                                     }}
                                     activeOpacity={0.8}
                                 >
-                                    <AppText styles="text-sm text-black font-nunbold">
+                                    <AppText styles="text-sm text-white font-nunbold">
                                         Cancel
                                     </AppText>
                                 </TouchableOpacity>

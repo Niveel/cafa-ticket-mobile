@@ -24,7 +24,7 @@ const NotificationsSettingsScreen = () => {
             <RequireAuth>
                 <Nav title="Notification Settings" />
 
-                <View className="flex-1" style={{ backgroundColor: colors.primary }}>
+                <View className="flex-1">
                     <ScrollView className="flex-1" showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 50 }}>
                         <View className="gap-6">
                             {/* Header */}

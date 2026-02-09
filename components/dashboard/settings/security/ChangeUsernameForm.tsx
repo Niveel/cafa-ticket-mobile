@@ -74,10 +74,10 @@ const ChangeUsernameForm = () => {
                     <Ionicons name="person-outline" size={20} color={colors.accent50} />
                 </View>
                 <View className="flex-1">
-                    <AppText styles="text-base text-black font-nunbold">
+                    <AppText styles="text-base text-white font-nunbold">
                         Change Username
                     </AppText>
-                    <AppText styles="text-xs text-black" style={{ opacity: 0.6 }}>
+                    <AppText styles="text-xs text-white" style={{ opacity: 0.6 }}>
                         Current username:{" "}
                         <AppText styles="font-nunbold" style={{ opacity: 1 }}>
                             @{currentUser?.username || "..."}
@@ -105,7 +105,7 @@ const ChangeUsernameForm = () => {
                             autoCapitalize="none"
                             required
                         />
-                        <AppText styles="text-xs text-black mt-1" style={{ opacity: 0.5 }}>
+                        <AppText styles="text-xs text-white mt-1" style={{ opacity: 0.5 }}>
                             Only letters, numbers, and underscores (3-30 characters)
                         </AppText>
                     </View>

@@ -70,10 +70,10 @@ const EditPaymentProfileForm = ({ profile }: Props) => {
                     style={{ backgroundColor: colors.primary100, borderColor: colors.accent + "4D" }}
                 >
                     <View className="mb-3">
-                        <AppText styles="text-xs text-black mb-1" font="font-iregular" style={{ opacity: 0.6 }}>
+                        <AppText styles="text-xs text-white mb-1" font="font-iregular" style={{ opacity: 0.6 }}>
                             Payment Method
                         </AppText>
-                        <AppText styles="text-base text-black capitalize" font="font-ibold">
+                        <AppText styles="text-base text-white capitalize" font="font-ibold">
                             {profile.method.replace("_", " ")}
                         </AppText>
                     </View>
@@ -82,28 +82,28 @@ const EditPaymentProfileForm = ({ profile }: Props) => {
                     <View className="gap-2 mb-3">
                         <View className="flex-row items-center gap-2">
                             <Ionicons name="person-outline" size={14} color={colors.white} style={{ opacity: 0.6 }} />
-                            <AppText styles="text-sm text-black" font="font-iregular" style={{ opacity: 0.8 }}>
+                            <AppText styles="text-sm text-white" font="font-iregular" style={{ opacity: 0.8 }}>
                                 {profile.account_details.account_name}
                             </AppText>
                         </View>
 
                         <View className="flex-row items-center gap-2">
                             <Ionicons name="business-outline" size={14} color={colors.white} style={{ opacity: 0.6 }} />
-                            <AppText styles="text-sm text-black" font="font-iregular" style={{ opacity: 0.8 }}>
+                            <AppText styles="text-sm text-white" font="font-iregular" style={{ opacity: 0.8 }}>
                                 {profile.account_details.bank_name}
                             </AppText>
                         </View>
 
                         <View className="flex-row items-center gap-2">
                             <Ionicons name="card-outline" size={14} color={colors.white} style={{ opacity: 0.6 }} />
-                            <AppText styles="text-sm text-black" font="font-iregular" style={{ opacity: 0.8 }}>
+                            <AppText styles="text-sm text-white" font="font-iregular" style={{ opacity: 0.8 }}>
                                 {profile.account_details.account_number}
                             </AppText>
                         </View>
                     </View>
 
                     <View className="pt-3 border-t" style={{ borderColor: colors.accent + "1A" }}>
-                        <AppText styles="text-xs text-black" font="font-iregular" style={{ opacity: 0.6 }}>
+                        <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.6 }}>
                             Account details cannot be changed. To use a different account, create a new payment profile.
                         </AppText>
                     </View>

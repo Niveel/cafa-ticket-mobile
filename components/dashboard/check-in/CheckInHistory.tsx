@@ -4,6 +4,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 import AppText from "../../ui/AppText";
 import colors from "@/config/colors";
+import { getCheckInHistory } from "@/lib/dashboard";
 import type { CheckInHistoryItem } from "@/types/dashboard.types";
 
 type Props = {
@@ -21,10 +22,8 @@ const CheckInHistory = ({ eventSlug, latestCheckIn }: Props) => {
             setIsLoading(true);
             setError(null);
 
-            const response = await fetch(`/api/dashboard/events/${eventSlug}/check-in/history`);
-            if (!response.ok) throw new Error("Failed to fetch check-in history");
-
-            const data: CheckInHistoryItem[] = await response.json();
+            const data = await getCheckInHistory(eventSlug);
+            if (!data) throw new Error("Failed to fetch check-in history");
             setHistory(data);
         } catch (err) {
             console.error("Check-in history error:", err);
@@ -62,7 +61,7 @@ const CheckInHistory = ({ eventSlug, latestCheckIn }: Props) => {
                 style={{ backgroundColor: colors.primary100, borderColor: colors.accent, minHeight: 120 }}
             >
                 <ActivityIndicator size="small" color={colors.accent} />
-                <AppText styles="text-xs text-black mt-2" font="font-iregular" style={{ opacity: 0.5 }}>
+                <AppText styles="text-xs text-white mt-2" font="font-iregular" style={{ opacity: 0.5 }}>
                     Loading history…
                 </AppText>
             </View>
@@ -88,7 +87,7 @@ const CheckInHistory = ({ eventSlug, latestCheckIn }: Props) => {
                     accessibilityLabel="Retry loading history"
                 >
                     <Ionicons name="refresh-outline" size={14} color="#fff" />
-                    <AppText styles="text-xs text-black" font="font-ibold">
+                    <AppText styles="text-xs text-white" font="font-ibold">
                         Retry
                     </AppText>
                 </TouchableOpacity>
@@ -104,7 +103,7 @@ const CheckInHistory = ({ eventSlug, latestCheckIn }: Props) => {
                 style={{ backgroundColor: colors.primary100, borderColor: colors.accent, minHeight: 120, justifyContent: "center" }}
             >
                 <Ionicons name="time-outline" size={32} color="rgba(255,255,255,0.15)" />
-                <AppText styles="text-xs text-black mt-2 text-center" font="font-iregular" style={{ opacity: 0.4 }}>
+                <AppText styles="text-xs text-white mt-2 text-center" font="font-iregular" style={{ opacity: 0.4 }}>
                     No check-ins yet
                 </AppText>
             </View>
@@ -124,10 +123,10 @@ const CheckInHistory = ({ eventSlug, latestCheckIn }: Props) => {
                         <Ionicons name="time-outline" size={18} color="#c084fc" />
                     </View>
                     <View>
-                        <AppText styles="text-sm text-black" font="font-ibold">
+                        <AppText styles="text-sm text-white" font="font-ibold">
                             Recent Check-ins
                         </AppText>
-                        <AppText styles="text-xs text-black" font="font-iregular" style={{ opacity: 0.5 }}>
+                        <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.5 }}>
                             Last {history.length} check-in{history.length !== 1 ? "s" : ""}
                         </AppText>
                     </View>
@@ -168,7 +167,7 @@ const CheckInHistory = ({ eventSlug, latestCheckIn }: Props) => {
                             {/* Details */}
                             <View className="flex-1">
                                 <View className="flex-row items-center justify-between">
-                                    <AppText styles="text-xs text-black" font="font-ibold">
+                                    <AppText styles="text-xs text-white" font="font-ibold">
                                         {item.attendee_name}
                                     </AppText>
                                     {/* Checked In badge */}
@@ -186,12 +185,12 @@ const CheckInHistory = ({ eventSlug, latestCheckIn }: Props) => {
                                 <View className="flex-row items-center gap-3 mt-1">
                                     <View className="flex-row items-center gap-1">
                                         <Ionicons name="ticket-outline" size={12} color="rgba(255,255,255,0.3)" />
-                                        <AppText styles="text-xs text-black" font="font-iregular" style={{ opacity: 0.4, fontFamily: "monospace" }}>
+                                        <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.4, fontFamily: "monospace" }}>
                                             {item.ticket_id}
                                         </AppText>
                                     </View>
                                     {item.ticket_type && (
-                                        <AppText styles="text-xs text-black" font="font-iregular" style={{ opacity: 0.4 }}>
+                                        <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.4 }}>
                                             • {item.ticket_type.name}
                                         </AppText>
                                     )}
@@ -200,11 +199,11 @@ const CheckInHistory = ({ eventSlug, latestCheckIn }: Props) => {
                                 {/* Time + by */}
                                 <View className="flex-row items-center gap-1 mt-1">
                                     <Ionicons name="time-outline" size={11} color="rgba(255,255,255,0.25)" />
-                                    <AppText styles="text-xs text-black" font="font-iregular" style={{ opacity: 0.35 }}>
+                                    <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.35 }}>
                                         {formatTime(item.checked_in_at)}
                                     </AppText>
                                     {item.checked_in_by && (
-                                        <AppText styles="text-xs text-black" font="font-iregular" style={{ opacity: 0.35 }}>
+                                        <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.35 }}>
                                             {" "}· by {typeof item.checked_in_by === "string" ? item.checked_in_by : item.checked_in_by.full_name}
                                         </AppText>
                                     )}

@@ -114,7 +114,7 @@ const PastEventsScreen = () => {
         <Screen>
             <Nav title="Past Events" />
 
-            <View className="flex-1" style={{ backgroundColor: colors.primary }}>
+            <View className="flex-1" >
                 {/* Header */}
                 <View className="p-2 gap-4 mb-4">
 

@@ -15,7 +15,7 @@ const ContactScreen = () => {
         <Screen>
             <Nav title="Contact Us" />
 
-            <View className="flex-1" style={{ backgroundColor: colors.primary }}>
+            <View className="flex-1" style={{ backgroundColor: colors.white }}>
                 <KeyboardAvoidingView
                     className="flex-1"
                     behavior="padding"
@@ -50,10 +50,10 @@ const ContactScreen = () => {
                                     <Ionicons name="mail-outline" size={24} color={colors.accent50} />
                                 </View>
                                 <View className="flex-1">
-                                    <AppText styles="text-sm text-black font-nunbold">
+                                    <AppText styles="text-sm text-white font-nunbold">
                                         Email Us
                                     </AppText>
-                                    <AppText styles="text-xs text-black" style={{ opacity: 0.6 }}>
+                                    <AppText styles="text-xs text-white" style={{ opacity: 0.6 }}>
                                         Send us an email anytime
                                     </AppText>
                                     <AppText styles="text-xs mt-1 font-nunbold" style={{ color: colors.accent50 }}>

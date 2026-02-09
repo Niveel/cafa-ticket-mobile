@@ -91,10 +91,10 @@ const NotificationPreferencesForm = ({ currentSettings }: NotificationPreference
                     <Ionicons name="notifications-outline" size={20} color={colors.accent50} />
                 </View>
                 <View className="flex-1">
-                    <AppText styles="text-base text-black font-nunbold">
+                    <AppText styles="text-base text-white font-nunbold">
                         Notification Preferences
                     </AppText>
-                    <AppText styles="text-xs text-black" style={{ opacity: 0.6 }}>
+                    <AppText styles="text-xs text-white" style={{ opacity: 0.6 }}>
                         Control how and when you receive notifications
                     </AppText>
                 </View>
@@ -141,10 +141,10 @@ const NotificationPreferencesForm = ({ currentSettings }: NotificationPreference
 
                             {/* Text */}
                             <View className="flex-1">
-                                <AppText styles="text-sm text-black">
+                                <AppText styles="text-sm text-white">
                                     {option.title}
                                 </AppText>
-                                <AppText styles="text-xs text-black mt-0.5" style={{ opacity: 0.6 }}>
+                                <AppText styles="text-xs text-white mt-0.5" style={{ opacity: 0.6 }}>
                                     {option.description}
                                 </AppText>
                             </View>
@@ -184,7 +184,7 @@ const NotificationPreferencesForm = ({ currentSettings }: NotificationPreference
                 {isSubmitting ? (
                     <ActivityIndicator size="small" color="#fff" />
                 ) : (
-                    <AppText styles="text-sm text-black font-nunbold">
+                    <AppText styles="text-sm text-white font-nunbold">
                         Save Preferences
                     </AppText>
                 )}
@@ -192,7 +192,7 @@ const NotificationPreferencesForm = ({ currentSettings }: NotificationPreference
 
             {/* No changes hint */}
             {!hasChanges && !isSubmitting && (
-                <AppText styles="text-xs text-black text-center mt-3" style={{ opacity: 0.4 }}>
+                <AppText styles="text-xs text-white text-center mt-3" style={{ opacity: 0.4 }}>
                     No changes to save
                 </AppText>
             )}

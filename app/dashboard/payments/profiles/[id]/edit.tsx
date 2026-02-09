@@ -48,7 +48,7 @@ const EditPaymentProfileScreen = () => {
             <RequireAuth>
                 <Nav title="Edit Payment Profile" />
 
-                <View className="flex-1" style={{ backgroundColor: colors.primary }}>
+                <View className="flex-1">
                     {isLoading ? (
                         <View className="flex-1 items-center justify-center">
                             <ActivityIndicator size="large" color={colors.accent} />

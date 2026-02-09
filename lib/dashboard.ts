@@ -14,7 +14,7 @@ import type {
     PaymentDetails,
 } from "@/types/payments.types";
 import type { MyTicketsResponse, TicketDetails } from "@/types/tickets.types";
-import type { UserStats } from "@/types/dashboard.types";
+import type { CheckInHistoryItem, CheckInResponse, UserStats } from "@/types/dashboard.types";
 
 // =====================
 // User Stats
@@ -291,6 +291,41 @@ export async function getMyEventAttendees(
         console.error("getMyEventAttendees error:", error);
         Sentry.captureException(error);
         return null;
+    }
+}
+
+export async function getCheckInHistory(eventSlug: string) {
+    try {
+        const response = await client.get(`/events/${eventSlug}/checkin-history/`);
+        return response.data as CheckInHistoryItem[];
+    } catch (error) {
+        console.error("getCheckInHistory error:", error);
+        Sentry.captureException(error);
+        return null;
+    }
+}
+
+export async function checkInEventTicket(eventSlug: string, ticketId: string) {
+    try {
+        const response = await client.post(`/events/${eventSlug}/checkin/`, {
+            ticket_id: ticketId,
+        });
+        return response.data as CheckInResponse;
+    } catch (error: any) {
+        if (error.response?.data) {
+            return error.response.data as CheckInResponse;
+        }
+
+        console.error("checkInEventTicket error:", error);
+        Sentry.captureException(error);
+        return {
+            success: false,
+            error: "Check-in failed",
+            message:
+                error instanceof Error
+                    ? error.message
+                    : "An unexpected error occurred. Please try again.",
+        } as CheckInResponse;
     }
 }
 

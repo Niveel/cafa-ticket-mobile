@@ -80,7 +80,7 @@ const PaymentProfilesScreen = () => {
             <RequireAuth>
                 <Nav title="Payment Profiles" />
 
-                <View className="flex-1" style={{ backgroundColor: colors.primary }}>
+                <View className="flex-1">
                     {/* Loading State */}
                     {isLoading ? (
                         <View className="flex-1 items-center justify-center">
@@ -111,10 +111,10 @@ const PaymentProfilesScreen = () => {
                                     <View className="flex-row items-start gap-3">
                                         <Ionicons name="information-circle" size={20} color={colors.accent50} style={{ marginTop: 2 }} />
                                         <View className="flex-1">
-                                            <AppText styles="text-sm text-black mb-1">
+                                            <AppText styles="text-sm text-white mb-1">
                                                 About Payment Profiles
                                             </AppText>
-                                            <AppText styles="text-xs text-black" style={{ opacity: 0.7 }}>
+                                            <AppText styles="text-xs text-white" style={{ opacity: 0.7 }}>
                                                 Payment profiles are used to receive payouts from your event sales. Add your
                                                 bank account details to get paid.
                                             </AppText>
@@ -130,7 +130,7 @@ const PaymentProfilesScreen = () => {
                                     activeOpacity={0.8}
                                 >
                                     <Ionicons name="add-circle" size={20} color={colors.white} />
-                                    <AppText styles="text-sm text-black">
+                                    <AppText styles="text-sm text-white">
                                         Add Payment Profile
                                     </AppText>
                                 </TouchableOpacity>
@@ -141,7 +141,7 @@ const PaymentProfilesScreen = () => {
                                         className="p-4 rounded-xl border-2"
                                         style={{ backgroundColor: colors.accent + "1A", borderColor: colors.accent }}
                                     >
-                                        <AppText styles="text-sm text-black text-center">
+                                        <AppText styles="text-sm text-white text-center">
                                             {error}
                                         </AppText>
                                     </View>
@@ -159,7 +159,7 @@ const PaymentProfilesScreen = () => {
                                         >
                                             <Ionicons name="wallet-outline" size={40} color={colors.accent50} />
                                         </View>
-                                        <AppText styles="text-base text-black mb-3 text-center">
+                                        <AppText styles="text-base text-white mb-3 text-center">
                                             No Payment Profiles Yet
                                         </AppText>
                                         <AppText
@@ -191,7 +191,7 @@ const PaymentProfilesScreen = () => {
                                                     <View className="flex-row items-start justify-between mb-3">
                                                         <View className="flex-1">
                                                             <View className="flex-row items-center gap-2 mb-2">
-                                                                <AppText styles="text-base text-black">
+                                                                <AppText styles="text-base text-white">
                                                                     {profile.name}
                                                                 </AppText>
                                                                 {profile.is_default && (
@@ -199,7 +199,7 @@ const PaymentProfilesScreen = () => {
                                                                         className="px-2 py-0.5 rounded"
                                                                         style={{ backgroundColor: colors.accent }}
                                                                     >
-                                                                        <AppText styles="text-xs text-black">
+                                                                        <AppText styles="text-xs text-white">
                                                                             Default
                                                                         </AppText>
                                                                     </View>
@@ -230,7 +230,7 @@ const PaymentProfilesScreen = () => {
                                                                 style={{ opacity: 0.6 }}
                                                             />
                                                             <AppText
-                                                                styles="text-sm text-black"
+                                                                styles="text-sm text-white"
                                                                 style={{ opacity: 0.8 }}
                                                             >
                                                                 {profile.account_details.account_name}
@@ -245,7 +245,7 @@ const PaymentProfilesScreen = () => {
                                                                 style={{ opacity: 0.6 }}
                                                             />
                                                             <AppText
-                                                                styles="text-sm text-black"
+                                                                styles="text-sm text-white"
                                                                 style={{ opacity: 0.8 }}
                                                             >
                                                                 {profile.account_details.bank_name}
@@ -260,7 +260,7 @@ const PaymentProfilesScreen = () => {
                                                                 style={{ opacity: 0.6 }}
                                                             />
                                                             <AppText
-                                                                styles="text-sm text-black"
+                                                                styles="text-sm text-white"
                                                                 style={{ opacity: 0.8 }}
                                                             >
                                                                 {profile.account_details.account_number}
@@ -269,18 +269,18 @@ const PaymentProfilesScreen = () => {
                                                     </View>
 
                                                     {/* Actions */}
-                                                    <View className="flex-row gap-3 pt-3 border-t" style={{ borderColor: colors.accent + "4D" }}>
+                                                    <View className="flex-row gap-3 pt-3">
                                                         <TouchableOpacity
                                                             onPress={() => handleEditProfile(profile.id)}
                                                             className="flex-1 flex-row items-center justify-center gap-2 px-4 py-3 rounded-xl border-2"
                                                             style={{
                                                                 backgroundColor: colors.primary100,
-                                                                borderColor: colors.accent + "4D",
+                                                                borderColor: colors.accent,
                                                             }}
                                                             activeOpacity={0.8}
                                                         >
                                                             <Ionicons name="create-outline" size={16} color={colors.white} />
-                                                            <AppText styles="text-sm text-black">
+                                                            <AppText styles="text-sm text-white">
                                                                 Edit
                                                             </AppText>
                                                         </TouchableOpacity>
