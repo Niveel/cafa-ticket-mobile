@@ -4,6 +4,7 @@ import * as Sentry from '@sentry/react-native';
 import { Ionicons } from "@expo/vector-icons";
 
 import AppText from "../../../ui/AppText";
+import AppSwitch from "../../../ui/AppSwitch";
 import colors from "@/config/colors";
 
 type NotificationSettings = {
@@ -121,51 +122,47 @@ const NotificationPreferencesForm = ({ currentSettings }: NotificationPreference
                     const isEnabled = settings[option.key];
 
                     return (
-                        <TouchableOpacity
+                        <View
                             key={option.key}
-                            onPress={() => handleToggle(option.key)}
                             className="flex-row items-center p-4 rounded-xl border"
                             style={{
                                 backgroundColor: colors.primary200,
                                 borderColor: colors.accent + "4D",
                             }}
-                            activeOpacity={0.7}
                         >
-                            {/* Icon */}
-                            <View
-                                className="w-10 h-10 rounded-lg items-center justify-center mr-4"
-                                style={{ backgroundColor: option.color + "33" }}
+                            <TouchableOpacity
+                                onPress={() => handleToggle(option.key)}
+                                className="flex-1 flex-row items-center"
+                                activeOpacity={0.7}
                             >
-                                <Ionicons name={option.icon} size={20} color={option.color} />
-                            </View>
-
-                            {/* Text */}
-                            <View className="flex-1">
-                                <AppText styles="text-sm text-white">
-                                    {option.title}
-                                </AppText>
-                                <AppText styles="text-xs text-white mt-0.5" style={{ opacity: 0.6 }}>
-                                    {option.description}
-                                </AppText>
-                            </View>
-
-                            {/* Toggle Switch */}
-                            <View
-                                className="w-12 h-6 rounded-full relative"
-                                style={{
-                                    backgroundColor: isEnabled ? colors.accent : colors.primary200 + "80",
-                                    borderWidth: 1,
-                                    borderColor: isEnabled ? colors.accent : colors.accent + "4D",
-                                }}
-                            >
+                                {/* Icon */}
                                 <View
-                                    className="absolute top-0.5 w-5 h-5 rounded-full bg-white"
-                                    style={{
-                                        left: isEnabled ? 26 : 2,
-                                    }}
-                                />
-                            </View>
-                        </TouchableOpacity>
+                                    className="w-10 h-10 rounded-lg items-center justify-center mr-4"
+                                    style={{ backgroundColor: option.color + "33" }}
+                                >
+                                    <Ionicons name={option.icon} size={20} color={option.color} />
+                                </View>
+
+                                {/* Text */}
+                                <View className="flex-1">
+                                    <AppText styles="text-sm text-white">
+                                        {option.title}
+                                    </AppText>
+                                    <AppText styles="text-xs text-white mt-0.5" style={{ opacity: 0.6 }}>
+                                        {option.description}
+                                    </AppText>
+                                </View>
+                            </TouchableOpacity>
+
+                            <AppSwitch
+                                value={isEnabled}
+                                onValueChange={() => handleToggle(option.key)}
+                                trackColor={{ false: colors.primary200, true: colors.accent }}
+                                thumbColor={colors.white}
+                                accessibilityLabel={option.title}
+                                accessibilityHint={`Toggle ${option.title.toLowerCase()}`}
+                            />
+                        </View>
                     );
                 })}
             </View>

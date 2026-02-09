@@ -1,8 +1,9 @@
-import { View, Switch } from "react-native";
+import { View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useFormikContext } from "formik";
 
 import AppText from "../../../ui/AppText";
+import AppSwitch from "../../../ui/AppSwitch";
 import type { EventFormValues } from "@/data/eventCreationSchema";
 import colors from "@/config/colors";
 
@@ -42,13 +43,15 @@ const EventPublishSection = () => {
                 }}
             >
                 <View className="flex-row items-start gap-3">
-                    <Switch
+                    <AppSwitch
                         value={values.is_published || false}
                         onValueChange={(value) => {
                             setFieldValue("is_published", value);
                         }}
                         trackColor={{ false: colors.primary200, true: colors.success }}
                         thumbColor={colors.white}
+                        accessibilityLabel="Publish event"
+                        accessibilityHint="Turn on to make your event visible to the public"
                     />
                     <View className="flex-1">
                         <View className="flex-row items-center gap-2 mb-2">
@@ -182,7 +185,7 @@ const EventPublishSection = () => {
                             • You can change this anytime from dashboard
                         </AppText>
                         <AppText styles="text-xs text-black" font="font-iregular" style={{ opacity: 0.7 }}>
-                            • Unpublishing won't affect purchased tickets
+                            • Unpublishing will not affect purchased tickets
                         </AppText>
                         <AppText styles="text-xs text-black" font="font-iregular" style={{ opacity: 0.7 }}>
                             • Unpublish if not ready to sell yet
@@ -195,3 +198,4 @@ const EventPublishSection = () => {
 };
 
 export default EventPublishSection;
+

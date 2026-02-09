@@ -9,6 +9,7 @@ export { default as TabBarButton } from "./layout/TabBarButton";
 export { default as Animation } from "./ui/Animation";
 export { default as AppBottomSheet } from "./ui/AppBottomSheet";
 export { default as AppButton } from "./ui/AppButton";
+export { default as AppSwitch } from "./ui/AppSwitch";
 export { default as AppText } from "./ui/AppText";
 export { default as ConfirmAction } from "./ui/ConfirmAction";
 export { default as ImageUpload } from "./ui/ImageUpload";

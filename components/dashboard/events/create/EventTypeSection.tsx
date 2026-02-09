@@ -1,8 +1,9 @@
-import { View, TouchableOpacity, Switch } from "react-native";
+import { View, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useFormikContext } from "formik";
 
 import AppText from "../../../ui/AppText";
+import AppSwitch from "../../../ui/AppSwitch";
 import AppFormField from "../../../form/AppFormField";
 import SelectInput from "../../../form/SelectInput";
 import type { EventFormValues } from "@/data/eventCreationSchema";
@@ -100,11 +101,13 @@ const EventTypeSection = () => {
             {/* Is Recurring Toggle */}
             <View className="p-4 rounded-xl border-2" style={{ backgroundColor: colors.primary100, borderColor: colors.accent }}>
                 <View className="flex-row items-start gap-3">
-                    <Switch
+                    <AppSwitch
                         value={values.is_recurring || false}
                         onValueChange={handleRecurringToggle}
                         trackColor={{ false: colors.primary200, true: colors.accent }}
-                        thumbColor={values.is_recurring ? colors.white : colors.white}
+                        thumbColor={colors.white}
+                        accessibilityLabel="Recurring event"
+                        accessibilityHint="Turn on to make this event repeat on multiple days"
                     />
                     <View className="flex-1">
                         <AppText styles="text-sm text-white mb-1" font="font-ibold">
@@ -121,7 +124,7 @@ const EventTypeSection = () => {
             {values.is_recurring && (
                 <>
                     {/* Recurrence Pattern Card */}
-                    <View className="p-4 rounded-xl border" style={{ backgroundColor: colors.primary200 + "80", borderColor: colors.accent + "4D" }}>
+                    <View className="p-4 rounded-xl border" style={{ backgroundColor: colors.primary200 + "4d", borderColor: colors.accent + "4D" }}>
                         <View className="flex-row items-center gap-2 mb-4">
                             <Ionicons name="repeat-outline" size={18} color={colors.accent50} />
                             <AppText styles="text-sm text-black" font="font-ibold">
@@ -256,10 +259,10 @@ const EventTypeSection = () => {
                                             )}
                                         </View>
                                         <View className="flex-1">
-                                            <AppText styles="text-sm text-black mb-1" font="font-ibold">
+                                            <AppText styles="text-sm text-white mb-1" font="font-ibold">
                                                 {option.label}
                                             </AppText>
-                                            <AppText styles="text-xs text-black" font="font-iregular" style={{ opacity: 0.6 }}>
+                                            <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.6 }}>
                                                 {option.description}
                                             </AppText>
                                         </View>
@@ -284,25 +287,25 @@ const EventTypeSection = () => {
                                 onPress={() => setFieldValue("check_in_policy", option.value)}
                                 className="p-2 rounded-xl border-2"
                                 style={{
-                                    backgroundColor: values.check_in_policy === option.value ? colors.accent + "33" : colors.primary100,
-                                    borderColor: values.check_in_policy === option.value ? colors.accent : colors.accent + "4D",
+                                    backgroundColor: values.check_in_policy === option.value ? colors.accent : colors.primary100,
+                                    borderColor: values.check_in_policy === option.value ? colors.primary : colors.accent,
                                 }}
                                 activeOpacity={0.7}
                             >
                                 <View className="flex-row items-start gap-3">
                                     <View
                                         className="w-5 h-5 rounded-full border-2 items-center justify-center mt-0.5"
-                                        style={{ borderColor: values.check_in_policy === option.value ? colors.accent : colors.white + "80" }}
+                                        style={{ borderColor: values.check_in_policy === option.value ? colors.white : colors.white + "80" }}
                                     >
                                         {values.check_in_policy === option.value && (
                                             <View className="w-3 h-3 rounded-full" style={{ backgroundColor: colors.accent }} />
                                         )}
                                     </View>
                                     <View className="flex-1">
-                                        <AppText styles="text-sm text-black mb-1" font="font-ibold">
+                                        <AppText styles="text-sm text-white font-nunbold mb-1" font="font-ibold">
                                             {option.label}
                                         </AppText>
-                                        <AppText styles="text-xs text-black" font="font-iregular" style={{ opacity: 0.6 }}>
+                                        <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.8 }}>
                                             {option.description}
                                         </AppText>
                                     </View>

@@ -151,7 +151,7 @@ const ImageUpload = ({
                                 >
                                     <Ionicons name="cloud-upload-outline" size={32} color={colors.accent50} />
                                 </View>
-                                <AppText styles="text-base text-black mb-1 font-nunbold">
+                                <AppText styles="text-base text-white mb-1 font-nunbold">
                                     {compact ? 'Upload Image' : 'Tap to upload image'}
                                 </AppText>
                                 {!compact && (
@@ -298,7 +298,7 @@ const ImageUpload = ({
                             className="absolute bottom-2 left-2 px-2 py-0.5 rounded"
                             style={{ backgroundColor: colors.primary + 'CC' }}
                         >
-                            <AppText styles="text-xs text-black font-nunbold">
+                            <AppText styles="text-xs text-white font-nunbold">
                                 {index + 1}
                             </AppText>
                         </View>

@@ -48,10 +48,10 @@ const EventImagesSection = () => {
                     <Ionicons name="image-outline" size={20} color={colors.accent50} />
                 </View>
                 <View className="flex-1">
-                    <AppText styles="text-base text-black" font="font-ibold">
+                    <AppText styles="text-base text-white" font="font-ibold">
                         Event Images
                     </AppText>
-                    <AppText styles="text-xs text-black" font="font-iregular" style={{ opacity: 0.6 }}>
+                    <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.6 }}>
                         Add attractive images
                     </AppText>
                 </View>
@@ -62,7 +62,7 @@ const EventImagesSection = () => {
                 className="p-4 rounded-xl border-2"
                 style={{ backgroundColor: colors.primary100, borderColor: colors.accent }}
             >
-                <AppText styles="text-sm text-black mb-3" font="font-ibold">
+                <AppText styles="text-sm text-white mb-3" font="font-ibold">
                     Featured Image
                 </AppText>
                 <ImageUpload
@@ -82,10 +82,10 @@ const EventImagesSection = () => {
                 style={{ backgroundColor: colors.primary100, borderColor: colors.accent }}
             >
                 <View className="flex-row items-center justify-between mb-3">
-                    <AppText styles="text-sm text-black" font="font-ibold">
+                    <AppText styles="text-sm text-white" font="font-ibold">
                         Additional Images (Optional)
                     </AppText>
-                    <AppText styles="text-xs text-black" font="font-iregular" style={{ opacity: 0.6 }}>
+                    <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.6 }}>
                         {additionalImages.length}/5
                     </AppText>
                 </View>
@@ -132,7 +132,7 @@ const EventImagesSection = () => {
                                         className="absolute bottom-2 left-2 px-2 py-0.5 rounded"
                                         style={{ backgroundColor: colors.primary + "CC" }}
                                     >
-                                        <AppText styles="text-xs text-black" font="font-ibold">
+                                        <AppText styles="text-xs text-white" font="font-ibold">
                                             {index + 1}
                                         </AppText>
                                     </View>
@@ -175,20 +175,20 @@ const EventImagesSection = () => {
             >
                 <Ionicons name="information-circle-outline" size={16} color={colors.accent50} style={{ marginTop: 2 }} />
                 <View className="flex-1">
-                    <AppText styles="text-xs text-black mb-1" font="font-isemibold" style={{ opacity: 0.9 }}>
+                    <AppText styles="text-xs text-white mb-1" font="font-isemibold" style={{ opacity: 0.9 }}>
                         Image Guidelines
                     </AppText>
                     <View className="gap-1">
-                        <AppText styles="text-xs text-black" font="font-iregular" style={{ opacity: 0.7 }}>
+                        <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.7 }}>
                             • Featured image: 1 image for event cards
                         </AppText>
-                        <AppText styles="text-xs text-black" font="font-iregular" style={{ opacity: 0.7 }}>
+                        <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.7 }}>
                             • Additional images: Up to 5 images for gallery
                         </AppText>
-                        <AppText styles="text-xs text-black" font="font-iregular" style={{ opacity: 0.7 }}>
+                        <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.7 }}>
                             • Recommended: 1920x1080px or higher
                         </AppText>
-                        <AppText styles="text-xs text-black" font="font-iregular" style={{ opacity: 0.7 }}>
+                        <AppText styles="text-xs text-white" font="font-iregular" style={{ opacity: 0.7 }}>
                             • Formats: JPG, PNG, WEBP
                         </AppText>
                     </View>
