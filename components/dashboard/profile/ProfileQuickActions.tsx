@@ -36,7 +36,7 @@ const ProfileQuickActions = () => {
                 <AppText styles="text-lg text-black mb-1 font-nunbold">
                     Quick Actions
                 </AppText>
-                <AppText styles="text-sm text-slate-300">
+                <AppText styles="text-sm text-slate-500">
                     Manage your account and activities
                 </AppText>
             </View>
@@ -61,7 +61,7 @@ const ProfileQuickActions = () => {
                                 <AppText styles="text-base text-black mb-1 font-nunbold">
                                     {action.title}
                                 </AppText>
-                                <AppText styles="text-xs text-slate-400">
+                                <AppText styles="text-xs text-slate-600">
                                     {action.description}
                                 </AppText>
                             </View>

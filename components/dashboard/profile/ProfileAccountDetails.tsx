@@ -73,7 +73,7 @@ const ProfileAccountDetails = ({ user }: ProfileAccountDetailsProps) => {
                 <AppText styles="text-lg text-black mb-1 font-nunbold">
                     Account Details
                 </AppText>
-                <AppText styles="text-sm text-slate-300">
+                <AppText styles="text-sm text-slate-500">
                     Your account information and verification status
                 </AppText>
             </View>
@@ -93,7 +93,7 @@ const ProfileAccountDetails = ({ user }: ProfileAccountDetailsProps) => {
                                 <Ionicons name={detail.icon as any} size={20} color={detail.iconColor} />
                             </View>
                             <View className="flex-1">
-                                <AppText styles="text-xs text-slate-400 mb-1">
+                                <AppText styles="text-xs text-slate-600 mb-1">
                                     {detail.title}
                                 </AppText>
                                 <View className="flex-row items-center gap-2 flex-wrap mb-1">
@@ -119,7 +119,7 @@ const ProfileAccountDetails = ({ user }: ProfileAccountDetailsProps) => {
                                         <View />
                                     )}
                                 </View>
-                                <AppText styles="text-xs text-slate-400">
+                                <AppText styles="text-xs text-slate-600">
                                     {detail.description}
                                 </AppText>
                             </View>
@@ -143,7 +143,7 @@ const ProfileAccountDetails = ({ user }: ProfileAccountDetailsProps) => {
                         <AppText styles="text-sm text-black mb-1">
                             Security Recommendation
                         </AppText>
-                        <AppText styles="text-xs text-slate-300">
+                        <AppText styles="text-xs text-slate-600">
                             {user.is_email_verified
                                 ? 'Your account is secure. Keep your password safe for extra security.'
                                 : 'Please verify your email address to secure your account and unlock all features.'

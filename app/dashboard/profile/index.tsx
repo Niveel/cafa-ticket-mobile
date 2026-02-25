@@ -1,13 +1,15 @@
-import { ScrollView } from "react-native";
+import { ScrollView, View } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
-import { Screen } from "@/components";
 import {
+    Screen,
     ProfileHeader,
     ProfileQuickActions,
     ProfileAccountDetails,
     ProfileNotificationSettings,
     RequireAuth,
-    Nav
+    Nav,
+    AppButton
 } from "@/components";
 import { useAuth } from "@/context";
 import colors from "@/config/colors";
@@ -36,6 +38,17 @@ const ProfileScreen = () => {
 
                         {/* Notification Settings */}
                         <ProfileNotificationSettings settings={user.settings} />
+
+                        {/* Delete Account */}
+                        <View className="px-1">
+                            <AppButton
+                                href="/dashboard/settings/privacy"
+                                title="Delete Account"
+                                variant="danger"
+                                fullWidth
+                                icon={<Ionicons name="trash-outline" size={18} color="#fff" />}
+                            />
+                        </View>
                     </ScrollView>
                 )}
             </RequireAuth>

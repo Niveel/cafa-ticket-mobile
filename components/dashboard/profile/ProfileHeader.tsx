@@ -68,7 +68,7 @@ const ProfileHeader = ({ user }: ProfileHeaderProps) => {
                 </View>
 
                 {/* Name & Username */}
-                <AppText styles="text-2xl text-black mb-2 text-center font-nunbold">
+                <AppText styles="text-2xl text-black mb-2 text-center font-nunbold" >
                     {user.full_name}
                 </AppText>
                 <AppText styles="text-base text-accent-50 mb-3">
@@ -86,7 +86,7 @@ const ProfileHeader = ({ user }: ProfileHeaderProps) => {
                     >
                         <Ionicons name="checkmark-circle" size={16} color="#10b981" />
                         <AppText styles="text-xs font-nunbold" color="text-emerald-400">
-                            Verified Account
+                            Verified
                         </AppText>
                     </View>
                 )}
@@ -99,7 +99,7 @@ const ProfileHeader = ({ user }: ProfileHeaderProps) => {
                     activeOpacity={0.8}
                 >
                     <Ionicons name="create-outline" size={18} color="#fff" />
-                    <AppText styles="text-sm text-black font-nunbold">
+                    <AppText styles="text-sm text-white font-nunbold">
                         Edit Profile
                     </AppText>
                 </TouchableOpacity>
@@ -128,7 +128,7 @@ const ProfileHeader = ({ user }: ProfileHeaderProps) => {
                         <Ionicons name="mail-outline" size={20} color="#60a5fa" />
                     </View>
                     <View className="flex-1">
-                        <AppText styles="text-xs text-slate-400 mb-0.5" font="font-isemibold">
+                        <AppText styles="text-xs text-slate-600 mb-0.5" font="font-isemibold">
                             Email
                         </AppText>
                         <AppText styles="text-sm text-black" font="font-imedium">
@@ -146,7 +146,7 @@ const ProfileHeader = ({ user }: ProfileHeaderProps) => {
                         <Ionicons name="call-outline" size={20} color="#10b981" />
                     </View>
                     <View className="flex-1">
-                        <AppText styles="text-xs text-slate-400 mb-0.5">
+                        <AppText styles="text-xs text-slate-600 mb-0.5">
                             Phone
                         </AppText>
                         <AppText styles="text-sm text-black">
@@ -164,7 +164,7 @@ const ProfileHeader = ({ user }: ProfileHeaderProps) => {
                         <Ionicons name="location-outline" size={20} color="#a855f7" />
                     </View>
                     <View className="flex-1">
-                        <AppText styles="text-xs text-slate-400 mb-0.5">
+                        <AppText styles="text-xs text-slate-600 mb-0.5">
                             Location
                         </AppText>
                         <AppText styles="text-sm text-black">
@@ -182,7 +182,7 @@ const ProfileHeader = ({ user }: ProfileHeaderProps) => {
                         <Ionicons name="calendar-outline" size={20} color={colors.accent50} />
                     </View>
                     <View className="flex-1">
-                        <AppText styles="text-xs text-slate-400 mb-0.5">
+                        <AppText styles="text-xs text-slate-600 mb-0.5">
                             Member Since
                         </AppText>
                         <AppText styles="text-sm text-black">
@@ -195,7 +195,7 @@ const ProfileHeader = ({ user }: ProfileHeaderProps) => {
             {/* Last Active */}
             <View className="flex-row items-center gap-2 mt-2 justify-center">
                 <View className="w-2 h-2 bg-emerald-400 rounded-full" />
-                <AppText styles="text-xs text-slate-400">
+                <AppText styles="text-xs text-slate-600">
                     Last active:{' '}
                     <AppText styles="text-xs text-slate-300">
                         {getTimeSince(lastLogin)}

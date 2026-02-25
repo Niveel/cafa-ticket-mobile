@@ -12,15 +12,13 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.shopwit.cafatickets",
       "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "We use your location to show nearby events and venues, for example events happening near Accra based on your current area.",
+        "NSCameraUsageDescription": "We use your camera so you can take photos for your profile or upload images related to tickets and events.",
+        "NSPhotoLibraryUsageDescription": "We access your photo library so you can choose and upload images like your profile picture or event-related photos.",
         "NSAppTransportSecurity": {
           "NSAllowsArbitraryLoads": true
         },
         "CFBundleURLTypes": [
-          {
-            "CFBundleURLSchemes": [
-              "cafatickets"
-            ]
-          },
           {
             "CFBundleURLSchemes": [
               "cafatickets"

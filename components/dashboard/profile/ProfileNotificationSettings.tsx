@@ -52,7 +52,7 @@ const ProfileNotificationSettings = ({ settings }: ProfileNotificationSettingsPr
                     <AppText styles="text-lg text-black mb-1 font-nunbold">
                         Notification Preferences
                     </AppText>
-                    <AppText styles="text-sm text-slate-300">
+                    <AppText styles="text-sm text-slate-500">
                         {enabledCount} of {settingsData.length} enabled
                     </AppText>
                 </View>
@@ -99,7 +99,7 @@ const ProfileNotificationSettings = ({ settings }: ProfileNotificationSettingsPr
                                 <AppText styles="text-sm text-black mb-0.5">
                                     {setting.title}
                                 </AppText>
-                                <AppText styles="text-xs text-slate-400">
+                                <AppText styles="text-xs text-slate-600">
                                     {setting.description}
                                 </AppText>
                             </View>
@@ -120,7 +120,7 @@ const ProfileNotificationSettings = ({ settings }: ProfileNotificationSettingsPr
                         >
                             <AppText
                                 styles="text-xs font-nunbold"
-                                color={setting.enabled ? 'text-emerald-400' : 'text-slate-400'}
+                                color={setting.enabled ? 'text-emerald-400' : 'text-slate-600'}
                             >
                                 {setting.enabled ? 'Enabled' : 'Disabled'}
                             </AppText>
