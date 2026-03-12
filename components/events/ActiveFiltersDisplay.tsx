@@ -27,7 +27,7 @@ const ActiveFiltersDisplay = ({
 
     return (
         <View>
-            <AppText styles="text-xs text-slate-300 mb-3" font="font-isemibold">
+            <AppText styles="text-xs text-black mb-3" font="font-isemibold">
                 Active Filters:
             </AppText>
 

@@ -45,7 +45,7 @@ const ProfileAccountDetails = ({ user }: ProfileAccountDetailsProps) => {
         },
         {
             title: 'Email Status',
-            value: user.is_email_verified ? 'Verified' : 'Not Verified',
+            value: user.is_email_verified ? 'Email Verified' : 'Not Verified',
             icon: emailIcon, // ⬅️ Use the variable
             iconBg: user.is_email_verified ? 'rgba(16, 185, 129, 0.2)' : 'rgba(245, 158, 11, 0.2)',
             iconColor: user.is_email_verified ? '#10b981' : '#f59e0b',
@@ -110,7 +110,7 @@ const ProfileAccountDetails = ({ user }: ProfileAccountDetailsProps) => {
                                             }}
                                         >
                                             <AppText styles="text-xs font-nunbold" color="text-emerald-400">
-                                                ✓ Verified
+                                                ✓ Email Verified
                                             </AppText>
                                         </View>
                                     )}

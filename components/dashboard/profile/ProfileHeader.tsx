@@ -86,7 +86,7 @@ const ProfileHeader = ({ user }: ProfileHeaderProps) => {
                     >
                         <Ionicons name="checkmark-circle" size={16} color="#10b981" />
                         <AppText styles="text-xs font-nunbold" color="text-emerald-400">
-                            Verified
+                            Email Verified
                         </AppText>
                     </View>
                 )}
@@ -112,7 +112,7 @@ const ProfileHeader = ({ user }: ProfileHeaderProps) => {
                     style={{ borderWidth: 1, borderColor: colors.accent }}
                 >
                     <AppText styles="text-sm text-slate-200 italic text-center">
-                        "{user.bio}"
+                        &quot;{user.bio}&quot;
                     </AppText>
                 </View>
             )}

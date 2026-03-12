@@ -222,10 +222,10 @@ const VerifyProfileScreen = () => {
                                     style={{ backgroundColor: colors.primary100, borderColor: colors.accent }}
                                 >
                                     <ActivityIndicator size="large" color={colors.accent} />
-                                    <AppText styles="text-lg text-black mt-4 text-center font-nunbold">
+                                    <AppText styles="text-lg text-white mt-4 text-center font-nunbold">
                                         Verifying Your Identity...
                                     </AppText>
-                                    <AppText styles="text-sm text-black mt-2 text-center" style={{ opacity: 0.7 }}>
+                                    <AppText styles="text-sm text-slate-200 mt-2 text-center">
                                         This usually takes a few seconds
                                     </AppText>
                                 </View>
@@ -257,7 +257,7 @@ const VerifyProfileScreen = () => {
                                         accessibilityRole="button"
                                         accessibilityLabel="Create first event"
                                     >
-                                        <AppText styles="text-base text-black font-nunbold">
+                                        <AppText styles="text-base text-white font-nunbold">
                                             Create Your First Event
                                         </AppText>
                                     </View>
@@ -290,7 +290,7 @@ const VerifyProfileScreen = () => {
                                         accessibilityRole="button"
                                         accessibilityLabel="Try verification again"
                                     >
-                                        <AppText styles="text-base text-black font-nunbold">
+                                        <AppText styles="text-base text-white font-nunbold">
                                             Try Again
                                         </AppText>
                                     </View>

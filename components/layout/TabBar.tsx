@@ -3,6 +3,7 @@ import { useLinkBuilder } from '@react-navigation/native';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { useState, useEffect } from 'react';
 import Animated, { useSharedValue, useAnimatedStyle, withSpring, withTiming } from 'react-native-reanimated';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import TabBarButton from './TabBarButton';
 import colors from '@/config/colors';
@@ -10,6 +11,8 @@ import { useTabBarVisibility } from '@/context/TabBarContext';
 
 function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
     const { buildHref } = useLinkBuilder();
+    const insets = useSafeAreaInsets();
+    const bottomOffset = insets.bottom + 8;
     const [dimensions, setDimensions] = useState({ width: 100, height: 20 });
     const buttonWidth = dimensions.width / state.routes.length;
     const { isVisible } = useTabBarVisibility();
@@ -24,7 +27,7 @@ function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
     // Sync tab position when state.index changes
     useEffect(() => {
         tabPositionX.value = withSpring(state.index * buttonWidth, { duration: 1500 });
-    }, [state.index, buttonWidth]);
+    }, [state.index, buttonWidth, tabPositionX]);
 
     const animatedTabStyle = useAnimatedStyle(() => {
         return {
@@ -33,7 +36,7 @@ function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
     });
 
     const animatedBarStyle = useAnimatedStyle(() => {
-        const totalHeight = dimensions.height + 60;
+        const totalHeight = dimensions.height + bottomOffset + 20;
         return {
             transform: [
                 { 
@@ -48,7 +51,7 @@ function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
 
     return (
         <Animated.View 
-            style={[styles.tabBar, animatedBarStyle]} 
+            style={[styles.tabBar, { bottom: bottomOffset }, animatedBarStyle]} 
             onLayout={onTabBarLayout}
             accessible={true}
             accessibilityRole="tablist"
@@ -122,7 +125,6 @@ function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
 const styles = StyleSheet.create({
     tabBar: {
         position: "absolute",
-        bottom: 30,
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",

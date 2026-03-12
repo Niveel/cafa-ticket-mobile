@@ -153,7 +153,7 @@ const MyEventsFilters = ({ onFilterChange, currentFilters }: MyEventsFiltersProp
                                 <AppText
                                     styles="text-sm"
                                     font="font-isemibold"
-                                    color={status === option.value ? "text-black" : "text-slate-300"}
+                                    color={status === option.value ? "text-white" : "text-slate-300"}
                                 >
                                     {option.label}
                                 </AppText>
@@ -182,7 +182,7 @@ const MyEventsFilters = ({ onFilterChange, currentFilters }: MyEventsFiltersProp
                                 <AppText
                                     styles="text-sm"
                                     font="font-isemibold"
-                                    color={isPublished === option.value ? "text-black" : "text-slate-300"}
+                                    color={isPublished === option.value ? "text-white" : "text-slate-300"}
                                 >
                                     {option.label}
                                 </AppText>
@@ -211,7 +211,7 @@ const MyEventsFilters = ({ onFilterChange, currentFilters }: MyEventsFiltersProp
                                 <AppText
                                     styles="text-sm"
                                     font="font-isemibold"
-                                    color={sortBy === option.value ? "text-black" : "text-slate-300"}
+                                    color={sortBy === option.value ? "text-white" : "text-slate-300"}
                                 >
                                     {option.label}
                                 </AppText>
@@ -234,7 +234,7 @@ const MyEventsFilters = ({ onFilterChange, currentFilters }: MyEventsFiltersProp
                         style={{ backgroundColor: colors.accent }}
                         activeOpacity={0.8}
                     >
-                        <AppText styles="text-sm text-black" font="font-ibold">
+                        <AppText styles="text-sm text-white" font="font-ibold">
                             Apply Filters
                         </AppText>
                     </TouchableOpacity>

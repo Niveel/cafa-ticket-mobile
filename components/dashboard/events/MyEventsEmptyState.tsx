@@ -14,11 +14,11 @@ const MyEventsEmptyState = () => {
             </View>
             <AppText styles="text-xl text-black text-center mb-3" font="font-ibold">No Events Found</AppText>
             <AppText styles="text-sm text-slate-300 text-center mb-6 leading-relaxed max-w-sm" font="font-iregular">
-                You haven't created any events yet. Create your first event and reach thousands of attendees.
+                You haven&apos;t created any events yet. Create your first event and reach thousands of attendees.
             </AppText>
             <TouchableOpacity onPress={() => router.push("/dashboard/events/create" as Href)} className="flex-row items-center gap-2 px-6 py-3 rounded-xl" style={{ backgroundColor: colors.accent }} activeOpacity={0.8}>
                 <Ionicons name="add-circle-outline" size={20} color={colors.white} />
-                <AppText styles="text-sm text-black" font="font-isemibold">Create Your First Event</AppText>
+                <AppText styles="text-sm text-white" font="font-isemibold">Create Your First Event</AppText>
             </TouchableOpacity>
         </View>
     );

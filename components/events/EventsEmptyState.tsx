@@ -1,8 +1,7 @@
-import { View } from "react-native";
+import { View, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 import AppText from "../ui/AppText";
-import AppButton from "../ui/AppButton";
 import colors from "@/config/colors";
 
 interface EventsEmptyStateProps {
@@ -40,20 +39,21 @@ const EventsEmptyState = ({
             {/* Actions */}
             {hasFilters && (
                 <View className="w-full max-w-xs mb-6">
-                    <AppButton
-                        title="Clear All Filters"
-                        variant="primary"
-                        size="md"
-                        onClick={onClearFilters}
-                        icon={<Ionicons name="refresh" size={20} color={colors.white} />}
-                        iconPosition="left"
-                    />
+                    <TouchableOpacity
+                        onPress={onClearFilters}
+                        className="flex-row items-center justify-center gap-2 py-3 px-4 rounded-xl"
+                        style={{ backgroundColor: colors.accent }}
+                        activeOpacity={0.8}
+                    >
+                        <Ionicons name="refresh" size={20} color={colors.white} />
+                        <AppText styles="text-sm text-white font-nunbold">Clear All Filters</AppText>
+                    </TouchableOpacity>
                 </View>
             )}
 
             {/* Suggestions */}
             {hasFilters && (
-                <View className="mt-8 p-6 bg-primary-100 rounded-xl border border-accent max-w-sm">
+                <View className="mt-8 p-6 bg-white rounded-xl border border-accent max-w-sm">
                     <AppText styles="text-sm text-black mb-3 font-nunbold">
                         Try these suggestions:
                     </AppText>
@@ -67,7 +67,7 @@ const EventsEmptyState = ({
                                 <AppText styles="text-xs text-accent-50 mt-1 font-nunbold">
                                     •
                                 </AppText>
-                                <AppText styles="text-xs text-slate-200 flex-1">
+                                <AppText styles="text-xs text-black flex-1">
                                     {suggestion}
                                 </AppText>
                             </View>

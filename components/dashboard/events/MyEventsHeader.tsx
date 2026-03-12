@@ -96,7 +96,7 @@ const MyEventsHeader = ({ currentUser, onOpenFilters }: MyEventsHeaderProps) => 
                             <AppText styles="text-sm text-black mb-2" font="font-ibold">
                                 Verification Required
                             </AppText>
-                            <AppText styles="text-xs text-slate-300 mb-3 leading-relaxed" font="font-iregular">
+                            <AppText styles="text-xs text-black mb-3 leading-relaxed" font="font-iregular">
                                 Verify your identity to create events.
                             </AppText>
                             <TouchableOpacity
@@ -105,7 +105,7 @@ const MyEventsHeader = ({ currentUser, onOpenFilters }: MyEventsHeaderProps) => 
                                 style={{ backgroundColor: colors.accent }}
                                 activeOpacity={0.8}
                             >
-                                <AppText styles="text-xs text-black" font="font-isemibold">
+                                <AppText styles="text-xs text-white" font="font-isemibold">
                                     Start Verification
                                 </AppText>
                             </TouchableOpacity>
