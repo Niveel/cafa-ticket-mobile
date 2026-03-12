@@ -85,6 +85,7 @@ const AppFormField = <Values extends StringFieldFormValues = StringFieldFormValu
                     required={required}
                     placeholder={placeholder}
                     isLoading={isLoading}
+                    labelColor={labelColor}
                 />
             ) : type === 'select' ? (
                 <SelectInput

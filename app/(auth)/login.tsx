@@ -67,7 +67,7 @@ const LoginScreen = () => {
   };
 
   return (
-    <Screen statusBarStyle="light-content" statusBarBg={colors.primary}>
+    <Screen statusBarStyle="dark-content" statusBarBg={colors.white}>
       <FormLoader visible={isLoading} />
 
       <LinearGradient
@@ -166,7 +166,7 @@ const LoginScreen = () => {
                   </View>
 
                   <View className="flex-row justify-center items-center">
-                    <AppText styles="text-sm text-slate-600">
+                    <AppText styles="text-sm text-slate-200">
                       Don't have an account?{" "}
                     </AppText>
                     <TouchableOpacity onPress={() => router.push("/signup" as Href)}>

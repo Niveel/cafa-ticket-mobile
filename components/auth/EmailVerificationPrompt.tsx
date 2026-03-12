@@ -1,6 +1,7 @@
-import { View, ScrollView } from "react-native";
+import { View, ScrollView, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
+import { router } from "expo-router";
 
 import AppText from "@/components/ui/AppText";
 import Screen from "../ui/Screen";
@@ -12,7 +13,7 @@ interface EmailVerificationPromptProps {
 
 const EmailVerificationPrompt = ({ email }: EmailVerificationPromptProps) => {
     return (
-        <Screen statusBarStyle="light-content" statusBarBg={colors.primary}>
+        <Screen statusBarStyle="dark-content" statusBarBg={colors.white}>
             <LinearGradient
                 colors={[colors.primary, colors.primary200, colors.primary]}
                 style={{ position: "absolute", left: 0, right: 0, top: 0, bottom: 0 }}
@@ -36,7 +37,7 @@ const EmailVerificationPrompt = ({ email }: EmailVerificationPromptProps) => {
                     {/* Header */}
                     <View className="items-center mb-8">
                         <AppText
-                            styles="text-3xl text-black text-center mb-3"
+                            styles="text-3xl text-white text-center mb-3"
                             font="font-ibold"
                         >
                             Check Your Email
@@ -48,7 +49,8 @@ const EmailVerificationPrompt = ({ email }: EmailVerificationPromptProps) => {
                             We've sent a verification link to
                         </AppText>
                         <AppText
-                            styles="text-base text-accent-50 text-center"
+                            styles="text-base text-center"
+                            color="text-green-400"
                             font="font-isemibold"
                         >
                             {email}
@@ -67,7 +69,7 @@ const EmailVerificationPrompt = ({ email }: EmailVerificationPromptProps) => {
                             </View>
                             <View className="flex-1">
                                 <AppText
-                                    styles="text-lg text-black mb-2"
+                                    styles="text-lg text-white mb-2"
                                     font="font-ibold"
                                 >
                                     Next Steps
@@ -87,19 +89,19 @@ const EmailVerificationPrompt = ({ email }: EmailVerificationPromptProps) => {
                                 className="w-6 h-6 rounded-full items-center justify-center"
                                 style={{ backgroundColor: colors.accent }}
                             >
-                                <AppText styles="text-xs text-black" font="font-ibold">
+                                <AppText styles="text-xs text-white" font="font-ibold">
                                     1
                                 </AppText>
                             </View>
                             <View className="flex-1">
                                 <AppText
-                                    styles="text-sm text-black mb-1"
+                                    styles="text-sm text-white mb-1"
                                     font="font-isemibold"
                                 >
                                     Check your inbox
                                 </AppText>
                                 <AppText
-                                    styles="text-xs text-slate-400"
+                                    styles="text-xs text-slate-200"
                                     font="font-iregular"
                                 >
                                     Look for an email from Cafa Tickets with the subject "Verify
@@ -114,19 +116,19 @@ const EmailVerificationPrompt = ({ email }: EmailVerificationPromptProps) => {
                                 className="w-6 h-6 rounded-full items-center justify-center"
                                 style={{ backgroundColor: colors.accent }}
                             >
-                                <AppText styles="text-xs text-black" font="font-ibold">
+                                <AppText styles="text-xs text-white" font="font-ibold">
                                     2
                                 </AppText>
                             </View>
                             <View className="flex-1">
                                 <AppText
-                                    styles="text-sm text-black mb-1"
+                                    styles="text-sm text-white mb-1"
                                     font="font-isemibold"
                                 >
                                     Click the verification link
                                 </AppText>
                                 <AppText
-                                    styles="text-xs text-slate-400"
+                                    styles="text-xs text-slate-200"
                                     font="font-iregular"
                                 >
                                     The link will activate your account instantly
@@ -140,19 +142,19 @@ const EmailVerificationPrompt = ({ email }: EmailVerificationPromptProps) => {
                                 className="w-6 h-6 rounded-full items-center justify-center"
                                 style={{ backgroundColor: colors.accent }}
                             >
-                                <AppText styles="text-xs text-black" font="font-ibold">
+                                <AppText styles="text-xs text-white" font="font-ibold">
                                     3
                                 </AppText>
                             </View>
                             <View className="flex-1">
                                 <AppText
-                                    styles="text-sm text-black mb-1"
+                                    styles="text-sm text-white mb-1"
                                     font="font-isemibold"
                                 >
                                     Login to your account
                                 </AppText>
                                 <AppText
-                                    styles="text-xs text-slate-400"
+                                    styles="text-xs text-slate-200"
                                     font="font-iregular"
                                 >
                                     After activation, you can login and start exploring events
@@ -183,6 +185,17 @@ const EmailVerificationPrompt = ({ email }: EmailVerificationPromptProps) => {
                             </View>
                         </View>
                     </View>
+
+                    <TouchableOpacity
+                        onPress={() => router.replace("/login")}
+                        className="mt-6 py-4 px-6 rounded-xl items-center"
+                        style={{ backgroundColor: colors.accent }}
+                        activeOpacity={0.8}
+                    >
+                        <AppText styles="text-sm text-white" font="font-ibold">
+                            Go to Login
+                        </AppText>
+                    </TouchableOpacity>
 
                     {/* Bottom spacing */}
                     <View className="h-8" />

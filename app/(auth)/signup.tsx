@@ -52,7 +52,7 @@ const SignupScreen = () => {
       };
 
       const response = await axios.post(
-        `${API_BASE_URL}/auth/register/`,
+        `${API_BASE_URL}/auth/users/`,
         payload
       );
 
@@ -143,7 +143,7 @@ const SignupScreen = () => {
   }
 
   return (
-    <Screen statusBarStyle="light-content" statusBarBg={colors.primary}>
+    <Screen statusBarStyle="dark-content" statusBarBg={colors.white}>
       <FormLoader visible={isLoading} />
 
       <LinearGradient
@@ -282,12 +282,12 @@ const SignupScreen = () => {
                   {/* Terms & Conditions */}
                   <View className="mb-4 p-4 bg-primary/50 rounded-xl border border-accent/30">
                     <AppText
-                      styles="text-xs text-slate-300 leading-5"
+                      styles="text-xs text-slate-100 leading-5"
                     >
                       By creating an account, you agree to our{" "}
                       <Link href="/terms" asChild>
                         <AppText
-                          styles="text-xs text-accent-50 font-nunbold"
+                          styles="text-xs text-white underline font-nunbold"
                         >
                           Terms of Service
                         </AppText>
@@ -295,7 +295,7 @@ const SignupScreen = () => {
                       and{" "}
                       <Link href="/privacy" asChild>
                         <AppText
-                          styles="text-xs text-accent-50 font-nunbold"
+                          styles="text-xs text-white underline font-nunbold"
                         >
                           Privacy Policy
                         </AppText>

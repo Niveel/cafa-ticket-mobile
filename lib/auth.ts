@@ -17,7 +17,7 @@ export async function login(credentials: LoginCredentials): Promise<LoginRespons
 }
 
 export async function signup(data: SignupData): Promise<LoginResponse> {
-  const response = await axios.post(`${API_BASE_URL}/auth/register/`, data);
+  const response = await axios.post(`${API_BASE_URL}/auth/users/`, data);
   const result = response.data;
 
   // Store tokens
@@ -86,4 +86,3 @@ export async function resetPassword(data: {
     throw error;
   }
 }
-

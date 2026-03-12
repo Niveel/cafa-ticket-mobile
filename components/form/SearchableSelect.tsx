@@ -20,6 +20,7 @@ type SearchableSelectProps = {
     disabled?: boolean;
     isLoading?: boolean;
     error?: string;
+    labelColor?: string;
 };
 
 const SearchableSelect = ({
@@ -33,6 +34,7 @@ const SearchableSelect = ({
     disabled = false,
     isLoading = false,
     error,
+    labelColor = "text-black",
 }: SearchableSelectProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
@@ -44,7 +46,7 @@ const SearchableSelect = ({
 
     // Get selected option label
     const selectedOption = options.find(opt => opt.value === value);
-    const displayValue = selectedOption?.label || '';
+    const displayValue = selectedOption?.label || value || '';
 
     const handleSelect = (selectedValue: string) => {
         onChange(selectedValue);
@@ -72,7 +74,10 @@ const SearchableSelect = ({
     return (
         <View className="w-full">
             {/* Label */}
-            <Text className="text-sm font-isemibold text-slate-200 mb-2">
+            <Text
+                className={`text-sm font-isemibold mb-2 ${labelColor}`}
+                accessibilityRole="text"
+            >
                 {label}
                 {required && <Text className="text-red-400 ml-1"> *</Text>}
             </Text>
@@ -87,6 +92,11 @@ const SearchableSelect = ({
                     ${error ? 'border-red-500' : ''}
                     ${disabled || isLoading ? 'opacity-50' : ''}
                 `}
+                accessible
+                accessibilityRole="button"
+                accessibilityLabel={`${label}. ${displayValue ? `Current value: ${displayValue}` : "No selection"}`}
+                accessibilityHint="Double tap to search and choose an option"
+                accessibilityState={{ disabled: disabled || isLoading }}
             >
                 <Text className={`text-sm flex-1 ${displayValue ? 'text-white' : 'text-slate-500'}`}>
                     {isLoading ? 'Loading...' : displayValue || placeholder}
@@ -97,6 +107,9 @@ const SearchableSelect = ({
                         <TouchableOpacity
                             onPress={handleClear}
                             className="p-1"
+                            accessible
+                            accessibilityRole="button"
+                            accessibilityLabel={`Clear ${label}`}
                         >
                             <Ionicons name="close-circle" size={18} color="#94a3b8" />
                         </TouchableOpacity>
@@ -149,6 +162,9 @@ const SearchableSelect = ({
                                     placeholder="Type to search..."
                                     placeholderTextColor="#94a3b8"
                                     className="w-full pl-10 pr-2 py-2 bg-primary/50 border-2 border-secondary/30 text-white text-sm rounded-lg font-iregular"
+                                    accessible
+                                    accessibilityLabel={`Search ${label}`}
+                                    accessibilityHint="Type to filter options, then tap a result"
                                 />
                             </View>
                         </View>
@@ -176,6 +192,11 @@ const SearchableSelect = ({
                                             ${isSelected ? 'bg-secondary/20' : ''}
                                         `}
                                         activeOpacity={0.7}
+                                        accessible
+                                        accessibilityRole="button"
+                                        accessibilityLabel={item.label}
+                                        accessibilityHint="Double tap to select this option"
+                                        accessibilityState={{ selected: isSelected }}
                                     >
                                         <Text className={`text-sm flex-1 ${isSelected ? 'text-secondary font-isemibold' : 'text-slate-200 font-iregular'}`}>
                                             {item.label}

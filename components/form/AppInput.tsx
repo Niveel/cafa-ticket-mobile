@@ -82,7 +82,7 @@ const AppInput = ({
                     <RNTextInput
                         className={`w-full h-12 ${icon ? 'pr-12' : 'pr-2'} pl-2 bg-primary border-2 border-accent text-white text-sm rounded-xl font-iregular`}
                         placeholder={placeholder}
-                        placeholderTextColor="#ccc"
+                        placeholderTextColor="#94a3b8"
                         value={value}
                         onChangeText={onChange}
                         secureTextEntry={secureTextEntry}
@@ -108,7 +108,7 @@ const AppInput = ({
                 <RNTextInput
                     className="w-full px-2 py-2 bg-primary border-2 border-accent text-white text-sm rounded-xl font-iregular"
                     placeholder={placeholder}
-                    placeholderTextColor="#ccc"
+                    placeholderTextColor="#94a3b8"
                     value={value}
                     onChangeText={onChange}
                     multiline={true}

@@ -6,7 +6,7 @@ CAFA Ticket Mobile is the mobile app for CAFA Tickets (event ticketing platform)
 ## Primary Reference Codebase (Web)
 Use the web app as the source of truth for behavior and feature parity:
 
-- Web project path: `D:\KLASIQUE STUFF\D-klasique-projects\cafa-tickets`
+- Web project path: `C:\Users\Good\Desktop\Klasique_projects\cafa-tickets`
 
 When implementing or fixing mobile features, check the equivalent web flow, naming, validations, and API usage first.
 
