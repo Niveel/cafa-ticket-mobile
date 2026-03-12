@@ -10,7 +10,7 @@
       "ios": {
         "simulator": true
       },
-      "channel": "production"
+      "channel": "development"
     },
     "preview": {
       "distribution": "internal",
