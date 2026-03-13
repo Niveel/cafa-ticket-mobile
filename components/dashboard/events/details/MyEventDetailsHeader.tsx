@@ -7,6 +7,7 @@ import AppText from "../../../ui/AppText";
 import type { MyEventDetailsResponse } from "@/types/dash-events.types";
 import colors from "@/config/colors";
 import { APP_DOMAIN_NAME } from "@/data/constants";
+import { getFullImageUrl } from "@/utils/imageUrl";
 
 interface MyEventDetailsHeaderProps {
     event: MyEventDetailsResponse;
@@ -67,7 +68,7 @@ const MyEventDetailsHeader = ({ event, onOpenDeleteModal }: MyEventDetailsHeader
             {/* Event Image */}
             <View className="relative h-64">
                 <Image
-                    source={{ uri: event.featured_image }}
+                    source={{ uri: getFullImageUrl(event.featured_image) || undefined }}
                     className="w-full h-full"
                     resizeMode="cover"
                 />

@@ -4,6 +4,7 @@ import { Ionicons } from "@expo/vector-icons";
 import AppText from "../../ui/AppText";
 import colors from "@/config/colors";
 import type { TicketDetails } from "@/types/tickets.types";
+import { getFullImageUrl } from "@/utils/imageUrl";
 
 type Props = {
     ticket: TicketDetails;
@@ -40,7 +41,7 @@ const TicketQRSection = ({ ticket }: Props) => {
                 >
                     {ticket.qr_code ? (
                         <Image
-                            source={{ uri: ticket.qr_code }}
+                            source={{ uri: getFullImageUrl(ticket.qr_code) || undefined }}
                             style={{ width: 200, height: 200 }}
                             resizeMode="contain"
                         />

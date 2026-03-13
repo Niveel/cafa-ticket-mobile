@@ -7,6 +7,7 @@ import AppText from "../../../ui/AppText";
 import type { MyTicket } from "@/types/tickets.types";
 import colors from "@/config/colors";
 import { useFormatMoney } from "@/hooks/useFormatMoney";
+import { getFullImageUrl } from "@/utils/imageUrl";
 
 interface MyTicketCardProps {
     ticket: MyTicket;
@@ -80,7 +81,7 @@ const MyTicketCard = ({ ticket }: MyTicketCardProps) => {
             {/* Event Image */}
             <View className="relative h-48">
                 <Image
-                    source={{ uri: ticket.event.featured_image }}
+                    source={{ uri: getFullImageUrl(ticket.event.featured_image) || undefined }}
                     className="w-full h-full"
                     resizeMode="cover"
                 />

@@ -1,7 +1,8 @@
-import { View, Text, Pressable } from "react-native";
+import { View, Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 import colors from "@/config/colors";
+import AppText from "../ui/AppText";
 
 interface SectionHeaderProps {
   title: string;
@@ -19,9 +20,9 @@ export default function SectionHeader({
   return (
     <View className="mb-4 flex-row items-center justify-between">
       <View>
-        <Text className="text-lg font-bold text-black">{title}</Text>
+        <AppText styles="text-lg font-bold text-black">{title}</AppText>
         {subtitle && (
-          <Text className="text-sm text-black/60">{subtitle}</Text>
+          <AppText styles="text-sm text-black/60">{subtitle}</AppText>
         )}
       </View>
 
@@ -30,9 +31,9 @@ export default function SectionHeader({
           onPress={onSeeAll}
           className="flex-row items-center gap-1"
         >
-          <Text style={{ color: colors.accent }} className="text-sm font-medium">
+          <AppText style={{ color: colors.accent }} styles="text-sm font-medium">
             See All
-          </Text>
+          </AppText>
           <Ionicons name="arrow-forward" size={14} color={colors.accent} />
         </Pressable>
       )}

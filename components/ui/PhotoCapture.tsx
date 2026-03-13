@@ -7,6 +7,7 @@ import * as Sentry from '@sentry/react-native';
 
 import { AppText } from "@/components";
 import colors from "@/config/colors";
+import { getFullImageUrl } from "@/utils/imageUrl";
 
 interface PhotoCaptureProps {
     onPhotoCapture: (uri: string) => void;
@@ -298,7 +299,7 @@ const PhotoCapture = ({
                     {/* Preview */}
                     <View className="relative rounded-xl overflow-hidden border-2" style={{ borderColor: colors.accent }}>
                         <Image
-                            source={{ uri: capturedPhoto }}
+                            source={{ uri: getFullImageUrl(capturedPhoto) || undefined }}
                             className="w-full h-80"
                             resizeMode="cover"
                         />

@@ -5,12 +5,14 @@ import { router } from "expo-router";
 import AppText from "../../ui/AppText";
 import { CurrentUser } from "@/types/general.types";
 import colors from "@/config/colors";
+import { getFullImageUrl } from "@/utils/imageUrl";
 
 interface ProfileHeaderProps {
     user: CurrentUser;
 }
 
 const ProfileHeader = ({ user }: ProfileHeaderProps) => {
+    const avatarUrl = getFullImageUrl(user.profile_image);
     const memberSince = new Date(user.date_joined);
     const lastLogin = new Date(user.last_login || user.date_joined);
 
@@ -48,7 +50,7 @@ const ProfileHeader = ({ user }: ProfileHeaderProps) => {
                         }}
                     >
                         <Image
-                            source={{ uri: user.profile_image || 'https://via.placeholder.com/160' }}
+                            source={{ uri: avatarUrl }}
                             className="w-full h-full"
                             resizeMode="cover"
                         />

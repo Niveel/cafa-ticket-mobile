@@ -6,6 +6,7 @@ import * as Sentry from '@sentry/react-native';
 
 import AppText from "./AppText";
 import colors from "@/config/colors";
+import { getFullImageUrl } from "@/utils/imageUrl";
 
 interface ImageUploadProps {
     label: string;
@@ -165,7 +166,7 @@ const ImageUpload = ({
                 ) : (
                     <View className="relative rounded-xl overflow-hidden">
                         <Image
-                            source={{ uri: displayImage }}
+                            source={{ uri: getFullImageUrl(displayImage) || undefined }}
                             className={compact ? "w-full aspect-square" : "w-full h-64"}
                             resizeMode="cover"
                         />
@@ -274,7 +275,7 @@ const ImageUpload = ({
                 {displayImages.map((img, index) => (
                     <View key={`${img}-${index}`} className="relative mr-3">
                         <Image
-                            source={{ uri: img }}
+                            source={{ uri: getFullImageUrl(img) || undefined }}
                             className="w-32 h-32 rounded-xl"
                             resizeMode="cover"
                         />

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, Modal, TextInput, FlatList } from 'react-native';
+import { View, TouchableOpacity, Modal, TextInput, FlatList } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import AppText from '../ui/AppText';
 
 type Option = {
     label: string;
@@ -74,13 +75,13 @@ const SearchableSelect = ({
     return (
         <View className="w-full">
             {/* Label */}
-            <Text
-                className={`text-sm font-isemibold mb-2 ${labelColor}`}
+            <AppText
+                styles={`text-sm font-isemibold mb-2 ${labelColor}`}
                 accessibilityRole="text"
             >
                 {label}
-                {required && <Text className="text-red-400 ml-1"> *</Text>}
-            </Text>
+                {required && <AppText styles="text-red-400 ml-1"> *</AppText>}
+            </AppText>
 
             {/* Selected Value Display / Trigger */}
             <TouchableOpacity
@@ -98,9 +99,9 @@ const SearchableSelect = ({
                 accessibilityHint="Double tap to search and choose an option"
                 accessibilityState={{ disabled: disabled || isLoading }}
             >
-                <Text className={`text-sm flex-1 ${displayValue ? 'text-white' : 'text-slate-500'}`}>
+                <AppText styles={`text-sm flex-1 ${displayValue ? 'text-white' : 'text-slate-500'}`}>
                     {isLoading ? 'Loading...' : displayValue || placeholder}
-                </Text>
+                </AppText>
                 
                 <View className="flex-row items-center gap-2">
                     {value && !disabled && !isLoading && (
@@ -141,7 +142,7 @@ const SearchableSelect = ({
                     >
                         {/* Header */}
                         <View className="flex-row items-center justify-between p-4 border-b border-secondary/30">
-                            <Text className="text-base font-isemibold text-white">{label}</Text>
+                            <AppText styles="text-base font-isemibold text-white">{label}</AppText>
                             <TouchableOpacity onPress={handleClose}>
                                 <Ionicons name="close" size={24} color="#cbd5e1" />
                             </TouchableOpacity>
@@ -176,9 +177,9 @@ const SearchableSelect = ({
                             className="max-h-96"
                             ListEmptyComponent={
                                 <View className="px-4 py-6">
-                                    <Text className="text-center text-sm text-slate-400">
+                                    <AppText styles="text-center text-sm text-slate-400">
                                         No options found
-                                    </Text>
+                                    </AppText>
                                 </View>
                             }
                             renderItem={({ item }) => {
@@ -198,9 +199,9 @@ const SearchableSelect = ({
                                         accessibilityHint="Double tap to select this option"
                                         accessibilityState={{ selected: isSelected }}
                                     >
-                                        <Text className={`text-sm flex-1 ${isSelected ? 'text-secondary font-isemibold' : 'text-slate-200 font-iregular'}`}>
+                                        <AppText styles={`text-sm flex-1 ${isSelected ? 'text-secondary font-isemibold' : 'text-slate-200 font-iregular'}`}>
                                             {item.label}
-                                        </Text>
+                                        </AppText>
                                         {isSelected && (
                                             <Ionicons name="checkmark" size={20} color="#425d85" />
                                         )}
@@ -212,9 +213,9 @@ const SearchableSelect = ({
                         {/* Results Count */}
                         {searchQuery && (
                             <View className="px-4 py-2 border-t border-secondary/30 bg-primary">
-                                <Text className="text-xs text-slate-400">
+                                <AppText styles="text-xs text-slate-400">
                                     {filteredOptions.length} result{filteredOptions.length !== 1 ? 's' : ''} found
-                                </Text>
+                                </AppText>
                             </View>
                         )}
                     </TouchableOpacity>

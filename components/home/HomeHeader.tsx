@@ -1,4 +1,4 @@
-import { View, Text, Pressable, Image } from "react-native";
+import { View, Pressable, Image } from "react-native";
 import { Link } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
@@ -7,6 +7,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useAuth } from "@/context/AuthContext";
 import colors from "@/config/colors";
 import { getFullImageUrl } from "@/utils/imageUrl";
+import AppText from "../ui/AppText";
 
 interface HomeHeaderProps {
   onProfilePress?: () => void;
@@ -40,8 +41,8 @@ export default function HomeHeader({ onProfilePress }: HomeHeaderProps) {
           <Ionicons name="ticket" size={20} color={colors.white} />
         </View>
         <View>
-          <Text className="text-xl font-bold text-black">CafaTickets</Text>
-          <Text className="text-xs text-black/60">Discover Events</Text>
+          <AppText styles="text-xl font-bold text-black">CafaTickets</AppText>
+          <AppText styles="text-xs text-black/60">Discover Events</AppText>
         </View>
       </View>
 
@@ -70,9 +71,9 @@ export default function HomeHeader({ onProfilePress }: HomeHeaderProps) {
                 className="h-10 w-10 items-center justify-center rounded-full bg-red-500"
                 style={{ backgroundColor: colors.accent }}
               >
-                <Text className="text-sm font-bold text-white">
+                <AppText styles="text-sm font-bold text-white">
                   {user?.full_name?.charAt(0)?.toUpperCase() || "U"}
-                </Text>
+                </AppText>
               </View>
             )
           ) : (

@@ -15,6 +15,7 @@ import * as SecureStore from "expo-secure-store";
 import AppText from "../../ui/AppText";
 import { API_BASE_URL } from "@/config/settings";
 import colors from "@/config/colors";
+import { getFullImageUrl } from "@/utils/imageUrl";
 
 const AUTH_TOKEN_KEY = "cafa_auth_token";
 
@@ -306,7 +307,7 @@ const FaceVerificationModal = ({
                 style={{ borderColor: colors.accent, height: 320 }}
             >
                 <Image
-                    source={{ uri: capturedUri! }}
+                    source={{ uri: getFullImageUrl(capturedUri) || undefined }}
                     style={StyleSheet.absoluteFillObject}
                     resizeMode="cover"
                 />

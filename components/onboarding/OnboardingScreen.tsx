@@ -1,5 +1,5 @@
 import { useCallback, useRef } from "react";
-import { View, Text, Pressable, FlatList, ViewToken } from "react-native";
+import { View, Pressable, FlatList, ViewToken } from "react-native";
 import Animated, {
   useSharedValue,
   withSpring,
@@ -11,6 +11,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { onboardingSlides } from "@/data/onboarding";
 import colors from "@/config/colors";
+import AppText from "../ui/AppText";
 import Slide from "./Slide";
 import Pagination from "./Pagination";
 import NavigationButtons from "./NavigationButtons";
@@ -96,9 +97,9 @@ export default function OnboardingScreen({
           className="rounded-full px-4 py-2"
           style={{ backgroundColor: "rgba(255, 255, 255, 0.1)" }}
         >
-          <Text style={{ color: colors.white }} className="font-semibold">
+          <AppText style={{ color: colors.white }} styles="font-semibold">
             Skip
-          </Text>
+          </AppText>
         </Pressable>
       </Animated.View>
 

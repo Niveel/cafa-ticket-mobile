@@ -7,6 +7,7 @@ import { Screen, AppText } from "@/components";
 import colors from "@/config/colors";
 import { verifyPayment } from "@/lib/tickets";
 import { useFormatMoney } from "@/hooks/useFormatMoney";
+import { getFullImageUrl } from "@/utils/imageUrl";
 
 type PaymentStatus = "verifying" | "success" | "failed" | "error";
 
@@ -198,7 +199,7 @@ const PaymentResultScreen = () => {
                                         {ticket.qr_code && (
                                             <View className="bg-white p-2 rounded-lg">
                                                 <Image
-                                                    source={{ uri: ticket.qr_code }}
+                                                    source={{ uri: getFullImageUrl(ticket.qr_code) || undefined }}
                                                     style={{ width: 80, height: 80 }}
                                                     resizeMode="contain"
                                                 />

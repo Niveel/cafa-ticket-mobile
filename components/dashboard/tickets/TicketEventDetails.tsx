@@ -7,6 +7,7 @@ import AppText from "../../ui/AppText";
 import colors from "@/config/colors";
 import type { TicketEventDetails as EventDetailsType, TicketTypeDetails } from "@/types/tickets.types";
 import { useFormatMoney } from "@/hooks/useFormatMoney";
+import { getFullImageUrl } from "@/utils/imageUrl";
 
 type Props = {
     event: EventDetailsType;
@@ -36,7 +37,7 @@ const TicketEventDetails = ({ event, ticketType }: Props) => {
                 <View className="relative" style={{ height: 160 }}>
                     {event.featured_image ? (
                         <Image
-                            source={{ uri: event.featured_image }}
+                            source={{ uri: getFullImageUrl(event.featured_image) || undefined }}
                             style={{ width: "100%", height: "100%", position: "absolute" }}
                             resizeMode="cover"
                         />
@@ -183,7 +184,7 @@ const TicketEventDetails = ({ event, ticketType }: Props) => {
                         <View className="w-10 h-10 rounded-full overflow-hidden border-2" style={{ borderColor: colors.accent + "4D" }}>
                             {event.organizer.profile_image ? (
                                 <Image
-                                    source={{ uri: event.organizer.profile_image }}
+                                    source={{ uri: getFullImageUrl(event.organizer.profile_image) || undefined }}
                                     style={{ width: 40, height: 40 }}
                                     resizeMode="cover"
                                 />

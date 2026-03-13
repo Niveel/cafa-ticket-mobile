@@ -9,6 +9,7 @@ import AppText from "../../ui/AppText";
 import type { MyEvent } from "@/types/dash-events.types";
 import colors from "@/config/colors";
 import { useFormatMoney } from "@/hooks/useFormatMoney";
+import { getFullImageUrl } from "@/utils/imageUrl";
 
 interface MyEventCardProps {
     event: MyEvent;
@@ -48,7 +49,7 @@ const MyEventCard = ({ event, onDelete }: MyEventCardProps) => {
             {/* Image */}
             <View style={{ height: 180, position: "relative" }}>
                 <Image
-                    source={{ uri: event.featured_image }}
+                    source={{ uri: getFullImageUrl(event.featured_image) || undefined }}
                     style={{ width: "100%", height: "100%" }}
                     contentFit="cover"
                     transition={200}

@@ -1,6 +1,7 @@
-import { View, Text } from "react-native";
+import { View } from "react-native";
 
 import Animation from "../ui/Animation";
+import AppText from "../ui/AppText";
 import { tickets } from "@/assets";
 
 const FormLoader = ({ visible }: { visible: boolean }) => {
@@ -28,12 +29,12 @@ const FormLoader = ({ visible }: { visible: boolean }) => {
             </View>
 
             {/* Hidden text for screen readers */}
-            <Text
+            <AppText
                 style={{ position: "absolute", width: 1, height: 1, opacity: 0 }}
                 accessibilityLiveRegion="assertive"
             >
                 Loading, please wait...
-            </Text>
+            </AppText>
         </View>
     );
 };

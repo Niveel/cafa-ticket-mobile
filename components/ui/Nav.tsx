@@ -5,6 +5,7 @@ import { router } from "expo-router";
 import AppText from "./AppText";
 import { useAuth } from "@/context";
 import colors from "@/config/colors";
+import { getFullImageUrl } from "@/utils/imageUrl";
 
 interface NavProps {
   title?: string;
@@ -38,7 +39,7 @@ const Nav = ({ title = "", onPress }: NavProps) => {
       {user && user.profile_image && (
         <View className="border border-secondary w-10 h-10 rounded-full">
           <Image
-            source={{ uri: user.profile_image }}
+            source={{ uri: getFullImageUrl(user.profile_image) || undefined }}
             className="w-full h-full rounded-full"
             accessibilityLabel="User profile picture"
           />

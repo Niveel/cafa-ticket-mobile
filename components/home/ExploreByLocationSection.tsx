@@ -5,6 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 import AppText from "../ui/AppText";
 import colors from "@/config/colors";
 import { useUserLocation } from "@/hooks/useUserLocation";
+import { getFullImageUrl } from "@/utils/imageUrl";
 
 // City data mapping (can be moved to a constants file)
 const cityImages: Record<string, string> = {
@@ -86,7 +87,7 @@ const ExploreByLocationSection = ({ isLoading = false, eventCount = "50+" }: Exp
                         {/* Image */}
                         <View className="w-28 h-full">
                             <Image
-                                source={{ uri: cityImage }}
+                                source={{ uri: getFullImageUrl(cityImage) || undefined }}
                                 className="w-full h-full"
                                 resizeMode="cover"
                             />

@@ -7,6 +7,7 @@ import AppText from "../../../ui/AppText";
 import ImageUpload from "../../../ui/ImageUpload";
 import type { EventFormValues } from "@/data/eventCreationSchema";
 import colors from "@/config/colors";
+import { getFullImageUrl } from "@/utils/imageUrl";
 
 const EventImagesSection = () => {
     const { values, setFieldValue } = useFormikContext<EventFormValues>();
@@ -99,7 +100,7 @@ const EventImagesSection = () => {
                             {additionalImages.map((image, index) => (
                                 <View key={`${image}-${index}`} className="relative mr-3">
                                     <Image
-                                        source={{ uri: image }}
+                                        source={{ uri: getFullImageUrl(image) || undefined }}
                                         style={{ width: 120, height: 120 }}
                                         className="rounded-xl"
                                         contentFit="cover"

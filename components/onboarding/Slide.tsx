@@ -1,4 +1,4 @@
-import { View, Text, Dimensions } from "react-native";
+import { View, Dimensions } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import Animated, {
   useAnimatedStyle,
@@ -9,6 +9,7 @@ import Animated, {
 
 import { OnboardingSlide } from "@/data/onboarding";
 import colors from "@/config/colors";
+import AppText from "../ui/AppText";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 
@@ -96,20 +97,20 @@ export default function Slide({ item, index, scrollX }: SlideProps) {
         </Animated.View>
 
         {/* Title */}
-        <Text
-          className="mb-4 text-center text-3xl font-bold"
+        <AppText
+          styles="mb-4 text-center text-3xl font-bold"
           style={{ color: colors.white }}
         >
           {item.title}
-        </Text>
+        </AppText>
 
         {/* Description */}
-        <Text
-          className="text-center text-lg leading-7"
+        <AppText
+          styles="text-center text-lg leading-7"
           style={{ color: "rgba(255, 255, 255, 0.7)" }}
         >
           {item.description}
-        </Text>
+        </AppText>
       </Animated.View>
     </View>
   );

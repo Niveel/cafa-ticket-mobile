@@ -7,6 +7,7 @@ import AppText from "../../../ui/AppText";
 import colors from "@/config/colors";
 import type { AttendedEvent } from "@/types/dash-events.types";
 import { useFormatMoney } from "@/hooks/useFormatMoney";
+import { getFullImageUrl } from "@/utils/imageUrl";
 
 interface AttendedEventCardProps {
     attendedEvent: AttendedEvent;
@@ -41,7 +42,7 @@ const AttendedEventCard = ({ attendedEvent }: AttendedEventCardProps) => {
             {/* Image */}
             <View style={{ height: 160, position: "relative" }}>
                 <Image
-                    source={{ uri: event.featured_image }}
+                    source={{ uri: getFullImageUrl(event.featured_image) || undefined }}
                     style={{ width: "100%", height: "100%" }}
                     contentFit="cover"
                     transition={200}

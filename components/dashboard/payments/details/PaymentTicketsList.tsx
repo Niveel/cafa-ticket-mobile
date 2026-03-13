@@ -5,6 +5,7 @@ import AppText from "../../../ui/AppText";
 import { PaymentDetails } from "@/types/payments.types";
 import colors from "@/config/colors";
 import { useFormatMoney } from "@/hooks/useFormatMoney";
+import { getFullImageUrl } from "@/utils/imageUrl";
 
 type Props = {
     tickets: PaymentDetails["tickets"];
@@ -46,7 +47,7 @@ const PaymentTicketsList = ({ tickets }: Props) => {
                         {/* QR Code */}
                         <View className="w-16 h-16 rounded-lg overflow-hidden border-2 border-accent/30 shrink-0">
                             <Image
-                                source={{ uri: ticket.qr_code }}
+                                source={{ uri: getFullImageUrl(ticket.qr_code) || undefined }}
                                 className="w-full h-full"
                                 resizeMode="cover"
                             />

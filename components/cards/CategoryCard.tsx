@@ -1,9 +1,10 @@
-import { View, Text, Pressable } from "react-native";
+import { View, Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 
 import { EventCategory } from "@/types/tickets.types";
 import colors from "@/config/colors";
+import AppText from "@/components/ui/AppText";
 
 // Map category icons to Ionicons
 const iconMap: Record<string, keyof typeof Ionicons.glyphMap> = {
@@ -46,12 +47,12 @@ export default function CategoryCard({ category }: CategoryCardProps) {
         >
           <Ionicons name={iconName} size={24} color={colors.accent} />
         </View>
-        <Text className="text-center text-xs text-black" numberOfLines={1}>
+        <AppText styles="text-center text-xs text-black" numberOfLines={1}>
           {category.name}
-        </Text>
-        <Text className="text-center text-xs text-black/50">
+        </AppText>
+        <AppText styles="text-center text-xs text-black/50">
           {category.event_count} events
-        </Text>
+        </AppText>
       </View>
     </Pressable>
   );

@@ -89,7 +89,7 @@ const EventDetailsHero = ({ event }: EventDetailsHeroProps) => {
                     {allImages.map((image, index) => (
                         <Image
                             key={index}
-                            source={{ uri: image || undefined }}
+                            source={{ uri: getFullImageUrl(image) || undefined }}
                             style={{ width: SCREEN_WIDTH, height: IMAGE_HEIGHT }}
                             contentFit="cover"
                             transition={200}

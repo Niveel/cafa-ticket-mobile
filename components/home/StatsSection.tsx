@@ -1,12 +1,13 @@
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 import { PublicStats } from "@/types";
 import { formatNumber } from "@/utils/format";
 import colors from "@/config/colors";
+import AppText from "../ui/AppText";
 
 interface StatItemProps {
-  icon: keyof typeof Ionicons.glyphMap;
+  icon: keyof typeof Ionicons.glyphMap; 
   value: number;
   label: string;
 }
@@ -20,10 +21,10 @@ function StatItem({ icon, value, label }: StatItemProps) {
       >
         <Ionicons name={icon} size={22} color={colors.accent} />
       </View>
-      <Text className="text-lg font-bold text-white">
+      <AppText styles="text-lg font-bold text-white">
         {formatNumber(value)}
-      </Text>
-      <Text className="text-xs text-white/60">{label}</Text>
+      </AppText>
+      <AppText styles="text-xs text-white/60">{label}</AppText>
     </View>
   );
 }

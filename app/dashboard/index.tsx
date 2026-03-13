@@ -1,10 +1,11 @@
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 import React from 'react'
+import AppText from "@/components/ui/AppText";
 
 const DashboardScreen = () => {
     return (
         <View>
-            <Text>DashboardScreen</Text>
+            <AppText>DashboardScreen</AppText>
         </View>
     )
 }
