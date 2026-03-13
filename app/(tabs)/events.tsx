@@ -279,7 +279,7 @@ const EventsScreen = () => {
   );
 
   return (
-    <Screen statusBarStyle="light-content" statusBarBg={colors.primary}>
+    <Screen statusBarStyle="dark-content" statusBarBg={colors.primary}>
       {/* Initial Loading State */}
       {isInitialLoad ? (
         <View className="flex-1 items-center justify-center">

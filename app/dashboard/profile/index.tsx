@@ -1,5 +1,7 @@
 import { ScrollView, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { useRef } from "react";
+import { router } from "expo-router";
 
 import {
     Screen,
@@ -9,16 +11,34 @@ import {
     ProfileNotificationSettings,
     RequireAuth,
     Nav,
-    AppButton
+    AppButton,
+    AppBottomSheet,
+    ConfirmAction,
 } from "@/components";
+import type { AppBottomSheetRef } from "@/components";
 import { useAuth } from "@/context";
 import colors from "@/config/colors";
 
 const ProfileScreen = () => {
-    const { user } = useAuth();
+    const { user, logout } = useAuth();
+    const bottomSheetRef = useRef<AppBottomSheetRef>(null);
+
+    const handleLogoutPress = () => {
+        bottomSheetRef.current?.open();
+    };
+
+    const handleCancelLogout = () => {
+        bottomSheetRef.current?.close();
+    };
+
+    const handleConfirmLogout = async () => {
+        await logout();
+        bottomSheetRef.current?.close();
+        router.replace("/(tabs)");
+    };
 
     return (
-        <Screen statusBarStyle="light-content" statusBarBg={colors.primary}>
+        <Screen statusBarStyle="dark-content" statusBarBg={colors.primary}>
             <RequireAuth>
                 <Nav title="Profile" />
                 {user && (
@@ -39,6 +59,17 @@ const ProfileScreen = () => {
                         {/* Notification Settings */}
                         <ProfileNotificationSettings settings={user.settings} />
 
+                        {/* Logout */}
+                        <View className="px-1">
+                            <AppButton
+                                title="Logout"
+                                variant="primarySolid"
+                                fullWidth
+                                onClick={handleLogoutPress}
+                                icon={<Ionicons name="log-out-outline" size={18} color="#fff" />}
+                            />
+                        </View>
+
                         {/* Delete Account */}
                         <View className="px-1">
                             <AppButton
@@ -51,6 +82,17 @@ const ProfileScreen = () => {
                         </View>
                     </ScrollView>
                 )}
+
+                <AppBottomSheet ref={bottomSheetRef} customSnapPoints={["55%"]}>
+                    <ConfirmAction
+                        title="Logout"
+                        desc="Are you sure you want to logout from your account?"
+                        onCancel={handleCancelLogout}
+                        onConfirm={handleConfirmLogout}
+                        confirmBtnTitle="Logout"
+                        isDestructive={true}
+                    />
+                </AppBottomSheet>
             </RequireAuth>
         </Screen>
     );

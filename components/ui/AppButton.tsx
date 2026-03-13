@@ -8,7 +8,7 @@ interface BaseProps {
     title?: string;
     onClick?: () => void;
     className?: string;
-    variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'danger';
+    variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'danger' | 'primarySolid';
     size?: 'sm' | 'md' | 'lg';
     fullWidth?: boolean;
     loading?: boolean;
@@ -51,6 +51,7 @@ const AppButton = ({
         outline: 'bg-transparent border-2 border-secondary active:bg-primary/20',
         ghost: 'bg-transparent active:bg-slate-100',
         danger: 'bg-red-600 active:bg-red-700',
+        primarySolid: 'bg-primary border border-primary-200 active:bg-primary-100',
     };
 
     // Text color based on variant
@@ -60,6 +61,7 @@ const AppButton = ({
         outline: 'text-white',
         ghost: 'text-slate-700',
         danger: 'text-white',
+        primarySolid: 'text-white',
     };
 
     // Size styles

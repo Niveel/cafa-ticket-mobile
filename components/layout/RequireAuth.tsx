@@ -19,7 +19,7 @@ const RequireAuth = ({ children }: RequireAuthProps) => {
 
     if (!user) {
         return (
-            <Screen statusBarStyle="light-content" statusBarBg={colors.primary}>
+            <Screen statusBarStyle="dark-content" statusBarBg={colors.primary}>
                 <Nav />
                 <View className="flex-1 items-center justify-center px-4">
                     {/* Icon */}

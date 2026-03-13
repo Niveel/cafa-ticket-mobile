@@ -1,5 +1,6 @@
 import { View } from "react-native";
 import { useState, useEffect, useCallback, useRef } from "react";
+import { router } from "expo-router";
 
 import { Screen, MyEventsHeader, MyEventsFilters, MyEventsGrid, MyEventsEmptyState, AppBottomSheet, ConfirmAction, AppText, Nav, RequireAuth, Animation } from "@/components";
 import type { AppBottomSheetRef } from "@/components";
@@ -20,6 +21,7 @@ const DashboardEventsScreen = () => {
   const { user } = useAuth();
   const bottomSheetRef = useRef<AppBottomSheetRef>(null);
   const filtersSheetRef = useRef<AppBottomSheetRef>(null);
+  const verificationPromptRef = useRef<AppBottomSheetRef>(null);
 
   const [events, setEvents] = useState<MyEvent[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -42,6 +44,14 @@ const DashboardEventsScreen = () => {
     search: "",
     sort_by: "-start_date",
   });
+
+  const handleCreateEventPress = useCallback(() => {
+    if (user?.is_organizer) {
+      router.push("/dashboard/events/create");
+      return;
+    }
+    verificationPromptRef.current?.open();
+  }, [user?.is_organizer]);
 
   const fetchEvents = useCallback(async (currentFilters: Filters, page: number, append: boolean = false) => {
     if (append) {
@@ -143,7 +153,11 @@ const DashboardEventsScreen = () => {
       <RequireAuth>
         <Nav title="My Events" />
         <View className="flex-1">
-          <MyEventsHeader currentUser={user} onOpenFilters={() => filtersSheetRef.current?.open()} />
+          <MyEventsHeader
+            currentUser={user}
+            onOpenFilters={() => filtersSheetRef.current?.open()}
+            onCreateEventPress={handleCreateEventPress}
+          />
 
           {error && (
             <View className="mb-4 p-4 bg-red-500/10 border border-red-500/20 rounded-xl">
@@ -160,7 +174,7 @@ const DashboardEventsScreen = () => {
               onDelete={handleDeleteClick}
             />
           ) : (
-            <MyEventsEmptyState />
+            <MyEventsEmptyState onCreateEventPress={handleCreateEventPress} />
           )}
         </View>
 
@@ -181,6 +195,19 @@ const DashboardEventsScreen = () => {
               isDestructive={true}
             />
           )}
+        </AppBottomSheet>
+
+        <AppBottomSheet ref={verificationPromptRef} customSnapPoints={["55%"]}>
+          <ConfirmAction
+            title="Identity Verification Required"
+            desc="You need to complete identity verification before you can create events."
+            onCancel={() => verificationPromptRef.current?.close()}
+            onConfirm={() => {
+              verificationPromptRef.current?.close();
+              router.push("/dashboard/profile/verify");
+            }}
+            confirmBtnTitle="Start Verification"
+          />
         </AppBottomSheet>
       </RequireAuth>
     </Screen>

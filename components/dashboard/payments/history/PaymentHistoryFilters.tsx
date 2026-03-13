@@ -76,14 +76,14 @@ const PaymentHistoryFilters = forwardRef<PaymentHistoryFiltersRef, Props>(
                         <View className="w-10 h-10 rounded-lg bg-accent/20 items-center justify-center">
                             <Ionicons name="filter" size={20} color={colors.accent50} />
                         </View>
-                        <AppText styles="text-xl text-black" font="font-ibold">
+                        <AppText styles="text-xl text-white" font="font-ibold">
                             Filter Payments
                         </AppText>
                     </View>
 
                     {/* Status Filter */}
                     <View className="mb-6">
-                        <AppText styles="text-sm text-slate-300 mb-3" font="font-imedium">
+                        <AppText styles="text-sm text-slate-200 mb-3" font="font-imedium">
                             Payment Status
                         </AppText>
                         <View className="gap-2">
@@ -108,8 +108,7 @@ const PaymentHistoryFilters = forwardRef<PaymentHistoryFiltersRef, Props>(
                                         />
                                     </View>
                                     <AppText
-                                        styles={`text-sm flex-1 ${status === option.value ? "text-accent-50" : "text-black"
-                                            }`}
+                                        styles="text-sm flex-1 text-white"
                                         font="font-isemibold"
                                     >
                                         {option.label}
@@ -124,7 +123,7 @@ const PaymentHistoryFilters = forwardRef<PaymentHistoryFiltersRef, Props>(
 
                     {/* Date Filters */}
                     <View className="mb-6">
-                        <AppText styles="text-sm text-slate-300 mb-3" font="font-imedium">
+                        <AppText styles="text-sm text-slate-200 mb-3" font="font-imedium">
                             Date Range
                         </AppText>
                         <View className="gap-3">
@@ -134,6 +133,10 @@ const PaymentHistoryFilters = forwardRef<PaymentHistoryFiltersRef, Props>(
                                 onChange={setDateFrom}
                                 max={dateTo || undefined}
                                 placeholder="Select start date"
+                                labelColor="text-white"
+                                valueColor="text-white"
+                                placeholderColor="text-white/80"
+                                hintColor="text-white/70"
                             />
                             <DateInput
                                 label="To Date"
@@ -141,6 +144,10 @@ const PaymentHistoryFilters = forwardRef<PaymentHistoryFiltersRef, Props>(
                                 onChange={setDateTo}
                                 min={dateFrom || undefined}
                                 placeholder="Select end date"
+                                labelColor="text-white"
+                                valueColor="text-white"
+                                placeholderColor="text-white/80"
+                                hintColor="text-white/70"
                             />
                         </View>
                     </View>
@@ -159,7 +166,12 @@ const PaymentHistoryFilters = forwardRef<PaymentHistoryFiltersRef, Props>(
                                 </AppText>
                             </TouchableOpacity>
                         )}
-                        <AppButton onClick={handleApply} variant="primary" title="Apply Filters" />
+                        <AppButton
+                            onClick={handleApply}
+                            variant="danger"
+                            className="bg-accent active:bg-accent-100"
+                            title="Apply Filters"
+                        />
                     </View>
                 </View>
             </AppBottomSheet>

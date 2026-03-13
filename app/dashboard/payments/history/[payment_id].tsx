@@ -45,7 +45,7 @@ const PaymentDetailsScreen = () => {
     // Error State
     if (error && !isLoading) {
         return (
-            <Screen statusBarStyle="light-content" statusBarBg={colors.primary}>
+            <Screen statusBarStyle="dark-content" statusBarBg={colors.primary}>
                 <Nav title="Payment Details" />
                 <View className="flex-1 items-center justify-center px-4">
                     <View className="items-center max-w-md">
@@ -92,7 +92,7 @@ const PaymentDetailsScreen = () => {
     }
 
     return (
-        <Screen statusBarStyle="light-content" statusBarBg={colors.primary}>
+        <Screen statusBarStyle="dark-content" statusBarBg={colors.primary}>
             <Nav title="Payment Details" />
 
             {payment && (

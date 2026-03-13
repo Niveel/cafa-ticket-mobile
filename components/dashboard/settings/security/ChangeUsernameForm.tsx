@@ -1,5 +1,5 @@
-import { View, Alert } from "react-native";
-import { useState, useEffect } from "react";
+import { View } from "react-native";
+import { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import * as Yup from "yup";
 
@@ -8,9 +8,8 @@ import AppForm from "../../../form/AppForm";
 import AppFormField from "../../../form/AppFormField";
 import SubmitButton from "../../../form/SubmitButton";
 import FormLoader from "../../../form/FormLoader";
-import { getCurrentUser } from "@/lib/auth";
 import { changeUsername } from "@/lib/settings";
-import type { CurrentUser } from "@/types/general.types";
+import { useAuth } from "@/context";
 import colors from "@/config/colors";
 
 const ChangeUsernameValidationSchema = Yup.object().shape({
@@ -28,37 +27,30 @@ type ChangeUsernameFormValues = {
 };
 
 const ChangeUsernameForm = () => {
-    const [currentUser, setCurrentUser] = useState<CurrentUser | null>(null);
+    const { user, refreshUser } = useAuth();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [passwordVisible, setPasswordVisible] = useState(false);
-
-    useEffect(() => {
-        const fetchUser = async () => {
-            const user = await getCurrentUser();
-            setCurrentUser(user);
-        };
-        fetchUser();
-    }, []);
+    const [feedback, setFeedback] = useState<{ type: "success" | "error"; message: string } | null>(null);
 
     const handleSubmit = async (values: ChangeUsernameFormValues, { resetForm }: any) => {
         try {
             setIsSubmitting(true);
+            setFeedback(null);
 
             await changeUsername({
                 username: values.newUsername,
                 password: values.password,
             });
 
-            Alert.alert("Success!", "Username changed successfully", [{ text: "OK" }]);
+            setFeedback({ type: "success", message: "Username changed successfully!" });
             resetForm();
 
-            // Refresh user data
-            const updatedUser = await getCurrentUser();
-            setCurrentUser(updatedUser);
+            // Refresh global auth user so profile screen reflects updated username immediately.
+            await refreshUser();
         } catch (error: any) {
             console.error("Error changing username:", error);
             const errorMessage = error.response?.data?.message || error.response?.data?.error || error.message || "Failed to change username";
-            Alert.alert("Error", errorMessage);
+            setFeedback({ type: "error", message: errorMessage });
         } finally {
             setIsSubmitting(false);
         }
@@ -79,12 +71,40 @@ const ChangeUsernameForm = () => {
                     </AppText>
                     <AppText styles="text-xs text-white" style={{ opacity: 0.6 }}>
                         Current username:{" "}
-                        <AppText styles="font-nunbold" style={{ opacity: 1 }}>
-                            @{currentUser?.username || "..."}
+                        <AppText styles="font-nunbold text-white" style={{ opacity: 1 }}>
+                            @{user?.username || "..."}
                         </AppText>
                     </AppText>
                 </View>
             </View>
+
+            {feedback && (
+                <View
+                    className="p-3 rounded-lg border mb-4"
+                    style={{
+                        backgroundColor: (feedback.type === "success" ? "#10b981" : colors.accent) + "1A",
+                        borderColor: (feedback.type === "success" ? "#10b981" : colors.accent) + "33",
+                    }}
+                    accessible={true}
+                    accessibilityRole="alert"
+                    accessibilityLiveRegion="assertive"
+                    accessibilityLabel={feedback.message}
+                >
+                    <View className="flex-row items-center gap-2">
+                        <Ionicons
+                            name={feedback.type === "success" ? "checkmark-circle" : "alert-circle"}
+                            size={16}
+                            color={feedback.type === "success" ? "#34d399" : colors.accent50}
+                        />
+                        <AppText
+                            styles="text-xs"
+                            style={{ color: feedback.type === "success" ? "#34d399" : colors.accent50 }}
+                        >
+                            {feedback.message}
+                        </AppText>
+                    </View>
+                </View>
+            )}
 
             <AppForm
                 initialValues={{

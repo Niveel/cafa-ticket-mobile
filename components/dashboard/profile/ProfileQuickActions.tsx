@@ -17,7 +17,7 @@ const ProfileQuickActions = () => {
             title: 'Notifications',
             description: 'Manage preferences',
             icon: 'notifications-outline' as const,
-            onPress: () => router.push('/dashboard/settings'),
+            onPress: () => router.push('/dashboard/settings/notifications'),
             color: '#10b981',
         },
         {

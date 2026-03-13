@@ -1,4 +1,4 @@
-import { View, Alert } from "react-native";
+import { View } from "react-native";
 import { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import * as Yup from "yup";
@@ -35,10 +35,12 @@ const ChangePasswordForm = () => {
     const [currentPasswordVisible, setCurrentPasswordVisible] = useState(false);
     const [newPasswordVisible, setNewPasswordVisible] = useState(false);
     const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
+    const [feedback, setFeedback] = useState<{ type: "success" | "error"; message: string } | null>(null);
 
     const handleSubmit = async (values: ChangePasswordFormValues, { resetForm }: any) => {
         try {
             setIsSubmitting(true);
+            setFeedback(null);
 
             await changePassword({
                 current_password: values.currentPassword,
@@ -46,12 +48,12 @@ const ChangePasswordForm = () => {
                 confirm_password: values.confirmPassword,
             });
 
-            Alert.alert("Success!", "Password changed successfully", [{ text: "OK" }]);
+            setFeedback({ type: "success", message: "Password changed successfully!" });
             resetForm();
         } catch (error: any) {
             console.error("Error changing password:", error);
             const errorMessage = error.response?.data?.message || error.response?.data?.error || error.message || "Failed to change password";
-            Alert.alert("Error", errorMessage);
+            setFeedback({ type: "error", message: errorMessage });
         } finally {
             setIsSubmitting(false);
         }
@@ -75,6 +77,34 @@ const ChangePasswordForm = () => {
                     </AppText>
                 </View>
             </View>
+
+            {feedback && (
+                <View
+                    className="p-3 rounded-lg border mb-4"
+                    style={{
+                        backgroundColor: (feedback.type === "success" ? "#10b981" : colors.accent) + "1A",
+                        borderColor: (feedback.type === "success" ? "#10b981" : colors.accent) + "33",
+                    }}
+                    accessible={true}
+                    accessibilityRole="alert"
+                    accessibilityLiveRegion="assertive"
+                    accessibilityLabel={feedback.message}
+                >
+                    <View className="flex-row items-center gap-2">
+                        <Ionicons
+                            name={feedback.type === "success" ? "checkmark-circle" : "alert-circle"}
+                            size={16}
+                            color={feedback.type === "success" ? "#34d399" : colors.accent50}
+                        />
+                        <AppText
+                            styles="text-xs"
+                            style={{ color: feedback.type === "success" ? "#34d399" : colors.accent50 }}
+                        >
+                            {feedback.message}
+                        </AppText>
+                    </View>
+                </View>
+            )}
 
             <AppForm
                 initialValues={{

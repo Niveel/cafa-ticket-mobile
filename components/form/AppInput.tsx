@@ -32,6 +32,7 @@ const AppInput = ({
     required = false,
     type = 'text',
     labelColor="text-white",
+    secureTextEntry: secureTextEntryProp,
     ...otherProps
 }: AppInputProps) => {
     // Map icon names to Ionicons
@@ -65,8 +66,8 @@ const AppInput = ({
         }
     };
 
-    // Determine secureTextEntry based on type
-    const secureTextEntry = type === 'password';
+    // Determine secureTextEntry based on explicit prop or field type.
+    const secureTextEntry = secureTextEntryProp ?? (type === 'password');
 
     return (
         <View className="w-full">
@@ -85,10 +86,10 @@ const AppInput = ({
                         placeholderTextColor="#94a3b8"
                         value={value}
                         onChangeText={onChange}
+                        {...otherProps}
                         secureTextEntry={secureTextEntry}
                         keyboardType={getKeyboardType()}
                         multiline={false}
-                        {...otherProps}
                     />
                     {icon && (
                         <TouchableOpacity

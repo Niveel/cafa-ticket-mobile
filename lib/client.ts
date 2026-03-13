@@ -7,6 +7,27 @@ import { API_BASE_URL } from "@/config/settings";
 export const AUTH_TOKEN_KEY = "cafa_auth_token";
 export const REFRESH_TOKEN_KEY = "cafa_refresh_token";
 
+function logAxiosNetworkDiagnostics(error: any) {
+    if (error?.response) return;
+
+    const method = (error?.config?.method || "GET").toUpperCase();
+    const requestUrl = error?.config?.url || "(unknown url)";
+    const baseURL = error?.config?.baseURL || API_BASE_URL;
+    const fullUrl =
+        requestUrl.startsWith("http://") || requestUrl.startsWith("https://")
+            ? requestUrl
+            : `${baseURL}${requestUrl}`;
+
+    console.error("[API Network Error]", {
+        method,
+        url: fullUrl,
+        code: error?.code ?? null,
+        message: error?.message ?? "Network Error",
+        likelyCause:
+            "No HTTP response received. This usually indicates connectivity, DNS, SSL/TLS, VPN, or backend reachability issues.",
+    });
+}
+
 // atob is globally available in Hermes (React Native 0.64+ / Expo SDK 48+).
 function decodeJwtPayload(token: string): { exp?: number } | null {
     try {
@@ -114,6 +135,10 @@ client.interceptors.request.use(
 client.interceptors.response.use(
     (response) => response,
     async (error) => {
+        if (!error?.response) {
+            logAxiosNetworkDiagnostics(error);
+        }
+
         const originalRequest = error.config as AxiosRequestConfig & { _retry?: boolean };
 
         // Handle expired token that wasn't caught by the request interceptor

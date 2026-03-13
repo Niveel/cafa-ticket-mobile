@@ -9,13 +9,17 @@ import {
     CreateEventForm,
     Nav,
     AddTicketTypeModal,
+    AppBottomSheet,
+    ConfirmAction,
 } from "@/components";
+import type { AppBottomSheetRef } from "@/components";
 import type { AddTicketTypeModalRef } from "@/components/dashboard/events/create/AddTicketTypeModal";
 import type { TicketTypeFormValues } from "@/data/eventCreationSchema";
 import { useAuth } from "@/context";
 
 const CreateEventScreen = () => {
     const modalRef = useRef<AddTicketTypeModalRef>(null);
+    const verificationPromptRef = useRef<AppBottomSheetRef>(null);
     const [editingIndex, setEditingIndex] = useState<number | null>(null);
     const { user } = useAuth();
 
@@ -23,7 +27,12 @@ const CreateEventScreen = () => {
 
     useEffect(() => {
         if (user && !isOrganizer) {
-            router.replace('/dashboard/profile/verify');
+            const timer = setTimeout(() => {
+                verificationPromptRef.current?.open();
+            }, 50);
+            return () => clearTimeout(timer);
+        } else if (isOrganizer) {
+            verificationPromptRef.current?.close();
         }
     }, [user, isOrganizer]);
 
@@ -62,19 +71,23 @@ const CreateEventScreen = () => {
                 <Nav title="Create Event" />
 
                 <View className="flex-1 px-4 pb-6">
-                    <View className="mb-6">
-                        <AppText
-                            styles="text-sm text-black"
-                            style={{ opacity: 0.6 }}
-                        >
-                            Fill in the details below to create your event
-                        </AppText>
-                    </View>
+                    {isOrganizer && (
+                        <>
+                            <View className="mb-6">
+                                <AppText
+                                    styles="text-sm text-black"
+                                    style={{ opacity: 0.6 }}
+                                >
+                                    Fill in the details below to create your event
+                                </AppText>
+                            </View>
 
-                    <CreateEventForm
-                        onOpenModal={handleOpenModal}
-                        formContextRef={formContextRef} 
-                    />
+                            <CreateEventForm
+                                onOpenModal={handleOpenModal}
+                                formContextRef={formContextRef}
+                            />
+                        </>
+                    )}
                 </View>
             </RequireAuth>
 
@@ -90,6 +103,22 @@ const CreateEventScreen = () => {
                 }
                 isEditing={editingIndex !== null}
             />
+
+            <AppBottomSheet ref={verificationPromptRef} customSnapPoints={["55%"]}>
+                <ConfirmAction
+                    title="Identity Verification Required"
+                    desc="You need to complete identity verification before you can create events."
+                    onCancel={() => {
+                        verificationPromptRef.current?.close();
+                        router.back();
+                    }}
+                    onConfirm={() => {
+                        verificationPromptRef.current?.close();
+                        router.push("/dashboard/profile/verify");
+                    }}
+                    confirmBtnTitle="Start Verification"
+                />
+            </AppBottomSheet>
         </Screen>
     );
 };

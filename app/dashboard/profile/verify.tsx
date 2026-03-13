@@ -1,5 +1,5 @@
-import { View, ScrollView, ActivityIndicator } from "react-native";
-import { useState, useEffect } from "react";
+import { View, ScrollView, ActivityIndicator, TouchableOpacity } from "react-native";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { router } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 
@@ -15,6 +15,28 @@ import colors from "@/config/colors";
 
 type VerificationStep = 'id-upload' | 'selfie' | 'result';
 type VerificationStatus = 'not_started' | 'id_uploaded' | 'pending' | 'verified' | 'rejected';
+const VERIFICATION_POLL_INTERVAL_MS = 5000;
+const VERIFICATION_PENDING_TIMEOUT_MS = 10000;
+
+const logVerificationError = (context: string, error: any) => {
+    const statusCode = error?.response?.status;
+    const responseData = error?.response?.data;
+    const networkCode = error?.code;
+    const message = error?.message || "Unknown verification error";
+    const source = statusCode ? "backend" : "network_or_client";
+
+    console.error(`[VerifyIdentity] ${context}`, {
+        source,
+        statusCode: statusCode ?? null,
+        networkCode: networkCode ?? null,
+        message,
+        responseData: responseData ?? null,
+    });
+};
+
+const logVerificationInfo = (context: string, payload?: Record<string, unknown>) => {
+    console.log(`[VerifyIdentity] ${context}`, payload ?? {});
+};
 
 const VerifyProfileScreen = () => {
     const { user } = useAuth();
@@ -23,10 +45,19 @@ const VerifyProfileScreen = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [uploadError, setUploadError] = useState<string | null>(null);
     const [rejectionReason, setRejectionReason] = useState<string | null>(null);
+    const [pendingTimeoutMessage, setPendingTimeoutMessage] = useState<string | null>(null);
+    const [pendingTimeoutDiagnosis, setPendingTimeoutDiagnosis] = useState<string | null>(null);
+    const [hasPendingTimedOut, setHasPendingTimedOut] = useState(false);
+    const [statusCheckError, setStatusCheckError] = useState<string | null>(null);
+    const pendingPollStatsRef = useRef({
+        successfulPolls: 0,
+        failedPolls: 0,
+        lastFailureMessage: "",
+    });
 
     useEffect(() => {
         checkVerificationStatus();
-    }, []);
+    }, [checkVerificationStatus]);
 
     useEffect(() => {
         if (user?.is_organizer) {
@@ -34,46 +65,138 @@ const VerifyProfileScreen = () => {
         }
     }, [user]);
 
-    const checkVerificationStatus = async () => {
+    const checkVerificationStatus = useCallback(async () => {
+        const startedAt = Date.now();
         try {
+            setStatusCheckError(null);
             const result = await getVerificationStatus();
 
-            if (result && result.success) {
-                const status = result.data.verification_status;
-                setVerificationStatus(status);
+            if (!(result && result.success)) {
+                pendingPollStatsRef.current.failedPolls += 1;
+                pendingPollStatsRef.current.lastFailureMessage =
+                    "Empty or unsuccessful status response";
+                const message =
+                    "Could not check verification status. Please check your connection and try again.";
+                setStatusCheckError(message);
+                if (currentStep === "result" && verificationStatus === "pending") {
+                    setPendingTimeoutMessage(message);
+                }
+                logVerificationInfo("status poll failed (no-success payload)", {
+                    durationMs: Date.now() - startedAt,
+                    result,
+                    failedPolls: pendingPollStatsRef.current.failedPolls,
+                });
+                return;
+            }
 
-                if (status === 'not_started') {
-                    setCurrentStep('id-upload');
-                } else if (status === 'id_uploaded') {
-                    setCurrentStep('selfie');
-                } else if (status === 'verified' || status === 'rejected' || status === 'pending') {
-                    setCurrentStep('result');
-                    if (status === 'rejected') {
-                        setRejectionReason(result.data.verification_notes);
-                    }
+            const status = result.data.verification_status;
+            pendingPollStatsRef.current.successfulPolls += 1;
+            logVerificationInfo("status poll success", {
+                durationMs: Date.now() - startedAt,
+                status,
+                successfulPolls: pendingPollStatsRef.current.successfulPolls,
+            });
+            setVerificationStatus(status);
+            if (status !== 'pending') {
+                setPendingTimeoutMessage(null);
+                setPendingTimeoutDiagnosis(null);
+                setHasPendingTimedOut(false);
+            }
+
+            if (status === 'not_started') {
+                setCurrentStep('id-upload');
+            } else if (status === 'id_uploaded') {
+                setCurrentStep('selfie');
+            } else if (status === 'verified' || status === 'rejected' || status === 'pending') {
+                setCurrentStep('result');
+                if (status === 'rejected') {
+                    setRejectionReason(result.data.verification_notes);
                 }
             }
         } catch (error) {
-            console.error('Error checking verification status:', error);
+            pendingPollStatsRef.current.failedPolls += 1;
+            pendingPollStatsRef.current.lastFailureMessage = error?.message || "Unknown network error";
+            logVerificationError("checkVerificationStatus failed", error);
+            logVerificationInfo("status poll failed (exception)", {
+                durationMs: Date.now() - startedAt,
+                failedPolls: pendingPollStatsRef.current.failedPolls,
+            });
+            const message =
+                "Network issue while checking verification status. Please try again.";
+            setStatusCheckError(message);
+            if (currentStep === "result" && verificationStatus === "pending") {
+                setPendingTimeoutMessage(message);
+            }
         }
-    };
+    }, [currentStep, verificationStatus]);
+
+    useEffect(() => {
+        if (!(currentStep === 'result' && verificationStatus === 'pending')) {
+            return;
+        }
+
+        setPendingTimeoutMessage(null);
+        setPendingTimeoutDiagnosis(null);
+        setHasPendingTimedOut(false);
+        pendingPollStatsRef.current = {
+            successfulPolls: 0,
+            failedPolls: 0,
+            lastFailureMessage: "",
+        };
+
+        const pollId = setInterval(() => {
+            checkVerificationStatus();
+        }, VERIFICATION_POLL_INTERVAL_MS);
+
+        const timeoutId = setTimeout(() => {
+            const { successfulPolls, failedPolls, lastFailureMessage } = pendingPollStatsRef.current;
+            let diagnosis = "Could not determine exact source of delay.";
+            if (successfulPolls > 0 && failedPolls === 0) {
+                diagnosis = "Likely backend delay: status checks are succeeding but verification remains pending.";
+            } else if (successfulPolls === 0 && failedPolls > 0) {
+                diagnosis = "Likely frontend/network path issue: app could not reach verification status endpoint.";
+            } else if (successfulPolls > 0 && failedPolls > 0) {
+                diagnosis = "Mixed signal: intermittent network errors while backend also remains pending.";
+            }
+            setHasPendingTimedOut(true);
+            setPendingTimeoutMessage(
+                "Verification timed out. Please check your connection and try again."
+            );
+            setPendingTimeoutDiagnosis(diagnosis);
+            logVerificationInfo("pending verification timeout", {
+                timeoutMs: VERIFICATION_PENDING_TIMEOUT_MS,
+                successfulPolls,
+                failedPolls,
+                lastFailureMessage: lastFailureMessage || null,
+                diagnosis,
+            });
+        }, VERIFICATION_PENDING_TIMEOUT_MS);
+
+        return () => {
+            clearInterval(pollId);
+            clearTimeout(timeoutId);
+        };
+    }, [currentStep, verificationStatus, checkVerificationStatus]);
 
     const handleIDUpload = async (uri: string) => {
+        logVerificationInfo("ID upload started", { uriPrefix: uri?.slice(0, 40) });
         setIsLoading(true);
         setUploadError(null);
 
         try {
             const data = await uploadIDDocument(uri);
+            logVerificationInfo("ID upload response", { data });
 
             if (data && data.success) {
                 setVerificationStatus('id_uploaded');
                 setCurrentStep('selfie');
             } else {
                 const errorMessage = data?.message || data?.error || 'Failed to upload ID. Please try again.';
+                logVerificationInfo("ID upload failed (non-exception)", { errorMessage, data });
                 setUploadError(errorMessage);
             }
         } catch (error: any) {
-            console.error('ID upload error:', error);
+            logVerificationError("uploadIDDocument failed", error);
             const errorMessage = error?.response?.data?.message || 'Network error. Please check your connection and try again.';
             setUploadError(errorMessage);
         } finally {
@@ -82,13 +205,18 @@ const VerifyProfileScreen = () => {
     };
 
     const handleSelfieUpload = async (uri: string) => {
+        logVerificationInfo("Selfie upload started", { uriPrefix: uri?.slice(0, 40) });
         setIsLoading(true);
         setUploadError(null);
+        setPendingTimeoutMessage(null);
+        setPendingTimeoutDiagnosis(null);
+        setHasPendingTimedOut(false);
         setCurrentStep('result');
         setVerificationStatus('pending');
 
         try {
             const data = await uploadSelfieImage(uri);
+            logVerificationInfo("Selfie upload response", { data });
 
             if (data && data.success) {
                 if (data.data.verification_status === 'verified') {
@@ -109,16 +237,20 @@ const VerifyProfileScreen = () => {
 
                     setRejectionReason(reasonMessage);
                 } else {
+                    logVerificationInfo("Selfie upload returned pending", {
+                        verificationStatus: data?.data?.verification_status ?? "pending",
+                    });
                     setVerificationStatus('pending');
                 }
             } else {
                 const errorMessage = data?.message || data?.error || 'Failed to upload selfie. Please try again.';
+                logVerificationInfo("Selfie upload failed (non-exception)", { errorMessage, data });
                 setUploadError(errorMessage);
                 setCurrentStep('selfie');
                 setVerificationStatus('id_uploaded');
             }
         } catch (error: any) {
-            console.error('Selfie upload error:', error);
+            logVerificationError("uploadSelfieImage failed", error);
             const errorMessage = error?.response?.data?.message || 'Network error. Please check your connection and try again.';
             setUploadError(errorMessage);
             setCurrentStep('selfie');
@@ -139,11 +271,14 @@ const VerifyProfileScreen = () => {
                 setRejectionReason(null);
                 setVerificationStatus('not_started');
                 setCurrentStep('id-upload');
+                setHasPendingTimedOut(false);
+                setPendingTimeoutMessage(null);
+                setPendingTimeoutDiagnosis(null);
             } else {
                 setUploadError(data?.message || 'Failed to reset verification. Please try again.');
             }
         } catch (error: any) {
-            console.error('Retry verification error:', error);
+            logVerificationError("retryVerification failed", error);
             const errorMessage = error?.response?.data?.message || 'Network error. Please try again.';
             setUploadError(errorMessage);
         } finally {
@@ -161,6 +296,26 @@ const VerifyProfileScreen = () => {
                         currentStep={currentStep}
                         userName={user?.full_name || 'there'}
                     />
+
+                    {statusCheckError && (
+                        <View className="mx-4 mb-4 rounded-xl border border-red-500/40 bg-red-500/10 p-4">
+                            <AppText styles="text-sm text-red-200">
+                                {statusCheckError}
+                            </AppText>
+                            <TouchableOpacity
+                                onPress={checkVerificationStatus}
+                                className="mt-3 self-start rounded-lg bg-accent px-4 py-2"
+                                activeOpacity={0.8}
+                                accessible
+                                accessibilityRole="button"
+                                accessibilityLabel="Retry verification status request"
+                            >
+                                <AppText styles="text-xs text-white font-nunbold">
+                                    Retry
+                                </AppText>
+                            </TouchableOpacity>
+                        </View>
+                    )}
 
                     {/* ID Upload Step */}
                     {currentStep === 'id-upload' && (
@@ -209,6 +364,7 @@ const VerifyProfileScreen = () => {
                                 isLoading={isLoading}
                                 error={uploadError}
                                 cameraFacing="front"
+                                useLightText
                             />
                         </View>
                     )}
@@ -221,13 +377,66 @@ const VerifyProfileScreen = () => {
                                     className="p-8 rounded-xl border-2 items-center"
                                     style={{ backgroundColor: colors.primary100, borderColor: colors.accent }}
                                 >
-                                    <ActivityIndicator size="large" color={colors.accent} />
-                                    <AppText styles="text-lg text-white mt-4 text-center font-nunbold">
-                                        Verifying Your Identity...
-                                    </AppText>
-                                    <AppText styles="text-sm text-slate-200 mt-2 text-center">
-                                        This usually takes a few seconds
-                                    </AppText>
+                                    {!hasPendingTimedOut && (
+                                        <>
+                                            <ActivityIndicator size="large" color={colors.accent} />
+                                            <AppText styles="text-lg text-white mt-4 text-center font-nunbold">
+                                                Verifying Your Identity...
+                                            </AppText>
+                                            <AppText styles="text-sm text-slate-200 mt-2 text-center">
+                                                This usually takes a few seconds
+                                            </AppText>
+                                        </>
+                                    )}
+                                    {hasPendingTimedOut && pendingTimeoutMessage && (
+                                        <View className="mt-4 w-full rounded-lg border border-red-500/40 bg-red-500/10 p-3">
+                                            <AppText styles="text-sm text-red-200 text-center">
+                                                {pendingTimeoutMessage}
+                                            </AppText>
+                                            {pendingTimeoutDiagnosis && (
+                                                <AppText styles="text-xs text-red-100 mt-2 text-center">
+                                                    {pendingTimeoutDiagnosis}
+                                                </AppText>
+                                            )}
+                                            <View className="mt-3 flex-row gap-2 justify-center">
+                                                <TouchableOpacity
+                                                    onPress={() => {
+                                                        setPendingTimeoutMessage(null);
+                                                        setPendingTimeoutDiagnosis(null);
+                                                        setHasPendingTimedOut(false);
+                                                        checkVerificationStatus();
+                                                    }}
+                                                    className="rounded-lg bg-accent px-4 py-2"
+                                                    activeOpacity={0.8}
+                                                    accessible
+                                                    accessibilityRole="button"
+                                                    accessibilityLabel="Retry verification status check"
+                                                >
+                                                    <AppText styles="text-xs text-white font-nunbold">
+                                                        Retry Status Check
+                                                    </AppText>
+                                                </TouchableOpacity>
+                                                <TouchableOpacity
+                                                    onPress={() => {
+                                                        setCurrentStep("selfie");
+                                                        setVerificationStatus("id_uploaded");
+                                                        setPendingTimeoutMessage(null);
+                                                        setPendingTimeoutDiagnosis(null);
+                                                        setHasPendingTimedOut(false);
+                                                    }}
+                                                    className="rounded-lg border border-accent px-4 py-2"
+                                                    activeOpacity={0.8}
+                                                    accessible
+                                                    accessibilityRole="button"
+                                                    accessibilityLabel="Go back to selfie upload"
+                                                >
+                                                    <AppText styles="text-xs text-white font-nunbold">
+                                                        Re-upload Selfie
+                                                    </AppText>
+                                                </TouchableOpacity>
+                                            </View>
+                                        </View>
+                                    )}
                                 </View>
                             )}
 

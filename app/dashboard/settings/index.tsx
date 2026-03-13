@@ -31,7 +31,7 @@ const settingsSections = [
 
 const SettingsScreen = () => {
     return (
-        <Screen statusBarStyle="light-content" statusBarBg={colors.primary}>
+        <Screen statusBarStyle="dark-content" statusBarBg={colors.primary}>
             <RequireAuth>
                 <Nav title="Settings" />
 

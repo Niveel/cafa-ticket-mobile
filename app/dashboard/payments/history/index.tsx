@@ -98,17 +98,17 @@ const PaymentsHistoryScreen = () => {
     filters.status !== "all" || filters.date_from || filters.date_to;
 
   return (
-    <Screen statusBarStyle="light-content" statusBarBg={colors.primary}>
+    <Screen statusBarStyle="dark-content" statusBarBg={colors.primary}>
       <Nav title="Payment History" />
 
       {/* Error State */}
       {error && !paymentHistory && (
         <View className="flex-1 items-center justify-center px-4">
-          <View className="bg-red-500/10 rounded-xl p-6 border-2 border-red-500/30">
-            <AppText styles="text-lg text-red-400 mb-2 text-center font-nunbold">
+            <View className="bg-red-500/10 rounded-xl p-6 border-2 border-red-500/30">
+            <AppText styles="text-lg text-red-700 mb-2 text-center font-nunbold">
               Error loading payments
             </AppText>
-            <AppText styles="text-sm text-red-300 text-center mb-4">
+            <AppText styles="text-sm text-red-700 text-center mb-4">
               {error}
             </AppText>
             <TouchableOpacity
@@ -116,7 +116,7 @@ const PaymentsHistoryScreen = () => {
               className="px-6 py-3 bg-accent rounded-xl"
               activeOpacity={0.7}
             >
-              <AppText styles="text-sm text-black text-center font-nunbold">
+              <AppText styles="text-sm text-white text-center font-nunbold">
                 Try Again
               </AppText>
             </TouchableOpacity>
@@ -134,7 +134,7 @@ const PaymentsHistoryScreen = () => {
                 <AppText styles="text-2xl text-black mb-1 font-nunbold">
                   Payment History
                 </AppText>
-                <AppText styles="text-sm text-slate-400">
+                <AppText styles="text-sm text-slate-700">
                   {paymentHistory?.count || 0} transactions
                 </AppText>
               </View>
@@ -142,17 +142,17 @@ const PaymentsHistoryScreen = () => {
                 onPress={() => filtersRef.current?.open()}
                 className={`px-4 py-2.5 rounded-xl flex-row items-center gap-2 ${hasActiveFilters
                     ? "bg-accent border-2 border-accent-50"
-                    : "bg-accent/20 border-2 border-accent/30"
+                    : "bg-accent/60 border-2 border-accent/50"
                   }`}
                 activeOpacity={0.7}
               >
                 <Ionicons
                   name="filter"
                   size={18}
-                  color={hasActiveFilters ? colors.white : colors.accent50}
+                  color={colors.white}
                 />
                 <AppText
-                  styles={`text-sm ${hasActiveFilters ? "text-black" : "text-accent-50"} font-nunbold`}
+                  styles="text-sm text-white font-nunbold"
                 >
                   Filter
                 </AppText>

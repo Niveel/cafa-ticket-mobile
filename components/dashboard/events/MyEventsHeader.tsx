@@ -10,9 +10,10 @@ import colors from "@/config/colors";
 interface MyEventsHeaderProps {
     currentUser: CurrentUser | null;
     onOpenFilters: () => void;
+    onCreateEventPress?: () => void;
 }
 
-const MyEventsHeader = ({ currentUser, onOpenFilters }: MyEventsHeaderProps) => {
+const MyEventsHeader = ({ currentUser, onOpenFilters, onCreateEventPress }: MyEventsHeaderProps) => {
     const isOrganizer = currentUser?.is_organizer;
 
     return (
@@ -53,13 +54,17 @@ const MyEventsHeader = ({ currentUser, onOpenFilters }: MyEventsHeaderProps) => 
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                    onPress={() =>
+                    onPress={() => {
+                        if (onCreateEventPress) {
+                            onCreateEventPress();
+                            return;
+                        }
                         router.push(
                             (isOrganizer
                                 ? "/dashboard/events/create"
                                 : "/dashboard/profile/verify") as Href
-                        )
-                    }
+                        );
+                    }}
                     className="flex-1 flex-row items-center justify-center gap-2 px-4 py-3 rounded-xl"
                     style={{ backgroundColor: colors.accent }}
                     activeOpacity={0.8}
@@ -100,7 +105,13 @@ const MyEventsHeader = ({ currentUser, onOpenFilters }: MyEventsHeaderProps) => 
                                 Verify your identity to create events.
                             </AppText>
                             <TouchableOpacity
-                                onPress={() => router.push("/dashboard/profile/verify" as Href)}
+                                onPress={() => {
+                                    if (onCreateEventPress) {
+                                        onCreateEventPress();
+                                        return;
+                                    }
+                                    router.push("/dashboard/profile/verify" as Href);
+                                }}
                                 className="self-start px-4 py-2 rounded-lg"
                                 style={{ backgroundColor: colors.accent }}
                                 activeOpacity={0.8}

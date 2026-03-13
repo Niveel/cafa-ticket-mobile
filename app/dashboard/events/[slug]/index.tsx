@@ -150,7 +150,7 @@ const MyEventDetailsScreen = () => {
     // Loading State
     if (isLoading) {
         return (
-            <Screen statusBarStyle="light-content" statusBarBg={colors.primary}>
+            <Screen statusBarStyle="dark-content" statusBarBg={colors.primary}>
                 <View className="flex-1 items-center justify-center">
                     <ActivityIndicator size="large" color={colors.accent} />
                     <AppText styles="text-sm text-slate-400 mt-4">
@@ -164,7 +164,7 @@ const MyEventDetailsScreen = () => {
     // Error State
     if (error || !eventDetails || !eventAnalytics) {
         return (
-            <Screen statusBarStyle="light-content" statusBarBg={colors.primary}>
+            <Screen statusBarStyle="dark-content" statusBarBg={colors.primary}>
                 <View className="flex-1 items-center justify-center px-4">
                     <View
                         className="w-20 h-20 rounded-2xl items-center justify-center mb-6"
@@ -195,7 +195,7 @@ const MyEventDetailsScreen = () => {
     }
 
     return (
-        <Screen statusBarStyle="light-content" statusBarBg={colors.primary}>
+        <Screen statusBarStyle="dark-content" statusBarBg={colors.primary}>
             <Nav title={eventDetails.title.length > 20 ? `${eventDetails.title.slice(0, 20)}...` : eventDetails.title} />
 
             <ScrollView

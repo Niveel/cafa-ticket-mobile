@@ -78,17 +78,17 @@ const PaymentHistorySummary = ({ summary }: Props) => {
                 {cards.map((card, index) => (
                     <View
                         key={index}
-                        className="flex-1 min-w-[160px] bg-primary-100 rounded-xl p-4 border-2 border-accent/30"
+                        className="flex-1 min-w-[160px] bg-white rounded-xl p-4 border border-slate-200"
                     >
                         <View className="flex-row items-start justify-between mb-3">
                             <View className="flex-1">
-                                <AppText styles="text-xs text-slate-300 mb-2">
+                                <AppText styles="text-xs text-slate-700 mb-2">
                                     {card.title}
                                 </AppText>
-                                <AppText styles="text-xl text-black mb-1 font-nunbold">
+                                <AppText styles="text-xl text-primary mb-1 font-nunbold">
                                     {card.value}
                                 </AppText>
-                                <AppText styles="text-xs text-slate-400">
+                                <AppText styles="text-xs text-slate-600">
                                     {card.subtitle}
                                 </AppText>
                             </View>

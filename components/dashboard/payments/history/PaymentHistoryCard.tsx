@@ -65,7 +65,7 @@ const PaymentHistoryCard = ({ payment }: Props) => {
     return (
         <TouchableOpacity
             onPress={() => router.push(`/dashboard/payments/history/${payment.payment_id}` as any)}
-            className="bg-primary-100 rounded-xl p-4 border-2 border-accent/30 mb-3"
+            className="bg-white rounded-xl p-4 border border-slate-200 mb-3"
             activeOpacity={0.7}
         >
             {/* Header with Image and Status */}
@@ -87,7 +87,7 @@ const PaymentHistoryCard = ({ payment }: Props) => {
                     >
                         {payment.event.title}
                     </AppText>
-                    <AppText styles="text-xs text-slate-400 mb-2">
+                    <AppText styles="text-xs text-slate-700 mb-2">
                         {formatDate(payment.created_at)}
                     </AppText>
                     <View
@@ -106,21 +106,21 @@ const PaymentHistoryCard = ({ payment }: Props) => {
             {/* Payment Details Grid */}
             <View className="flex-row flex-wrap gap-2 mb-3">
                 {/* Amount */}
-                <View className="flex-1 min-w-[100px] p-3 bg-primary-200 rounded-lg border border-accent/20">
-                    <AppText styles="text-xs text-slate-400 mb-1">
+                <View className="flex-1 min-w-[100px] p-3 bg-slate-50 rounded-lg border border-slate-200">
+                    <AppText styles="text-xs text-slate-700 mb-1">
                         Amount
                     </AppText>
-                    <AppText styles="text-base text-black font-nunbold">
+                    <AppText styles="text-base text-primary font-nunbold">
                         {formatMoney(payment.amount)}
                     </AppText>
                 </View>
 
                 {/* Tickets Count */}
-                <View className="flex-1 min-w-[100px] p-3 bg-primary-200 rounded-lg border border-accent/20">
-                    <AppText styles="text-xs text-slate-400 mb-1">
+                <View className="flex-1 min-w-[100px] p-3 bg-slate-50 rounded-lg border border-slate-200">
+                    <AppText styles="text-xs text-slate-700 mb-1">
                         Tickets
                     </AppText>
-                    <AppText styles="text-base text-black font-nunbold">
+                    <AppText styles="text-base text-primary font-nunbold">
                         {payment.tickets.length}
                     </AppText>
                 </View>
@@ -129,12 +129,12 @@ const PaymentHistoryCard = ({ payment }: Props) => {
             {/* Payment Method and Reference */}
             <View className="flex-row items-center justify-between pt-3 border-t border-accent/20">
                 <View className="flex-row items-center gap-2">
-                    <Ionicons name={getPaymentMethodIcon()} size={16} color={colors.white} />
-                    <AppText styles="text-xs text-slate-400">
+                    <Ionicons name={getPaymentMethodIcon()} size={16} color={colors.primary200} />
+                    <AppText styles="text-xs text-slate-700">
                         {payment.payment_method.replace("_", " ")}
                     </AppText>
                 </View>
-                <AppText styles="text-xs text-accent-50 font-mono">
+                <AppText styles="text-xs text-accent font-mono">
                     {payment.reference}
                 </AppText>
             </View>

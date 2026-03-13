@@ -1,4 +1,4 @@
-import { View, Alert } from "react-native";
+import { View } from "react-native";
 import { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import * as Yup from "yup";
@@ -28,10 +28,12 @@ const ChangeEmailForm = () => {
     const [verificationSent, setVerificationSent] = useState(false);
     const [maskedEmail, setMaskedEmail] = useState("");
     const [passwordVisible, setPasswordVisible] = useState(false);
+    const [feedback, setFeedback] = useState<{ type: "error"; message: string } | null>(null);
 
     const handleSubmit = async (values: ChangeEmailFormValues, { resetForm }: any) => {
         try {
             setIsSubmitting(true);
+            setFeedback(null);
 
             await changeEmail({
                 new_email: values.newEmail,
@@ -46,7 +48,7 @@ const ChangeEmailForm = () => {
         } catch (error: any) {
             console.error("Error changing email:", error);
             const errorMessage = error.response?.data?.message || error.response?.data?.error || error.message || "Failed to send verification link";
-            Alert.alert("Error", errorMessage);
+            setFeedback({ type: "error", message: errorMessage });
         } finally {
             setIsSubmitting(false);
         }
@@ -70,6 +72,27 @@ const ChangeEmailForm = () => {
                     </AppText>
                 </View>
             </View>
+
+            {feedback && (
+                <View
+                    className="p-3 rounded-lg border mb-4"
+                    style={{
+                        backgroundColor: colors.accent + "1A",
+                        borderColor: colors.accent + "33",
+                    }}
+                    accessible={true}
+                    accessibilityRole="alert"
+                    accessibilityLiveRegion="assertive"
+                    accessibilityLabel={feedback.message}
+                >
+                    <View className="flex-row items-center gap-2">
+                        <Ionicons name="alert-circle" size={16} color={colors.accent50} />
+                        <AppText styles="text-xs" style={{ color: colors.accent50 }}>
+                            {feedback.message}
+                        </AppText>
+                    </View>
+                </View>
+            )}
 
             {!verificationSent ? (
                 <AppForm
@@ -121,7 +144,14 @@ const ChangeEmailForm = () => {
             ) : (
                 /* Success State */
                 <View className="gap-4">
-                    <View className="p-4 rounded-lg border" style={{ backgroundColor: colors.accent + "1A", borderColor: colors.accent }}>
+                    <View
+                        className="p-4 rounded-lg border"
+                        style={{ backgroundColor: colors.accent + "1A", borderColor: colors.accent }}
+                        accessible={true}
+                        accessibilityRole="alert"
+                        accessibilityLiveRegion="assertive"
+                        accessibilityLabel={`Verification link sent to ${maskedEmail}. Please check your inbox to complete email change.`}
+                    >
                         <View className="flex-row items-start gap-3">
                             <Ionicons name="checkmark-circle" size={20} color={colors.accent50} style={{ marginTop: 2 }} />
                             <View className="flex-1">

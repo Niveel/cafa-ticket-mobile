@@ -18,6 +18,7 @@ interface PhotoCaptureProps {
     isLoading?: boolean;
     error?: string | null;
     cameraFacing?: 'front' | 'back';
+    useLightText?: boolean;
 }
 
 const PhotoCapture = ({
@@ -29,6 +30,7 @@ const PhotoCapture = ({
     isLoading = false,
     error = null,
     cameraFacing = 'front',
+    useLightText = false,
 }: PhotoCaptureProps) => {
     const [capturedPhoto, setCapturedPhoto] = useState<string | null>(null);
     const [showCamera, setShowCamera] = useState(false);
@@ -50,6 +52,10 @@ const PhotoCapture = ({
     }, []);
 
     const hasPermission = cameraPermission?.granted && libraryPermission?.granted;
+    const headingTextColor = "text-black";
+    const instructionTextColor = "text-black";
+    const cardPrimaryTextColor = useLightText ? "text-white" : "text-black";
+    const cardSecondaryTextColor = useLightText ? "text-slate-200" : "text-black";
 
     const handleTakePhoto = async () => {
         if (!cameraRef.current || isTakingPhoto) return;
@@ -149,10 +155,10 @@ const PhotoCapture = ({
     // Camera View
     if (showCamera && !capturedPhoto) {
         return (
-            <View className="flex-1">
+            <View className="flex-1 gap-4">
                 <CameraView
                     ref={cameraRef}
-                    style={{ flex: 1 }}
+                    style={{ flex: 1, minHeight: 420 }}
                     facing={cameraFacing}
                 >
                     {/* Overlay Guide */}
@@ -165,22 +171,7 @@ const PhotoCapture = ({
 
                     {/* Controls */}
                     <View className="absolute bottom-0 left-0 right-0 p-6">
-                        <View className="flex-row items-center justify-between">
-                            {/* Cancel */}
-                            <TouchableOpacity
-                                onPress={() => setShowCamera(false)}
-                                className="px-4 py-2 rounded-lg"
-                                style={{ backgroundColor: colors.primary200 }}
-                                activeOpacity={0.8}
-                                accessible
-                                accessibilityRole="button"
-                                accessibilityLabel="Cancel"
-                            >
-                                <AppText styles="text-sm text-black">
-                                    Cancel
-                                </AppText>
-                            </TouchableOpacity>
-
+                        <View className="items-center">
                             {/* Capture Button */}
                             <TouchableOpacity
                                 onPress={handleTakePhoto}
@@ -202,34 +193,51 @@ const PhotoCapture = ({
                                     <View className="w-16 h-16 rounded-full" style={{ backgroundColor: colors.accent }} />
                                 )}
                             </TouchableOpacity>
-
-                            {/* Library */}
-                            <TouchableOpacity
-                                onPress={handlePickFromLibrary}
-                                className="w-12 h-12 rounded-lg items-center justify-center"
-                                style={{ backgroundColor: colors.primary200 }}
-                                activeOpacity={0.8}
-                                accessible
-                                accessibilityRole="button"
-                                accessibilityLabel="Choose from library"
-                            >
-                                <Ionicons name="images-outline" size={24} color={colors.white} />
-                            </TouchableOpacity>
                         </View>
                     </View>
                 </CameraView>
+
+                {/* Secondary Actions - below camera area */}
+                <View className="flex-row items-center justify-between px-2 pb-2">
+                    <TouchableOpacity
+                        onPress={() => setShowCamera(false)}
+                        className="px-4 py-2 rounded-lg"
+                        style={{ backgroundColor: colors.primary200 }}
+                        activeOpacity={0.8}
+                        accessible
+                        accessibilityRole="button"
+                        accessibilityLabel="Cancel"
+                    >
+                        <AppText styles="text-sm text-white">
+                            Cancel
+                        </AppText>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                        onPress={handlePickFromLibrary}
+                        className="px-4 py-2 rounded-lg flex-row items-center gap-2"
+                        style={{ backgroundColor: colors.primary200 }}
+                        activeOpacity={0.8}
+                        accessible
+                        accessibilityRole="button"
+                        accessibilityLabel="Choose from library"
+                    >
+                        <Ionicons name="images-outline" size={20} color={colors.white} />
+                        <AppText styles="text-sm text-white">Photos</AppText>
+                    </TouchableOpacity>
+                </View>
             </View>
         );
     }
 
     return (
-        <View className="gap-6 px-4">
+        <View className="gap-6 px-4 pb-6">
             {/* Title & Instructions */}
             <View>
-                <AppText styles="text-lg text-black mb-2 font-nunbold">
+                <AppText styles={`text-lg mb-2 font-nunbold ${headingTextColor}`}>
                     {title}
                 </AppText>
-                <AppText styles="text-sm text-black mb-4" style={{ opacity: 0.7 }}>
+                <AppText styles={`text-sm mb-4 ${instructionTextColor}`} style={{ opacity: 0.7 }}>
                     {instructions}
                 </AppText>
 
@@ -241,7 +249,7 @@ const PhotoCapture = ({
                     {requirements.map((req, index) => (
                         <View key={index} className="flex-row items-center gap-2">
                             <View className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: colors.accent50 }} />
-                            <AppText styles="text-xs text-black" style={{ opacity: 0.7 }}>
+                            <AppText styles={`text-xs ${cardSecondaryTextColor}`} style={{ opacity: 0.85 }}>
                                 {req}
                             </AppText>
                         </View>
@@ -287,10 +295,10 @@ const PhotoCapture = ({
                     >
                         <Ionicons name="camera-outline" size={40} color={colors.accent50} />
                     </View>
-                    <AppText styles="text-base text-black mb-2 font-nunbold">
+                    <AppText styles={`text-base mb-2 font-nunbold ${cardPrimaryTextColor}`}>
                         Take Photo or Upload
                     </AppText>
-                    <AppText styles="text-xs text-black text-center" style={{ opacity: 0.6 }}>
+                    <AppText styles={`text-xs text-center ${cardSecondaryTextColor}`} style={{ opacity: 0.85 }}>
                         Tap to choose camera or library
                     </AppText>
                 </TouchableOpacity>
@@ -316,7 +324,7 @@ const PhotoCapture = ({
                             accessibilityLabel="Retake photo"
                         >
                             <Ionicons name="camera-outline" size={16} color={colors.white} />
-                            <AppText styles="text-xs text-black">
+                            <AppText styles="text-xs text-white">
                                 Retake
                             </AppText>
                         </TouchableOpacity>
@@ -346,7 +354,7 @@ const PhotoCapture = ({
                         accessibilityRole="button"
                         accessibilityLabel={captureButtonText}
                     >
-                        <AppText styles="text-base text-black font-nunbold">
+                        <AppText styles="text-base text-white font-nunbold">
                             {isLoading ? 'Processing...' : captureButtonText}
                         </AppText>
                     </TouchableOpacity>

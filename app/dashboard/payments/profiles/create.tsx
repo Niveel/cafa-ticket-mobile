@@ -19,6 +19,50 @@ type FormFieldsProps = {
   isDetectingCountry: boolean;
 };
 
+const extractPaymentProfileErrorMessage = (err: any): string => {
+  if (err?.response?.data) {
+    const data = err.response.data;
+
+    if (typeof data.message === "string" && data.message.trim()) return data.message;
+    if (typeof data.error === "string" && data.error.trim()) return data.error;
+    if (typeof data.detail === "string" && data.detail.trim()) return data.detail;
+
+    const accountDetails = data.account_details;
+    if (accountDetails && typeof accountDetails === "object") {
+      if (accountDetails.account_number) {
+        const msg = Array.isArray(accountDetails.account_number)
+          ? accountDetails.account_number[0]
+          : accountDetails.account_number;
+        if (msg) return String(msg);
+      }
+      if (accountDetails.account_name) {
+        const msg = Array.isArray(accountDetails.account_name)
+          ? accountDetails.account_name[0]
+          : accountDetails.account_name;
+        if (msg) return String(msg);
+      }
+      if (accountDetails.bank_name) {
+        const msg = Array.isArray(accountDetails.bank_name)
+          ? accountDetails.bank_name[0]
+          : accountDetails.bank_name;
+        if (msg) return String(msg);
+      }
+      if (accountDetails.bank_code) {
+        const msg = Array.isArray(accountDetails.bank_code)
+          ? accountDetails.bank_code[0]
+          : accountDetails.bank_code;
+        if (msg) return String(msg);
+      }
+    }
+  }
+
+  if (err?.message === "Network Error") {
+    return "Network error. Please check your internet connection and try again.";
+  }
+
+  return err instanceof Error ? err.message : "Failed to create payment profile";
+};
+
 // Inner component that has access to Formik context
 const FormFields = ({
   bankOptions,
@@ -110,8 +154,8 @@ const FormFields = ({
 
       <AppFormField
         type="text"
-        name="branch"
-        label="ABA/SWIFT/Rounting Number (Optional)"
+        name="routing_number"
+        label="ABA/SWIFT/Routing Number (Optional)"
       />
 
       <View className="p-4 bg-info/10 rounded-lg border border-accent">
@@ -171,7 +215,7 @@ const CreatePaymentProfileScreen = () => {
       router.back();
     } catch (err) {
       console.error("Failed to create payment profile:", err);
-      setError(err instanceof Error ? err.message : "Failed to create payment profile");
+      setError(extractPaymentProfileErrorMessage(err));
     } finally {
       setIsSubmitting(false);
     }
@@ -228,6 +272,7 @@ const CreatePaymentProfileScreen = () => {
               country: selectedCountry,
               bank_name: "",
               branch: "",
+              routing_number: "",
             }}
             validationSchema={bankTransferValidation}
             onSubmit={handleSubmit}

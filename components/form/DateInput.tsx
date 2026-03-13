@@ -18,6 +18,9 @@ type Props = {
     disabled?: boolean;
     error?: string;
     labelColor?: string;
+    valueColor?: string;
+    placeholderColor?: string;
+    hintColor?: string;
 };
 
 const DateInput = ({ 
@@ -33,6 +36,9 @@ const DateInput = ({
     disabled = false,
     error,
     labelColor = 'text-black',
+    valueColor = 'text-white',
+    placeholderColor = 'text-slate-500',
+    hintColor = 'text-slate-400',
 }: Props) => {
     const [show, setShow] = useState(false);
     const [date, setDate] = useState(value ? new Date(value) : new Date());
@@ -146,8 +152,8 @@ const DateInput = ({
                         disabled 
                             ? 'text-gray-500' 
                             : value 
-                                ? 'text-white' 
-                                : 'text-slate-500'
+                                ? valueColor
+                                : placeholderColor
                     }`}
                     importantForAccessibility="no"
                     accessibilityElementsHidden={true}
@@ -177,7 +183,7 @@ const DateInput = ({
             {(min || max) && !error && (
                 <View className="mt-1">
                     <AppText 
-                        className="text-xs text-slate-400"
+                        className={`text-xs ${hintColor}`}
                         accessibilityRole="text"
                     >
                         {formatMinMaxDates()}

@@ -70,7 +70,7 @@ const PaymentResultScreen = () => {
     // Verifying State
     if (status === "verifying") {
         return (
-            <Screen statusBarStyle="light-content" statusBarBg={colors.primary}>
+            <Screen statusBarStyle="dark-content" statusBarBg={colors.primary}>
                 <View className="flex-1 items-center justify-center px-4">
                     <View
                         className="w-full max-w-md p-8 rounded-2xl items-center"
@@ -97,7 +97,7 @@ const PaymentResultScreen = () => {
     // Success State
     if (status === "success") {
         return (
-            <Screen statusBarStyle="light-content" statusBarBg={colors.primary}>
+            <Screen statusBarStyle="dark-content" statusBarBg={colors.primary}>
                 <ScrollView className="flex-1" contentContainerStyle={{ padding: 16, paddingBottom: 40 }}>
                     {/* Success Header */}
                     <View
@@ -253,7 +253,7 @@ const PaymentResultScreen = () => {
 
     // Failed or Error State
     return (
-        <Screen statusBarStyle="light-content" statusBarBg={colors.primary}>
+        <Screen statusBarStyle="dark-content" statusBarBg={colors.primary}>
             <View className="flex-1 items-center justify-center px-4">
                 <View
                     className="w-full max-w-md p-8 rounded-2xl"

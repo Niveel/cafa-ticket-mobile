@@ -57,7 +57,7 @@ const ProfileNotificationSettings = ({ settings }: ProfileNotificationSettingsPr
                     </AppText>
                 </View>
                 <TouchableOpacity
-                    onPress={() => router.push('/dashboard/settings')}
+                    onPress={() => router.push('/dashboard/settings/notifications')}
                     className="px-4 py-2 rounded-lg flex-row items-center gap-2"
                     style={{
                         backgroundColor: colors.accent + '33',
