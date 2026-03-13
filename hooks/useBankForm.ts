@@ -7,6 +7,21 @@ type Bank = {
     country: string;
 };
 
+const MOBILE_MONEY_KEYWORDS = [
+    "mtn",
+    "vodafone",
+    "airteltigo",
+    "airtel",
+    "tigo",
+    "mobile money",
+    "momo",
+];
+
+const isMobileMoneyProvider = (bank: any) => {
+    const combined = `${bank?.name || ""} ${bank?.slug || ""} ${bank?.type || ""}`.toLowerCase();
+    return MOBILE_MONEY_KEYWORDS.some((keyword) => combined.includes(keyword));
+};
+
 const DEFAULT_COUNTRY = "ghana";
 
 const FALLBACK_BANKS: Bank[] = [
@@ -69,6 +84,7 @@ export const useBankForm = () => {
                 if (payload?.status && Array.isArray(payload?.data)) {
                     const uniqueBanks = new Map<string, Bank>();
                     payload.data.forEach((bank: any) => {
+                        if (isMobileMoneyProvider(bank)) return;
                         if (!uniqueBanks.has(bank.code)) {
                             uniqueBanks.set(bank.code, {
                                 name: bank.name,
