@@ -139,6 +139,8 @@ const EventCheckInScreen = () => {
                         className="flex-1"
                         showsVerticalScrollIndicator={false}
                         contentContainerStyle={{ paddingTop: 16, paddingBottom: 50 }}
+                        accessibilityLabel={`Check-in interface for ${event.title}`}
+                        accessibilityHint="Use QR scanner or manual entry to check in attendees, then review recent check-ins."
                     >
                         <View className="gap-5">
                             <CheckInScanner

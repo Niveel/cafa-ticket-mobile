@@ -20,6 +20,8 @@ const TicketsSection = ({ event, currentUser, onTicketSelect }: TicketsSectionPr
     const isOngoing = event.status === "ongoing";
     const isPast = event.status === "past";
     const hasNoTickets = !event.ticket_types || event.ticket_types.length === 0;
+    const isOrganizerViewingOwnEvent =
+        !!currentUser && currentUser.id === event.organizer.id;
 
     // Non-upcoming events
     if (!isUpcoming) {
@@ -129,6 +131,28 @@ const TicketsSection = ({ event, currentUser, onTicketSelect }: TicketsSectionPr
                         />
                     ))}
                 </View>
+
+                {isOrganizerViewingOwnEvent && (
+                    <View
+                        className="p-4 rounded-xl border mb-4"
+                        style={{ backgroundColor: colors.primary100, borderColor: colors.accent }}
+                        accessible
+                        accessibilityRole="alert"
+                        accessibilityLabel="Organizer purchase disabled. You cannot buy tickets for your own event."
+                    >
+                        <View className="flex-row items-start gap-3">
+                            <Ionicons name="information-circle-outline" size={20} color={colors.accent50} />
+                            <View className="flex-1">
+                                <AppText styles="text-sm text-white" font="font-ibold">
+                                    Organizer Purchase Disabled
+                                </AppText>
+                                <AppText styles="text-xs text-slate-300 mt-1" font="font-iregular">
+                                    You cannot buy tickets for your own event.
+                                </AppText>
+                            </View>
+                        </View>
+                    </View>
+                )}
 
                 {/* Important Notes */}
                 <View className="p-4 bg-primary-100 rounded-xl" style={{ borderWidth: 1, borderColor: colors.accent }}>

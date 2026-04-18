@@ -115,6 +115,9 @@ const CheckInHistory = ({ eventSlug, latestCheckIn }: Props) => {
         <View
             className="rounded-xl border-2 overflow-hidden"
             style={{ backgroundColor: colors.primary100, borderColor: colors.accent }}
+            accessible
+            accessibilityRole="summary"
+            accessibilityLabel={`Recent check-ins list. ${history.length} entries.`}
         >
             {/* Header */}
             <View className="flex-row items-center justify-between p-4">
@@ -150,6 +153,7 @@ const CheckInHistory = ({ eventSlug, latestCheckIn }: Props) => {
                 style={{ maxHeight: 360 }}
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 16 }}
+                accessibilityLabel="Recent check-in records"
             >
                 <View className="gap-2">
                     {history.map((item, index) => (

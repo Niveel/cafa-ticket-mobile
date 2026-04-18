@@ -1,5 +1,5 @@
 import { View, TouchableOpacity, StyleSheet } from "react-native";
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { CameraView, useCameraPermissions } from "expo-camera";
 
@@ -16,6 +16,49 @@ const QRScanner = ({ onScan, isProcessing }: Props) => {
     const [isActive, setIsActive] = useState(false);
     const lastScanRef = useRef<string>("");
     const scanCooldownRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+    const clearScanCooldown = useCallback(() => {
+        if (scanCooldownRef.current) {
+            clearTimeout(scanCooldownRef.current);
+            scanCooldownRef.current = null;
+        }
+    }, []);
+
+    useEffect(() => {
+        return () => {
+            clearScanCooldown();
+        };
+    }, [clearScanCooldown]);
+
+    const handleBarCodeScanned = useCallback(
+        ({ data }: { data: string }) => {
+            if (isProcessing) return;
+            // Dedupe: ignore if same ticket scanned within cooldown
+            if (data === lastScanRef.current) return;
+
+            lastScanRef.current = data;
+
+            // Try to parse JSON QR payload (e.g. { ticket_id: "..." })
+            let ticketId = data;
+            try {
+                const parsed = JSON.parse(data);
+                if (parsed.ticket_id) {
+                    ticketId = parsed.ticket_id;
+                }
+            } catch {
+                // plain text ticket ID — use as-is
+            }
+
+            onScan(ticketId);
+
+            // Reset after 2.5s so same ticket can be scanned again if needed
+            clearScanCooldown();
+            scanCooldownRef.current = setTimeout(() => {
+                lastScanRef.current = "";
+            }, 2500);
+        },
+        [isProcessing, onScan, clearScanCooldown]
+    );
 
     // Permission not yet determined
     if (permission === null) {
@@ -49,6 +92,7 @@ const QRScanner = ({ onScan, isProcessing }: Props) => {
                     activeOpacity={0.7}
                     accessibilityRole="button"
                     accessibilityLabel="Grant camera permission"
+                    accessibilityHint="Requests camera access for QR ticket scanning"
                 >
                     <AppText styles="text-sm text-white" font="font-ibold">
                         Allow Camera
@@ -68,36 +112,6 @@ const QRScanner = ({ onScan, isProcessing }: Props) => {
             </View>
         );
     }
-
-    const handleBarCodeScanned = useCallback(
-        ({ data }: { data: string }) => {
-            if (isProcessing) return;
-            // Dedupe: ignore if same ticket scanned within cooldown
-            if (data === lastScanRef.current) return;
-
-            lastScanRef.current = data;
-
-            // Try to parse JSON QR payload (e.g. { ticket_id: "..." })
-            let ticketId = data;
-            try {
-                const parsed = JSON.parse(data);
-                if (parsed.ticket_id) {
-                    ticketId = parsed.ticket_id;
-                }
-            } catch {
-                // plain text ticket ID — use as-is
-            }
-
-            onScan(ticketId);
-
-            // Reset after 2.5s so same ticket can be scanned again if needed
-            if (scanCooldownRef.current) clearTimeout(scanCooldownRef.current);
-            scanCooldownRef.current = setTimeout(() => {
-                lastScanRef.current = "";
-            }, 2500);
-        },
-        [isProcessing, onScan]
-    );
 
     return (
         <View
@@ -130,6 +144,7 @@ const QRScanner = ({ onScan, isProcessing }: Props) => {
                     activeOpacity={0.7}
                     accessibilityRole="button"
                     accessibilityLabel={isActive ? "Stop camera" : "Start camera"}
+                    accessibilityHint={isActive ? "Stops QR camera preview and scanning" : "Starts QR camera preview and scanning"}
                 >
                     <Ionicons name={isActive ? "square-outline" : "camera-outline"} size={16} color="#fff" />
                     <AppText styles="text-xs text-white" font="font-ibold">
@@ -141,14 +156,18 @@ const QRScanner = ({ onScan, isProcessing }: Props) => {
             {/* Camera viewport */}
             <View style={styles.cameraWrapper}>
                 {isActive ? (
-                    <CameraView
-                        style={styles.camera}
-                        facing="back"
-                        onBarcodeScanned={handleBarCodeScanned}
-                        barcodeScannerSettings={{ barcodeTypes: ["qr"] }}
-                    >
+                    <View style={styles.cameraLayer}>
+                        <CameraView
+                            style={styles.camera}
+                            facing="back"
+                            onBarcodeScanned={handleBarCodeScanned}
+                            barcodeScannerSettings={{ barcodeTypes: ["qr"] }}
+                            accessibilityLabel="QR scanner camera viewport"
+                            accessibilityHint="Point camera at attendee ticket QR code to check in"
+                        />
+
                         {/* Scan-box overlay */}
-                        <View style={styles.overlayOuter}>
+                        <View style={styles.overlayOuter} pointerEvents="none">
                             <View style={styles.scanBox}>
                                 {/* Corner accents */}
                                 <View style={[styles.corner, styles.topLeft]} />
@@ -167,13 +186,13 @@ const QRScanner = ({ onScan, isProcessing }: Props) => {
                                 </AppText>
                             </View>
                         )}
-                    </CameraView>
+                    </View>
                 ) : (
                     /* Inactive placeholder */
                     <View style={[styles.camera, styles.placeholder]}>
                         <Ionicons name="camera-outline" size={56} color="rgba(255,255,255,0.15)" />
                         <AppText styles="text-xs text-white mt-3 text-center" font="font-iregular" style={{ opacity: 0.4 }}>
-                            Press "Start" to begin scanning
+                            Press &quot;Start&quot; to begin scanning
                         </AppText>
                     </View>
                 )}
@@ -210,6 +229,11 @@ const styles = StyleSheet.create({
         width: "100%",
         height: CAMERA_HEIGHT,
     },
+    cameraLayer: {
+        width: "100%",
+        height: CAMERA_HEIGHT,
+        position: "relative",
+    },
     camera: {
         width: "100%",
         height: CAMERA_HEIGHT,
@@ -222,7 +246,7 @@ const styles = StyleSheet.create({
 
     // Scan-box overlay
     overlayOuter: {
-        flex: 1,
+        ...StyleSheet.absoluteFillObject,
         alignItems: "center",
         justifyContent: "center",
     },

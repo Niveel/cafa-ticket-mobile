@@ -77,6 +77,9 @@ const CheckInResult = ({ result, onDismiss }: Props) => {
         <View
             className="rounded-xl p-4 border-2"
             style={{ backgroundColor: cfg.bgColor, borderColor: cfg.borderColor }}
+            accessible
+            accessibilityRole="alert"
+            accessibilityLabel={`${cfg.title}. ${result.message}`}
         >
             {/* Dismiss button */}
             <TouchableOpacity

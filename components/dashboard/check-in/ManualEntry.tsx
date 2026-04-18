@@ -62,6 +62,8 @@ const ManualEntry = ({ onSubmit, isProcessing }: Props) => {
                         editable={!isProcessing}
                         returnKeyType="go"
                         autoFocus={true}
+                        accessibilityLabel="Ticket ID input"
+                        accessibilityHint="Enter attendee ticket ID manually for check-in"
                     />
                 </View>
                 <TouchableOpacity
@@ -76,6 +78,8 @@ const ManualEntry = ({ onSubmit, isProcessing }: Props) => {
                     activeOpacity={0.7}
                     accessibilityRole="button"
                     accessibilityLabel="Check in"
+                    accessibilityHint="Submits entered ticket ID for check-in"
+                    accessibilityState={{ disabled: !ticketId.trim() || isProcessing, busy: isProcessing }}
                 >
                     {isProcessing ? (
                         <ActivityIndicator size="small" color="#fff" />
@@ -105,6 +109,8 @@ const ManualEntry = ({ onSubmit, isProcessing }: Props) => {
                                 opacity: isProcessing ? 0.4 : 1,
                             }}
                             activeOpacity={0.6}
+                            accessibilityRole="button"
+                            accessibilityLabel={`Use example ticket ID ${id}`}
                         >
                             <AppText styles="text-xs text-white" font="font-iregular" style={{ fontFamily: "monospace" }}>
                                 {id}

@@ -92,6 +92,8 @@ const CheckInScreen = () => {
                         className="flex-1"
                         showsVerticalScrollIndicator={false}
                         contentContainerStyle={{ paddingTop: 16, paddingBottom: 50 }}
+                        accessibilityLabel="Check-in dashboard"
+                        accessibilityHint="Select an event to start attendee check-in"
                     >
                         <View className="gap-5">
                             <CheckInHeader />

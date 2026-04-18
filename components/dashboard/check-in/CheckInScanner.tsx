@@ -60,6 +60,9 @@ const CheckInScanner = ({ event, ticketsSold, ticketsCheckedIn, onSuccess, onCha
             <View
                 className="flex-row items-center gap-3 rounded-xl p-4 border-2"
                 style={{ backgroundColor: colors.primary100, borderColor: colors.accent }}
+                accessible
+                accessibilityRole="summary"
+                accessibilityLabel={`Check-in event ${event.title}, venue ${event.venue_name}, ${event.venue_city}`}
             >
                 <TouchableOpacity
                     onPress={onChangeEvent}
@@ -100,6 +103,8 @@ const CheckInScanner = ({ event, ticketsSold, ticketsCheckedIn, onSuccess, onCha
                             activeOpacity={0.6}
                             accessibilityRole="button"
                             accessibilityLabel={mode === "qr" ? "QR Scanner mode" : "Manual entry mode"}
+                            accessibilityHint={mode === "qr" ? "Switches to QR scanner check-in mode" : "Switches to manual ticket ID entry mode"}
+                            accessibilityState={{ selected: active }}
                         >
                             <Ionicons
                                 name={mode === "qr" ? "scan-outline" : "create-outline"}
@@ -120,7 +125,13 @@ const CheckInScanner = ({ event, ticketsSold, ticketsCheckedIn, onSuccess, onCha
 
             {/* Check-in result banner (above scanner/input) */}
             {checkInResult && (
-                <CheckInResult result={checkInResult} onDismiss={() => setCheckInResult(null)} />
+                <View
+                    accessible
+                    accessibilityLiveRegion="polite"
+                    accessibilityLabel={checkInResult.success ? "Check-in succeeded" : "Check-in failed"}
+                >
+                    <CheckInResult result={checkInResult} onDismiss={() => setCheckInResult(null)} />
+                </View>
             )}
 
             {/* Scanner or Manual */}
