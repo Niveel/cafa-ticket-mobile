@@ -4,7 +4,6 @@ import { router } from "expo-router";
 import { memo, useEffect, useState } from "react";
 import * as SecureStore from "expo-secure-store";
 import * as FileSystem from "expo-file-system/legacy";
-import Share from "react-native-share";
 import { Image } from "expo-image";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -21,6 +20,24 @@ interface MyTicketCardProps {
 }
 
 const ANDROID_TICKET_DOWNLOAD_DIR_URI_KEY = "cafa_android_ticket_download_dir_uri";
+
+const openNativeShare = async (options: {
+    title: string;
+    url: string;
+    type: string;
+    filename: string;
+    saveToFiles?: boolean;
+    failOnCancel?: boolean;
+    showAppsToView?: boolean;
+}) => {
+    if (Platform.OS === "web") {
+        throw new Error("Native share is not available on web.");
+    }
+
+    const shareModule = await import("react-native-share");
+    const share = shareModule.default;
+    await share.open(options);
+};
 
 const MyTicketCard = ({ ticket }: MyTicketCardProps) => {
     const [isDownloading, setIsDownloading] = useState(false);
@@ -117,7 +134,7 @@ const MyTicketCard = ({ ticket }: MyTicketCardProps) => {
             });
 
             if (Platform.OS === "ios") {
-                await Share.open({
+                await openNativeShare({
                     title: `Ticket ${ticket.ticket_id}`,
                     url: result.uri,
                     type: "application/pdf",
@@ -190,7 +207,7 @@ const MyTicketCard = ({ ticket }: MyTicketCardProps) => {
 
                 if (!savedToSelectedDirectory) {
                     const contentUri = await FileSystem.getContentUriAsync(result.uri);
-                    await Share.open({
+                    await openNativeShare({
                         title: `Ticket ${ticket.ticket_id}`,
                         url: contentUri,
                         type: "application/pdf",
