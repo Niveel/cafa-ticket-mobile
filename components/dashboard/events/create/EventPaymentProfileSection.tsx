@@ -82,7 +82,6 @@ const EventPaymentProfileSection = () => {
                     className="flex-row items-center gap-3 p-4 rounded-xl"
                     style={{ backgroundColor: colors.primary100 }}
                     accessible
-                    accessibilityRole="status"
                     accessibilityLabel="Loading payment profiles"
                 >
                     <ActivityIndicator size="small" color={colors.accent} />
