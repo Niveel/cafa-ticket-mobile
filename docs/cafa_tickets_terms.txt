@@ -1,0 +1,496 @@
+CAFA TICKETS — TERMS OF SERVICE
+Last Updated: December 19, 2025
+
+By accessing or using Cafa Tickets, you agree to be legally bound by these Terms of Service. If you do not
+agree to any part of these Terms, you must immediately stop using the platform.
+
+================================================================================
+
+1. AGREEMENT TO TERMS
+
+By accessing or using the Cafa Tickets platform — whether through our mobile application, website at
+cafatickets.com, or any related services — you agree to be legally bound by these Terms of Service
+("Terms"). These Terms form a binding contract between you and Cafa Tickets.
+
+Please read these Terms carefully before using the Platform. If you do not agree to any part of these
+Terms, you must not access or use Cafa Tickets. Your continued access to or use of the Platform at any
+time constitutes your acceptance of these Terms, including any future updates we make to them.
+
+These Terms apply to all users of the Platform, including visitors, consumers who purchase tickets, and
+organizers who create and manage events.
+
+================================================================================
+
+2. DEFINITIONS
+
+"Platform" or "Cafa Tickets" refers to the Cafa Tickets mobile application, website (cafatickets.com),
+and all related services and features.
+
+"Consumer" means any user who browses, discovers, or purchases tickets to events listed on the Platform.
+
+"Organizer" means any user who creates, publishes, promotes, or manages events and ticket sales through
+the Platform.
+
+"User," "you," or "your" refers to any individual or entity accessing or using the Platform, whether as
+a Consumer, Organizer, or in any other capacity.
+
+"We," "us," or "our" refers to Cafa Tickets and its team, affiliates, officers, and employees.
+
+"Event" means any live or in-person gathering, show, concert, conference, workshop, or similar occurrence
+listed on the Platform by an Organizer.
+
+"Ticket" means a digital admission pass issued through the Platform upon a successful purchase,
+containing a unique QR code for check-in.
+
+"Organizer Wallet" or "Account Balance" means the balance of net ticket sale proceeds credited to an
+Organizer's account on the Platform, available for withdrawal at any time through the organizer
+dashboard.
+
+"Platform Fee" means the 5% service charge that Cafa Tickets deducts from each paid ticket sale before
+crediting the remaining proceeds to the Organizer's Wallet.
+
+"Content" means all text, images, descriptions, logos, graphics, and other materials you submit, upload,
+or make available on the Platform.
+
+================================================================================
+
+3. ELIGIBILITY
+
+You must be at least 18 years old and have the legal capacity to enter into binding contracts under the
+laws of your jurisdiction to use the Platform. By using Cafa Tickets, you represent and warrant that you
+meet these requirements.
+
+If you are accessing or using the Platform on behalf of a company, organization, or other legal entity,
+you represent and warrant that you have full authority to bind that entity to these Terms.
+
+We reserve the right to refuse access to the Platform to anyone at our sole discretion, including
+individuals or entities who have previously violated these Terms.
+
+================================================================================
+
+4. ACCOUNT REGISTRATION AND SECURITY
+
+To access certain features of the Platform — including purchasing tickets, creating events, or managing
+your account — you must register and maintain an active account. You agree to provide accurate, current,
+and complete information during registration and to update such information as necessary to keep it
+accurate.
+
+You are solely responsible for maintaining the confidentiality of your account credentials, including
+your password. You must not share your credentials with any other person or allow unauthorized access to
+your account.
+
+You are responsible for all activity that occurs under your account, whether or not you authorized it.
+If you suspect unauthorized use of your account or a security breach, you must notify us immediately at
+support@cafatickets.com.
+
+You may not create more than one account, impersonate another person, or create an account for any
+entity without proper authorization. We reserve the right to suspend or terminate duplicate or fraudulent
+accounts.
+
+Account ownership disputes between two or more parties will be resolved by us at our sole discretion.
+Our decision in any such dispute is final and binding on all parties involved.
+
+================================================================================
+
+5. CAFA TICKETS' ROLE
+
+Cafa Tickets is an event ticketing and management platform. We provide technology that enables Organizers
+to create, publish, and sell tickets to their events, and enables Consumers to discover and purchase
+tickets.
+
+Cafa Tickets is not the creator, organizer, or owner of any events listed on the Platform. We are not
+the seller of record for any tickets. Organizers are solely responsible for planning, executing, and
+managing their events, and for ensuring their events comply with all applicable laws and regulations.
+
+When a Consumer purchases a ticket, the transaction is between the Consumer and the Organizer. Cafa
+Tickets facilitates the payment processing on the Organizer's behalf and credits the net proceeds (after
+deducting the Platform Fee) to the Organizer's Wallet.
+
+We do not guarantee the quality, safety, legality, or successful execution of any event listed on the
+Platform. Consumers attend events at their own risk, and all event-related concerns should be directed to
+the relevant Organizer in the first instance.
+
+================================================================================
+
+6. ORGANIZER RESPONSIBILITIES
+
+If you are an Organizer, you agree to the following obligations in addition to your general obligations
+as a User of the Platform:
+
+Accuracy of Information: You must provide accurate, truthful, and complete information about your event,
+including the title, description, date, time, venue, ticket types, prices, and any restrictions or
+requirements for attendees. Misrepresentation of events is strictly prohibited and may result in
+immediate removal of your event and suspension of your account.
+
+Licenses and Permits: You are solely responsible for obtaining all permits, licenses, authorizations,
+and approvals required to host your event. This includes, but is not limited to, venue permits, public
+gathering permits, entertainment licenses, fire safety certifications, and any other applicable
+regulatory approvals. Cafa Tickets bears no responsibility for your failure to obtain required permits.
+
+Event Delivery: You must deliver your event substantially as described on the Platform. If circumstances
+require material changes (such as a venue change, date change, or cancellation), you are responsible for
+promptly notifying all ticket holders and honoring your refund policy.
+
+Refund Policy: You must establish and clearly display a refund policy on your event page before tickets
+go on sale. In the event of a cancellation or postponement attributable to you, you are obligated to
+process refunds to ticket holders who request them in accordance with your stated policy and applicable
+law.
+
+Attendee Data: You must handle all attendee information you receive through the Platform — including
+names, email addresses, and contact details — in strict compliance with applicable data protection and
+privacy laws. You may only use attendee information for the purpose of managing your event and may not
+use it for unrelated marketing or other purposes without the explicit consent of each attendee.
+
+Identity Verification: To withdraw funds from your Organizer Wallet, you may be required to complete our
+identity verification process, which may include submitting a valid government-issued ID and a selfie.
+Failure to complete verification may delay or restrict your ability to access your funds.
+
+Payment Profile: You must set up and maintain a valid payment profile (bank account details) before
+publishing a paid event. Withdrawal of earnings cannot be processed without a verified payment profile
+on file.
+
+================================================================================
+
+7. PLATFORM FEES AND ORGANIZER PAYOUTS
+
+Platform Fee: Cafa Tickets charges a Platform Fee of 5% on every paid ticket sold through the Platform.
+This fee is automatically deducted from each ticket sale at the time of purchase before the net proceeds
+are credited to your Organizer Wallet. The Platform Fee covers payment processing costs, platform
+infrastructure, and the tools and services Cafa Tickets provides to Organizers.
+
+Organizer Wallet: When a Consumer purchases a ticket to your event, Cafa Tickets processes the payment
+and credits the net amount — that is, the ticket price minus the 5% Platform Fee — to your Organizer
+Wallet. For example, if a ticket sells for GH₵ 100, GH₵ 95 is credited to your Wallet and GH₵ 5 is
+retained by Cafa Tickets as the Platform Fee. Your Organizer Wallet balance is displayed in real time in
+the Revenue section of your dashboard within the Cafa Tickets app.
+
+Withdrawals: As an Organizer, you may request a withdrawal of your available Organizer Wallet balance at
+any time through your dashboard. There is no need to wait until after the event to access your earnings.
+The minimum withdrawal amount is GH₵ 30. Withdrawal requests are typically disbursed to your registered
+payment profile within 1 to 3 business days, subject to identity verification and any applicable
+compliance checks.
+
+Pending and On-Hold Funds: A portion of your Wallet balance may be marked as pending or on-hold. Pending
+funds represent proceeds from recent ticket sales that are still within the payment processing window.
+On-hold funds may be reserved by Cafa Tickets in instances of suspected fraud, disputed transactions,
+chargebacks, or violations of these Terms. Cafa Tickets will notify you of any holds and will endeavour
+to resolve them promptly.
+
+No Additional Withdrawal Fees: Cafa Tickets does not charge any additional fees to process your
+withdrawal requests. The only deduction from your ticket sale proceeds is the 5% Platform Fee applied
+at the time of each individual sale.
+
+Free Events: Cafa Tickets does not charge a Platform Fee on tickets to free events (i.e., events with a
+GH₵ 0.00 ticket price). There is no cost to list or publish a free event on the Platform.
+
+Tax Obligations: Organizers are solely responsible for determining, collecting, reporting, and remitting
+any applicable taxes on their ticket revenue. Cafa Tickets does not collect or remit taxes on behalf of
+Organizers. You should consult a qualified tax or legal professional regarding your specific tax
+obligations.
+
+================================================================================
+
+8. TICKET PURCHASES BY CONSUMERS
+
+When you purchase a ticket through Cafa Tickets, you are entering into a transaction with the Organizer
+of the relevant event. Cafa Tickets facilitates the payment processing on the Organizer's behalf.
+
+All ticket purchases are final at the time of confirmation unless the Organizer's refund policy or
+applicable law provides otherwise. We encourage Consumers to review the event's posted refund policy
+carefully before completing a purchase.
+
+If you are entitled to a refund under the Organizer's refund policy — or because an event was cancelled
+or materially changed — you should contact the Organizer directly in the first instance. If you are
+unable to reach the Organizer or the matter remains unresolved, please contact us at
+support@cafatickets.com and we will do our best to assist you.
+
+Each ticket issued by Cafa Tickets is unique and contains a QR code for event check-in. You must not
+copy, duplicate, transfer, or resell your ticket outside of the Platform without the Organizer's express
+written permission. Presenting a counterfeit, duplicated, or invalidated ticket constitutes fraud.
+
+If you receive a refund for a ticket, that ticket is immediately and automatically invalidated. You must
+not use a refunded ticket or any copy of it to gain entry to the event. Doing so may constitute fraud.
+
+Some events may carry age restrictions, dress code requirements, or other conditions of entry determined
+by the Organizer. Cafa Tickets is not responsible if you are denied entry to an event due to failure to
+meet the Organizer's stated requirements.
+
+================================================================================
+
+9. EVENT CHECK-IN AND TICKET VALIDATION
+
+Tickets purchased through Cafa Tickets contain a unique QR code that must be scanned at the event
+entrance for admission. Organizers are responsible for validating tickets using the QR check-in tools
+available within the Cafa Tickets app.
+
+Organizers must always follow the proper ticket validation procedure to prevent unauthorized entry and
+fraud. Cafa Tickets is not liable for any losses, costs, or damages arising from an Organizer's failure
+to properly validate tickets at the event.
+
+Cafa Tickets bears no responsibility for losses or damages arising from ticket fraud, the purchase of
+tickets through unofficial or third-party channels outside the Platform, or the inadvertent acceptance
+of counterfeit tickets by an Organizer.
+
+================================================================================
+
+10. PROHIBITED CONDUCT
+
+You agree to use Cafa Tickets only for lawful purposes and in a manner that does not infringe the rights
+of others or restrict their use and enjoyment of the Platform. The following conduct is strictly
+prohibited:
+
+- Posting or transmitting any false, misleading, defamatory, fraudulent, or deceptive information or
+  Content.
+
+- Creating or listing events that involve illegal activities, hate speech, incitement to violence,
+  exploitation of minors, or any Content that violates applicable law or public order.
+
+- Attempting to gain unauthorized access to any portion of the Platform, another user's account, or our
+  systems or networks.
+
+- Using any automated tool, bot, scraper, or crawler to extract data from the Platform without our prior
+  written consent.
+
+- Using the Platform to send spam, unsolicited messages, or promotional communications to other users.
+
+- Copying, reproducing, modifying, adapting, reverse engineering, or creating derivative works of the
+  Platform or any of its components.
+
+- Engaging in any conduct that disrupts, damages, or impairs the operation, security, or integrity of
+  the Platform.
+
+- Impersonating any person or entity, or falsely claiming affiliation with any person or entity.
+
+We reserve the right to remove any Content and suspend or terminate any account that violates this
+Section, without prior notice and at our sole discretion.
+
+================================================================================
+
+11. CONTENT YOU SUBMIT
+
+You retain ownership of all Content you submit to the Platform. By submitting Content — including event
+descriptions, images, logos, and other materials — you grant Cafa Tickets a non-exclusive, worldwide,
+royalty-free, sublicensable, and transferable license to use, reproduce, modify, adapt, display,
+distribute, and promote that Content in connection with operating and marketing the Platform and your
+events.
+
+You represent and warrant that you own or have the necessary rights to submit all Content you post on
+the Platform, and that your Content does not infringe the intellectual property, privacy, or any other
+rights of any third party.
+
+You are solely responsible for the accuracy, legality, and appropriateness of all Content you submit.
+Cafa Tickets reserves the right to remove any Content that violates these Terms, our policies, or
+applicable law, at any time and without prior notice.
+
+Event descriptions, ticket prices, images, and all other details you publish on the Platform must be
+accurate and truthful. Misleading event descriptions or fraudulent Content will result in immediate
+removal of your event and may result in suspension or permanent termination of your account.
+
+================================================================================
+
+12. INTELLECTUAL PROPERTY
+
+The Cafa Tickets name, logo, branding, interface design, software, and all related materials are owned
+by or licensed to Cafa Tickets and are protected by applicable intellectual property laws. You are
+granted a limited, non-exclusive, non-transferable, revocable license to use the Platform solely for its
+intended purpose in accordance with these Terms.
+
+You may not copy, reproduce, modify, reverse engineer, decompile, distribute, sell, or create derivative
+works based on any portion of the Platform or its underlying technology without our prior written
+consent.
+
+All trademarks, service marks, and trade names of Cafa Tickets used on the Platform are our exclusive
+property. You must not use them without our express written permission.
+
+================================================================================
+
+13. PRIVACY AND DATA
+
+Cafa Tickets is committed to protecting your personal information. Our Privacy Policy, which is
+incorporated into these Terms by reference, explains how we collect, use, share, and safeguard your data
+when you use the Platform. By using the Platform, you consent to the data practices described in our
+Privacy Policy.
+
+If you are an Organizer, you acknowledge that you will receive personal information about your attendees
+(such as names and email addresses) through the Platform solely for the purpose of managing your event.
+You must handle this information in compliance with applicable data protection laws and must not use it
+for any unrelated commercial purpose without the explicit consent of each individual.
+
+================================================================================
+
+14. THIRD-PARTY SERVICES AND LINKS
+
+The Platform may integrate with or contain links to third-party services, applications, or websites,
+including payment processors and mapping services. These third-party services are governed by their own
+independent terms and privacy policies.
+
+Cafa Tickets is not responsible for the content, availability, accuracy, security, or practices of any
+third-party service. Your use of third-party services linked from the Platform is entirely at your own
+risk.
+
+================================================================================
+
+15. DISCLAIMER OF WARRANTIES
+
+The Platform is provided on an "as is" and "as available" basis without any warranties of any kind,
+express or implied, to the fullest extent permitted by applicable law. Cafa Tickets expressly disclaims
+all warranties, including implied warranties of merchantability, fitness for a particular purpose, title,
+and non-infringement.
+
+We do not warrant that the Platform will be uninterrupted, error-free, secure, or free of harmful
+components. We do not guarantee the accuracy or completeness of any information posted on the Platform
+by Organizers or other users.
+
+We have no control over and do not guarantee the quality, safety, legality, or successful delivery of
+any event listed on the Platform. Any reliance you place on information provided by Organizers is at
+your own risk.
+
+================================================================================
+
+16. LIMITATION OF LIABILITY
+
+To the fullest extent permitted by applicable law, Cafa Tickets and its officers, directors, employees,
+agents, and affiliates will not be liable to you or any third party for any indirect, incidental,
+special, consequential, exemplary, or punitive damages — including loss of profits, revenue, data,
+goodwill, or business opportunities — arising out of or related to your use of or inability to use the
+Platform, even if we have been advised of the possibility of such damages.
+
+Our maximum aggregate liability to you for any claim arising out of or relating to these Terms or the
+Platform is limited to the greater of: (a) the total amount of Platform Fees paid in connection with
+transactions you were involved in during the three (3) months preceding the event giving rise to the
+claim; or (b) GH₵ 200.
+
+Cafa Tickets is not responsible for the actions or omissions of Organizers, including event
+cancellations, postponements, material changes, or failure to deliver a promised event experience. Any
+such claims should be directed to the Organizer directly.
+
+Some jurisdictions do not allow the exclusion of certain warranties or the limitation of certain types
+of liability. In such jurisdictions, our liability will be limited to the maximum extent permitted by
+applicable law.
+
+================================================================================
+
+17. INDEMNIFICATION
+
+You agree to defend, indemnify, and hold harmless Cafa Tickets and its officers, directors, employees,
+agents, and affiliates from and against any and all claims, liabilities, damages, losses, and expenses
+(including reasonable legal fees) arising out of or in any way connected with:
+
+- Your breach of these Terms or any applicable law or regulation.
+
+- Your use of the Platform or your attendance at any event booked through the Platform.
+
+- If you are an Organizer: your event, any claims by attendees, or any harm caused to attendees or third
+  parties at or in connection with your event.
+
+- Any Content you submit to the Platform that infringes the rights of any third party.
+
+- Any fraud, misrepresentation, or willful misconduct by you.
+
+================================================================================
+
+18. TERM, SUSPENSION, AND TERMINATION
+
+These Terms take effect as soon as you access the Platform and remain in effect until terminated by you
+or by Cafa Tickets.
+
+You may close your account at any time by submitting a deletion request through your account settings.
+If you are an Organizer, you must first fulfill all outstanding obligations to ticket holders — including
+processing any applicable refunds — before your account can be permanently deleted. Any unclaimed
+Organizer Wallet balance must be withdrawn prior to account deletion. Cafa Tickets is not responsible
+for any balance forfeited due to account deletion.
+
+Cafa Tickets may suspend or permanently terminate your access to the Platform, with or without notice,
+if you: (a) violate or breach these Terms; (b) engage in fraudulent, abusive, or unlawful conduct;
+(c) fail to pay any amounts owed to Cafa Tickets; (d) create legal or financial risk for us or other
+users; or (e) we are required to do so by applicable law or court order.
+
+Upon termination for any reason, all licenses and rights granted to you under these Terms immediately
+cease. Sections governing Fees, Content, Intellectual Property, Disclaimers, Limitation of Liability,
+Indemnification, Dispute Resolution, and Governing Law will survive termination and remain in full force
+and effect.
+
+================================================================================
+
+19. MODIFICATIONS TO THE PLATFORM AND TERMS
+
+Cafa Tickets reserves the right to modify, update, suspend, or discontinue any feature or aspect of the
+Platform at any time, with or without prior notice.
+
+We may update these Terms from time to time. When we make material changes, we will notify you by
+updating the "Last Updated" date at the top of this document and, where appropriate, through in-app
+notifications or email. Material changes will take effect 30 days after posting unless otherwise stated.
+All non-material changes take effect immediately upon posting.
+
+Your continued use of the Platform after any updated Terms take effect constitutes your acceptance of
+the revised Terms. If you do not agree to the updated Terms, you must stop using the Platform.
+
+================================================================================
+
+20. DISPUTE RESOLUTION
+
+If you have a complaint or concern about the Platform or our services, we encourage you to contact us
+first at support@cafatickets.com. We will make every reasonable effort to resolve your concern
+informally and in good faith.
+
+If a dispute cannot be resolved informally, both parties agree to first attempt resolution through
+good-faith negotiation. Should negotiation fail, disputes may be escalated to formal mediation or
+arbitration before either party initiates legal proceedings.
+
+These Terms are governed by and construed in accordance with the laws of the Republic of Ghana, without
+regard to conflict of law principles. Any legal action or proceeding arising out of or relating to these
+Terms that cannot be resolved through negotiation or mediation will be submitted to the exclusive
+jurisdiction of the competent courts of the Republic of Ghana.
+
+================================================================================
+
+21. ASSUMPTION OF RISK
+
+By attending any event booked through the Platform, Consumers voluntarily assume all risks inherent in
+attendance at live events, including but not limited to the risk of personal injury, property damage,
+illness, or death that may result from attendance. Cafa Tickets bears no liability for any harm arising
+from attendance at any event.
+
+================================================================================
+
+22. FEEDBACK
+
+We welcome your feedback, suggestions, and ideas for improving Cafa Tickets. If you submit feedback to
+us, you grant Cafa Tickets a non-exclusive, perpetual, irrevocable, worldwide, royalty-free license to
+use, reproduce, modify, and incorporate that feedback into the Platform or related services for any
+purpose, without any obligation to compensate or credit you.
+
+================================================================================
+
+23. SEVERABILITY AND ENTIRE AGREEMENT
+
+If any provision of these Terms is found by a court of competent jurisdiction to be invalid, illegal, or
+unenforceable, that provision will be modified to the minimum extent necessary to make it enforceable,
+or severed if modification is not possible. The remaining provisions of these Terms will continue in
+full force and effect.
+
+These Terms, together with our Privacy Policy, constitute the entire agreement between you and Cafa
+Tickets with respect to your use of the Platform. They supersede all prior or contemporaneous
+agreements, understandings, communications, or representations between the parties on the subject matter.
+
+No oral waiver, amendment, or modification of these Terms is effective. Our failure to enforce any right
+or provision under these Terms does not constitute a waiver of that right. These Terms may not be
+assigned by you without our prior written consent. We may freely assign our rights and obligations under
+these Terms to any affiliate or successor.
+
+================================================================================
+
+24. CONTACT INFORMATION
+
+If you have questions, concerns, or requests regarding these Terms of Service, please reach out to us
+through any of the following channels:
+
+  Email:   support@cafatickets.com
+  Phone:   +1 (904) 422-8963
+  Website: https://cafatickets.com
+
+We aim to respond to all inquiries within a reasonable timeframe. When contacting us about a specific
+event or transaction, please include your account email and event name to help us assist you efficiently.
+
+================================================================================
+END OF TERMS OF SERVICE
