@@ -3,7 +3,7 @@ import { router } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 
 import AppText from "../ui/AppText";
-import EventCard from "../events/EventCard";
+import PastEventCompactCard from "@/components/home/PastEventCompactCard";
 import { Event } from "@/types";
 import colors from "@/config/colors";
 
@@ -22,7 +22,7 @@ const PastEventsSection = ({ events, isLoading }: PastEventsSectionProps) => {
                 </View>
                 <View className="flex-row gap-3 px-2">
                     {[1, 2].map((i) => (
-                        <View key={i} className="w-44 h-64 bg-white/5 rounded-2xl" />
+                        <View key={i} className="w-44 h-44 bg-white/5 rounded-xl" />
                     ))}
                 </View>
             </View>
@@ -69,7 +69,7 @@ const PastEventsSection = ({ events, isLoading }: PastEventsSectionProps) => {
             <View className="flex-row gap-3 px-2">
                 {events.slice(0, 2).map((event) => (
                     <View key={event.id} className="flex-1">
-                        <EventCard event={event} />
+                        <PastEventCompactCard event={event} />
                     </View>
                 ))}
             </View>
