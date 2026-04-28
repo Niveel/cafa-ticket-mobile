@@ -138,6 +138,8 @@ export default Sentry.wrap(function RootLayout() {
   const colorScheme = useColorScheme();
   const posthogApiKey = process.env.EXPO_PUBLIC_POSTHOG_KEY || process.env.EXPO_PUBLIC_POSTHOG_API_KEY;
   const posthogHost = process.env.EXPO_PUBLIC_POSTHOG_HOST || "https://us.i.posthog.com";
+  const posthogEnabledFlag = process.env.EXPO_PUBLIC_ENABLE_POSTHOG;
+  const shouldEnablePostHog = posthogEnabledFlag === "true";
   const loadNetInfo = useCallback(async () => {
     try {
       // Prevent runtime crash when native module is not bundled in the current app binary.
@@ -218,18 +220,25 @@ export default Sentry.wrap(function RootLayout() {
 
   if (!fontsLoaded && !error) return null;
 
-  if (!posthogApiKey) {
-    console.warn("[analytics] Missing PostHog key. Set EXPO_PUBLIC_POSTHOG_KEY.");
+  if (shouldEnablePostHog && !posthogApiKey) {
+    console.warn("[analytics] PostHog enabled but key is missing. Disabling PostHog at runtime.");
   }
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      {posthogApiKey ? (
+      {shouldEnablePostHog && posthogApiKey ? (
         <PostHogProvider
           apiKey={posthogApiKey}
           options={{
             host: posthogHost,
             captureAppLifecycleEvents: true,
+            errorTracking: {
+              autocapture: {
+                uncaughtExceptions: true,
+                unhandledRejections: true,
+                console: ["error", "warn"],
+              },
+            },
           }}
         >
           <AuthProvider>

@@ -8,6 +8,7 @@
       "developmentClient": true,
       "distribution": "internal",
       "env": {
+        "EXPO_PUBLIC_ENABLE_POSTHOG": "true",
         "EXPO_PUBLIC_API_BASE_URL": "http://10.233.113.23:8000/api/v1"
       },
       "ios": {
@@ -18,6 +19,7 @@
     "preview": {
       "distribution": "internal",
       "env": {
+        "EXPO_PUBLIC_ENABLE_POSTHOG": "true",
         "EXPO_PUBLIC_API_BASE_URL": "https://api.cafatickets.com/api/v1"
       },
       "android": {
@@ -31,6 +33,7 @@
     "production": {
       "autoIncrement": true,
       "env": {
+        "EXPO_PUBLIC_ENABLE_POSTHOG": "false",
         "EXPO_PUBLIC_API_BASE_URL": "https://api.cafatickets.com/api/v1"
       },
       "channel": "production"

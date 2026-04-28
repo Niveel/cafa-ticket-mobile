@@ -3,7 +3,7 @@ import { router } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 
 import AppText from "../ui/AppText";
-import PastEventCompactCard from "@/components/home/PastEventCompactCard";
+import PastEventCompactCard from "./PastEventCompactCard";
 import { Event } from "@/types";
 import colors from "@/config/colors";
 
