@@ -56,11 +56,20 @@ const LoginScreen = () => {
 
       resetForm();
     } catch (err: any) {
-      setError(
-        err?.response?.data?.message ||
-        err?.response?.data?.detail ||
-        "Login failed. Please check your credentials."
-      );
+      const errorData = err?.response?.data;
+      const errorMessage =
+        errorData?.message ||
+        errorData?.error ||
+        errorData?.detail ||
+        (Array.isArray(errorData?.non_field_errors) ? errorData.non_field_errors[0] : errorData?.non_field_errors) ||
+        (Array.isArray(errorData?.email) ? errorData.email[0] : errorData?.email) ||
+        (Array.isArray(errorData?.password) ? errorData.password[0] : errorData?.password) ||
+        (err?.message === "Network Error"
+          ? "Unable to reach the server. Please check your internet connection and API URL."
+          : err?.message) ||
+        "Login failed. Please check your credentials.";
+
+      setError(errorMessage);
     } finally {
       setIsLoading(false);
     }

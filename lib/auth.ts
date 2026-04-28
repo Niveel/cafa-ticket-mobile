@@ -7,14 +7,37 @@ import * as Sentry from '@sentry/react-native';
 import { captureAxiosContext, isAxios4xx, logAxiosError } from "@/utils/axiosError";
 
 export async function login(credentials: LoginCredentials): Promise<LoginResponse> {
-  const response = await axios.post(`${API_BASE_URL}/auth/login/`, credentials);
+  const response = await axios.post(`${API_BASE_URL}/auth/login/`, credentials, {
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+    },
+  });
   const data = response.data;
+  const accessToken = data?.tokens?.access || data?.access;
+  const refreshToken = data?.tokens?.refresh || data?.refresh;
+
+  if (!accessToken || !refreshToken) {
+    const message =
+      data?.message ||
+      data?.error ||
+      data?.detail ||
+      (Array.isArray(data?.non_field_errors) ? data.non_field_errors[0] : data?.non_field_errors) ||
+      "Login succeeded but token payload is invalid.";
+    throw new Error(message);
+  }
 
   // Store tokens
-  await SecureStore.setItemAsync(AUTH_TOKEN_KEY, data.tokens.access);
-  await SecureStore.setItemAsync(REFRESH_TOKEN_KEY, data.tokens.refresh);
+  await SecureStore.setItemAsync(AUTH_TOKEN_KEY, accessToken);
+  await SecureStore.setItemAsync(REFRESH_TOKEN_KEY, refreshToken);
 
-  return data;
+  return {
+    ...data,
+    tokens: {
+      access: accessToken,
+      refresh: refreshToken,
+    },
+  };
 }
 
 export async function signup(data: SignupData): Promise<LoginResponse> {
