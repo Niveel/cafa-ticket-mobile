@@ -6,6 +6,7 @@ import {
   useCallback,
   ReactNode,
 } from "react";
+import { usePostHog } from "posthog-react-native";
 import * as Sentry from '@sentry/react-native';
 import { CurrentUser, LoginCredentials, SignupData } from "@/types";
 import {
@@ -33,6 +34,7 @@ interface AuthProviderProps {
 }
 
 export function AuthProvider({ children }: AuthProviderProps) {
+  const posthog = usePostHog();
   const [user, setUser] = useState<CurrentUser | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -58,23 +60,47 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   const login = useCallback(async (credentials: LoginCredentials) => {
     const response = await loginApi(credentials);
+    posthog.capture("user_logged_in");
     setUser(response.user);
-  }, []);
+  }, [posthog]);
 
   const signup = useCallback(async (data: SignupData) => {
     const response = await signupApi(data);
+    posthog.capture("user_signed_up");
     setUser(response.user);
-  }, []);
+  }, [posthog]);
 
   const logout = useCallback(async () => {
     await logoutApi();
+    posthog.capture("user_logged_out");
+    posthog.reset();
     setUser(null);
-  }, []);
+  }, [posthog]);
 
   const refreshUser = useCallback(async () => {
     const currentUser = await getCurrentUser();
     setUser(currentUser);
   }, []);
+
+  useEffect(() => {
+    if (!user?.id) return;
+
+    posthog.identify(String(user.id), {
+      email: user.email,
+      full_name: user.full_name,
+      username: user.username,
+      is_organizer: user.is_organizer,
+      is_email_verified: user.is_email_verified,
+    });
+  }, [
+    posthog,
+    user?.email,
+    user?.full_name,
+    user?.id,
+    user?.is_email_verified,
+    user?.is_organizer,
+    user?.username,
+  ]);
 
   return (
     <AuthContext.Provider

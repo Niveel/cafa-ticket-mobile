@@ -1,8 +1,9 @@
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { Stack, SplashScreen, router, usePathname } from "expo-router";
+import { Stack, SplashScreen, router, usePathname, useSegments } from "expo-router";
 import { NativeModules, useColorScheme } from "react-native";
 import { useEffect, useState, useCallback, useRef } from 'react';
 import { useFonts } from "expo-font";
+import { PostHogProvider, usePostHog } from 'posthog-react-native';
 
 import "../global.css";
 import { TabBarProvider } from "@/context/TabBarContext";
@@ -29,6 +30,46 @@ Sentry.init({
 
 // Prevent splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
+
+function ScreenTracker() {
+  const pathname = usePathname();
+  const segments = useSegments();
+  const posthog = usePostHog();
+  const lastTrackedRef = useRef("");
+
+  useEffect(() => {
+    if (!pathname) return;
+
+    const screenName = pathname === "/" ? "home" : pathname.replace(/^\//, "");
+    if (lastTrackedRef.current === screenName) return;
+
+    lastTrackedRef.current = screenName;
+    posthog.screen(screenName, {
+      path: pathname,
+      segments: segments.join("/"),
+    });
+  }, [pathname, posthog, segments]);
+
+  return null;
+}
+
+function AppOpenedTracker() {
+  const posthog = usePostHog();
+  const pathname = usePathname();
+  const hasTrackedRef = useRef(false);
+
+  useEffect(() => {
+    if (hasTrackedRef.current) return;
+    hasTrackedRef.current = true;
+
+    posthog.capture("app_opened", {
+      initialPath: pathname || "/",
+    });
+    (posthog as { flush?: () => void }).flush?.();
+  }, [pathname, posthog]);
+
+  return null;
+}
 
 function AppNavigator({
   hasConnectionState,
@@ -95,6 +136,8 @@ export default Sentry.wrap(function RootLayout() {
   });
 
   const colorScheme = useColorScheme();
+  const posthogApiKey = process.env.EXPO_PUBLIC_POSTHOG_KEY || process.env.EXPO_PUBLIC_POSTHOG_API_KEY;
+  const posthogHost = process.env.EXPO_PUBLIC_POSTHOG_HOST || "https://us.i.posthog.com";
   const loadNetInfo = useCallback(async () => {
     try {
       // Prevent runtime crash when native module is not bundled in the current app binary.
@@ -175,21 +218,51 @@ export default Sentry.wrap(function RootLayout() {
 
   if (!fontsLoaded && !error) return null;
 
+  if (!posthogApiKey) {
+    console.warn("[analytics] Missing PostHog key. Set EXPO_PUBLIC_POSTHOG_KEY.");
+  }
+
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <AuthProvider>
-        <CurrencyProvider>
-          <TabBarProvider>
-            <AppNavigator
-              hasConnectionState={hasConnectionState}
-              hasInternet={hasInternet}
-              isCheckingConnection={isCheckingConnection}
-              handleRetryConnection={handleRetryConnection}
-              colorScheme={colorScheme}
-            />
-          </TabBarProvider>
-        </CurrencyProvider>
-      </AuthProvider>
+      {posthogApiKey ? (
+        <PostHogProvider
+          apiKey={posthogApiKey}
+          options={{
+            host: posthogHost,
+            captureAppLifecycleEvents: true,
+          }}
+        >
+          <AuthProvider>
+            <CurrencyProvider>
+              <TabBarProvider>
+                <ScreenTracker />
+                <AppOpenedTracker />
+                <AppNavigator
+                  hasConnectionState={hasConnectionState}
+                  hasInternet={hasInternet}
+                  isCheckingConnection={isCheckingConnection}
+                  handleRetryConnection={handleRetryConnection}
+                  colorScheme={colorScheme}
+                />
+              </TabBarProvider>
+            </CurrencyProvider>
+          </AuthProvider>
+        </PostHogProvider>
+      ) : (
+        <AuthProvider>
+          <CurrencyProvider>
+            <TabBarProvider>
+              <AppNavigator
+                hasConnectionState={hasConnectionState}
+                hasInternet={hasInternet}
+                isCheckingConnection={isCheckingConnection}
+                handleRetryConnection={handleRetryConnection}
+                colorScheme={colorScheme}
+              />
+            </TabBarProvider>
+          </CurrencyProvider>
+        </AuthProvider>
+      )}
     </GestureHandlerRootView>
   );
 });

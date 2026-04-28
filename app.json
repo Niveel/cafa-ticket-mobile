@@ -122,7 +122,8 @@
           "project": "cafa-tickets",
           "organization": "nivee-llc"
         }
-      ]
+      ],
+      "expo-localization"
     ],
     "experiments": {
       "typedRoutes": true,
