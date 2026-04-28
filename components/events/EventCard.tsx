@@ -88,8 +88,7 @@ const EventCard = ({ event }: EventCardProps) => {
                 <View
                     className="absolute inset-0"
                     style={{
-                        backgroundColor: 'transparent',
-                        backgroundImage: 'linear-gradient(to top, rgba(15, 23, 42, 0.8), transparent)',
+                        backgroundColor: "rgba(15, 23, 42, 0.35)",
                     }}
                 />
 
